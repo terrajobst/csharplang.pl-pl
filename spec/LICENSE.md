@@ -1,0 +1,6 @@
+<a name="the-following-notice-governs-the-c-spec"></a><span data-ttu-id="78b72-101">PONIŻSZYMI POSTANOWIENIAMI REGULUJE T10 C#</span><span class="sxs-lookup"><span data-stu-id="78b72-101">THE FOLLOWING NOTICE GOVERNS THE C# SPEC</span></span>
+=====
+
+<span data-ttu-id="78b72-102">Copyright (c) 1999-2017 Microsoft Corporation.</span><span class="sxs-lookup"><span data-stu-id="78b72-102">(c) Copyright 1999-2017 Microsoft Corporation.</span></span> <span data-ttu-id="78b72-103">Wszelkie prawa zastrzeżone.</span><span class="sxs-lookup"><span data-stu-id="78b72-103">All rights reserved.</span></span>
+<span data-ttu-id="78b72-104">Microsoft, Windows, Visual Basic, Visual C# i Visual C++ są zastrzeżonymi znakami towarowymi lub znakami towarowymi firmy Microsoft Corporation w USA i/lub innych krajach/regionach.</span><span class="sxs-lookup"><span data-stu-id="78b72-104">Microsoft, Windows, Visual Basic, Visual C#, and Visual C++ are either registered trademarks or trademarks of Microsoft Corporation in the U.S.A. and/or other countries/regions.</span></span>
+<span data-ttu-id="78b72-105">Inne produkty i nazwy firm wymienione w niniejszym dokumencie mogą być znakami przez ich właścicieli.</span><span class="sxs-lookup"><span data-stu-id="78b72-105">Other product and company names mentioned herein may be the trademarks of their respective owners.</span></span>
