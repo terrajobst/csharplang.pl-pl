@@ -125,12 +125,12 @@ Poniższa tabela zawiera podsumowanie wszystkich operatorów w kolejność pierw
 | [Operatory relacyjne i badania typu](expressions.md#relational-and-type-testing-operators) | Równość                    | `==`  `!=`    | 
 | [Operatory logiczne](expressions.md#logical-operators)                                         | AND logiczne                 | `&`           | 
 | [Operatory logiczne](expressions.md#logical-operators)                                         | XOR logiczne                 | `^`           | 
-| [Operatory logiczne](expressions.md#logical-operators)                                         | OR logiczne                  | `|`           |
+| [Operatory logiczne](expressions.md#logical-operators)                                         | OR logiczne                  | <code>&#124;</code>           |
 | [Operatory logiczne warunkowe](expressions.md#conditional-logical-operators)                 | AND warunkowe             | `&&`          | 
-| [Operatory logiczne warunkowe](expressions.md#conditional-logical-operators)                 | OR warunkowe              | `||`          | 
+| [Operatory logiczne warunkowe](expressions.md#conditional-logical-operators)                 | OR warunkowe              | <code>&#124;&#124;</code>          | 
 | [Wartość null operatora łączącego](expressions.md#the-null-coalescing-operator)                   | Łączenie wartości null             | `??`          | 
 | [Operator warunkowy](expressions.md#conditional-operator)                                   | Warunkowe                 | `?:`          | 
-| [Operatory przypisania](expressions.md#assignment-operators), [wyrażenia funkcji anonimowych](expressions.md#anonymous-function-expressions)  | Wyrażenie lambda i przypisanie | `=`  `*=`  `/=`  `%=`  `+=`  `-=`  `<<=`  `>>=`  `&=`  `^=`  `|=`  `=>` | 
+| [Operatory przypisania](expressions.md#assignment-operators), [wyrażenia funkcji anonimowych](expressions.md#anonymous-function-expressions)  | Wyrażenie lambda i przypisanie | `=`  `*=`  `/=`  `%=`  `+=`  `-=`  `<<=`  `>>=`  `&=`  `^=`  <code>&#124;=</code>  `=>` | 
 
 W przypadku argumentu operacji między dwa operatory o tym samym priorytecie, łączność operatorów kontrolki kolejność, w której są wykonywane operacje:
 
@@ -2850,10 +2850,10 @@ Operatory dodawania wstępnie zdefiniowane są wymienione poniżej. W przypadku 
 
    |      |      |      |      |      |      |      |
    |:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-   |      | t    | +0   | -0   | + inf | -inf | NaN  | 
+   |      | y    | +0   | -0   | + inf | -inf | NaN  | 
    | x    | z    | x    | x    | + inf | -inf | NaN  | 
-   | +0   | t    | +0   | +0   | + inf | -inf | NaN  | 
-   | -0   | t    | +0   | -0   | + inf | -inf | NaN  | 
+   | +0   | y    | +0   | +0   | + inf | -inf | NaN  | 
+   | -0   | y    | +0   | -0   | + inf | -inf | NaN  | 
    | + inf | + inf | + inf | + inf | + inf | NaN  | NaN  | 
    | -inf | -inf | -inf | -inf | NaN  | -inf | NaN  | 
    | NaN  | NaN  | NaN  | NaN  | NaN  | NaN  | NaN  | 
@@ -2943,7 +2943,7 @@ Poniżej wymieniono operatory odejmowania wstępnie zdefiniowane. Operatory wszy
 
    |      |      |      |      |      |      |     |
    |:----:|:----:|:----:|:----:|:----:|:----:|:---:|
-   | NaN  | t    | +0   | -0   | + inf | -inf | NaN | 
+   | NaN  | y    | +0   | -0   | + inf | -inf | NaN | 
    | x    | z    | x    | x    | -inf | + inf | NaN | 
    | +0   | -y   | +0   | +0   | -inf | + inf | NaN | 
    | -0   | -y   | -0   | +0   | -inf | + inf | NaN | 
@@ -3503,7 +3503,7 @@ bool? operator |(bool? x, bool? y);
 
 W poniższej tabeli przedstawiono efektów tych operatorów dla wszystkich kombinacjach wartości `true`, `false`, i `null`.
 
-| `x`     | `y`     | `x & y` | "x | y " |
+| `x`     | `y`     | `x & y` | <code>x &#124; y</code> |
 |:-------:|:-------:|:-------:|:-------:|
 | `true`  | `true`  | `true`  | `true`  | 
 | `true`  | `false` | `false` | `true`  | 

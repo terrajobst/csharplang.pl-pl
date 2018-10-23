@@ -277,13 +277,13 @@ Poniższa tabela zawiera podsumowanie operatory C# firmy, lista kategorii operat
 |                                  | `x != y`          | Nie równa się |
 | AND logiczne                      | `x & y`           | Liczba całkowita bitowe i logicznych logiczne AND |
 | XOR logiczne                      | `x ^ y`           | Bitowe XOR dla wartości całkowitych, logiczne XOR dla wartości binarnych |
-| OR logiczne                       | "x | y "           | Bitowe OR dla wartości całkowitych, logiczne OR dla wartości binarnych |
+| OR logiczne                       | <code>x &#124; y</code> | Bitowe OR dla wartości całkowitych, logiczne OR dla wartości binarnych |
 | AND warunkowe                  | `x && y`          | Ocenia `y` tylko wtedy, gdy `x` jest `true` |
-| OR warunkowe                   | "x || y "          | Ocenia `y` tylko wtedy, gdy `x` jest `false` |
+| OR warunkowe                   | <code>x &#124;&#124; y</code> | Ocenia `y` tylko wtedy, gdy `x` jest `false` |
 | Łączenie wartości null                  | `X ?? y`          | Daje w wyniku `y` Jeśli `x` jest `null`, `x` inaczej |
 | Warunkowe                      | `x ? y : z`       | Ocenia `y` Jeśli `x` jest `true`, `z` Jeśli `x` jest `false` |
 | Przypisania lub funkcja anonimowa | `x = y`           | Przypisanie |
-|                                  | `x op= y`         | Przydział złożony; obsługiwane operatory to `*=` `/=` `%=` `+=` `-=` `<<=` `>>=` `&=` `^=` `|=` |
+|                                  | `x op= y`         | Przydział złożony; obsługiwane operatory to `*=` `/=` `%=` `+=` `-=` `<<=` `>>=` `&=` `^=` <code>&#124;=</code> |
 |                                  | `(T x) => y`      | Funkcja anonimowa (wyrażenie lambda) |
 
 ## <a name="statements"></a>Instrukcje
