@@ -366,7 +366,7 @@ class X<T>
 }
 ```
 
-Jeśli bezpośrednie jawnej konwersji z `t` do `int` były dozwolone, można łatwo oczekiwać, że że `X<int>.F(7)` zwróci `7L`. Jednak w ten sposób, ponieważ standardowe konwersje liczbowe są traktowane tylko, gdy typy są znane jako liczbowe w czasie powiązania. Aby można było wprowadzić semantykę clear powyższym przykładzie zamiast tego jest pisana:
+Jeśli bezpośrednie jawnej konwersji z `t` do `int` były dozwolone, można łatwo oczekiwać, że że `X<int>.F(7)` zwróci `7L`. Jednak w ten sposób, ponieważ standardowe konwersje liczbowe są traktowane tylko, gdy typy są znane jako liczbowe w czasie powiązania. Aby można było wprowadzić semantykę clear powyższym przykładzie zamiast tego jest pisana:
 ```csharp
 class X<T>
 {
@@ -738,7 +738,7 @@ Stosowanie kompilacji konwersja grupy metod `E` do typu delegata `D` opisano pon
 *  Wybranej metody `M` musi być zgodny ([delegować zgodności](delegates.md#delegate-compatibility)) z typem delegata `D`, lub w przeciwnym razie wystąpi błąd kompilacji.
 *  Jeżeli wybrane metody `M` jest metodą wystąpienia, wyrażenie wystąpienia skojarzone z `E` określa obiektu docelowego delegata.
 *  Jeśli wybranej metody M jest metodą rozszerzenia, która jest oznaczona za pomocą dostęp do elementu członkowskiego, na wyrażeniu wystąpienie, to wyrażenie wystąpienia określa obiektu docelowego delegata.
-*  Wynik konwersji jest wartość typu `D`, czyli nowo utworzony delegat, który odwołuje się do wybranego obiektu metody i docelowej.
+*  Wynik konwersji jest wartość typu `D`, czyli nowo utworzony delegat, który odwołuje się do wybranego obiektu metody i docelowej.
 *  Należy zauważyć, że ten proces może prowadzić do utworzenia delegata z metodą rozszerzenia, jeśli algorytm [wywołań metody opisywanego](expressions.md#method-invocations) nie można odnaleźć metody wystąpienia, ale powiedzie się podczas przetwarzania wywołania elementu `E(A)` jako rozszerzenie Wywołanie metody ([wywołań metod rozszerzenia](expressions.md#extension-method-invocations)). Obiekt delegowany, utworzony w ten sposób przechwytuje metodę rozszerzenia, a także swój pierwszy argument.
 
 W poniższym przykładzie pokazano metodę konwersji grup:
@@ -770,7 +770,7 @@ class Test
 
 Przypisanie do `d1` niejawnie konwertuje grupy metod `F` na wartość typu `D1`.
 
-Przypisanie do `d2` pokazuje, jak można utworzyć obiekt delegowany do metody, że ma mniej pochodne typy parametrów (ma przeciwwskazań wariant) i bardziej pochodne typ zwracany (kowariantne).
+Przypisanie do `d2` pokazuje, jak można utworzyć obiekt delegowany do metody, która ma mniej pochodnego (kontrawariantne) typy parametrów i bardziej pochodne typ zwracany (kowariantne).
 
 Przypisanie do `d3` pokazuje jak nie istnieje konwersja, jeśli metoda nie ma zastosowania.
 
