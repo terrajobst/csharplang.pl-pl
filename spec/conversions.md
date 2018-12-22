@@ -512,7 +512,7 @@ Na potrzeby zwięzłości, ta sekcja używa krótkiej formy typy zadań `Task` i
 
 Wyrażenie lambda `F` jest zgodny z typem drzewa wyrażenie `Expression<D>` Jeśli `F` jest zgodny z typem delegata `D`. Należy pamiętać, że to nie dotyczą metod anonimowych, tylko wyrażenia lambda.
 
-Niektóre wyrażenia lambda nie można przekonwertować na typy drzewa wyrażeń: mimo że konwersja *istnieje*, niepowodzenia w czasie kompilacji. To jest wyrażeniem lambda w sytuacji, gdy:
+Niektóre wyrażenia lambda nie można przekonwertować na typy drzewa wyrażeń: Mimo że konwersja *istnieje*, niepowodzenia w czasie kompilacji. To jest wyrażeniem lambda w sytuacji, gdy:
 
 *  Ma *bloku* treści
 *  Zawiera operatory przypisania proste lub złożone
@@ -723,7 +723,7 @@ class Test
 }
 ```
 
-Tę samą technikę, w tym miejscu stosowana do przechwytywania zmiennych lokalnych można również podczas konwertowania funkcjami anonimowymi w drzewach wyrażeń: odwołania do obiektów wygenerowanego przez kompilator mogą być przechowywane w drzewie wyrażeń a dostęp do zmiennych lokalnych przedstawiona w postaci pól uzyskuje dostęp do tych obiektów. Zaletą tego podejścia jest możliwość "urządzenie" zmienne lokalne, które mogą być współużytkowane przez delegatów i drzew wyrażeń.
+Tę samą technikę, w tym miejscu stosowana do przechwytywania zmiennych lokalnych można również podczas konwertowania funkcjami anonimowymi w drzewach wyrażeń: Odwołania do obiektów wygenerowanego przez kompilator mogą być przechowywane w drzewie wyrażeń a dostęp do zmiennych lokalnych może być reprezentowany jako pole uzyskuje dostęp do tych obiektów. Zaletą tego podejścia jest możliwość "urządzenie" zmienne lokalne, które mogą być współużytkowane przez delegatów i drzew wyrażeń.
 
 ## <a name="method-group-conversions"></a>Konwersje grupy — metoda
 

@@ -601,7 +601,7 @@ Metody częściowe mogą być definiowane w jednej części deklaracji typu i za
 
 Metod częściowych nie można zdefiniować modyfikatory dostępu, ale są niejawną kolekcją `private`. Ich zwracanym typem musi być `void`, i ich parametrów nie może mieć `out` modyfikator. Identyfikator `partial` jest rozpoznawana jako specjalne — słowo kluczowe w deklaracji metody, tylko wtedy, gdy znajdzie się on bezpośrednio przed `void` typu; w przeciwnym razie może służyć jako identyfikator normalny. Metoda częściowa nie może jawnie implementować metody interfejsu.
 
-Istnieją dwa rodzaje deklaracje metody częściowej: Jeśli treści deklaracji metody średnikiem, deklaracja jest nazywany ***Definiowanie deklaracji metody częściowej***. Jeśli treść jest podawana jako *bloku*, deklaracja jest nazywany ***Implementowanie deklaracji metody częściowej***. W części deklaracji typu może istnieć tylko jeden Definiowanie deklaracji metody częściowej za pomocą podanego podpisu i może istnieć tylko jedna implementacja deklaracji metody częściowej za pomocą podanego podpisu. Jeśli podano deklaracji implementującej metody częściowej, odpowiedni Definiowanie deklaracji metody częściowej musi istnieć i deklaracji musi odpowiadać jako określona poniżej:
+Istnieją dwa rodzaje częściowe deklaracje metody: Jeśli treść deklaracji metody średnikiem, deklaracja jest nazywany ***Definiowanie deklaracji metody częściowej***. Jeśli treść jest podawana jako *bloku*, deklaracja jest nazywany ***Implementowanie deklaracji metody częściowej***. W części deklaracji typu może istnieć tylko jeden Definiowanie deklaracji metody częściowej za pomocą podanego podpisu i może istnieć tylko jedna implementacja deklaracji metody częściowej za pomocą podanego podpisu. Jeśli podano deklaracji implementującej metody częściowej, odpowiedni Definiowanie deklaracji metody częściowej musi istnieć i deklaracji musi odpowiadać jako określona poniżej:
 
 * Deklaracje muszą mieć ten sam Modyfikatory (ale nie musi to być w tej samej kolejności), nazwę metody, liczbę parametrów typu i liczby parametrów.
 * Odpowiednich parametrów w deklaracjach muszą mieć ten sam Modyfikatory (ale nie musi to być w tej samej kolejności) i tymi samymi typami (modulo różnice w nazwach parametrów typu).
@@ -2114,7 +2114,7 @@ Różnice statyczne elementy członkowskie wystąpień zostały one omówione w 
 
 Po deklaracji metody wystąpienia obejmuje `virtual` modyfikator, że metoda jest określany jako metodę wirtualną. Gdy nie `virtual` modyfikator, metoda jest określany jako metody niewirtualnej.
 
-Implementacja metody niewirtualnej jest niezmienny: implementacja jest taki sam, czy metoda jest wywoływana w wystąpieniu klasy, w której jest zadeklarowana lub wystąpienie klasy pochodnej. Z kolei implementację metody wirtualnej może zostać zastąpiony przez klasy pochodne. Proces zastępowanie implementacji dziedziczoną metodę wirtualną jest znany jako ***zastępowanie*** tej metody ([Przesłaniaj metody](classes.md#override-methods)).
+Implementacja metody niewirtualnej jest niezmienny: Implementacja jest taki sam, czy metoda jest wywoływana w wystąpieniu klasy, w którym jest zdeklarowana lub wystąpienie klasy pochodnej. Z kolei implementację metody wirtualnej może zostać zastąpiony przez klasy pochodne. Proces zastępowanie implementacji dziedziczoną metodę wirtualną jest znany jako ***zastępowanie*** tej metody ([Przesłaniaj metody](classes.md#override-methods)).
 
 W wywołaniu metody wirtualnej ***typu run-time*** wystąpienia, dla którego tego wywołania ma miejsce określa rzeczywista implementacja metody do wywołania. W wywołaniu metody niewirtualnej ***typów w czasie kompilacji*** wystąpienia jest czynnikiem decydującym. W dokładne warunki, kiedy metodę o nazwie `N` jest wywoływana z listą argumentów `A` w wystąpieniu typu kompilacji `C` i typu run-time `R` (gdzie `R` jest `C` lub klasa pochodnej z `C`), wywołanie jest przetwarzana w następujący sposób:
 
@@ -2207,7 +2207,7 @@ class Test
     }
 }
 ```
-`C` i `D` klasy zawierają dwie metody wirtualnej o tej samej sygnaturze: jeden wprowadzone przez `A` a wynikające z `C`. Metoda wprowadzona przez `C` ukrywa metodę odziedziczone `A`. W związku z tym, deklaracji zastąpienie `D` zastępuje metodę wynikające z `C`, i nie jest możliwe dla `D` Aby przesłonić metodę wynikające z `A`. Przykład generuje dane wyjściowe:
+`C` i `D` klasy zawierają dwie metody wirtualnej z tym samym podpisie: Jeden wprowadzone przez `A` a wynikające z `C`. Metoda wprowadzona przez `C` ukrywa metodę odziedziczone `A`. W związku z tym, deklaracji zastąpienie `D` zastępuje metodę wynikające z `C`, i nie jest możliwe dla `D` Aby przesłonić metodę wynikające z `A`. Przykład generuje dane wyjściowe:
 ```
 B.F
 B.F
@@ -2694,7 +2694,7 @@ public class Button: Control
     }
 }
 ```
-`Button` kontroli deklaruje publiczny `Caption` właściwości. `get` Akcesor `Caption` właściwość zwraca ciąg, przechowywane w prywatnych `caption` pola. `set` Akcesor sprawdza, czy nowa wartość jest inna niż bieżąca wartość, a jeśli tak, są przechowywane nową wartość i odświeża formantu. Właściwości często oparte na wzorcu powyżej: `get` dostępu po prostu zwraca wartość przechowywaną w pole private i `set` akcesor modyfikuje tego pola prywatnego, a następnie wykonuje żadnych dodatkowych akcji, wymagane do pełnej aktualizacji stanu obiektu.
+`Button` kontroli deklaruje publiczny `Caption` właściwości. `get` Akcesor `Caption` właściwość zwraca ciąg, przechowywane w prywatnych `caption` pola. `set` Akcesor sprawdza, czy nowa wartość jest inna niż bieżąca wartość, a jeśli tak, są przechowywane nową wartość i odświeża formantu. Właściwości często oparte na wzorcu powyżej: `get` Dostępu po prostu zwraca wartość przechowywaną w pola prywatnego, a `set` akcesor modyfikuje tego pola prywatnego, a następnie wykonuje żadnych dodatkowych akcji, wymagane do pełnej aktualizacji stanu obiektu.
 
 Biorąc pod uwagę `Button` klasy powyżej, Oto przykład użycia `Caption` właściwości:
 ```csharp
@@ -3532,7 +3532,7 @@ binary_operator_declarator
 
 overloadable_binary_operator
     : '+'   | '-'   | '*'   | '/'   | '%'   | '&'   | '|'   | '^'   | '<<'
-    | 'right_shift' | '=='  | '!='  | '>'   | '<'   | '>='  | '<='
+    | right_shift | '=='  | '!='  | '>'   | '<'   | '>='  | '<='
     ;
 
 conversion_operator_declarator
@@ -3547,7 +3547,7 @@ operator_body
     ;
 ```
 
-Istnieją trzy kategorie operatory z możliwością przeciążenia: operatory jednoargumentowe ([operatorów Jednoargumentowych](classes.md#unary-operators)), operatory binarne ([operatory dwuargumentowe](classes.md#binary-operators)) i operatorów konwersji ([operatory konwersji ](classes.md#conversion-operators)).
+Istnieją trzy kategorie operatory z możliwością przeciążenia: Operatory jednoargumentowe ([operatorów Jednoargumentowych](classes.md#unary-operators)), operatory binarne ([operatory dwuargumentowe](classes.md#binary-operators)) i operatorów konwersji ([operatory konwersji](classes.md#conversion-operators)).
 
 *Operator_body* jest albo średnik ***treść instrukcji*** lub ***treści wyrażenia***. Treść instrukcji składa się z *bloku*, która określa instrukcje wykonywania, gdy operator jest wywoływany. *Bloku* musi być zgodna z regułami dotyczącymi zwracanie wartości metod opisanych w [treści metody](classes.md#method-body). Treść wyrażenia składa się z `=>` następuje wyrażenia i średnika i oznacza pojedynczego wyrażenia do wykonania, gdy operator jest wywoływany.
 
@@ -4115,7 +4115,7 @@ generuje dane wyjściowe
 X = 1, Y = 2
 ```
 
-Do wykonania `Main` metody pierwszego uruchomienia systemu inicjator dla `B.Y`wcześniejszej klasy `B`firmy Konstruktor statyczny. `Y`w inicjatorze powoduje, że `A`firmy statyczny Konstruktor można uruchomić, ponieważ wartość `A.X` odwołuje się do. Statyczny Konstruktor `A` z kolei przechodzi do obliczenia wartości `X`i przeprowadzeniu tak pobiera wartość domyślną `Y`, który wynosi zero. `A.X` ten sposób jest inicjowany do 1. Proces uruchamiania `A`inicjatorów pola statyczne i Konstruktor statyczny, a następnie zakończeniu i powrocie do obliczania wartości początkowej `Y`, której wynikiem staje się 2.
+Do wykonania `Main` metody pierwszego uruchomienia systemu inicjator dla `B.Y`wcześniejszej klasy `B`firmy Konstruktor statyczny. `Y`w inicjatorze powoduje, że `A`firmy statyczny Konstruktor można uruchomić, ponieważ wartość `A.X` odwołuje się do. Statyczny Konstruktor `A` z kolei przechodzi do obliczenia wartości `X`i przeprowadzeniu tak pobiera wartość domyślną `Y`, który wynosi zero. `A.X` ten sposób jest inicjowany do 1. Proces uruchamiania `A`inicjatorów pola statyczne i Konstruktor statyczny, a następnie zakończeniu i powrocie do obliczania wartości początkowej `Y`, której wynikiem staje się 2.
 
 Ponieważ Konstruktor statyczny jest wykonywane tylko raz dla każdego zamknięty typ klasy skonstruowany, jest wygodnym miejscem do wymuszania dla parametru typu, który nie można sprawdzić w czasie kompilacji za pomocą ograniczenia sprawdzania w trakcie wykonywania ([parametr typu ograniczenia](classes.md#type-parameter-constraints)). Na przykład następujący typ używa statyczny Konstruktor do wymuszania, że argument typu jest wyliczeniem:
 ```csharp
@@ -4272,7 +4272,7 @@ Pamiętaj, że moduł wyliczający obiektów nie obsługuje `IEnumerator.Reset` 
 *  Jeśli stan obiektu modułu wyliczającego jest ***po***, powinny być przekazywane wywołującemu `MoveNext` zwraca `false`.
 
 
-Gdy `MoveNext` wykonuje bloku iteratora wykonywania może zostać przerwane na cztery sposoby: przez `yield return` instrukcji, `yield break` instrukcji przez napotkania koniec bloku iteratora i wyjątek jest generowany i propagowane z Blok iteratora.
+Gdy `MoveNext` wykonuje bloku iteratora, może zostać przerwane wykonywania na cztery sposoby: Przez `yield return` instrukcji, `yield break` instrukcji przez napotkania koniec bloku iteratora i wyjątek jest generowany i propagowane z bloku iteratora.
 
 *  Gdy `yield return` napotkania instrukcji ([instrukcji yield](statements.md#the-yield-statement)):
    * Wyrażenie w instrukcji jest obliczane, niejawnie konwertowany na typ produktywności i przypisane do `Current` właściwości obiektu modułu wyliczającego.
@@ -4734,6 +4734,6 @@ Po kończy treść funkcji asynchronicznej, zwracane zadanie zostaje przeniesion
 
 ### <a name="evaluation-of-a-void-returning-async-function"></a>Obliczanie funkcji asynchronicznej zwraca void
 
-Jeśli jest zwracany typ funkcji asynchronicznej `void`, oceny, różni się od powyższego w następujący sposób: ponieważ zadanie nie zostanie zwrócone, funkcja zamiast komunikuje się uzupełniania i wyjątków w bieżącym wątku ***synchronizacji kontekst***. Dokładne definicji kontekst synchronizacji jest zależna od implementacji, ale jest to reprezentacja elementu "gdzie" bieżący wątek jest uruchomiony. Kontekst synchronizacji to powiadomienie, gdy oceny funkcji asynchronicznej zwraca void rozpocznie się zakończy się pomyślnie i powoduje, że nieprzechwycony wyjątek zostanie wygenerowany.
+Jeśli jest zwracany typ funkcji asynchronicznej `void`, oceny, różni się od powyższego w następujący sposób: Ponieważ zadanie nie zostanie zwrócone, funkcja zamiast komunikuje się uzupełniania i wyjątków w bieżącym wątku ***kontekst synchronizacji***. Dokładne definicji kontekst synchronizacji jest zależna od implementacji, ale jest to reprezentacja elementu "gdzie" bieżący wątek jest uruchomiony. Kontekst synchronizacji to powiadomienie, gdy oceny funkcji asynchronicznej zwraca void rozpocznie się zakończy się pomyślnie i powoduje, że nieprzechwycony wyjątek zostanie wygenerowany.
 
 Dzięki temu kontekst, aby śledzić liczbę zwracającą typ void async funkcje są uruchomione w nim i zdecydować, jak Propagacja wyjątków pochodzących z nich.

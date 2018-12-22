@@ -20,7 +20,7 @@ Wyrażenie jest klasyfikowana jako jeden z następujących czynności:
 
 Ostateczny wynik wyrażenia nigdy nie jest przestrzeń nazw, typu, grupy metod lub dostęp do zdarzenia. Przeciwnie jak wspomniano powyżej, te wyrażenia są kategorie pośrednich konstrukcji, które są dozwolone tylko w określonych kontekstach.
 
-Dostęp do właściwości lub indeksatora dostępu jest zawsze sklasyfikowany jako wartość, wykonując wywołanie *pobierająca* lub *ustawiająca metoda dostępu*. Określonej metody dostępu jest ustalany w kontekście dostępu właściwości lub indeksatora: Jeśli dostęp jest elementem docelowym przypisania, *ustawiająca metoda dostępu* wywoływana w celu przypisania nowej wartości ([przypisanie proste](expressions.md#simple-assignment)) . W przeciwnym razie *pobierająca* wywoływana w celu uzyskania bieżącej wartości ([wartości wyrażeń](expressions.md#values-of-expressions)).
+Dostęp do właściwości lub indeksatora dostępu jest zawsze sklasyfikowany jako wartość, wykonując wywołanie *pobierająca* lub *ustawiająca metoda dostępu*. Określonej metody dostępu jest ustalany w kontekście dostępu właściwości lub indeksatora: Jeśli dostęp jest elementem docelowym przypisania, *ustawiająca metoda dostępu* wywoływana w celu przypisania nowej wartości ([przypisanie proste](expressions.md#simple-assignment)). W przeciwnym razie *pobierająca* wywoływana w celu uzyskania bieżącej wartości ([wartości wyrażeń](expressions.md#values-of-expressions)).
 
 ### <a name="values-of-expressions"></a>Wartości wyrażeń
 
@@ -120,7 +120,7 @@ Poniższa tabela zawiera podsumowanie wszystkich operatorów w kolejność pierw
 | [Operatory jednoargumentowe](expressions.md#unary-operators)                                             | Jednoargumentowy                       | `+`  `-`  `!`  `~`  `++x`  `--x`  `(T)x` | 
 | [Operatory arytmetyczne](expressions.md#arithmetic-operators)                                   | Mnożenia              | `*`  `/`  `%` | 
 | [Operatory arytmetyczne](expressions.md#arithmetic-operators)                                   | Dodatku                    | `+`  `-`      | 
-| [Operatory przesunięcia](expressions.md#shift-operators)                                             | SHIFT                       | `<<`  `>>`    | 
+| [Operatory przesunięcia](expressions.md#shift-operators)                                             | Shift                       | `<<`  `>>`    | 
 | [Operatory relacyjne i badania typu](expressions.md#relational-and-type-testing-operators) | Relacyjne i badania typu | `<`  `>`  `<=`  `>=`  `is`  `as` | 
 | [Operatory relacyjne i badania typu](expressions.md#relational-and-type-testing-operators) | Równość                    | `==`  `!=`    | 
 | [Operatory logiczne](expressions.md#logical-operators)                                         | AND logiczne                 | `&`           | 
@@ -141,7 +141,7 @@ Pierwszeństwo i kojarzenie mogą być kontrolowane za pomocą nawiasów. Na prz
 
 ### <a name="operator-overloading"></a>Przeładowanie operatora
 
-Wszystkie operatory jednoargumentowe i binarny ma wstępnie zdefiniowane implementacji, które są automatycznie dostępne na dowolne wyrażenie. Oprócz wstępnie zdefiniowanych implementacje implementacje zdefiniowanych przez użytkownika mogą zostać wprowadzone przez dołączenie `operator` deklaracje klas i struktur ([operatory](classes.md#operators)). Implementacjami operatorów zdefiniowanych przez użytkownika zawsze mają pierwszeństwo względem wstępnie zdefiniowanego operatora implementacje: tylko, gdy nie ma zastosowania operatora zdefiniowanego przez użytkownika przez implementacje będzie implementacje wstępnie zdefiniowanego operatora uznaje się, zgodnie z opisem w [ Rozpoznanie przeciążenia operatora jednoargumentowego](expressions.md#unary-operator-overload-resolution) i [Rozpoznanie przeciążenia operatora binarnego](expressions.md#binary-operator-overload-resolution).
+Wszystkie operatory jednoargumentowe i binarny ma wstępnie zdefiniowane implementacji, które są automatycznie dostępne na dowolne wyrażenie. Oprócz wstępnie zdefiniowanych implementacje implementacje zdefiniowanych przez użytkownika mogą zostać wprowadzone przez dołączenie `operator` deklaracje klas i struktur ([operatory](classes.md#operators)). Implementacjami operatorów zdefiniowanych przez użytkownika zawsze pierwszeństwo wstępnie zdefiniowanego operatora implementacji: Tylko, gdy nie ma zastosowania operatora zdefiniowanego przez użytkownika przez implementacje będzie implementacje wstępnie zdefiniowanego operatora uznaje się, zgodnie z opisem w [Rozpoznanie przeciążenia operatora jednoargumentowego](expressions.md#unary-operator-overload-resolution) i [przeciążenia operatora binarnego rozpoznawanie](expressions.md#binary-operator-overload-resolution).
 
 ***Operatory jednoargumentowe z możliwością przeciążenia*** są:
 ```csharp
@@ -304,14 +304,14 @@ W przypadku metody lub zdarzenia, czy jest stała, pole lub właściwość typu 
 
 Wyszukanie członka bierze pod uwagę nie tylko nazwę elementu członkowskiego, ale także liczbę parametrów typu, który element członkowski ma i tego, czy element jest dostępny. Na potrzeby wyszukanie członka metody rodzajowe i zagnieżdżonych typów rodzajowych ma liczbę parametrów typu w swoich deklaracjach odpowiednich i inni członkowie mają parametrów typu.
 
-Wyszukiwanie elementu członkowskiego nazwy `N` z `K` parametrów typu w typie `T` są przetwarzane w następujący sposób:
+Wyszukiwanie elementu członkowskiego nazwy `N` z `K`  parametrów typu w typie `T` są przetwarzane w następujący sposób:
 
-*  Po pierwsze, zbiór dostępne elementy członkowskie o nazwie `N` jest określana:
-    * Jeśli `T` jest parametrem typu, a następnie zestaw jest złożenie zestawy dostępne elementy członkowskie o nazwie `N` w każdym z typami określonymi jako ograniczenia podstawowego lub ograniczenia dodatkowej ([ograniczenia parametru typu](classes.md#type-parameter-constraints)) dla `T`, wraz z zestawu dostępnych składowych o nazwie `N` w `object`.
-    * W przeciwnym razie zestaw zawiera wszystkie dostępne ([dostęp do elementu członkowskiego](basic-concepts.md#member-access)) elementy członkowskie o nazwie `N` w `T`, w tym dziedziczone elementy członkowskie i dostępne elementy członkowskie, o nazwie `N` w `object`. Jeśli `T` jest zbudowany typ, zestaw elementów członkowskich są uzyskiwane poprzez zastąpienie argumentów typu zgodnie z opisem w [członkowie typy utworzone](classes.md#members-of-constructed-types). Elementy członkowskie, które obejmują `override` modyfikator są wykluczone z zestawu.
+*  Po pierwsze, zbiór dostępne elementy członkowskie o nazwie `N` jest określana:
+    * Jeśli `T` jest parametrem typu, a następnie zestaw jest złożenie zestawy dostępne elementy członkowskie o nazwie `N` w każdym z typami określonymi jako ograniczenia podstawowego lub ograniczenia dodatkowej ([ograniczenia parametru typu](classes.md#type-parameter-constraints)) dla  `T`, wraz z zestawu dostępnych składowych o nazwie `N` w `object`.
+    * W przeciwnym razie zestaw zawiera wszystkie dostępne ([dostęp do elementu członkowskiego](basic-concepts.md#member-access)) elementy członkowskie o nazwie `N` w `T`, w tym dziedziczone elementy członkowskie i dostępne elementy członkowskie, o nazwie `N` w `object`. Jeśli `T` jest zbudowany typ, zestaw elementów członkowskich są uzyskiwane poprzez zastąpienie argumentów typu zgodnie z opisem w [członkowie typy utworzone](classes.md#members-of-constructed-types). Elementy członkowskie, które obejmują `override` modyfikator są wykluczone z zestawu.
 *  Następnie, jeśli `K` wynosi zero, wszystkie zagnieżdżone typy, których deklaracje zawierają parametry typu są usuwane. Jeśli `K` jest nie jest zerowa, wszystkie elementy członkowskie z różną liczbę typów parametrów są usuwane. Należy pamiętać, że w przypadku `K` zero, metody ma typ parametry nie są usuwane, ponieważ procesu wnioskowania typu ([wnioskowanie o typie](expressions.md#type-inference)) można wywnioskować argumentów typu.
 *  Następnie, jeśli element jest *wywoływane*, wszystkich innych niż-*można wywołać* elementy członkowskie są usuwane z zestawu.
-*  Następnie elementy członkowskie, które są ukryte przez innych członków są usuwane z zestawu. Dla każdego członka `S.M` w zestawie, gdzie `S` jest typem, w którym element członkowski `M` zadeklarowano, stosowane są następujące reguły:
+*  Następnie elementy członkowskie, które są ukryte przez innych członków są usuwane z zestawu. Dla każdego członka `S.M` w zestawie, gdzie `S` jest typem, w którym element członkowski `M` zadeklarowano, stosowane są następujące reguły:
     * Jeśli `M` jest — stała, pola, właściwości, zdarzenia lub elementu członkowskiego wyliczenia, a następnie wszystkich elementów członkowskich zadeklarowanych w podstawowym typem `S` są usuwane z zestawu.
     * Jeśli `M` jest deklaracja typu, a następnie wszystkie inne niż typy zadeklarowane w typie podstawowym z `S` są usuwane z zestawu, a następnie wpisz wszystkie deklaracje z taką samą liczbę parametrów typu jako `M` zadeklarowane w typie podstawowym z `S` są usuwane z tego zestawu.
     * Jeśli `M` jest metodą, a następnie wszyscy członkowie-metoda zadeklarowana w typie podstawowym z `S` są usuwane z zestawu.
@@ -556,7 +556,7 @@ W trakcie procesu wnioskowania każdego parametru typu `Xi` jest *stałej* do ok
 
 Wnioskowanie o typie odbywa się etapami. Każda faza podejmie próbę wywnioskować argumentów typu dla więcej zmiennych typu na podstawie otrzymanych wyników poprzedniej fazy. Pierwsza faza sprawia, że niektóre początkowej wniosków granice drugiej fazy zmiennych typu do określonych typów poprawek i dalsze wnioskuje granice. Drugi etap musi być powtarzane wielokrotnie.
 
-*Uwaga:* typu wnioskowania odbywa się nie tylko, gdy jest wywoływana metody rodzajowej. Wnioskowanie o typie dla konwersji grupy metod jest opisana w [wnioskowanie konwersji grupy metod typu](expressions.md#type-inference-for-conversion-of-method-groups) i znajdowanie najlepszy typ wspólnego zestawu wyrażeń jest opisany w [znajdowanie najlepszy typ wspólnego zestawu wyrażeń](expressions.md#finding-the-best-common-type-of-a-set-of-expressions).
+*Uwaga:* Typ wnioskowania odbywa się nie tylko w przypadku, gdy wywoływana jest metoda ogólnego. Wnioskowanie o typie dla konwersji grupy metod jest opisana w [wnioskowanie konwersji grupy metod typu](expressions.md#type-inference-for-conversion-of-method-groups) i znajdowanie najlepszy typ wspólnego zestawu wyrażeń jest opisany w [znajdowanie najlepszy typ wspólnego zestawu wyrażeń](expressions.md#finding-the-best-common-type-of-a-set-of-expressions).
 
 #### <a name="the-first-phase"></a>Pierwsza faza
 
@@ -675,7 +675,7 @@ A *wnioskowania dolna granica* *z* typu `U` *do* typu `V` składa się w następ
 *Niepoprawione* zmienna typu `Xi` z zestawem granice jest *stałej* w następujący sposób:
 
 *  Zbiór *typy Release candidate* `Uj` rozpoczyna się jako zbiór wszystkich typów w zestawie granice dla `Xi`.
-*  Każda granica sprawdzamy, następnie `Xi` z kolei: dla każdej granicy dokładnie `U` z `Xi` wszystkich typów `Uj` które nie są identyczne z `U` są usuwane z zestawu Release candidate. Dla każdego dolna granica `U` z `Xi` wszystkich typów `Uj` do miejsca, które jest *nie* niejawna konwersja z `U` są usuwane z zestawu Release candidate. Dla każdego górną granicę `U` z `Xi` wszystkich typów `Uj` z tego miejsca, które jest *nie* niejawną konwersję do `U` są usuwane z zestawu Release candidate.
+*  Każda granica sprawdzamy, następnie `Xi` z kolei: Dla każdej granicy dokładnie `U` z `Xi` wszystkich typów `Uj` które nie są identyczne z `U` są usuwane z zestawu Release candidate. Dla każdego dolna granica `U` z `Xi` wszystkich typów `Uj` do miejsca, które jest *nie* niejawna konwersja z `U` są usuwane z zestawu Release candidate. Dla każdego górną granicę `U` z `Xi` wszystkich typów `Uj` z tego miejsca, które jest *nie* niejawną konwersję do `U` są usuwane z zestawu Release candidate.
 *  Jeśli wśród pozostałych typów Release candidate `Uj` istnieje unikatowy typ `V` z której istnieje niejawna konwersja na wszystkich innych Release candidate typy, następnie `Xi` zostanie usunięty z `V`.
 *  W przeciwnym razie wnioskowanie o typie kończy się niepowodzeniem.
 
@@ -740,7 +740,7 @@ Wnioskowanie o typie wywołania:
 ```csharp
 double seconds = F("1:15:30", s => TimeSpan.Parse(s), t => t.TotalSeconds);
 ```
-następuje: pierwszy, argument `"1:15:30"` jest powiązany z `value` parametru wnioskowanie `X` jako `string`. Następnie, parametr pierwszy funkcja anonimowa `s`, otrzymuje wnioskowany typ `string`i wyrażenie `TimeSpan.Parse(s)` jest powiązana z typem zwracanym `f1`, wnioskowanie `Y` jako `System.TimeSpan`. Na koniec parametru Druga funkcja anonimowa `t`, otrzymuje wnioskowany typ `System.TimeSpan`i wyrażenie `t.TotalSeconds` jest powiązana z typem zwracanym `f2`, wnioskowanie `Z` jako `double`. W efekcie jest wynik wywołania typu `double`.
+przechodzi w następujący sposób: Po pierwsze, argument `"1:15:30"` jest powiązany z `value` parametru wnioskowanie `X` jako `string`. Następnie, parametr pierwszy funkcja anonimowa `s`, otrzymuje wnioskowany typ `string`i wyrażenie `TimeSpan.Parse(s)` jest powiązana z typem zwracanym `f1`, wnioskowanie `Y` jako `System.TimeSpan`. Na koniec parametru Druga funkcja anonimowa `t`, otrzymuje wnioskowany typ `System.TimeSpan`i wyrażenie `t.TotalSeconds` jest powiązana z typem zwracanym `f2`, wnioskowanie `Z` jako `double`. W efekcie jest wynik wywołania typu `double`.
 
 #### <a name="type-inference-for-conversion-of-method-groups"></a>Wnioskowanie o typie dla konwersji grupy metod
 
@@ -820,7 +820,7 @@ Podanej listy argumentów `A` z zestawem wyrażenia argumentu `{E1, E2, ..., En}
 
 Podczas przeprowadzania oceny, w tym przypadku `Mp` lub `Mq` jest następnie stosowane w postaci rozwiniętej `Px` lub `Qx` odwołuje się do parametru w postaci rozwiniętej listy parametrów.
 
-W przypadku, gdy parametr typu sekwencje `{P1, P2, ..., Pn}` i `{Q1, Q2, ..., Qn}` są równoważne (czyli każdy `Pi` ma konwersję tożsamości do odpowiednich `Qi`), stosowane są następujące reguły podziału tie w kolejności, w celu ustalenia, tym lepiej element członkowski funkcji.
+W przypadku, gdy parametr typu sekwencje `{P1, P2, ..., Pn}` i `{Q1, Q2, ..., Qn}` są równoważne (czyli każdy `Pi` ma konwersję tożsamości do odpowiednich `Qi`), stosowane są następujące reguły podziału tie w kolejności, w celu ustalenia, tym lepiej element członkowski funkcji.
 
 *  Jeśli `Mp` jest metodą nieogólnego i `Mq` jest metody rodzajowej, `Mp` jest lepsze niż `Mq`.
 *  W przeciwnym razie, jeśli `Mp` ma zastosowanie w postaci normalne i `Mq` ma `params` macierz, a następnie występuje tylko w postaci rozwiniętej następnie `Mp` jest lepsze niż `Mq`.
@@ -913,8 +913,8 @@ Najbardziej dynamicznie powiązanych operacji ewentualnymi kandydatami do rozpoz
 
 W takich przypadkach ograniczone sprawdzanie w czasie kompilacji jest wykonywane dla każdego Release candidate zobaczyć, jeśli któryś z nich prawdopodobnie można zastosować w czasie wykonywania. To sprawdzenie składa się z następujących czynności:
 
-*  Wnioskowanie o typie częściowym: dowolny typ argumentu, który nie zależy od bezpośrednio lub pośrednio argumentu typu `dynamic` wynika, używając reguł [wnioskowanie o typie](expressions.md#type-inference). Pozostałe argumenty typu są nieznane.
-*  Sprawdzanie możliwości zastosowania częściowej: zastosowanie zaznaczono zgodnie z opisem w [dotyczy funkcja składowa](expressions.md#applicable-function-member), ale ignoruje parametry, których typ jest nieznany.
+*  Wnioskowanie o typie częściowym: Dowolny typ argumentu, który nie zależy od bezpośrednio lub pośrednio argumentu typu `dynamic` wynika, używając reguł [wnioskowanie o typie](expressions.md#type-inference). Pozostałe argumenty typu są nieznane.
+*  Sprawdzanie możliwości zastosowania częściowej: Zastosowanie zaznaczono zgodnie z opisem w [dotyczy funkcja składowa](expressions.md#applicable-function-member), ale ignoruje parametry, których typ jest nieznany.
 *  Jeśli żaden kandydat zakończy się pomyślnie tego testu, występuje błąd kompilacji.
 
 ### <a name="function-member-invocation"></a>Wywołania elementu — funkcja
@@ -1075,26 +1075,26 @@ simple_name
 
 A *simple_name* jest formularza `I` lub w postaci `I<A1,...,Ak>`, gdzie `I` jest pojedynczy identyfikator i `<A1,...,Ak>` to opcjonalna *type_argument_list*. Gdy nie *type_argument_list* jest określony, należy wziąć pod uwagę `K` zero. *Simple_name* jest obliczane i sklasyfikowany w następujący sposób:
 
-*  Jeśli `K` jest równa zero i *simple_name* pojawia się w obrębie *bloku* i, jeśli *bloku*firmy (lub otaczającego *bloku*firmy) lokalne Deklaracja zmiennej miejsca ([deklaracje](basic-concepts.md#declarations)) zawiera zmienną lokalną, parametr lub stałą o nazwie `I`, a następnie *simple_name* odwołuje się do tej zmiennej lokalnej parametr lub stała i jest klasyfikowana jako wartości lub zmienne.
-*  Jeśli `K` jest równa zero i *simple_name* pojawia się w treści deklaracji metody rodzajowe i jeśli deklaracja zawiera parametr typu o nazwie `I`, a następnie *simple_name*odwołuje się do tego parametru typu.
-*  W przeciwnym razie dla każdego typu wystąpienia `T` ([typu wystąpienia](classes.md#the-instance-type)), począwszy od typu wystąpienia natychmiastowo otaczającą deklaracji typu i kontynuowanie przy użyciu typu wystąpienia każdej otaczającej klasie lub strukturze Deklaracja (jeśli istnieje):
-   *  Jeśli `K` to zero, a deklaracja `T` obejmuje parametru typu o nazwie `I`, a następnie *simple_name* odwołuje się do tego parametru typu.
-   *  W przeciwnym razie, jeśli wyszukiwanie elementu członkowskiego ([wyszukanie członka](expressions.md#member-lookup)) z `I` w `T` z `K` argumentami typu tworzy dopasowania:
+*  Jeśli `K` jest równa zero i *simple_name* pojawia się w obrębie *bloku* i, jeśli *bloku*firmy (lub otaczającego *bloku*firmy) lokalne Deklaracja zmiennej miejsca ([deklaracje](basic-concepts.md#declarations)) zawiera zmienną lokalną, parametr lub stałą o nazwie `I`, a następnie *simple_name* odwołuje się do tej zmiennej lokalnej parametr lub stała i jest klasyfikowana jako wartości lub zmienne.
+*  Jeśli `K` jest równa zero i *simple_name* pojawia się w treści deklaracji metody rodzajowe i jeśli deklaracja zawiera parametr typu o nazwie `I`, a następnie *simple_name*odwołuje się do tego parametru typu.
+*  W przeciwnym razie dla każdego typu wystąpienia `T` ([typu wystąpienia](classes.md#the-instance-type)), począwszy od typu wystąpienia natychmiastowo otaczającą deklaracji typu i kontynuowanie przy użyciu typu wystąpienia każdej otaczającej klasie lub strukturze Deklaracja (jeśli istnieje):
+   *  Jeśli `K` to zero, a deklaracja `T` obejmuje parametru typu o nazwie `I`, a następnie *simple_name* odwołuje się do tego parametru typu.
+   *  W przeciwnym razie, jeśli wyszukiwanie elementu członkowskiego ([wyszukanie członka](expressions.md#member-lookup)) z `I` w `T` z `K`  argumentami typu tworzy dopasowania:
       * Jeśli `T` jest typem wystąpienia natychmiastowo otaczającą typu klasy lub struktury i wyszukiwanie identyfikuje jeden lub więcej metod, wynik jest grupą metoda z wyrażeniem skojarzonego wystąpienia `this`. Jeśli lista argumentów typu został określony, jest używany podczas wywoływania metody ogólnej ([wywołań metody opisywanego](expressions.md#method-invocations)).
       * W przeciwnym razie, jeśli `T` jest typu wystąpienia natychmiastowo otaczającą typu klasy lub struktury, wyszukiwanie identyfikuje elementu członkowskiego wystąpienia, a odwołanie występuje w treści konstruktora wystąpienia, metoda wystąpienia lub metodę dostępu wystąpienia wynik jest taki sam dostęp do elementu członkowskiego ([dostęp do elementu członkowskiego](expressions.md#member-access)) w postaci `this.I`. To tylko możliwe, gdy `K` wynosi zero.
       * W przeciwnym razie wynikiem jest taka sama jak dostęp do elementu członkowskiego ([dostęp do elementu członkowskiego](expressions.md#member-access)) w postaci `T.I` lub `T.I<A1,...,Ak>`. W tym przypadku jest to błąd czasu powiązania dla *simple_name* do odwoływania się do elementu członkowskiego wystąpienia.
 
-*  W przeciwnym razie dla każdej przestrzeni nazw `N`, począwszy od przestrzeni nazw, w którym *simple_name* problem wystąpi, kontynuując każdego otaczającej przestrzeni nazw (jeśli istnieje), a skończywszy globalnej przestrzeni nazw, poniższe kroki to etapy sprawdzane, dopóki nie znajduje się jednostka:
-   *  Jeśli `K` jest równa zero i `I` jest nazwą przestrzeni nazw w `N`, następnie:
-      * Jeśli lokalizacja gdzie *simple_name* występuje jest ujęta w deklarację przestrzeni nazw dla `N` i zawiera deklarację przestrzeni nazw *extern_alias_directive* lub  *using_alias_directive* który kojarzy nazwę `I` z przestrzeni nazw lub typ, a następnie *simple_name* jest niejednoznaczny i występuje błąd kompilacji.
+*  W przeciwnym razie dla każdej przestrzeni nazw `N`, począwszy od przestrzeni nazw, w którym *simple_name* problem wystąpi, kontynuując każdego otaczającej przestrzeni nazw (jeśli istnieje), a skończywszy globalnej przestrzeni nazw, poniższe kroki to etapy sprawdzane, dopóki nie znajduje się jednostka:
+   *  Jeśli `K` jest równa zero i `I` jest nazwą przestrzeni nazw w `N`, następnie:
+      * Jeśli lokalizacja gdzie *simple_name* występuje jest ujęta w deklarację przestrzeni nazw dla `N` i zawiera deklarację przestrzeni nazw *extern_alias_directive* lub  *using_alias_directive* który kojarzy nazwę `I` z przestrzeni nazw lub typ, a następnie *simple_name* jest niejednoznaczny i występuje błąd kompilacji.
       * W przeciwnym razie *simple_name* odwołuje się do przestrzeni nazw o nazwie `I` w `N`.
-   *  W przeciwnym razie, jeśli `N` zawiera dostępny typ o nazwie `I` i `K` parametry typu, następnie:
-      * Jeśli `K` to zero i lokalizacja gdzie *simple_name* występuje jest ujęta w deklarację przestrzeni nazw dla `N` i zawiera deklarację przestrzeni nazw *extern_alias_directive*lub *using_alias_directive* który kojarzy nazwę `I` z przestrzeni nazw lub typ, a następnie *simple_name* jest niejednoznaczny i występuje błąd kompilacji.
+   *  W przeciwnym razie, jeśli `N` zawiera dostępny typ o nazwie `I` i `K`  parametry typu, następnie:
+      * Jeśli `K` to zero i lokalizacja gdzie *simple_name* występuje jest ujęta w deklarację przestrzeni nazw dla `N` i zawiera deklarację przestrzeni nazw *extern_alias_directive*lub *using_alias_directive* który kojarzy nazwę `I` z przestrzeni nazw lub typ, a następnie *simple_name* jest niejednoznaczny i występuje błąd kompilacji.
       * W przeciwnym razie *namespace_or_type_name* odwołuje się do typu skonstruowany przy użyciu argumentów danego typu.
-   *  W przeciwnym razie, jeśli lokalizacja gdzie *simple_name* występuje jest ujęta w deklarację przestrzeni nazw dla `N`:
-      * Jeśli `K` jest równa zero i zawiera deklarację przestrzeni nazw *extern_alias_directive* lub *using_alias_directive* który kojarzy nazwę `I` z zaimportowaną przestrzenią nazw lub Typ, a następnie *simple_name* odwołuje się do tej przestrzeni nazw lub typu.
-      * W przeciwnym razie, jeśli deklaracji przestrzeni nazw i typ zaimportowany przez *using_namespace_directive*s i *using_static_directive*s deklarację przestrzeni nazw zawierać dokładnie jeden typ dostępny lub -extension członka statycznego o nazwie `I` i `K` parametry typu, a następnie *simple_name* odwołuje się do tego typu lub elementu członkowskiego, skonstruowany przy użyciu argumentów danego typu.
-      * W przeciwnym razie, jeśli obszary nazw i typy zaimportowany przez *using_namespace_directive*s deklarację przestrzeni nazw zawiera więcej niż jeden dostępny typ lub metoda bez rozszerzenia członka statycznego o nazwie `I` i `K` parametry typu, a następnie *simple_name* jest niejednoznaczny i występuje błąd.
+   *  W przeciwnym razie, jeśli lokalizacja gdzie *simple_name* występuje jest ujęta w deklarację przestrzeni nazw dla `N`:
+      * Jeśli `K` jest równa zero i zawiera deklarację przestrzeni nazw *extern_alias_directive* lub *using_alias_directive* który kojarzy nazwę `I` z zaimportowaną przestrzenią nazw lub Typ, a następnie *simple_name* odwołuje się do tej przestrzeni nazw lub typu.
+      * W przeciwnym razie, jeśli deklaracji przestrzeni nazw i typ zaimportowany przez *using_namespace_directive*s i *using_static_directive*s deklarację przestrzeni nazw zawierać dokładnie jeden typ dostępny lub -extension członka statycznego o nazwie `I` i `K`  parametry typu, a następnie *simple_name* odwołuje się do tego typu lub elementu członkowskiego, skonstruowany przy użyciu argumentów danego typu.
+      * W przeciwnym razie, jeśli obszary nazw i typy zaimportowany przez *using_namespace_directive*s deklarację przestrzeni nazw zawiera więcej niż jeden dostępny typ lub metoda bez rozszerzenia członka statycznego o nazwie `I` i `K`  parametry typu, a następnie *simple_name* jest niejednoznaczny i występuje błąd.
 
    Należy pamiętać, że ten krok jest dokładnie zbliżony do odpowiedniego krok przetwarzania w *namespace_or_type_name* ([nazw Namespace i typ](basic-concepts.md#namespace-and-type-names)).
 
@@ -1138,37 +1138,37 @@ A *member_access* z *primary_expression* typu `dynamic` dynamicznie jest powiąz
 
 *Member_access* jest obliczane i sklasyfikowany w następujący sposób:
 
-*  Jeśli `K` jest równa zero i `E` jest przestrzenią nazw i `E` zawiera zagnieżdżone przestrzenie nazw o nazwie `I`, wynik jest tego obszaru nazw.
-*  W przeciwnym razie, jeśli `E` jest przestrzenią nazw i `E` zawiera dostępny typ o nazwie `I` i `K` parametry typu, wynik jest zbudowany z argumentami typu danego typu.
-*  Jeśli `E` jest *predefined_type* lub *primary_expression* sklasyfikowane jako typ, jeśli `E` nie jest parametrem typu i jeśli wyszukiwanie elementu członkowskiego ([wyszukanie członka](expressions.md#member-lookup)) z `I` w `E` z `K` parametrów typu generuje dopasowania, następnie `E.I` jest obliczane i sklasyfikowany w następujący sposób:
+*  Jeśli `K` jest równa zero i `E` jest przestrzenią nazw i `E` zawiera zagnieżdżone przestrzenie nazw o nazwie `I`, wynik jest tego obszaru nazw.
+*  W przeciwnym razie, jeśli `E` jest przestrzenią nazw i `E` zawiera dostępny typ o nazwie `I` i `K`  parametry typu, wynik jest zbudowany z argumentami typu danego typu.
+*  Jeśli `E` jest *predefined_type* lub *primary_expression* sklasyfikowane jako typ, jeśli `E` nie jest parametrem typu i jeśli wyszukiwanie elementu członkowskiego ([wyszukanie członka](expressions.md#member-lookup)) z `I` w `E` z `K`  parametrów typu generuje dopasowania, następnie `E.I` jest obliczane i sklasyfikowany w następujący sposób:
    *  Jeśli `I` identyfikuje typ, wynik jest zbudowany z argumentami typu danego typu.
    *  Jeśli `I` identyfikuje co najmniej jedną metodę, wynik jest grupy metod z Brak wyrażenia skojarzonego wystąpienia. Jeśli lista argumentów typu został określony, jest używany podczas wywoływania metody ogólnej ([wywołań metody opisywanego](expressions.md#method-invocations)).
    *  Jeśli `I` identyfikuje `static` właściwości, a następnie wynik jest dostęp do właściwości, za pomocą wyrażenia nie skojarzonego wystąpienia.
    *  Jeśli `I` identyfikuje `static` pola:
-      * Jeśli to pole jest `readonly` odwołania jest wykonywane poza statycznego konstruktora klasy lub struktury, w którym zadeklarowany jest pole, a następnie wynik jest wartością, czyli wartość pola statycznego `I` w `E`.
-      * W przeciwnym razie wynik jest zmienną, a mianowicie pole statyczne `I` w `E`.
+      * Jeśli to pole jest `readonly` odwołania jest wykonywane poza statycznego konstruktora klasy lub struktury, w którym zadeklarowany jest pole, a następnie wynik jest wartością, czyli wartość pola statycznego `I` w `E`.
+      * W przeciwnym razie wynik jest zmienną, a mianowicie pole statyczne `I` w `E`.
    *  Jeśli `I` identyfikuje `static` zdarzeń:
       * Jeśli występuje odwołanie, w obrębie klasy lub struktury, w którym zdarzenie jest zadeklarowana, a zdarzenie była zadeklarowana bez *event_accessor_declarations* ([zdarzenia](classes.md#events)), następnie `E.I` dokładnie przetwarzania tak, jakby `I` zostały pole statyczne.
       * W przeciwnym razie wynikiem jest dostęp do zdarzenia przy użyciu Brak wyrażenia skojarzonego wystąpienia.
    *  Jeśli `I` identyfikuje stałą, a następnie wynik jest wartością, czyli wartość tej stałej.
     * Jeśli `I` identyfikuje element członkowski wyliczenia, a następnie wynik jest wartością, czyli wartość tego elementu członkowskiego wyliczenia.
     * W przeciwnym razie `E.I` jest odwołaniem nieprawidłowej składowej i występuje błąd kompilacji.
-*  Jeśli `E` jest dostęp do właściwości, indeksatora dostępu, zmienna lub wartości, którego typ jest `T`i wyszukać składowej ([wyszukanie członka](expressions.md#member-lookup)) z `I` w `T` z `K` argumentów typu następnie tworzy dopasowania `E.I` jest obliczane i sklasyfikowany w następujący sposób:
+*  Jeśli `E` jest dostęp do właściwości, indeksatora dostępu, zmienna lub wartości, którego typ jest `T`i wyszukać składowej ([wyszukanie członka](expressions.md#member-lookup)) z `I` w `T` z `K`  argumentami typu tworzy następnie dopasowania `E.I` jest obliczane i sklasyfikowany w następujący sposób:
    *  Po pierwsze, jeśli `E` jest właściwość lub indeksator dostępu, a następnie wartość właściwości lub indeksatora dostęp jest uzyskiwany ([wartości wyrażeń](expressions.md#values-of-expressions)) i `E` jest sklasyfikowany jako wartość.
    *  Jeśli `I` identyfikuje co najmniej jednej metody, a następnie wynik jest grupą metoda z wyrażeniem skojarzonego wystąpienia `E`. Jeśli lista argumentów typu został określony, jest używany podczas wywoływania metody ogólnej ([wywołań metody opisywanego](expressions.md#method-invocations)).
    *  Jeśli `I` identyfikuje właściwości wystąpienia
       * Jeśli `E` jest `this`, `I` identyfikuje automatycznie implementowanej właściwości ([automatycznie implementowane właściwości](classes.md#automatically-implemented-properties)) bez metody ustawiającej i odwołanie ma miejsce w konstruktorze wystąpienia dla Typ klasy lub struktury `T`, a następnie wynik jest zmienną, a mianowicie pole zapasowe ukryte dotyczący właściwości automatycznej podane przez `I` w wystąpieniu programu `T` przez `this`.
-      * W przeciwnym razie wynikiem jest dostęp do właściwości, za pomocą wyrażenia skojarzonego wystąpienia `E`.
+      * W przeciwnym razie wynikiem jest dostęp do właściwości, za pomocą wyrażenia skojarzonego wystąpienia `E`.
    *  Jeśli `T` jest *class_type* i `I` identyfikuje pole wystąpienia, *class_type*:
       * Jeśli wartość `E` jest `null`, a następnie `System.NullReferenceException` zgłaszany.
-      * W przeciwnym razie, jeśli pole jest `readonly` odwołania jest wykonywane poza konstruktora wystąpienia klasy, w którym zadeklarowany jest pole, a następnie wynik jest wartością, czyli wartość pola `I` w obiekcie wywoływanym przez `E`.
-      * W przeciwnym razie wynik jest zmienną, czyli pola `I` w obiekcie wywoływanym przez `E`.
+      * W przeciwnym razie, jeśli pole jest `readonly` odwołania jest wykonywane poza konstruktora wystąpienia klasy, w którym zadeklarowany jest pole, a następnie wynik jest wartością, czyli wartość pola `I` w obiekcie wywoływanym przez `E`.
+      * W przeciwnym razie wynik jest zmienną, czyli pola `I` w obiekcie wywoływanym przez `E`.
    *  Jeśli `T` jest *struct_type* i `I` identyfikuje pole wystąpienia, *struct_type*:
-      * Jeśli `E` jest wartością, czy pole jest `readonly` odwołania jest wykonywane poza konstruktora wystąpienia struktury, w którym zadeklarowany jest pole, a następnie wynik jest wartością, czyli wartość pola `I` w wystąpieniu struktury przez `E`.
-      * W przeciwnym razie wynik jest zmienną, czyli pola `I` w wystąpieniu struktury przez `E`.
+      * Jeśli `E` jest wartością, czy pole jest `readonly` odwołania jest wykonywane poza konstruktora wystąpienia struktury, w którym zadeklarowany jest pole, a następnie wynik jest wartością, czyli wartość pola `I` w wystąpieniu struktury przez  `E`.
+      * W przeciwnym razie wynik jest zmienną, czyli pola `I` w wystąpieniu struktury przez `E`.
    *  Jeśli `I` identyfikuje wystąpienie zdarzenia:
       * Jeśli występuje odwołanie, w obrębie klasy lub struktury, w którym zdarzenie jest zadeklarowana, a zdarzenie była zadeklarowana bez *event_accessor_declarations* ([zdarzenia](classes.md#events)), a odwołanie nie jest wykonywane jako po lewej stronie `+=` lub `-=` operatora, a następnie `E.I` jest przetwarzany dokładnie tak, jakby `I` został pola wystąpienia.
-      * W przeciwnym razie wynikiem jest dostęp do zdarzenia przy użyciu wyrażenia skojarzonego wystąpienia `E`.
+      * W przeciwnym razie wynikiem jest dostęp do zdarzenia przy użyciu wyrażenia skojarzonego wystąpienia `E`.
 *  W przeciwnym razie zostanie podjęta próba przetworzenia `E.I` jako wywołanie metody rozszerzenia ([wywołań metod rozszerzenia](expressions.md#extension-method-invocations)). W przypadku niepowodzenia `E.I` jest odwołaniem nieprawidłowej składowej i występuje błąd wiązania.
 
 #### <a name="identical-simple-names-and-type-names"></a>Identyczne nazwy proste i nazwy typów
@@ -1204,7 +1204,7 @@ Produkcji dla *simple_name* ([proste nazwy](expressions.md#simple-names)) i *mem
 ```
 F(G<A,B>(7));
 ```
-można zinterpretować jako wywołanie `F` za pomocą dwóch argumentów `G < A` i `B > (7)`. Ewentualnie może zostać zinterpretowane jako wywołanie `F` jeden argument, który jest wywołanie metody ogólnej `G` dwa argumenty typu i jeden argument regularne.
+można zinterpretować jako wywołanie `F` za pomocą dwóch argumentów `G < A` i `B > (7)`. Ewentualnie może zostać zinterpretowane jako wywołanie `F` jeden argument, który jest wywołanie metody ogólnej `G` dwa argumenty typu i jeden argument regularne.
 
 Jeśli sekwencja tokeny może być analizowana (w kontekście) jako *simple_name* ([proste nazwy](expressions.md#simple-names)), *member_access* ([dostęp do elementu członkowskiego](expressions.md#member-access)), lub *pointer_member_access* ([dostęp do elementu członkowskiego wskaźnika](unsafe-code.md#pointer-member-access)) kończą się ciągiem *type_argument_list* ([argumentów typu](types.md#type-arguments)), token następujący bezpośrednio po zamykającym `>` token jest sprawdzany pod. Jeśli jest to jeden z
 ```csharp
@@ -1271,7 +1271,7 @@ Powiązania w czasie przetwarzania wywołania metody w postaci `M(A)`, gdzie `M`
    *  Jeśli `F` ogólnego i `M` zawiera listę argumentów typu `F` jest kandydatem po:
       * `F` ma taką samą liczbę parametrów typu w metodzie, jak podano w liście argumentów typu i
       * Gdy argumenty typu są zastępowane dla parametrów typu odpowiedniej metody, wszystkie typy utworzone na liście parametrów F spełnia ich ograniczenia ([spełniających ograniczenia](types.md#satisfying-constraints)) oraz listę parametrów `F` ma zastosowanie w odniesieniu do `A` ([dotyczy funkcja składowa](expressions.md#applicable-function-member)).
-*  Zestaw metod Release candidate jest ograniczona do zawierają tylko metody z najbardziej pochodnej typów: dla każdej metody `C.F` w zestawie, gdzie `C` jest typem, w którym metoda `F` zadeklarowano wszystkie metody zadeklarowane w typie podstawowym `C`są usuwane z zestawu. Ponadto jeśli `C` jest inny niż typ klasy `object`, wszystkie metody, które zostało zadeklarowane w typie interfejsu są usuwane z zestawu. (Ta zasada ostatnie tylko ma wpływ podczas grupy metod, wynikiem wyszukiwania elementu członkowskiego dla parametru typu o skutecznej klasy bazowej, innego niż obiekt i pusty interfejs skuteczne, konfiguruje).
+*  Zestaw metod Release candidate jest ograniczona do zawierają tylko metody z najbardziej pochodnej typów: Dla każdej metody `C.F` w zestawie, gdzie `C` jest typem, w którym metoda `F` zadeklarowano wszystkich metod zadeklarowanych w podstawowym typem `C` są usuwane z zestawu. Ponadto jeśli `C` jest inny niż typ klasy `object`, wszystkie metody, które zostało zadeklarowane w typie interfejsu są usuwane z zestawu. (Ta zasada ostatnie tylko ma wpływ podczas grupy metod, wynikiem wyszukiwania elementu członkowskiego dla parametru typu o skutecznej klasy bazowej, innego niż obiekt i pusty interfejs skuteczne, konfiguruje).
 *  Jeśli wynikowy zestaw metod jest pusta, dalsze przetwarzanie wzdłuż poniższe kroki są porzucone, a zamiast tego zostanie podjęta próba można przetworzyć wywołania jako wywołania metody rozszerzenia ([wywołań metod rozszerzenia](expressions.md#extension-method-invocations)). W przypadku niepowodzenia, a nie dotyczy istnieją metody, występuje błąd wiązania.
 *  Najlepszą metodą zestaw metod Release candidate jest identyfikowany za pomocą zasad rozpoznawania przeciążenia [Rozpoznanie przeciążenia](expressions.md#overload-resolution). Jeśli nie można zidentyfikować pojedynczy najlepszą metodę, wywołanie metody jest niejednoznaczny i występuje błąd wiązania. Podczas rozpoznawania przeciążenia parametry metody ogólnej są traktowane jako po argumentów typu (dostarczane lub wywnioskowane) podstawieniu dla odpowiednich parametrów typu metody.
 *  Odbywa się ostatecznej weryfikacji wybranej najlepszą metodę:
@@ -1280,7 +1280,7 @@ Powiązania w czasie przetwarzania wywołania metody w postaci `M(A)`, gdzie `M`
 
 Gdy metoda zostanie wybrane i sprawdzone w momencie powiązania przez powyższe kroki, rzeczywiste wywołanie środowiska wykonawczego są przetwarzane zgodnie z regułami wywołania elementu funkcji opisanych w [sprawdzanie Rozpoznanie przeciążenia dynamicznej kompilacji ](expressions.md#compile-time-checking-of-dynamic-overload-resolution).
 
-Intuicyjne reguł rozwiązywania opisanych powyżej powoduje następujący: Aby znaleźć konkretnej metody wywoływane przez wywołanie metody, rozpoczynać się typ wskazany przez wywołanie metody i przejść w górę łańcucha dziedziczenia dopóki co najmniej jedna ma to zastosowanie, Znaleziono deklaracji dostępny, nie zastąpienie metody. Następnie wykonaj wnioskowanie o typie przeciążenia w zestawie, który ma to zastosowanie, dostępny, -zastępowanie metod zadeklarowanych w tego typu i wywołaj metodę wybrany w ten sposób. Jeśli nie znaleziono metody, spróbuj zamiast tego można przetworzyć wywołania jako wywołania metody rozszerzenia.
+Intuicyjne efekt zasad rozpoznawania opisanych powyżej jest następująca: Aby zlokalizować konkretnej metody wywoływane przez wywołanie metody, rozpoczynać się typ wskazany przez wywołanie metody i kontynuować górę łańcucha dziedziczenia, dopóki nie zostanie znaleziony co najmniej jedną metodę ma to zastosowanie, dostępny, -Zastępowanie deklaracji. Następnie wykonaj wnioskowanie o typie przeciążenia w zestawie, który ma to zastosowanie, dostępny, -zastępowanie metod zadeklarowanych w tego typu i wywołaj metodę wybrany w ten sposób. Jeśli nie znaleziono metody, spróbuj zamiast tego można przetworzyć wywołania jako wywołania metody rozszerzenia.
 
 #### <a name="extension-method-invocations"></a>Wywołań metod rozszerzenia
 
@@ -2089,7 +2089,7 @@ comma
     ;
 ```
 
-Pierwszy formularz *typeof_expression* składa się z `typeof` — słowo kluczowe, a następnie ujęty w nawiasy *typu*. Jest wynikiem wyrażenia tego formularza `System.Type` obiektu dla wskazanego typu. Jest tylko jedna `System.Type` obiektu dla danego typu. Oznacza to, że dla typu `T`, `typeof(T) == typeof(T)` ma zawsze wartość true. *Typu* nie może być `dynamic`.
+Pierwszy formularz *typeof_expression* składa się z `typeof` — słowo kluczowe, a następnie ujęty w nawiasy *typu*. Jest wynikiem wyrażenia tego formularza `System.Type` obiektu dla wskazanego typu. Jest tylko jedna `System.Type` obiektu dla danego typu. Oznacza to, że dla typu `T`, `typeof(T) == typeof(T)` ma zawsze wartość true. *Typu* nie może być `dynamic`.
 
 Drugiej formy *typeof_expression* składa się z `typeof` — słowo kluczowe, a następnie ujęty w nawiasy *unbound_type_name*. *Unbound_type_name* jest bardzo podobny do *type_name* ([nazw Namespace i typ](basic-concepts.md#namespace-and-type-names)) z tą różnicą, że *unbound_type_name* zawiera *generic_dimension_specifier*s gdzie *type_name* zawiera *type_argument_list*s. Gdy argument operacji *typeof_expression* to sekwencja tokenów spełnia gramatyki zarówno *unbound_type_name* i *type_name*, to znaczy jeśli zawiera on ani *generic_dimension_specifier* ani *type_argument_list*, sekwencja tokenów jest uważany za *type_name*. Znaczenie *unbound_type_name* jest określany w następujący sposób:
 
@@ -2426,7 +2426,7 @@ i przy założeniu, że typ końcowe wywołanie nie jest typem wartości niedopu
 ```csharp
 var x = (a.b == null) ? null : (a.b[0] == null) ? null : a.b[0].c();
 ```
-z tą różnicą, że `a.b` i `a.b[0]` są oceniane tylko raz.
+Z tą różnicą, że `a.b` i `a.b[0]` są oceniane tylko raz.
 
 #### <a name="null-conditional-expressions-as-projection-initializers"></a>Wyrażenia warunkowe null jako inicjatory projekcji
 
@@ -2583,7 +2583,7 @@ A *cast_expression* formularza `(T)E`, gdzie `T` jest *typu* i `E` jest *unary_e
 
 Gramatyka dla *cast_expression* prowadzi do niektórych niejasności składni. Na przykład, wyrażenie `(x)-y` można albo być interpretowane jako *cast_expression* (rzutowanie typu `-y` na typ `x`) lub jako *additive_expression* w połączeniu z *parenthesized_expression* (które oblicza wartość `x - y)`.
 
-Aby rozwiązać *cast_expression* istnieje następująca reguła niejasności,: sekwencji jednego lub więcej *tokenu*s ([biały znak](lexical-structure.md#white-space)) ujęte w nawiasy jest traktowana jako początek z *cast_expression* tylko wtedy, gdy spełnione są co najmniej jeden z następujących czynności:
+Aby rozwiązać *cast_expression* niejasności, następująca reguła istnieje: Sekwencji jednego lub więcej *tokenu*s ([biały znak](lexical-structure.md#white-space)) ujęta w nawiasy jest traktowana jako początek *cast_expression* tylko wtedy, gdy spełnione są co najmniej jedną z następujących:
 
 *  Sekwencja tokenów jest poprawny gramatyka dla *typu*, ale nie dla *wyrażenie*.
 *  Sekwencja tokenów jest poprawny gramatyka dla *typu*, i tokenu bezpośrednio po nawiasie zamykającym jest tokenem "`~`", token "`!`", token "`(`",  *Identyfikator* ([sekwencje ucieczki znaków Unicode](lexical-structure.md#unicode-character-escape-sequences)), *literału* ([literały](lexical-structure.md#literals)), lub dowolnego *— słowo kluczowe*([Słowa kluczowe](lexical-structure.md#keywords)) z wyjątkiem `as` i `is`.
@@ -2850,10 +2850,10 @@ Operatory dodawania wstępnie zdefiniowane są wymienione poniżej. W przypadku 
 
    |      |      |      |      |      |      |      |
    |:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-   |      | y    | +0   | -0   | + inf | -inf | NaN  | 
+   |      | t    | +0   | -0   | + inf | -inf | NaN  | 
    | x    | z    | x    | x    | + inf | -inf | NaN  | 
-   | +0   | y    | +0   | +0   | + inf | -inf | NaN  | 
-   | -0   | y    | +0   | -0   | + inf | -inf | NaN  | 
+   | +0   | t    | +0   | +0   | + inf | -inf | NaN  | 
+   | -0   | t    | +0   | -0   | + inf | -inf | NaN  | 
    | + inf | + inf | + inf | + inf | + inf | NaN  | NaN  | 
    | -inf | -inf | -inf | -inf | NaN  | -inf | NaN  | 
    | NaN  | NaN  | NaN  | NaN  | NaN  | NaN  | NaN  | 
@@ -2913,7 +2913,7 @@ Operatory dodawania wstępnie zdefiniowane są wymienione poniżej. W przypadku 
    D operator +(D x, D y);
    ```
 
-   Plik binarny `+` operator wykonuje delegatów, gdy oba operandy są typu delegata, niektóre `D`. (Jeśli operandów delegata różnych typów, występuje błąd wiązania.) Jeśli pierwszy argument jest `null`, wynik operacji jest wartość drugiego operandu (nawet jeśli jest to `null`). W przeciwnym razie, jeśli drugi argument operacji jest `null`, wynik operacji jest wartość pierwszego operandu. W przeciwnym razie wynik operacji jest nowe delegowanie, wystąpienie, gdy wywoływany, wywołuje pierwszy operand, a następnie wywołuje drugiego operandu. Aby uzyskać przykłady delegatów, zobacz [operator odejmowania](expressions.md#subtraction-operator) i [delegować wywołania](delegates.md#delegate-invocation). Ponieważ `System.Delegate` nie jest typem delegowanym `operator` `+` nie zdefiniowano dla niego.
+   Plik binarny `+` operator wykonuje delegatów, gdy oba operandy są typu delegata, niektóre `D`. (Jeśli operandów delegata różnych typów, występuje błąd wiązania.) Jeśli pierwszy argument jest `null`, wynik operacji jest wartość drugiego operandu (nawet jeśli jest to `null`). W przeciwnym razie, jeśli drugi argument operacji jest `null`, wynik operacji jest wartość pierwszego operandu. W przeciwnym razie wynik operacji jest nowe delegowanie, wystąpienie, gdy wywoływany, wywołuje pierwszy operand, a następnie wywołuje drugiego operandu. Aby uzyskać przykłady delegatów, zobacz [operator odejmowania](expressions.md#subtraction-operator) i [delegować wywołania](delegates.md#delegate-invocation). Ponieważ `System.Delegate` nie jest typem delegowanym `operator`  `+` nie zdefiniowano dla niego.
 
 ### <a name="subtraction-operator"></a>Operator odejmowania
 
@@ -2943,7 +2943,7 @@ Poniżej wymieniono operatory odejmowania wstępnie zdefiniowane. Operatory wszy
 
    |      |      |      |      |      |      |     |
    |:----:|:----:|:----:|:----:|:----:|:----:|:---:|
-   | NaN  | y    | +0   | -0   | + inf | -inf | NaN | 
+   | NaN  | t    | +0   | -0   | + inf | -inf | NaN | 
    | x    | z    | x    | x    | -inf | + inf | NaN | 
    | +0   | -y   | +0   | +0   | -inf | + inf | NaN | 
    | -0   | -y   | -0   | +0   | -inf | + inf | NaN | 
@@ -3629,7 +3629,7 @@ Przetwarzanie czasu wykonywania wyrażenia warunkowego formularza `b ? x : y` sk
 
 ## <a name="anonymous-function-expressions"></a>Funkcja anonimowa wyrażeń
 
-***Funkcja anonimowa*** jest wyrażeniem, które reprezentuje definicję metody "w tekście". Funkcja anonimowa nie ma wartości lub typem w i samego siebie, ale jest konwertowany na zgodny delegata lub typ drzewa wyrażenia. Typ docelowy konwersji zależy od oceny konwersję funkcja anonimowa: Jeśli jest to typ delegowany, konwersja wynikiem jest wartość delegata odwołuje się do metody, która definiuje funkcja anonimowa. Jeśli typ drzewa wyrażeń, konwersja daje w wyniku drzewo wyrażenia, który reprezentuje strukturę metodę jako struktury obiektu.
+***Funkcja anonimowa*** jest wyrażeniem, które reprezentuje definicję metody "w tekście". Funkcja anonimowa nie ma wartości lub typem w i samego siebie, ale jest konwertowany na zgodny delegata lub typ drzewa wyrażenia. Ocena konwersję funkcja anonimowa zależy od typ docelowy konwersji: Jeśli jest to typ delegowany, konwersja wynikiem jest wartość delegata odwołuje się do metody, która definiuje funkcja anonimowa. Jeśli typ drzewa wyrażeń, konwersja daje w wyniku drzewo wyrażenia, który reprezentuje strukturę metodę jako struktury obiektu.
 
 Ze względów historycznych istnieją dwa składni odmian funkcje anonimowe, mianowicie *lambda_expression*s i *anonymous_method_expression*s. Dla prawie wszystkich celów *lambda_expression*s są bardziej zwięzłe i ekspresyjny niż *anonymous_method_expression*s, które pozostają w języku dla zapewnienia zgodności.
 

@@ -496,7 +496,7 @@ namespace N2
 
 A *using_static_directive* importuje jedynie członkowie i typy zadeklarowany bezpośrednio w danym typie, nie elementów członkowskich i typy zadeklarowane w klasach bazowych.
 
-TODO: przykład
+TODO: Przykład
 
 Niejednoznaczności między wieloma *using_namespace_directives* i *using_static_directives* zostały omówione w [przy użyciu dyrektywy przestrzeni nazw](namespaces.md#using-namespace-directives).
 
@@ -561,22 +561,22 @@ A *qualified_alias_member* ma jedną z dwóch formach:
 Za pomocą tej notacji, znaczenie *qualified_alias_member* jest określany w następujący sposób:
 
 *  Jeśli `N` to identyfikator `global`, a następnie połączenie jest wyszukiwane na globalnej przestrzeni nazw `I`:
-   * Jeśli globalna przestrzeń nazw zawiera przestrzeń nazw o nazwie `I` i `K` wynosi zero, a następnie *qualified_alias_member* odwołuje się do tego obszaru nazw.
-   * W przeciwnym razie, jeśli globalna przestrzeń nazw zawiera typu nieogólnego, o nazwie `I` i `K` wynosi zero, a następnie *qualified_alias_member* odwołuje się do tego typu.
-   * W przeciwnym razie, jeśli globalna przestrzeń nazw zawiera typ o nazwie `I` zawierający `K` parametry typu, a następnie *qualified_alias_member* odwołuje się do tego typu skonstruowany przy użyciu argumentów danego typu.
+   * Jeśli globalna przestrzeń nazw zawiera przestrzeń nazw o nazwie `I` i `K` wynosi zero, a następnie *qualified_alias_member* odwołuje się do tego obszaru nazw.
+   * W przeciwnym razie, jeśli globalna przestrzeń nazw zawiera typu nieogólnego, o nazwie `I` i `K` wynosi zero, a następnie *qualified_alias_member* odwołuje się do tego typu.
+   * W przeciwnym razie, jeśli globalna przestrzeń nazw zawiera typ o nazwie `I` zawierający `K`  parametry typu, a następnie *qualified_alias_member* odwołuje się do tego typu skonstruowany przy użyciu argumentów danego typu.
    * W przeciwnym razie *qualified_alias_member* jest niezdefiniowana, i występuje błąd kompilacji.
 
 *  W przeciwnym razie, począwszy od deklaracji przestrzeni nazw ([deklaracji Namespace](namespaces.md#namespace-declarations)) natychmiast zawierający *qualified_alias_member* (jeśli istnieje), kontynuowanie z każdego otaczającej deklarację przestrzeni nazw (jeśli istnieje), a kończąc na jednostkę kompilacji, zawierającą *qualified_alias_member*, poniższe kroki są oceniane, dopóki nie znajduje się jednostka:
 
    * Jeśli zawiera jednostki kompilacji lub deklaracji przestrzeni nazw *using_alias_directive* który kojarzy `N` z typem, a następnie *qualified_alias_member* jest niezdefiniowane i w czasie kompilacji występuje błąd.
    * W przeciwnym razie, jeśli zawiera jednostki kompilacji lub deklaracji przestrzeni nazw *extern_alias_directive* lub *using_alias_directive* który kojarzy `N` z obszaru nazw, następnie:
-     * Jeśli przestrzeń nazw skojarzony z `N` zawiera przestrzeń nazw o nazwie `I` i `K` wynosi zero, a następnie *qualified_alias_member* odwołuje się do tego obszaru nazw.
-     * W przeciwnym razie, jeśli przestrzeń nazw skojarzony z `N` zawiera typu nieogólnego, o nazwie `I` i `K` wynosi zero, a następnie *qualified_alias_member* odwołuje się do tego typu.
-     * W przeciwnym razie, jeśli przestrzeń nazw skojarzony z `N` zawiera typ o nazwie `I` zawierający `K` parametry typu, a następnie *qualified_alias_member* odwołuje się do tego typu skonstruowany przy użyciu danego typu argumenty.
+     * Jeśli przestrzeń nazw skojarzony z `N` zawiera przestrzeń nazw o nazwie `I` i `K` wynosi zero, a następnie *qualified_alias_member* odwołuje się do tego obszaru nazw.
+     * W przeciwnym razie, jeśli przestrzeń nazw skojarzony z `N` zawiera typu nieogólnego, o nazwie `I` i `K` wynosi zero, a następnie *qualified_alias_member* odwołuje się do tego typu.
+     * W przeciwnym razie, jeśli przestrzeń nazw skojarzony z `N` zawiera typ o nazwie `I` zawierający `K`  parametry typu, a następnie *qualified_alias_member* dotyczy, że typ jest zbudowany z argumenty danego typu.
      * W przeciwnym razie *qualified_alias_member* jest niezdefiniowana, i występuje błąd kompilacji.
 *  W przeciwnym razie *qualified_alias_member* jest niezdefiniowana, i występuje błąd kompilacji.
 
-Należy pamiętać, że kwalifikator aliasu przestrzeni nazw przy użyciu aliasu, który odwołuje się do typu powoduje błąd kompilacji. Należy również zauważyć, że jeśli identyfikator `N` jest `global`, wówczas wyszukiwania odbywa się w globalnej przestrzeni nazw, nawet jeśli dostępny jest za pomocą aliasu kojarzenie `global` przy użyciu typu lub przestrzeni nazw.
+Należy pamiętać, że kwalifikator aliasu przestrzeni nazw przy użyciu aliasu, który odwołuje się do typu powoduje błąd kompilacji. Należy również zauważyć, że jeśli identyfikator `N` jest `global`, wówczas wyszukiwania odbywa się w globalnej przestrzeni nazw, nawet jeśli dostępny jest za pomocą aliasu kojarzenie `global` przy użyciu typu lub przestrzeni nazw.
 
 ### <a name="uniqueness-of-aliases"></a>Unikatowość nazw aliasów
 

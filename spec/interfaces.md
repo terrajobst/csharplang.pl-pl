@@ -189,7 +189,7 @@ public interface IStringList
     string this[int index] { get; set; }
 }
 ```
-deklaruje interfejs, który zawiera jedną z możliwych rodzajów elementów członkowskich: metody, właściwości, zdarzenia i indeksatora.
+deklaruje interfejs, który zawiera jedną z możliwych rodzajów elementów członkowskich: Metody, właściwości, zdarzenia i indeksatora.
 
 *Interface_declaration* tworzy nowe miejsce do deklaracji ([deklaracje](basic-concepts.md#declarations)), a *interface_member_declaration*s natychmiast zawartych *interface_declaration* wprowadzenia nowych członków do tej deklaracji przestrzeni. Następujące reguły mają zastosowanie do *interface_member_declaration*s:
 
@@ -295,7 +295,7 @@ Typ indeksatora interfejsu muszą być bezpieczne dane wyjściowe, jeśli ma ona
 
 Elementy członkowskie interfejsu są dostępne za pośrednictwem dostępu do elementu członkowskiego ([dostęp do elementu członkowskiego](expressions.md#member-access)) i dostęp indeksatora ([dostęp indeksatora](expressions.md#indexer-access)) wyrażeń formularza `I.M` i `I[A]`, gdzie `I` jest typem interfejsu `M` jest metoda, właściwość lub zdarzenie tego typu interfejsu i `A` to lista argumentu indeksatora.
 
-Dla interfejsów, które są ściśle pojedyncze dziedziczenie (każdego interfejsu w łańcuch dziedziczenia ma dokładnie zero lub jeden interfejs podstawowy bezpośrednich), wpływ wyszukanie członka ([wyszukanie członka](expressions.md#member-lookup)), wywołanie metody ([ Wywołań metod](expressions.md#method-invocations)), a dostęp indeksatora ([dostęp indeksatora](expressions.md#indexer-access)) reguły są dokładnie takie same jak dla klasy i struktury: bardziej pochodnego Ukryj członków mniej pochodnego składowych o tej samej nazwie lub podpisie. Jednak dla interfejsów dziedziczenia wielokrotnego niejednoznaczności może wystąpić, gdy dwie lub więcej niepowiązanych interfejsy podstawowe zadeklarować składowych o tej samej nazwie lub podpisie. W tej sekcji przedstawiono kilka przykładów takich sytuacji. We wszystkich przypadkach ma jawnych rzutowań może służyć do rozwiązywania niejednoznaczności.
+Dla interfejsów, które są ściśle pojedyncze dziedziczenie (każdego interfejsu w łańcuch dziedziczenia ma dokładnie zero lub jeden interfejs podstawowy bezpośrednich), wpływ wyszukanie członka ([wyszukanie członka](expressions.md#member-lookup)), wywołanie metody ([ Wywołań metod](expressions.md#method-invocations)), a dostęp indeksatora ([dostęp indeksatora](expressions.md#indexer-access)) reguły są dokładnie takie same jak dla klasy i struktury: Ukryj członków więcej uzyskiwana mniej pochodnego elementów członkowskich z tej samej nazwie lub podpisie. Jednak dla interfejsów dziedziczenia wielokrotnego niejednoznaczności może wystąpić, gdy dwie lub więcej niepowiązanych interfejsy podstawowe zadeklarować składowych o tej samej nazwie lub podpisie. W tej sekcji przedstawiono kilka przykładów takich sytuacji. We wszystkich przypadkach ma jawnych rzutowań może służyć do rozwiązywania niejednoznaczności.
 
 W przykładzie
 ```csharp
@@ -380,7 +380,7 @@ class A
 ```
 `IBase.F` składowa ukryta przez `ILeft.F` elementu członkowskiego. Wywołanie `d.F(1)` wybiera w związku z tym `ILeft.F`, nawet jeśli `IBase.F` wydaje się nie być ukryte w ścieżce dostępu, który prowadzi przez `IRight`.
 
-Intuicyjne reguły dla ukrywanie w interfejsach dziedziczenia wielokrotnego to po prostu: Jeśli element członkowski jest ukryty w dowolnej ścieżce dostęp, jest ukryty w wszystkich ścieżek dostępu. Ponieważ ścieżka dostępu z `IDerived` do `ILeft` do `IBase` ukrywa `IBase.F`, należy również jest ukryty w ścieżce dostępu z `IDerived` do `IRight` do `IBase`.
+Intuicyjne reguły dla ukrywanie w interfejsach dziedziczenia wielokrotnego to po prostu: Jeśli element członkowski jest ukryty w dowolnej ścieżce dostęp, jest on ukryty wszystkich ścieżek dostępu. Ponieważ ścieżka dostępu z `IDerived` do `ILeft` do `IBase` ukrywa `IBase.F`, należy również jest ukryty w ścieżce dostępu z `IDerived` do `IRight` do `IBase`.
 
 ## <a name="fully-qualified-interface-member-names"></a>Interfejs w pełni kwalifikowanej nazwy elementów członkowskich
 

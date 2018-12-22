@@ -276,7 +276,7 @@ W niebezpiecznym kontekście kilka konstrukcji są dostępne dla działających 
 
 ## <a name="fixed-and-moveable-variables"></a>Stałe i ruchome zmiennych
 
-Operator address-of ([operatora address-of](unsafe-code.md#the-address-of-operator)) i `fixed` instrukcji ([instrukcji fixed](unsafe-code.md#the-fixed-statement)) podzielić zmiennych na dwie kategorie: ***stałej zmienne***i ***ruchome zmienne***.
+Operator address-of ([operatora address-of](unsafe-code.md#the-address-of-operator)) i `fixed` — instrukcja ([instrukcji fixed](unsafe-code.md#the-fixed-statement)) dzielą zmiennych na dwie kategorie: ***Naprawiono zmienne*** i ***ruchome zmienne***.
 
 Stałe zmienne znajdują się w lokalizacji przechowywania, które nie ma wpływu na działanie modułu odśmiecania pamięci. (Stałe zmienne przykładami zmienne lokalne, wartości parametrów i zmiennych utworzonych przez wyłuskanie wskaźników.) Z drugiej strony zmienne ruchome znajdują się w lokalizacji przechowywania, które podlegają relokacji lub usunięcia przez moduł odśmiecania pamięci. (Zmienne ruchome należą pola obiektów oraz elementów tablic.)
 

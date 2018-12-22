@@ -28,7 +28,7 @@ Każdy plik źródłowy w języku C# służącego musi być zgodna z *wejściowy
 
 Gramatyka składni języka C# są prezentowane w rozdziałach i dodatki, które należy wykonać w tym rozdziale. Terminalu symbole gramatyki składniowe są tokeny zdefiniowane przez gramatyka leksykalna i gramatyki składni Określa, jak tokeny są łączone w celu formularza C# programy.
 
-Każdy plik źródłowy w języku C# służącego musi być zgodna z *compilation_unit* produkcji składni gramatyki ([jednostki kompilacji](namespaces.md#compilation-units)).
+Każdy plik źródłowy w C# program musi być zgodna z *compilation_unit* produkcji składni gramatyki ([jednostki kompilacji](namespaces.md#compilation-units)).
 
 ## <a name="lexical-analysis"></a>Poddawać analizie leksykalnej
 
@@ -55,7 +55,7 @@ input_element
     ;
 ```
 
-Pięć podstawowych elementów tworzą struktura leksykalna pliku źródłowego języka C#: wiersz terminatory ([wiersz terminatory](lexical-structure.md#line-terminators)), biały ([biały](lexical-structure.md#white-space)), komentarze ([komentarze](lexical-structure.md#comments)), tokeny ([tokenów](lexical-structure.md#tokens)) oraz dyrektywy przetwarzania wstępnego ([przetwarzania wstępnego dyrektywy](lexical-structure.md#pre-processing-directives)). Z tych podstawowych elementów tylko tokeny są istotne w gramatyce składni programu w języku C# ([składni gramatyki](lexical-structure.md#syntactic-grammar)).
+Pięć podstawowych elementów tworzą struktura leksykalna C# pliku źródłowego: Wiersz terminatory ([wiersz terminatory](lexical-structure.md#line-terminators)), biały ([biały](lexical-structure.md#white-space)), komentarze ([komentarze](lexical-structure.md#comments)), tokeny ([tokenów](lexical-structure.md#tokens)), i Przetwarzanie wstępne dyrektywy ([przetwarzania wstępnego dyrektywy](lexical-structure.md#pre-processing-directives)). Z tych podstawowych elementów tylko tokeny są istotne w gramatyce składni programu w języku C# ([składni gramatyki](lexical-structure.md#syntactic-grammar)).
 
 Leksykalne przetwarzanie plik źródłowy C# zawiera zmniejszenie pliku sekwencję tokenów, która staje się dane wejściowe do analizy składni. Terminatory wiersza, biały i komentarze, które może służyć do oddzielania tokenów, dyrektywy przetwarzania wstępnego mogą powodować części pliku źródłowego do pominięcia, a w przeciwnym razie te elementy leksykalne nie mają wpływu na strukturę składni programu w języku C#.
 
@@ -467,7 +467,7 @@ Należy pamiętać, że w rzeczywistych literał, cyfry dziesiętne zawsze są w
 
 Literał znakowy, który reprezentuje pojedynczy znak, a składa się zwykle znaku w cudzysłowie, jak w `'a'`.
 
-Uwaga: Notacji gramatyki ANTLR sprawia, że następujące mylące! W ANTLR, kiedy piszesz `\'` oznacza pojedynczy cudzysłów `'`. I podczas wpisywania `\\` oznacza pojedynczy ukośnik odwrotny `\`. W związku z tym pierwsze reguły dla literału znakowego oznacza, że zaczyna się od pojedynczy cudzysłów znaków, a następnie pojedynczy cudzysłów. I jedenaście możliwe proste sekwencje ucieczki są `\'`, `\"`, `\\`, `\0`, `\a`, `\b`, `\f`, `\n`, `\r`, `\t`, `\v`.
+Uwaga: Notacja gramatyki ANTLR sprawia, że następujące mylące! W ANTLR, kiedy piszesz `\'` oznacza pojedynczy cudzysłów `'`. I podczas wpisywania `\\` oznacza pojedynczy ukośnik odwrotny `\`. W związku z tym pierwsze reguły dla literału znakowego oznacza, że zaczyna się od pojedynczy cudzysłów znaków, a następnie pojedynczy cudzysłów. I jedenaście możliwe proste sekwencje ucieczki są `\'`, `\"`, `\\`, `\0`, `\a`, `\b`, `\f`, `\n`, `\r`, `\t`, `\v`.
 
 ```antlr
 character_literal
@@ -510,7 +510,7 @@ Proste sekwencje reprezentuje kodowania znaków Unicode, zgodnie z opisem w poni
 | `\"`                | podwójny cudzysłów       | `0x0022`             | 
 | `\\`                | Ukośnik odwrotny          | `0x005C`             | 
 | `\0`                | Null               | `0x0000`             | 
-| `\a`                | Zgłoś alert              | `0x0007`             | 
+| `\a`                | Alerty              | `0x0007`             | 
 | `\b`                | Backspace          | `0x0008`             | 
 | `\f`                | Wysuw strony          | `0x000C`             | 
 | `\n`                | Nowy wiersz           | `0x000A`             | 

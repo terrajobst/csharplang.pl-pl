@@ -188,11 +188,11 @@ C# obsługuje dwa punktu zmiennoprzecinkowego: `float` i `double`. `float` i `do
 *  Dodatnia zero i ujemna zero. W większości sytuacji, zero dodatnie i ujemne zero zachowują się identycznie, prostą wartość zero, ale niektóre operacje rozróżnienie między dwoma ([operator dzielenia](expressions.md#division-operator)).
 *  Nieskończoności dodatniej i ujemna nieskończoność. Nieskończoności są produkowane przez operacje, takie jak dzielenia liczby różna od zera przez zero. Na przykład `1.0 / 0.0` daje nieskończoności dodatniej i `-1.0 / 0.0` plony minus nieskończoność.
 *  ***Nie nieliczbowych*** wartości, często w postaci akronimu NaN. NaNs są produkowane przez nieprawidłowy operacji zmiennoprzecinkowych, takich jak dzielenia 0 przez zero.
-*  Ograniczone zbiór wartości niezerowe wiązania w postaci `s * m * 2^e`, gdzie `s` wynosi 1 lub -1, i `m` i `e` zależą od określonego typu zmiennoprzecinkowego: dla `float`, `0 < m < 2^24` i `-149 <= e <= 104`oraz `double`, `0 < m < 2^53` i `1075 <= e <= 970`. Nieznormalizowany liczby zmiennoprzecinkowe są traktowane jako prawidłowe wartości różna od zera.
+*  Ograniczone zbiór wartości niezerowe wiązania w postaci `s * m * 2^e`, gdzie `s` wynosi 1 lub -1, i `m` i `e` zależą od określonego typu zmiennoprzecinkowego: Aby uzyskać `float`, `0 < m < 2^24` i `-149 <= e <= 104`oraz `double`, `0 < m < 2^53` i `1075 <= e <= 970`. Nieznormalizowany liczby zmiennoprzecinkowe są traktowane jako prawidłowe wartości różna od zera.
 
-`float` Typ może reprezentować wartości z zakresu od około `1.5 * 10^-45` do `3.4 * 10^38` z dokładnością do 7 cyfr.
+`float` Typ może reprezentować wartości z zakresu od około `1.5 * 10^-45` do `3.4 * 10^38` z dokładnością do 7 cyfr.
 
-`double` Typ może reprezentować wartości z zakresu od około `5.0 * 10^-324` do `1.7 × 10^308` z dokładnością do 15-16 cyfr.
+`double` Typ może reprezentować wartości z zakresu od około `5.0 * 10^-324` do `1.7 × 10^308` z dokładnością do 15-16 cyfr.
 
 Jeśli jeden z operandów operatora binarnego jest typu zmiennoprzecinkowego, to drugi operand musi być typu całkowitego lub typu zmiennoprzecinkowego i operacji jest obliczane w następujący sposób:
 
@@ -211,15 +211,15 @@ Zmiennoprzecinkowe operacje mogą być wykonywane przy użyciu większą precyzj
 
 ### <a name="the-decimal-type"></a>Typu dziesiętnego
 
-`decimal` Typ to typ danych 128-bitowych, odpowiedni do obliczeń finansowych i walutowych. `decimal` Typ może reprezentować wartości z zakresu od `1.0 * 10^-28` do około `7.9 * 10^28` z cyframi znaczącymi 28-29.
+`decimal` Typ to typ danych 128-bitowych, odpowiedni do obliczeń finansowych i walutowych. `decimal` Typ może reprezentować wartości z zakresu od `1.0 * 10^-28` do około `7.9 * 10^28` z cyframi znaczącymi 28-29.
 
-Ograniczone zestaw wartości typu `decimal` mają postać `(-1)^s * c * 10^-e`, gdzie znak `s` jest równa 0 lub 1, współczynnik `c` jest nadawana przez `0 <= *c* < 2^96`i skalowania `e` jest tak, aby `0 <= e <= 28`. `decimal` Typ nie obsługuje podpisem zer, nieskończoności lub firmy NaN. Element `decimal` jest reprezentowany jako 96-bitową liczbę całkowitą, skalowana przez potęgą liczby 10. Dla `decimal`s przy użyciu wartości bezwzględnej mniej niż `1.0m`, wartość jest dokładnie do 28 po przecinku, lecz żadnych dalszych. Aby uzyskać `decimal`s przy użyciu wartości bezwzględnej większa lub równa `1.0m`, wartość jest dokładnie do 28-29 cyfr. Sprzeczna `float` i `double` typy danych ułamkowych liczby dziesiętne, takich jak 0,1 może być reprezentowany dokładnie w `decimal` reprezentacji. W `float` i `double` reprezentacje liczby takie są często nieskończonej ułamki co te oświadczenia, które są bardziej podatne na zaokrąglania błędy.
+Ograniczone zestaw wartości typu `decimal` mają postać `(-1)^s * c * 10^-e`, gdzie znak `s` jest równa 0 lub 1, współczynnik `c` jest nadawana przez `0 <= *c* < 2^96`i skalowania `e` jest tak, aby `0 <= e <= 28`. `decimal` Typ nie obsługuje podpisem zer, nieskończoności lub firmy NaN. Element `decimal` jest reprezentowany jako 96-bitową liczbę całkowitą, skalowana przez potęgą liczby 10. Dla `decimal`s przy użyciu wartości bezwzględnej mniej niż `1.0m`, wartość jest dokładnie do 28 po przecinku, lecz żadnych dalszych. Aby uzyskać `decimal`s przy użyciu wartości bezwzględnej większa lub równa `1.0m`, wartość jest dokładnie do 28-29 cyfr. Sprzeczna `float` i `double` typy danych ułamkowych liczby dziesiętne, takich jak 0,1 może być reprezentowany dokładnie w `decimal` reprezentacji. W `float` i `double` reprezentacje liczby takie są często nieskończonej ułamki co te oświadczenia, które są bardziej podatne na zaokrąglania błędy.
 
 Jeśli jeden z argumentów operatora binarnego jest typu `decimal`, to drugi operand musi być typu całkowitego lub typu `decimal`. Jeśli argument typu całkowitego jest obecny, jest konwertowany na `decimal` przed wykonaniem operacji.
 
 Wynikiem operacji na wartościach typu `decimal` jest, który byłby wynikiem obliczania dokładny wynik (przy zachowaniu skalowania, zgodnie z definicją operatorów), a następnie Zaokrąglenie w celu dopasowania do przedstawienia. Wyniki są zaokrąglane do najbliższego wartość oraz, jeśli wynik jest jednakowo blisko dwóch reprezentowanych wartości do wartości, który ma parzystą liczbą w najmniej znaczący Pozycja cyfry (jest to określane jako "banker przez zaokrąglenie"). Zero wynik ma zawsze znak liczby 0 i o skali 0.
 
-Jeśli dziesiętna Operacja arytmetyczna daje wartość mniejszą niż lub równa `5 * 10^-29` w wartościach bezwzględnych, wynik operacji staje się zerem. Jeśli `decimal` Operacja arytmetyczna daje wynik, który jest zbyt duży dla `decimal` formacie `System.OverflowException` zgłaszany.
+Jeśli dziesiętna Operacja arytmetyczna daje wartość mniejszą niż lub równa `5 * 10^-29` w wartościach bezwzględnych, wynik operacji staje się zerem. Jeśli `decimal` Operacja arytmetyczna daje wynik, który jest zbyt duży dla `decimal` formacie `System.OverflowException` zgłaszany.
 
 `decimal` Typ ma większą precyzję ale mniejszym zakresie niż typów zmiennoprzecinkowych. W związku z tym, konwersje z typów zmiennoprzecinkowych aby `decimal` może tworzyć wyjątki przepełnienia i konwersje z `decimal` z typami zmiennoprzecinkowymi może spowodować utratę dokładności. Z tego względu nie niejawne występują konwersje między typami zmiennoprzecinkowymi a `decimal`, i bez jawnego rzutowania, nie można mieszać zmiennoprzecinkowe i `decimal` operandy w jednym wyrażeniu.
 

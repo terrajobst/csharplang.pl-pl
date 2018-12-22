@@ -4,7 +4,7 @@ C# (Wymowa: "Zobacz Sharp") to proste, nowoczesnych, zorientowane obiektowo i be
 
 C# to język obiektowy, ale C# dalsze obejmuje obsługę ***zorientowanego na*** programowania. Projektowania oprogramowania współczesnych coraz bardziej opiera się na składniki oprogramowania w postaci pakietów niezależna i samoopisujące funkcji. Kluczem do takich składników jest, czy stanowią one model programowania za pomocą właściwości, metod i zdarzeń; mają atrybuty, które zapewniają deklaracyjne informacje o składniku; i obejmują one we własnej dokumentacji. C# zawiera konstrukcji języka, aby bezpośrednio obsługują te pojęcia wprowadzania C# bardzo języka naturalnego, w której do tworzenia i używania składników oprogramowania.
 
-Kilka funkcji języka C# o pomoc do tworzenia niezawodnych i trwałych aplikacji: ***wyrzucania elementów bezużytecznych*** automatycznie odzyskuje pamięć zajęta przez nieużywanych obiektów; ***wyjątków*** ze strukturą i rozszerzalny podejście do wykrywania błędów i odzyskiwania; i ***bezpieczny*** projekt języka umożliwia odczytywanie niezainicjowany zmienne tablic indeksu poza ich zakresem, lub wykonać rzutowania typów niezaznaczone.
+Kilka C# funkcje pomocy do tworzenia niezawodnych i trwałych aplikacji: ***Wyrzucanie elementów bezużytecznych*** automatycznie odzyskuje pamięć zajęta przez nieużywanych obiektów; ***wyjątków*** ze strukturą i rozszerzalny podejście do wykrywania błędów i odzyskiwania; i ***bezpieczny*** projekt języka umożliwia odczytywanie niezainicjowane zmienne Indeksowanie tablic poza ich zakresem, lub wykonać unchecked typu rzutowania.
 
 C# ma ***unified system typów***. Wszystkie C# typów, w tym typów podstawowych takich jak `int` i `double`, dziedziczą z jednym elementem głównym `object` typu. W efekcie wszystkie typy udostępnić zestaw typowych operacji, a wartości dowolnego typu mogą być przechowywane, transportowane i wykonywane są operacje w sposób ciągły. Ponadto, C# obsługuje typy odwołań zdefiniowanych przez użytkownika i typów wartości, umożliwiając dynamiczna alokacja obiektów, a także magazynu w tekście uproszczone struktur.
 
@@ -265,7 +265,7 @@ Poniższa tabela zawiera podsumowanie operatory C# firmy, lista kategorii operat
 |                                  | `x % y`           | Reszta |
 | Dodatku                         | `x + y`           | Dodawanie, łączenie ciągów, łączenie delegatów |
 |                                  | `x - y`           | Odejmowanie, usuwanie delegata |
-| SHIFT                            | `x << y`          | Przesunięcie w lewo |
+| Shift                            | `x << y`          | Przesunięcie w lewo |
 |                                  | `x >> y`          | Przesunięcie w prawo |
 | Relacyjne i badania typu      | `x < y`           | Mniejsze niż |
 |                                  | `x > y`           | Większe niż |

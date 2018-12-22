@@ -202,7 +202,7 @@ jest prawidłowy i używa nazwy `x` jako parametr i etykietę.
 
 Wykonanie instrukcji oznaczonej etykietą dokładnie odpowiada wykonywania instrukcji następującej etykiety.
 
-Oprócz osiągalności dostarczone przez Normalny przepływ sterowania, jest osiągalna, jeśli etykieta odwołuje się osiągalny instrukcji oznaczonej etykietą `goto` instrukcji. (Wyjątek: Jeśli `goto` Instrukcja znajduje się wewnątrz `try` zawierającej `finally` bloku i instrukcja labeled znajduje się poza `try`i punkt końcowy `finally` bloku jest niedostępny, a następnie nie jest instrukcja labeled dostępny z poziomu którego `goto` instrukcja.)
+Oprócz osiągalności dostarczone przez Normalny przepływ sterowania, jest osiągalna, jeśli etykieta odwołuje się osiągalny instrukcji oznaczonej etykietą `goto` instrukcji. (Wyjątek: Jeśli `goto` Instrukcja znajduje się wewnątrz `try` zawierającej `finally` bloku i instrukcja labeled znajduje się poza `try`i punkt końcowy `finally` bloku jest niedostępny, a następnie nie jest dostępny z etykietą instrukcji które `goto` instrukcja.)
 
 ## <a name="declaration-statements"></a>Instrukcje deklaracji
 
@@ -801,7 +801,7 @@ Treść na koniec bloku jest tworzona zgodnie z następujących czynności:
 
    Zmienna lokalna `d` nie jest widoczne lub dostępne dla kodu użytkownika. W szczególności, nie powoduje konfliktu z innych zmiennych, których zakres obejmuje bloku finally.
 
-Kolejność, w której `foreach` przechodzi przez elementy tablicy, jest następujący: dla elementów tablice jednowymiarowe jest przesunięta w indeksie kolejności rosnącej, zaczynając od indeksu `0` i kończąc indeksu `Length - 1`. Dla wielowymiarowych tablic elementów jest przesunięta w taki sposób, że indeksy po prawej stronie wymiaru są pierwszy zwiększona, a następnie dalej wymiaru po lewej stronie, i tak dalej, aby po lewej stronie.
+Kolejność, w której `foreach` przechodzi przez elementy tablicy, jest następujący: Dla elementów tablice jednowymiarowe jest przesunięta w indeksie kolejności rosnącej, zaczynając od indeksu `0` i kończąc indeksu `Length - 1`. Dla wielowymiarowych tablic elementów jest przesunięta w taki sposób, że indeksy po prawej stronie wymiaru są pierwszy zwiększona, a następnie dalej wymiaru po lewej stronie, i tak dalej, aby po lewej stronie.
 
 Poniższy przykład wyświetla każdej wartości w dwuwymiarowej tablicy, w kolejności elementów:
 ```csharp

@@ -597,13 +597,13 @@ Podczas generowania ciągi identyfikatorów, generator dokumentacji przestrzega 
 *  Druga część ciągu jest w pełni kwalifikowana nazwa elementu, począwszy od głównego obszaru nazw. Nazwa elementu, jego otaczającego typów i przestrzeni nazw są oddzielone kropkami. Jeśli nazwa elementu zawiera kropek, są zastępowane przez `#(U+0023)` znaków. (Zakłada się, że element nie ma tego znaku w jego nazwę.)
 *  Dla metod i właściwości z argumentami poniżej listy argumentów, ujęte w nawiasy. Dla osób, bez argumentów nawiasy są pomijane. Argumenty są oddzielone przecinkami. Kodowanie każdy argument jest taka sama jak sygnatury interfejsu wiersza polecenia w następujący sposób:
    *  Argumenty są reprezentowane przez ich nazwy dokumentacji, która opiera się na ich w pełni kwalifikowaną nazwę, zmodyfikowana w następujący sposób:
-      * Argumenty, które reprezentują typy rodzajowe mają dołączonych "" "znakiem następuje liczba parametrów typu
+      * Argumenty, które reprezentują typy rodzajowe mają dołączonych `` ` `` znak (początkowych), a następnie liczbę parametrów typu
       * Argumentów mających `out` lub `ref` modyfikator musi `@` zgodnie z ich nazwy typu. Argumenty przekazywane przez wartość lub za pośrednictwem `params` mają nie specjalne notacji.
-      * Argumenty, które są tablice są reprezentowane jako `[lowerbound:size, ... , lowerbound:size]` gdzie liczba przecinków jest rangi minus jeden, a dolne granice i rozmiaru każdego wymiaru, jeśli jest znany, są reprezentowane w zapisie dziesiętnym. Jeśli dolna granica lub rozmiar nie zostanie określony, zostanie pominięty. W przypadku pominięcia dolną granicę i rozmiar dla określonego wymiaru "`:`" pominięto w także. Tablice nieregularne są reprezentowane przez jedną "`[]`" na poziomie.
+      * Argumenty, które są tablice są reprezentowane jako `[lowerbound:size, ... , lowerbound:size]` gdzie liczba przecinków jest rangi minus jeden, a dolne granice i rozmiaru każdego wymiaru, jeśli jest znany, są reprezentowane w zapisie dziesiętnym. Jeśli dolna granica lub rozmiar nie zostanie określony, zostanie pominięty. W przypadku pominięcia dolną granicę i rozmiar w konkretnym wymiarze `:` pominięto w także. Tablice nieregularne są reprezentowane przez jedną `[]` na poziomie.
       * Argumenty, które mają typ wskaźnika innego niż void są reprezentowane przy użyciu `*` po nazwie typu. Pusty wskaźnik jest reprezentowane za pomocą nazwę typu `System.Void`.
-      * Argumenty, które odwołują się do parametrów typu genetycznego zdefiniowany dla typów są zakodowane przy użyciu "" "znak następuje liczony od zera indeks parametru typu.
-      * Argumenty, które używać parametrów typu ogólnego, zdefiniowane w metodach używać początkowych podwójnej "\`\`" zamiast "\`" używane dla typów.
-      * Argumenty, które odnoszą się do typów ogólnych stworzonego elementu są zakodowane przy użyciu typu ogólnego, a następnie "{", następuje rozdzielana przecinkami lista argumentów typu, a następnie "}".
+      * Argumenty, które odwołują się do parametrów typu genetycznego zdefiniowany dla typów są zakodowane przy użyciu `` ` `` znak (początkowych) następuje liczony od zera indeks parametru typu.
+      * Argumenty, które używać parametrów typu ogólnego, zdefiniowane w metodach używać początkowych double ``` `` ``` zamiast `` ` `` używane dla typów.
+      * Argumenty, które odnoszą się do typów ogólnych stworzonego elementu są zakodowane przy użyciu typu ogólnego, a następnie `{`, następuje rozdzielana przecinkami lista argumentów typu, a następnie `}`.
 
 ### <a name="id-string-examples"></a>Identyfikator ciągu przykłady
 

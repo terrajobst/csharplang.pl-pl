@@ -4,7 +4,7 @@ Tablica jest strukturą danych, która zawiera szereg zmiennych, które są dost
 
 Tablica ma rangę, która określa liczbę indeksów skojarzone z każdego elementu tablicy. Ranga tablicy jest również określany jako wymiary tablicy. Nosi nazwę tablicy o liczbie rangą równą jeden ***tablicy jednowymiarowej***. Więcej niż jedna nazywa się rangę tablicy o liczbie ***tablicy wielowymiarowej***. Określone rozmiarze Wielowymiarowe tablice są często zwane tablice dwuwymiarowe, tablic trójwymiarowych i tak dalej.
 
-Każdy wymiar tablicy ma skojarzone długości, która jest liczbą całkowitą większy lub równy zero. Długości wymiarów nie są częścią typ tablicy, ale raczej są określane podczas tworzenia wystąpienia typu tablicy w czasie wykonywania. Długość drugiego wymiaru określa prawidłowy zakres indeksów dla tego wymiaru: wymiaru o długości `N`, indeksów może wynosić od `0` do `N - 1` (włącznie). Całkowita liczba elementów w tablicy jest produktem długości każdego wymiaru tablicy. Jeśli co najmniej jeden z wymiarów tablicy ma długość równą zero, tablica jest określany jako pusta.
+Każdy wymiar tablicy ma skojarzone długości, która jest liczbą całkowitą większy lub równy zero. Długości wymiarów nie są częścią typ tablicy, ale raczej są określane podczas tworzenia wystąpienia typu tablicy w czasie wykonywania. Długość drugiego wymiaru określa prawidłowy zakres indeksów dla tego wymiaru: Dla wymiaru o długości `N`, indeksów może wynosić od `0` do `N - 1` (włącznie). Całkowita liczba elementów w tablicy jest produktem długości każdego wymiaru tablicy. Jeśli co najmniej jeden z wymiarów tablicy ma długość równą zero, tablica jest określany jako pusta.
 
 Typ elementu tablicy może być dowolnego typu, w tym typu tablicowego.
 
@@ -32,7 +32,7 @@ dim_separator
 
 A *non_array_type* jest dowolnym *typu* oznacza to nie sam *array_type*.
 
-Ranga typ tablicy jest nadawana przez najdalej z lewej strony *rank_specifier* w *array_type*: A *rank_specifier* wskazuje, że tablica jest tablicą z rangą równą jeden, a także Liczba "`,`" tokenów w *rank_specifier*.
+Ranga typ tablicy jest nadawana przez najdalej z lewej strony *rank_specifier* w *array_type*: A *rank_specifier* wskazuje, że tablica jest tablicy z rangą równą jeden plus liczba "`,`" tokenów w *rank_specifier*.
 
 Typ elementu typ tablicy to typ, który powoduje usunięcie najdalej z lewej strony *rank_specifier*:
 
