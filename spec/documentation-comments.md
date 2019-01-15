@@ -37,12 +37,12 @@ public class Point
 }
 ```
 
-Tekst w ramach komentarzy do dokumentacji musi być poprawnie sformułowany zgodnie z regułami XML (http://www.w3.org/TR/REC-xml). Jeśli kod XML jest ill sformułowany, generowane jest ostrzeżenie, a plik dokumentacja będzie zawierać komentarz informujący o tym, że wystąpił błąd podczas.
+Tekst w ramach komentarzy do dokumentacji musi być poprawnie sformułowany zgodnie z regułami XML (https://www.w3.org/TR/REC-xml). Jeśli kod XML jest ill sformułowany, generowane jest ostrzeżenie, a plik dokumentacja będzie zawierać komentarz informujący o tym, że wystąpił błąd podczas.
 
 Mimo że Deweloperzy są bezpłatne tworzenie własnych zestawów tagów, zalecany zestaw jest zdefiniowany w [zalecane tagi](documentation-comments.md#recommended-tags). Niektóre zalecane tagi mają specjalne znaczenie:
 
 *  `<param>` Tag jest używany do opisania parametrów. Jeśli takie tag jest używany, generator dokumentacji musi sprawdzić, czy określony parametr istnieje i czy wszystkie parametry są opisane w komentarzach dokumentacji. Jeśli taka weryfikacja zakończy się niepowodzeniem, generator dokumentacji generuje ostrzeżenie.
-*  `cref` Atrybutu mogą być dołączane do każdego znacznika, aby zapewnić odwołanie do elementu kodu. Generator dokumentacji należy sprawdzić, czy ten element kodu istnieje. Jeśli weryfikacja zakończy się niepowodzeniem, generator dokumentacji generuje ostrzeżenie. Podczas wyszukiwania dla nazwy opisanego w `cref` atrybutu, generator dokumentacji muszą przestrzegać widoczność przestrzeni nazw zgodnie z opisem w `using` instrukcji w kodzie źródłowym. Dla elementów kodu znajdujące ogólnego normalne ogólna składnia (ie "`List<T>`") nie można użyć, ponieważ generuje nieprawidłowy kod XML. Nawiasy klamrowe można używać zamiast nawiasy kwadratowe (ie "`List{T}`"), lub można używać składni XML ucieczki (ie "`List&lt;T&gt;`").
+*  `cref` Atrybutu mogą być dołączane do każdego znacznika, aby zapewnić odwołanie do elementu kodu. Generator dokumentacji należy sprawdzić, czy ten element kodu istnieje. Jeśli weryfikacja zakończy się niepowodzeniem, generator dokumentacji generuje ostrzeżenie. Podczas wyszukiwania dla nazwy opisanego w `cref` atrybutu, generator dokumentacji muszą przestrzegać widoczność przestrzeni nazw zgodnie z opisem w `using` instrukcji w kodzie źródłowym. Dla elementów kodu znajdujące ogólnego normalne ogólna składnia (czyli "`List<T>`") nie można użyć, ponieważ generuje nieprawidłowy kod XML. Nawiasy klamrowe można używać zamiast nawiasy kwadratowe (czyli "`List{T}`"), lub składni XML ucieczki mogą być używane (oznacza to, "`List&lt;T&gt;`").
 *  `<summary>` Tag jest przeznaczona do użycia przez Podgląd dokumentacji, aby wyświetlić dodatkowe informacje na temat typu lub elementu członkowskiego.
 *  `<include>` Tag zawierały informacje z zewnętrznego pliku XML.
 
