@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 61eeae6173eaa19f9cf6d6e985f3dc107d4c3ac9
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "50245529"
+---
 # <a name="conversions"></a>Konwersje
 
 A ***konwersji*** umożliwia wyrażenia traktowana jako określonego typu. Konwersja może spowodować, że wyrażenie danego typu należy traktować jako posiadające innego typu lub może spowodować, że wyrażenie bez typu, można pobrać typu. Konwersje może być ***niejawne*** lub ***jawne***, i określa, czy jawnego rzutowania jest wymagana. Na przykład konwersja z typu `int` na typ `long` jest niejawny, więc wyrażeń o typie `int` niejawnie może być traktowany jako typ `long`. Przeciwny konwersji z typu `long` na typ `int`, jest jawne jawnego rzutowania to wymagane.

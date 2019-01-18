@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: c9f8417dc68153f02ceb72bb1d51f3615f3c4961
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54272049"
+---
 # <a name="documentation-comments"></a>Komentarze dokumentacji
 
 C# zawiera mechanizmu dla programistów udokumentować kod przy użyciu specjalnej składni komentarza zawierający tekst XML. W plikach kodu źródłowego komentarze o niektórych formularza może służyć do kierowania narzędzia do tworzenia XML, mimo że takie komentarze i elementy kodu źródłowego, które mogą poprzedzać. Komentarze przy użyciu składni takie są nazywane ***komentarzy dokumentacji***. Musi bezpośrednio poprzedzać typu zdefiniowanego przez użytkownika (takie jak klasy, delegata lub interfejsu) lub elementu członkowskiego (na przykład pola, zdarzenia, właściwość lub metoda). Narzędzie do generowania XML nosi nazwę ***generator dokumentacji***. (Tego generatora może być, ale nie muszą być, kompilator języka C#, sam). Dane wyjściowe wytwarzane przez generator dokumentacji jest nazywany ***soubor dokumentace***. Plik dokumentacji jest używany jako dane wejściowe ***podglądu dokumentacji***; narzędzie przeznaczone do produkcji jakieś wizualizacji do wyświetlenia informacji o typie i jego skojarzone dokumentacji.

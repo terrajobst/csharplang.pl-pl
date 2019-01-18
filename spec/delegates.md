@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 08c14d9ef2afe30580f456995066c141653ede92
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229942"
+---
 # <a name="delegates"></a>Delegaty
 
 Delegatów realizację scenariuszy, że inne języki — takich jak C++, Pascal i Modula — mają adresowane za pomocą wskaźników funkcji. W przeciwieństwie do wskaźników funkcji języka C++ należy jednak obiekty delegowane są w pełni zorientowana obiektowo i w przeciwieństwie do języka C++ wskaźników do składowych, delegatów hermetyzacji zarówno w przypadku wystąpienia obiektu, jak i metody.

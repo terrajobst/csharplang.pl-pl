@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: b7bb7dd575d9e2e6d5dd85bdd3e535411e29fcf4
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229931"
+---
 # <a name="variables"></a>Zmienne
 
 Zmienne reprezentują lokalizacje przechowywania. Co zmienna ma typ, który określa, jakie wartości mogą być przechowywane w zmiennej. C# to język bezpieczny i kompilator języka C# gwarantuje, że wartości przechowywane w zmiennych są zawsze odpowiedniego typu. Wartość zmiennej można zmienić za pośrednictwem przydziału lub za pośrednictwem `++` i `--` operatorów.

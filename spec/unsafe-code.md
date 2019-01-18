@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 90001cf3d48f216787fc65e59166ec57c5d0ca34
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229932"
+---
 # <a name="unsafe-code"></a>Niebezpieczny kod
 
 Podstawowe języka C#, zgodnie z definicją w poprzednich rozdziałach różni się przede wszystkim od C i C++ w jej pominięcia wskaźników jako typ danych. Zamiast tego, C# zawiera odwołania i możliwość tworzenia obiektów, które są zarządzane przez moduł odśmiecania pamięci. Ten projekt, w połączeniu z innymi funkcjami sprawia, że C# znacznie bezpieczniejsze język niż C lub C++. W języku podstawowym C# po prostu nie jest możliwe niezainicjowaną zmienną, wskaźnik "delegujące" lub wyrażenie, które indeksuje tablicy poza jej granicami. Całej kategorii błędów oznacza rutynowo Plaga C i C++ programy związku z tym są eliminowane.
@@ -654,7 +662,7 @@ sizeof_expression
 Wynik `sizeof` operator jest wartość typu `int`. W przypadku niektórych wstępnie zdefiniowanych typów, `sizeof` operator daje stałą wartość, jak pokazano w poniższej tabeli.
 
 
-| __Wyrażenie__   | __wynik__ |
+| __Expression__   | __wynik__ |
 |------------------|------------|
 | `sizeof(sbyte)`  | `1`        |
 | `sizeof(byte)`   | `1`        |

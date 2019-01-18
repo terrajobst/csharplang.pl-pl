@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: ab41a3c99f79c4cc70f7d4720f7e53b91a410859
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "49640902"
+---
 # <a name="introduction"></a>Wprowadzenie
 
 C# (Wymowa: "Zobacz Sharp") to proste, nowoczesnych, zorientowane obiektowo i bezpieczny typowo język programowania. C# ma korzenie jego rodziny C w językach i będzie znane w programowaniu w języku C, C++ i Java. C# jest standardowym by ECMA International jako ***ECMA 334*** standardowe i ISO/IEC jako ***23270 ISO/IEC*** standardowych. Kompilator języka C# firmy Microsoft dla programu .NET Framework jest odpowiadające wykonania obu tych standardach.
@@ -164,14 +172,14 @@ W poniższej tabeli przedstawiono typy liczbowe języka C# firmy.
 
 | __Kategoria__      | __Usługa BITS__ | __Typ__  | __Zakres/dokładności__ |
 |-------------------|----------|-----------|---------------------|
-| Całkowite podpisem   | 8        | `sbyte`   | od -128... 127 |
-|                   | 16       | `short`   | -32, 768... 32, 767 |
-|                   | 32       | `int`     | -2,147,483, 648... 2 147, 483, 647 |
-|                   | 64       | `long`    | -9,223,372,036,854,775, 808... 9 223, 372, 036, 854, 775, 807 |
-| Całkowite bez znaku | 8        | `byte`    | 0... 255 |
-|                   | 16       | `ushort`  | 0... 65 535 |
-|                   | 32       | `uint`    | 0... 4 294 967 295 |
-|                   | 64       | `ulong`   | 0... 18,446,744,073,709,551,615 |
+| Całkowite podpisem   | 8        | `sbyte`   | -128...127 |
+|                   | 16       | `short`   | -32,768...32,767 |
+|                   | 32       | `int`     | -2,147,483,648...2,147,483,647 |
+|                   | 64       | `long`    | -9,223,372,036,854,775,808...9,223,372,036,854,775,807 |
+| Całkowite bez znaku | 8        | `byte`    | 0...255 |
+|                   | 16       | `ushort`  | 0...65,535 |
+|                   | 32       | `uint`    | 0...4,294,967,295 |
+|                   | 64       | `ulong`   | 0...18,446,744,073,709,551,615 |
 | Liczba zmiennoprzecinkowa    | 32       | `float`   | 1,5 x 10 ^ −45 do 3,4 x 10 ^ 38, dokładności 7 cyfr |
 |                   | 64       | `double`  | W wersji 5.0 x 10 ^ −324 do wersji 1.7 x 10 ^ 308, dokładności 15 cyfr |
 | Wartość dziesiętna           | 128      | `decimal` | 1.0 x 10 ^ −28 do 7,9 x 10 ^ 28, 28 cyfr precyzji |
@@ -236,7 +244,7 @@ Większość operatorów może być ***przeciążone***. Przeciążanie operator
 Poniższa tabela zawiera podsumowanie operatory C# firmy, lista kategorii operatora w kolejność pierwszeństwa od najwyższego do najniższego. Operatory w tej samej kategorii mają równy priorytet.
 
 
-| __Kategoria__                     | __Wyrażenie__    | __Opis__ |
+| __Kategoria__                     | __Expression__    | __Opis__ |
 |----------------------------------|-------------------|-----------------|
 | Podstawowy                          | `x.m`             | Dostęp do elementu członkowskiego |
 |                                  | `x(...)`          | Wywołanie metody i delegata |

@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 155c1beecddfdfcce2e7948bcb8d6b80428fbd7a
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229941"
+---
 # <a name="arrays"></a>Tablice
 
 Tablica jest strukturą danych, która zawiera szereg zmiennych, które są dostępne za pośrednictwem obliczanej indeksów. Zmienne zawartych w tablicy jest określana skrótem elementy tablicy są wszystkie tego samego typu i tego typu jest nazywana typ elementu tablicy.

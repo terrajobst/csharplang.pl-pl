@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 0a09585f4f885647230354c66a2449abb7ef1f44
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229930"
+---
 # <a name="interfaces"></a>Interfejsy
 
 Interfejs definiuje kontrakt. Klasa lub struktura, która implementuje interfejs musi być zgodne z jego umową. Interfejs może dziedziczyć z wielu interfejsach podstawowych, a klasa lub struktura może zaimplementować wiele interfejsów.

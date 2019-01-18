@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 72d17175dfb8ef284dce6cf7e5837420fa06f16a
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229928"
+---
 # <a name="structs"></a>Struktury
 
 Struktury są podobne do klasy, w tym, że reprezentują one struktur danych, które mogą zawierać elementy członkowskie danych i funkcji elementów członkowskich. W przeciwieństwie do klasy, struktury są typami wartości i nie wymagają alokacji sterty. Zmienną typu struktury bezpośrednio zawiera dane struktury, zmienna typu klasy zawiera odwołanie do danych, a ostatni znany jako obiekt.

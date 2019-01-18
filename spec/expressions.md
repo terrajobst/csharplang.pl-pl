@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 75454072a5137b3044f78bb896317fd88a29e336
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "49640915"
+---
 # <a name="expressions"></a>Wyrażenia
 
 Wyrażenie jest sekwencją operatorów i argumentów operacji. W tym rozdziale określa składnię, kolejność oceny operatorów i argumentów i znaczenie wyrażenia.
@@ -2700,9 +2708,9 @@ Operatory mnożenia wstępnie zdefiniowane są wymienione poniżej. Wszystkie op
 
    |      |      |      |     |     |      |      |     |
    |:----:|-----:|:----:|:---:|:---:|:----:|:----:|:----|
-   |      | + y   | -y   | +0  | -0  | + inf | -inf | NaN | 
-   | + x   | + z   | -z   | +0  | -0  | + inf | -inf | NaN | 
-   | -x   | -z   | + z   | -0  | +0  | -inf | + inf | NaN | 
+   |      | +y   | -y   | +0  | -0  | + inf | -inf | NaN | 
+   | +x   | +z   | -z   | +0  | -0  | + inf | -inf | NaN | 
+   | -x   | -z   | +z   | -0  | +0  | -inf | + inf | NaN | 
    | +0   | +0   | -0   | +0  | -0  | NaN  | NaN  | NaN | 
    | -0   | -0   | +0   | -0  | +0  | NaN  | NaN  | NaN | 
    | + inf | + inf | -inf | NaN | NaN | + inf | -inf | NaN | 
@@ -2752,9 +2760,9 @@ Poniżej wymieniono operatory dzielenia wstępnie zdefiniowane. Wszystkie operat
 
    |      |      |      |      |      |      |      |      |
    |:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-   |      | + y   | -y   | +0   | -0   | + inf | -inf | NaN  | 
-   | + x   | + z   | -z   | + inf | -inf | +0   | -0   | NaN  | 
-   | -x   | -z   | + z   | -inf | + inf | -0   | +0   | NaN  | 
+   |      | +y   | -y   | +0   | -0   | + inf | -inf | NaN  | 
+   | +x   | +z   | -z   | + inf | -inf | +0   | -0   | NaN  | 
+   | -x   | -z   | +z   | -inf | + inf | -0   | +0   | NaN  | 
    | +0   | +0   | -0   | NaN  | NaN  | +0   | -0   | NaN  | 
    | -0   | -0   | +0   | NaN  | NaN  | -0   | +0   | NaN  | 
    | + inf | + inf | -inf | + inf | -inf | NaN  | NaN  | NaN  | 
@@ -2802,8 +2810,8 @@ Poniżej wymieniono operatory resztę wstępnie zdefiniowane. Wszystkie operator
 
    |      |      |      |      |      |      |      |      |
    |:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-   |      | + y   | -y   | +0   | -0   | + inf | -inf | NaN  | 
-   | + x   | + z   | + z   | NaN  | NaN  | x    | x    | NaN  | 
+   |      | +y   | -y   | +0   | -0   | + inf | -inf | NaN  | 
+   | +x   | +z   | +z   | NaN  | NaN  | x    | x    | NaN  | 
    | -x   | -z   | -z   | NaN  | NaN  | -x   | -x   | NaN  | 
    | +0   | +0   | +0   | NaN  | NaN  | +0   | +0   | NaN  | 
    | -0   | -0   | -0   | NaN  | NaN  | -0   | -0   | NaN  | 
@@ -2975,7 +2983,7 @@ Poniżej wymieniono operatory odejmowania wstępnie zdefiniowane. Operatory wszy
 
    Ten operator jest oceniane dokładnie jako `(E)((U)x - y)`. Innymi słowy operator odejmuje wartość z podstawowym typem wyliczenia, reaguje wartością wyliczenia.
 
-*  Delegowanie usuwania. Każdy typ delegata niejawnie udostępnia następujące wstępnie zdefiniowanego operatora, gdzie `D` jest typ delegata:
+*  Delegate removal. Każdy typ delegata niejawnie udostępnia następujące wstępnie zdefiniowanego operatora, gdzie `D` jest typ delegata:
 
    ```csharp
    D operator -(D x, D y);

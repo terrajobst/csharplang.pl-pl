@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 4e1534fc5523223042df468c4443a6722910543b
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229927"
+---
 <a name="c-language-specification"></a>Specyfikacja języka C#
 ===========================
 
@@ -72,7 +80,7 @@ Jest to nieoficjalny wersję roboczą, opublikowane w tym miejscu dla wygody. Po
     * [Funkcja anonimowa wyrażeń](expressions.md#anonymous-function-expressions)
     * [Wyrażenia zapytań](expressions.md#query-expressions)
     * [Operatory przypisania](expressions.md#assignment-operators)
-    * [Wyrażenie](expressions.md#expression)
+    * [Expression](expressions.md#expression)
     * [Wyrażenia stałe](expressions.md#constant-expressions)
     * [Wyrażenia logiczne](expressions.md#boolean-expressions)
 * [Instrukcje](statements.md)

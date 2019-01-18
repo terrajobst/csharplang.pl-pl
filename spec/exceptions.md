@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 75fcd5b00ea5cac218a9f7809c53b179df97825c
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229944"
+---
 # <a name="exceptions"></a>Wyjątki
 
 Wyjątki w języku C# zapewnia jednolite, ze strukturą i bezpieczny sposób obsługi zarówno w poziomie systemu, jak i w poziomie aplikacji warunków błędów. Mechanizm wyjątków w języku C# jest bardzo podobny do C++, za pomocą kilka istotnych różnic:

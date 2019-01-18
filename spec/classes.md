@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: af7af574814dc04ee3ece0396b7ae5f86b3ec8eb
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229940"
+---
 # <a name="classes"></a>Klasy
 
 Klasa jest strukturą danych, który może zawierać elementy członkowskie (stałe i pola), funkcji elementów członkowskich danych (metody, właściwości, zdarzenia, indeksatory, operatory, konstruktory wystąpień, destruktory i konstruktorów statycznych) i zagnieżdżone typy. Typy klas obsługuje dziedziczenie, mechanizm, według której rozszerzać i specialize klasę bazową klasę pochodną.
@@ -1827,7 +1835,7 @@ A *fixed_parameter* z *default_argument* jest znany jako ***opcjonalny parametr*
 
 A `ref` lub `out` parametr nie może mieć *default_argument*. *Wyrażenie* w *default_argument* musi mieć jedną z następujących czynności:
 
-*  *constant_expression*
+*  a *constant_expression*
 *  wyrażenie w formie `new S()` gdzie `S` jest typem wartości
 *  wyrażenie w formie `default(S)` gdzie `S` jest typem wartości
 
