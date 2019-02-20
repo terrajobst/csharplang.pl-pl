@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 9c3863c9a139f5b8309fca6e0c099d0fae7677c3
-ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "47230016"
----
 # <a name="namespaces"></a>Namespaces
 
 C# programy są zorganizowane przy użyciu przestrzeni nazw. Przestrzenie nazw są używane zarówno jako "internal" organizacji system dla programu, jak i jako system "external" organizacji — sposób przedstawiania elementy programu, które są widoczne dla innych programów.
@@ -434,7 +426,7 @@ namespace N2
     }
 }
 ```
-`N1` zawiera element członkowski typu `A`, i `C` zawiera statycznej metody `A`, a ponieważ `N2` importuje zarówno odwołujące się do `A` jako *simple_name* jest niejednoznaczne i w czasie kompilacji Wystąpił błąd. 
+`N1` zawiera element członkowski typu `A`, i `C` zawiera pole statyczne `A`, a ponieważ `N2` importuje zarówno odwołujące się do `A` jako *simple_name* jest niejednoznaczne i w czasie kompilacji Wystąpił błąd. 
 
 Podobnie jak *using_alias_directive*, *using_namespace_directive* nie wpływa na żadnych nowych elementów członkowskich do podstawowej deklaracji przestrzeni jednostki kompilacji lub przestrzeni nazw, ale raczej ma wpływ tylko na Kompilacja zespołu lub przestrzeni nazw treść w której występuje.
 

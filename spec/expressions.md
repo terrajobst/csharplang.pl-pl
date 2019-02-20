@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 75454072a5137b3044f78bb896317fd88a29e336
-ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "49640915"
----
 # <a name="expressions"></a>Wyrażenia
 
 Wyrażenie jest sekwencją operatorów i argumentów operacji. W tym rozdziale określa składnię, kolejność oceny operatorów i argumentów i znaczenie wyrażenia.
@@ -92,7 +84,7 @@ Poniżej opisano każdego konstrukcji w języku dokładnie gdy wiązanie dynamic
 
 ### <a name="types-of-constituent-expressions"></a>Typy składowych wyrażeń
 
-Podczas operacji statycznie jest związany, typ wyrażenia składowych (np. odbiornik i argument, indeksu lub operand) zawsze uważany jest za typów w czasie kompilacji to wyrażenie.
+Podczas operacji statycznie jest związany, typ wyrażenia składowych (np. odbiornik, argument, indeksu lub operand) zawsze uważany jest za typów w czasie kompilacji to wyrażenie.
 
 Podczas operacji dynamicznie jest związany, typ wyrażenia składowych jest określany na różne sposoby w zależności od typu składowych wyrażeń w czasie kompilacji:
 
@@ -102,7 +94,7 @@ Podczas operacji dynamicznie jest związany, typ wyrażenia składowych jest okr
 
 ## <a name="operators"></a>Operatory
 
-Wyrażenia są konstruowane na podstawie ***operandy*** i ***operatory***. Operatory wyrażenie wskazuje operacji do zastosowania do operandów. Przykłady operatorów `+`, `-`, `*`, `/`, i `new`. Przykładami operandy są literały, pola, zmienne lokalne i wyrażeń.
+Wyrażenia są konstruowane na podstawie ***operandy*** i ***operatory***. Operatory wyrażenia wskazują operacje do zastosowania dla operandów. Przykłady operatorów to `+`, `-`, `*`, `/`i `new`. Przykładami operandów są literały, pola, zmienne lokalne i wyrażenia.
 
 Istnieją trzy rodzaje operatory:
 
@@ -118,7 +110,7 @@ Niektórych operatorów może być ***przeciążone***. Przeciążanie operatora
 
 ### <a name="operator-precedence-and-associativity"></a>Pierwszeństwo i kojarzenie operatorów
 
-Gdy wyrażenie zawiera wiele operatorów ***pierwszeństwo*** operatorów określa kolejność, w jakiej są oceniane poszczególnych operatorach. Na przykład, wyrażenie `x + y * z` jest oceniane jako `x + (y * z)` ponieważ `*` operator ma wyższy priorytet niż plik binarny `+` operatora. Pierwszeństwo operatora jest ustanawiane zgodnie z definicją jego produkcji skojarzone gramatyki. Na przykład *additive_expression* składa się z sekwencji *multiplicative_expression*rozdzielone s `+` lub `-` operatorów, co daje `+` i `-` operatory niższy priorytet niż `*`, `/`, i `%` operatorów.
+Gdy wyrażenie zawiera wiele operatorów ***pierwszeństwo*** operatorów określa kolejność, w jakiej są oceniane poszczególne operatory. Na przykład, wyrażenie `x + y * z` jest oceniane jako `x + (y * z)` ponieważ `*` operator ma wyższy priorytet niż plik binarny `+` operatora. Pierwszeństwo operatora jest ustanawiane zgodnie z definicją jego produkcji skojarzone gramatyki. Na przykład *additive_expression* składa się z sekwencji *multiplicative_expression*rozdzielone s `+` lub `-` operatorów, co daje `+` i `-` operatory niższy priorytet niż `*`, `/`, i `%` operatorów.
 
 Poniższa tabela zawiera podsumowanie wszystkich operatorów w kolejność pierwszeństwa od najwyższego do najniższego:
 
@@ -126,17 +118,17 @@ Poniższa tabela zawiera podsumowanie wszystkich operatorów w kolejność pierw
 |-----------------------------------------------------------------------------------------------|-----------------------------|---------------|
 | [Wyrażenia podstawowe](expressions.md#primary-expressions)                                     | Podstawowy                     | `x.y`  `f(x)`  `a[x]`  `x++`  `x--`  `new`  `typeof`  `default`  `checked`  `unchecked`  `delegate` | 
 | [Operatory jednoargumentowe](expressions.md#unary-operators)                                             | Jednoargumentowy                       | `+`  `-`  `!`  `~`  `++x`  `--x`  `(T)x` | 
-| [Operatory arytmetyczne](expressions.md#arithmetic-operators)                                   | Mnożenia              | `*`  `/`  `%` | 
+| [Operatory arytmetyczne](expressions.md#arithmetic-operators)                                   | Mnożeniowy              | `*`  `/`  `%` | 
 | [Operatory arytmetyczne](expressions.md#arithmetic-operators)                                   | Dodatku                    | `+`  `-`      | 
 | [Operatory przesunięcia](expressions.md#shift-operators)                                             | Shift                       | `<<`  `>>`    | 
 | [Operatory relacyjne i badania typu](expressions.md#relational-and-type-testing-operators) | Relacyjne i badania typu | `<`  `>`  `<=`  `>=`  `is`  `as` | 
-| [Operatory relacyjne i badania typu](expressions.md#relational-and-type-testing-operators) | Równość                    | `==`  `!=`    | 
-| [Operatory logiczne](expressions.md#logical-operators)                                         | AND logiczne                 | `&`           | 
-| [Operatory logiczne](expressions.md#logical-operators)                                         | XOR logiczne                 | `^`           | 
-| [Operatory logiczne](expressions.md#logical-operators)                                         | OR logiczne                  | <code>&#124;</code>           |
-| [Operatory logiczne warunkowe](expressions.md#conditional-logical-operators)                 | AND warunkowe             | `&&`          | 
-| [Operatory logiczne warunkowe](expressions.md#conditional-logical-operators)                 | OR warunkowe              | <code>&#124;&#124;</code>          | 
-| [Wartość null operatora łączącego](expressions.md#the-null-coalescing-operator)                   | Łączenie wartości null             | `??`          | 
+| [Operatory relacyjne i badania typu](expressions.md#relational-and-type-testing-operators) | Równości                    | `==`  `!=`    | 
+| [Operatory logiczne](expressions.md#logical-operators)                                         | Logicznego AND                 | `&`           | 
+| [Operatory logiczne](expressions.md#logical-operators)                                         | Logicznego XOR                 | `^`           | 
+| [Operatory logiczne](expressions.md#logical-operators)                                         | Logicznego OR                  | <code>&#124;</code>           |
+| [Operatory logiczne warunkowe](expressions.md#conditional-logical-operators)                 | Warunkowego AND             | `&&`          | 
+| [Operatory logiczne warunkowe](expressions.md#conditional-logical-operators)                 | Warunkowego OR              | <code>&#124;&#124;</code>          | 
+| [Wartość null operatora łączącego](expressions.md#the-null-coalescing-operator)                   | Łączenia wartości null             | `??`          | 
 | [Operator warunkowy](expressions.md#conditional-operator)                                   | Warunkowe                 | `?:`          | 
 | [Operatory przypisania](expressions.md#assignment-operators), [wyrażenia funkcji anonimowych](expressions.md#anonymous-function-expressions)  | Wyrażenie lambda i przypisanie | `=`  `*=`  `/=`  `%=`  `+=`  `-=`  `<<=`  `>>=`  `&=`  `^=`  <code>&#124;=</code>  `=>` | 
 
@@ -145,7 +137,7 @@ W przypadku argumentu operacji między dwa operatory o tym samym priorytecie, ł
 *  Z wyjątkiem operatorów przypisania i null operatora łączącego wszystkie operatory dwuargumentowe to ***lewostronne***, co oznacza, że operacje są wykonywane od lewej do prawej. Na przykład `x + y + z` jest oceniane jako `(x + y) + z`.
 *  Operatory przypisania, operatora łączącego o wartości null i operator warunkowy (`?:`) są ***zespolony z prawej***, co oznacza, że operacje są wykonywane od prawej do lewej. Na przykład `x = y = z` jest oceniane jako `x = (y = z)`.
 
-Pierwszeństwo i kojarzenie mogą być kontrolowane za pomocą nawiasów. Na przykład `x + y * z` najpierw mnoży `y` przez `z` , a następnie dodaje wynik do `x`, ale `(x + y) * z` najpierw dodaje `x` i `y` i następnie mnoży wynik przez `z`.
+Pierwszeństwo i asocjacyjność mogą być kontrolowane za pomocą nawiasów. Na przykład `x + y * z` najpierw mnoży `y` przez `z` , a następnie dodaje wynik do `x`, ale `(x + y) * z` najpierw dodaje `x` i `y` i następnie wynik mnoży przez `z`.
 
 ### <a name="operator-overloading"></a>Przeładowanie operatora
 
