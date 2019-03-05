@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 67019511d49a786a5d6edf6fea442f745fc40f3f
+ms.sourcegitcommit: 0a80f26b8e455c4f09843a10e11e29c24d2d922e
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347277"
+---
 # <a name="expressions"></a>Wyrażenia
 
 Wyrażenie jest sekwencją operatorów i argumentów operacji. W tym rozdziale określa składnię, kolejność oceny operatorów i argumentów i znaczenie wyrażenia.
@@ -2943,7 +2951,7 @@ Poniżej wymieniono operatory odejmowania wstępnie zdefiniowane. Operatory wszy
 
    |      |      |      |      |      |      |     |
    |:----:|:----:|:----:|:----:|:----:|:----:|:---:|
-   | NaN  | t    | +0   | -0   | + inf | -inf | NaN | 
+   |      | t    | +0   | -0   | + inf | -inf | NaN | 
    | x    | z    | x    | x    | -inf | + inf | NaN | 
    | +0   | -y   | +0   | +0   | -inf | + inf | NaN | 
    | -0   | -y   | -0   | +0   | -inf | + inf | NaN | 
