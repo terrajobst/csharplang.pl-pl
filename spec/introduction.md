@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: ab41a3c99f79c4cc70f7d4720f7e53b91a410859
-ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.openlocfilehash: db10046af5d635b430951679a448e23680b18b87
+ms.sourcegitcommit: a19fac74c01a6c3da67d38b2f79527145d4edcbc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "49640902"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426815"
 ---
 # <a name="introduction"></a>Wprowadzenie
 
@@ -146,7 +146,7 @@ Poniższa tabela zawiera omówienie w systemie typu C#.
 |                 |                 | Znaki Unicode: `char` |
 |                 |                 | Liczba zmiennoprzecinkowa IEEE: `float`, `double` |
 |                 |                 | Decimal wysokiej precyzji: `decimal` |
-|                 |                 | Atrybut typu wartość logiczna: `bool` |
+|                 |                 | Boolean: `bool` |
 |                 | Typach wyliczeniowych      | Typy zdefiniowane przez użytkownika w postaci `enum E {...}` |
 |                 | Typy — struktura    | Typy zdefiniowane przez użytkownika w postaci `struct S {...}` |
 |                 | Typy dopuszczające wartości null  | Rozszerzenia z innych typów wartości za pomocą `null` wartość |
@@ -170,7 +170,7 @@ Znakowe i przetwarzania w języku C# przy użyciu kodowania Unicode. `char` Typ 
 W poniższej tabeli przedstawiono typy liczbowe języka C# firmy.
 
 
-| __Kategoria__      | __Usługa BITS__ | __Typ__  | __Zakres/dokładności__ |
+| __Kategoria__      | __Bity__ | __Typ__  | __Zakres/dokładności__ |
 |-------------------|----------|-----------|---------------------|
 | Całkowite podpisem   | 8        | `sbyte`   | -128...127 |
 |                   | 16       | `short`   | -32,768...32,767 |
@@ -235,16 +235,16 @@ Istnieje kilka rodzajów z ***zmienne*** w języku C#, w tym pól, elementy tabl
 
 ## <a name="expressions"></a>Wyrażenia
 
-***Wyrażenia*** są konstruowane na podstawie ***operandy*** i ***operatory***. Operatory wyrażenie wskazuje operacji do zastosowania do operandów. Przykłady operatorów `+`, `-`, `*`, `/`, i `new`. Przykładami operandy są literały, pola, zmienne lokalne i wyrażeń.
+***Wyrażenia*** są konstruowane na podstawie ***operandów*** i ***operatorów***. Operatory wyrażenia wskazują operacje do zastosowania dla operandów. Przykłady operatorów to `+`, `-`, `*`, `/`i `new`. Przykładami operandów są literały, pola, zmienne lokalne i wyrażenia.
 
-Gdy wyrażenie zawiera wiele operatorów ***pierwszeństwo*** operatorów określa kolejność, w jakiej są oceniane poszczególnych operatorach. Na przykład, wyrażenie `x + y * z` jest oceniane jako `x + (y * z)` ponieważ `*` operator ma wyższy priorytet niż `+` operatora.
+Gdy wyrażenie zawiera wiele operatorów ***pierwszeństwo*** operatorów określa kolejność, w jakiej są oceniane poszczególne operatory. Na przykład, wyrażenie `x + y * z` jest oceniane jako `x + (y * z)`, ponieważ operator `*` ma wyższy priorytet niż operator `+`.
 
-Większość operatorów może być ***przeciążone***. Przeciążanie operatora zezwala na implementacjami operatorów zdefiniowanych przez użytkownika, może być określony dla operacji, gdzie jeden lub oba operandy są typu klasy lub struktury zdefiniowany przez użytkownika.
+Większość operatorów może być ***przeciążona***. Przeciążanie operatora umożliwia określanie definiowanych przez użytkownika implementacji operatorów dla operacji, w których jeden lub oba operandy mają typ struktury lub klasy zdefiniowanej przez użytkownika.
 
-Poniższa tabela zawiera podsumowanie operatory C# firmy, lista kategorii operatora w kolejność pierwszeństwa od najwyższego do najniższego. Operatory w tej samej kategorii mają równy priorytet.
+Poniższa tabela zawiera podsumowanie operatory C# firmy, lista kategorii operatora w kolejność pierwszeństwa od najwyższego do najniższego. Operatory w tej samej kategorii mają takie samo pierwszeństwo.
 
 
-| __Kategoria__                     | __Expression__    | __Opis__ |
+| __Kategoria__                     | __Wyrażenie__    | __Opis__ |
 |----------------------------------|-------------------|-----------------|
 | Podstawowy                          | `x.m`             | Dostęp do elementu członkowskiego |
 |                                  | `x(...)`          | Wywołanie metody i delegata |
@@ -267,8 +267,8 @@ Poniższa tabela zawiera podsumowanie operatory C# firmy, lista kategorii operat
 |                                  | `++x`             | Preinkrementacja |
 |                                  | `--x`             | Predekrementacja |
 |                                  | `(T)x`            | Jawnie przekonwertować `x` na typ `T` |
-|                                  | `await x`         | Asynchronicznie poczekaj, aż `x` do ukończenia |
-| Mnożenia                   | `x * y`           | Mnożenie |
+|                                  | `await x`         | Asynchronicznie poczekaj na ukończenie `x` |
+| Mnożeniowy                   | `x * y`           | Mnożenie |
 |                                  | `x / y`           | Dzielenie |
 |                                  | `x % y`           | Reszta |
 | Dodatku                         | `x + y`           | Dodawanie, łączenie ciągów, łączenie delegatów |
@@ -281,17 +281,17 @@ Poniższa tabela zawiera podsumowanie operatory C# firmy, lista kategorii operat
 |                                  | `x >= y`          | Większe niż lub równe |
 |                                  | `x is T`          | Zwróć `true` Jeśli `x` jest `T`, `false` inaczej |
 |                                  | `x as T`          | Zwróć `x` wpisanych w formie `T`, lub `null` Jeśli `x` nie jest `T` |
-| Równość                         | `x == y`          | Równa się      |
+| Równości                         | `x == y`          | Równa się      |
 |                                  | `x != y`          | Nie równa się |
-| AND logiczne                      | `x & y`           | Liczba całkowita bitowe i logicznych logiczne AND |
-| XOR logiczne                      | `x ^ y`           | Bitowe XOR dla wartości całkowitych, logiczne XOR dla wartości binarnych |
-| OR logiczne                       | <code>x &#124; y</code> | Bitowe OR dla wartości całkowitych, logiczne OR dla wartości binarnych |
-| AND warunkowe                  | `x && y`          | Ocenia `y` tylko wtedy, gdy `x` jest `true` |
-| OR warunkowe                   | <code>x &#124;&#124; y</code> | Ocenia `y` tylko wtedy, gdy `x` jest `false` |
-| Łączenie wartości null                  | `X ?? y`          | Daje w wyniku `y` Jeśli `x` jest `null`, `x` inaczej |
+| Logicznego AND                      | `x & y`           | Liczba całkowita bitowe i logicznych logiczne AND |
+| Logicznego XOR                      | `x ^ y`           | Bitowe XOR dla wartości całkowitych, logiczne XOR dla wartości binarnych |
+| Logicznego OR                       | <code>x &#124; y</code> | Bitowe OR dla wartości całkowitych, logiczne OR dla wartości binarnych |
+| Warunkowego AND                  | `x && y`          | Ocenia `y` tylko wtedy, gdy `x` jest `true` |
+| Warunkowego OR                   | <code>x &#124;&#124; y</code> | Ocenia `y` tylko wtedy, gdy `x` jest `false` |
+| Łączenia wartości null                  | `x ?? y`          | Daje w wyniku `y` Jeśli `x` jest `null`, `x` inaczej |
 | Warunkowe                      | `x ? y : z`       | Ocenia `y` Jeśli `x` jest `true`, `z` Jeśli `x` jest `false` |
-| Przypisania lub funkcja anonimowa | `x = y`           | Przypisanie |
-|                                  | `x op= y`         | Przydział złożony; obsługiwane operatory to `*=` `/=` `%=` `+=` `-=` `<<=` `>>=` `&=` `^=` <code>&#124;=</code> |
+| Przypisania lub funkcji anonimowej | `x = y`           | Przypisanie |
+|                                  | `x op= y`         | Złożone przypisanie; obsługiwane operatory to `*=` `/=` `%=` `+=` `-=` `<<=` `>>=` `&=` `^=` <code>&#124;=</code> |
 |                                  | `(T x) => y`      | Funkcja anonimowa (wyrażenie lambda) |
 
 ## <a name="statements"></a>Instrukcje
