@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: db10046af5d635b430951679a448e23680b18b87
-ms.sourcegitcommit: a19fac74c01a6c3da67d38b2f79527145d4edcbc
+ms.sourcegitcommit: 4cc6d73a765ac9827ab00c48ad9f09204baf888f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426815"
 ---
 # <a name="introduction"></a>Wprowadzenie
@@ -146,7 +146,7 @@ Poniższa tabela zawiera omówienie w systemie typu C#.
 |                 |                 | Znaki Unicode: `char` |
 |                 |                 | Liczba zmiennoprzecinkowa IEEE: `float`, `double` |
 |                 |                 | Decimal wysokiej precyzji: `decimal` |
-|                 |                 | Boolean: `bool` |
+|                 |                 | Atrybut typu wartość logiczna: `bool` |
 |                 | Typach wyliczeniowych      | Typy zdefiniowane przez użytkownika w postaci `enum E {...}` |
 |                 | Typy — struktura    | Typy zdefiniowane przez użytkownika w postaci `struct S {...}` |
 |                 | Typy dopuszczające wartości null  | Rozszerzenia z innych typów wartości za pomocą `null` wartość |
@@ -170,7 +170,7 @@ Znakowe i przetwarzania w języku C# przy użyciu kodowania Unicode. `char` Typ 
 W poniższej tabeli przedstawiono typy liczbowe języka C# firmy.
 
 
-| __Kategoria__      | __Bity__ | __Typ__  | __Zakres/dokładności__ |
+| __Kategoria__      | __Usługa BITS__ | __Typ__  | __Zakres/dokładności__ |
 |-------------------|----------|-----------|---------------------|
 | Całkowite podpisem   | 8        | `sbyte`   | -128...127 |
 |                   | 16       | `short`   | -32,768...32,767 |
@@ -244,7 +244,7 @@ Większość operatorów może być ***przeciążona***. Przeciążanie operator
 Poniższa tabela zawiera podsumowanie operatory C# firmy, lista kategorii operatora w kolejność pierwszeństwa od najwyższego do najniższego. Operatory w tej samej kategorii mają takie samo pierwszeństwo.
 
 
-| __Kategoria__                     | __Wyrażenie__    | __Opis__ |
+| __Kategoria__                     | __Expression__    | __Opis__ |
 |----------------------------------|-------------------|-----------------|
 | Podstawowy                          | `x.m`             | Dostęp do elementu członkowskiego |
 |                                  | `x(...)`          | Wywołanie metody i delegata |
@@ -266,7 +266,7 @@ Poniższa tabela zawiera podsumowanie operatory C# firmy, lista kategorii operat
 |                                  | `~x`              | Negacja bitowa |
 |                                  | `++x`             | Preinkrementacja |
 |                                  | `--x`             | Predekrementacja |
-|                                  | `(T)x`            | Jawnie przekonwertować `x` na typ `T` |
+|                                  | `(T)x`            | Jawna konwersja `x` na typ `T` |
 |                                  | `await x`         | Asynchronicznie poczekaj na ukończenie `x` |
 | Mnożeniowy                   | `x * y`           | Mnożenie |
 |                                  | `x / y`           | Dzielenie |
@@ -291,7 +291,7 @@ Poniższa tabela zawiera podsumowanie operatory C# firmy, lista kategorii operat
 | Łączenia wartości null                  | `x ?? y`          | Daje w wyniku `y` Jeśli `x` jest `null`, `x` inaczej |
 | Warunkowe                      | `x ? y : z`       | Ocenia `y` Jeśli `x` jest `true`, `z` Jeśli `x` jest `false` |
 | Przypisania lub funkcji anonimowej | `x = y`           | Przypisanie |
-|                                  | `x op= y`         | Złożone przypisanie; obsługiwane operatory to `*=` `/=` `%=` `+=` `-=` `<<=` `>>=` `&=` `^=` <code>&#124;=</code> |
+|                                  | `x op= y`         | Przydział złożony; obsługiwane operatory to `*=` `/=` `%=` `+=` `-=` `<<=` `>>=` `&=` `^=` <code>&#124;=</code> |
 |                                  | `(T x) => y`      | Funkcja anonimowa (wyrażenie lambda) |
 
 ## <a name="statements"></a>Instrukcje
