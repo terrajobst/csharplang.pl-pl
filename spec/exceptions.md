@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 75fcd5b00ea5cac218a9f7809c53b179df97825c
-ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "47229944"
+ms.lasthandoff: 04/25/2019
+ms.locfileid: "64488940"
 ---
 # <a name="exceptions"></a>Wyjątki
 

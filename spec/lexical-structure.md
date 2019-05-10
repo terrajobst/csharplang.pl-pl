@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: e103f6629a363c6cd76607699ff74d69aa73ed57
+ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 04/25/2019
+ms.locfileid: "64488968"
+---
 # <a name="lexical-structure"></a>Struktura leksykalna
 
 ## <a name="programs"></a>Programy
@@ -321,7 +329,7 @@ Dwa identyfikatory są uważane za takie same, jeśli są one identyczne, po zas
 
 Identyfikatory zawierające dwóch następujących po sobie znaki podkreślenia (`U+005F`) są zarezerwowane do użytku przez implementację. Na przykład implementacja może zawierać słów kluczowych rozszerzonych, które zaczynają się od dwóch podkreśleń.
 
-### <a name="keywords"></a>Słowa kluczowe
+### <a name="keywords"></a>słowa kluczowe
 
 A ***— słowo kluczowe*** to identyfikator jak sekwencja znaków jest zarezerwowany i nie można użyć jako identyfikatora z wyjątkiem sytuacji, gdy są poprzedzone `@` znaków.
 

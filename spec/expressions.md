@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 67019511d49a786a5d6edf6fea442f745fc40f3f
-ms.sourcegitcommit: 0a80f26b8e455c4f09843a10e11e29c24d2d922e
+ms.openlocfilehash: 066c300d4c2baa8749e132730ecd48275e2957f7
+ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347277"
+ms.lasthandoff: 04/25/2019
+ms.locfileid: "64489014"
 ---
 # <a name="expressions"></a>Wyrażenia
 
@@ -3485,7 +3485,7 @@ E operator ^(E x, E y);
 
 Wynik obliczania wartości `x op y`, gdzie `x` i `y` są wyrażeniami typu wyliczeniowego `E` z typu podstawowego `U`, i `op` jest jednym z operatorów logicznych, jest dokładnie taka sama jak Ocena `(E)((U)x op (U)y)`. Innymi słowy operatorów logicznych typu wyliczenia po prostu wykonać operacji logicznej na podstawowym typem dwóch argumentów operacji.
 
-### <a name="boolean-logical-operators"></a>Operatory logiczne logiczne
+### <a name="boolean-logical-operators"></a>Operatory logiczne (Boolean)
 
 Wstępnie zdefiniowane logiczna operatory logiczne to:
 ```csharp

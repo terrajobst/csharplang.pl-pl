@@ -1,28 +1,28 @@
 ---
-ms.openlocfilehash: db10046af5d635b430951679a448e23680b18b87
-ms.sourcegitcommit: 4cc6d73a765ac9827ab00c48ad9f09204baf888f
+ms.openlocfilehash: 9a9baf63b83ae4eb8af0e3b8c65ed3256222f12f
+ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426815"
+ms.lasthandoff: 04/25/2019
+ms.locfileid: "64488892"
 ---
 # <a name="introduction"></a>Wprowadzenie
 
-C# (Wymowa: "Zobacz Sharp") to proste, nowoczesnych, zorientowane obiektowo i bezpieczny typowo język programowania. C# ma korzenie jego rodziny C w językach i będzie znane w programowaniu w języku C, C++ i Java. C# jest standardowym by ECMA International jako ***ECMA 334*** standardowe i ISO/IEC jako ***23270 ISO/IEC*** standardowych. Kompilator języka C# firmy Microsoft dla programu .NET Framework jest odpowiadające wykonania obu tych standardach.
+C# (wymowa: „si szarp”) to prosty, nowoczesny, zorientowany obiektowo i bezpieczny język programowania. C# ma korzenie jego rodziny C w językach i będzie znane w programowaniu w języku C, C++ i Java. C# jest standardowym by ECMA International jako ***ECMA 334*** standardowe i ISO/IEC jako ***23270 ISO/IEC*** standardowych. Kompilator języka C# firmy Microsoft dla programu .NET Framework jest odpowiadające wykonania obu tych standardach.
 
-C# to język obiektowy, ale C# dalsze obejmuje obsługę ***zorientowanego na*** programowania. Projektowania oprogramowania współczesnych coraz bardziej opiera się na składniki oprogramowania w postaci pakietów niezależna i samoopisujące funkcji. Kluczem do takich składników jest, czy stanowią one model programowania za pomocą właściwości, metod i zdarzeń; mają atrybuty, które zapewniają deklaracyjne informacje o składniku; i obejmują one we własnej dokumentacji. C# zawiera konstrukcji języka, aby bezpośrednio obsługują te pojęcia wprowadzania C# bardzo języka naturalnego, w której do tworzenia i używania składników oprogramowania.
+C# to język zorientowany obiektowo, ale obsługuje również programowanie ***zorientowane na składniki***. Tworzone dziś oprogramowanie w coraz większym stopniu opiera się na składnikach mających formę niezależnych i samoopisujących się pakietów funkcji. Kluczem są tutaj właściwości, metody i zdarzenia dostarczanie przez składniki. Składniki mają swoje atrybuty, które zapewniają informacje deklaratywne, a także obejmują dokumentację. C# zawiera konstrukcji języka, aby bezpośrednio obsługują te pojęcia wprowadzania C# bardzo języka naturalnego, w której do tworzenia i używania składników oprogramowania.
 
-Kilka C# funkcje pomocy do tworzenia niezawodnych i trwałych aplikacji: ***Wyrzucanie elementów bezużytecznych*** automatycznie odzyskuje pamięć zajęta przez nieużywanych obiektów; ***wyjątków*** ze strukturą i rozszerzalny podejście do wykrywania błędów i odzyskiwania; i ***bezpieczny*** projekt języka umożliwia odczytywanie niezainicjowane zmienne Indeksowanie tablic poza ich zakresem, lub wykonać unchecked typu rzutowania.
+C# ma również bardzo pomocne funkcje do tworzenia niezawodnych i trwałych aplikacji. ***Wyrzucanie elementów bezużytecznych*** automatycznie odzyskuje pamięć zajęta przez nieużywanych obiektów; ***wyjątków*** ze strukturą i rozszerzalny podejście do wykrywania błędów i odzyskiwania; i ***bezpieczny*** projekt języka umożliwia odczytywanie niezainicjowane zmienne Indeksowanie tablic poza ich zakresem, lub wykonać unchecked typu rzutowania.
 
-C# ma ***unified system typów***. Wszystkie C# typów, w tym typów podstawowych takich jak `int` i `double`, dziedziczą z jednym elementem głównym `object` typu. W efekcie wszystkie typy udostępnić zestaw typowych operacji, a wartości dowolnego typu mogą być przechowywane, transportowane i wykonywane są operacje w sposób ciągły. Ponadto, C# obsługuje typy odwołań zdefiniowanych przez użytkownika i typów wartości, umożliwiając dynamiczna alokacja obiektów, a także magazynu w tekście uproszczone struktur.
+C# korzysta z ***ujednoliconego systemu typów***. Wszystkie typy w tym języku, w tym typy podstawowe takie jak `int` czy `double`, dziedziczą z jednego typu głównego typu `object`. W rezultacie wszystkie typy dzielą między sobą ten sam zestaw metod, a wartości dowolnego typu można zapisywać, przesyłać i wykorzystywać w jednolity sposób. C# obsługuje też typy odwołań i wartości zdefiniowanych przez użytkownika, co pozwala na dynamiczną alokację obiektów, a także na wbudowane przechowywanie uproszczonych struktur.
 
 Aby upewnić się, że programy C# i biblioteki mogą z czasem ewoluować w sposób zgodny, znacznie większym naciskiem został umieszczony na ***versioning*** w języku C# w projekcie. Wiele języków programowania interesuje tego problemu, a w rezultacie, programy napisane w tych języków podziału częściej niż to konieczne, w przypadku nowszych wersjach zależne biblioteki zostały wprowadzone. Aspektów projektu C# w, które zostały bezpośrednio wpływa uwagi dotyczące wersji zawierać oddzielne `virtual` i `override` modyfikatorów, reguły dla rozwiązania przeciążenia metody i pomoc techniczna dla deklaracji elementu członkowskiego interfejsu jawnego.
 
 W pozostałej części w tym rozdziale opisano podstawowe funkcje języka C#. Mimo że dalszych rozdziałach opisano regułami i wyjątkami zorientowane na szczegółów i czasami matematyczne w sposób, w tym rozdziale dokłada starań uściślenia i zwięzłości kosztem informacje były kompletne. Celem jest zapewnienie czytnik zawiera wprowadzenie do języka, który ułatwi pisanie programów wczesne i Odczyt rozdziały nowsze.
 
-## <a name="hello-world"></a>Cześć ludzie
+## <a name="hello-world"></a>Hello, World
 
-Program "Hello, World" tradycyjnie umożliwia wprowadzenie języka programowania. Poniżej przedstawiono w języku C#:
+„Hello, World” to program używany tradycyjnie jako wprowadzenie do języka programowania. Poniżej przedstawiono jego wersję w C#:
 
 ```csharp
 using System;
@@ -35,7 +35,7 @@ class Hello
 }
 ```
 
-Pliki źródłowe C# zazwyczaj mają rozszerzenie pliku `.cs`. Przy założeniu, że program "Hello, World" jest przechowywany w pliku `hello.cs`, program może być kompilowane przez kompilator Microsoft C# przy użyciu wiersza polecenia
+Pliki źródłowe C# zazwyczaj mają rozszerzenie `.cs`. Przy założeniu, że program "Hello, World" jest przechowywany w pliku `hello.cs`, program może być kompilowane przez kompilator Microsoft C# przy użyciu wiersza polecenia
 ```
 csc hello.cs
 ```
@@ -44,11 +44,11 @@ który tworzy zestaw pliku wykonywalnego o nazwie `hello.exe`. Dane wyjściowe g
 Hello, World
 ```
 
-Program "Hello, World" rozpoczyna się od `using` dyrektywę, który odwołuje się do `System` przestrzeni nazw. Przestrzenie nazw zawierają hierarchiczny sposób organizowania programów C# i biblioteki. Przestrzenie nazw zawierają typy i inne przestrzenie nazw — na przykład `System` przestrzeń nazw zawiera wiele typów, takie jak `Console` klasy, do którego odwołuje się program i wiele innych przestrzeniach nazw, takich jak `IO` i `Collections`. A `using` dyrektywę, który odwołuje się do danej przestrzeni nazw umożliwia niekwalifikowanej korzystanie z typów, które są elementami członkowskimi tej przestrzeni nazw. Z powodu `using` dyrektywy, można użyć programu `Console.WriteLine` jako skrót dla `System.Console.WriteLine`.
+Program „Hello, World” rozpoczyna się od dyrektywy `using`, która odwołuje się do przestrzeni nazw `System`. Przestrzenie nazw zapewniają hierarchiczny sposób organizowania programów i bibliotek C#. Zawierają one typy i inne przestrzenie nazw — np. przestrzeń nazw `System` zawiera wiele typów (takich jak klasa `Console`, do której odwołuje się program) i wiele innych przestrzeni nazw, takich jak `IO` czy `Collections`. Dyrektywa `using` odwołująca się do danej przestrzeni nazw umożliwia niekwalifikowane korzystanie z typów, które są składowymi tej przestrzeni nazw. Dzięki skorzystaniu z dyrektywy `using` program może użyć polecenia `Console.WriteLine` jako skrótu dla `System.Console.WriteLine`.
 
-`Hello` Klasy zadeklarowanej przez program "Hello, World" zawiera jeden element członkowski metodę o nazwie `Main`. `Main` Metody jest zadeklarowana za pomocą `static` modyfikator. Podczas gdy metody wystąpienia można odwołania konkretnego wystąpienia obiektu otaczającej przy użyciu słowa kluczowego `this`, metody statyczne działać bez odwołania do określonego obiektu. Zgodnie z Konwencją statyczną metodę o nazwie `Main` służy jako punkt wejścia programu.
+Klasa `Hello` zadeklarowa przez program „Hello, World” zawiera jedną składową, którą jest metoda o nazwie `Main`. `Main` Metody jest zadeklarowana za pomocą `static` modyfikator. Podczas gdy metody wystąpień mogą odwoływać się do konkretnego wystąpienia obiektu otaczającego przy użyciu słowa kluczowego `this`, metody statyczne działają bez odwoływania się do konkretnego obiektu. Zgodnie z konwencją, metoda statyczna o nazwie `Main` służy jako punkt wejścia programu.
 
-Dane wyjściowe programu jest generowany przez `WriteLine` metody `Console` klasy w `System` przestrzeni nazw. Ta klasa jest zapewniana przez biblioteki klas .NET Framework, które domyślnie są automatycznie dołączane do kompilatora Microsoft C#. Należy pamiętać, że C# sam nie ma biblioteki oddzielne środowiska uruchomieniowego. Zamiast tego program .NET Framework jest biblioteka środowiska uruchomieniowego języka C#.
+Dane wyjściowe programu są generowane przez metodę `WriteLine` klasy `Console` w przestrzeni nazw `System`. Ta klasa jest zapewniana przez biblioteki klas .NET Framework, które domyślnie są automatycznie dołączane do kompilatora Microsoft C#. Należy pamiętać, że C# sam nie ma biblioteki oddzielne środowiska uruchomieniowego. Zamiast tego program .NET Framework jest biblioteka środowiska uruchomieniowego języka C#.
 
 ## <a name="program-structure"></a>Struktura programu
 
@@ -570,7 +570,7 @@ static void Main() {
 
 ## <a name="classes-and-objects"></a>Klasy i obiekty
 
-***Klasy*** są najbardziej podstawowe języka C# dla typów. Klasa jest strukturą danych, która łączy stanu (pola) i akcje (metody i innych funkcji elementów członkowskich) w pojedynczą jednostkę. Klasa zawiera definicję dla tworzone dynamicznie ***wystąpień*** klasy, nazywana również ***obiektów***. Klasy obsługi ***dziedziczenia*** i ***polimorfizm***, mechanizmów zgodnie z którą ***klasy pochodne*** pozwalają rozszerzyć i specjalizują się ***klasbazowych***.
+***Klasy*** są najbardziej podstawowym typem w języku C#. Klasa jest strukturą danych, która łączy stanu (pola) i akcje (metody i innych funkcji elementów członkowskich) w pojedynczą jednostkę. Klasa zawiera definicję dla tworzone dynamicznie ***wystąpień*** klasy, nazywana również ***obiektów***. Klasy obsługi ***dziedziczenia*** i ***polimorfizm***, mechanizmów zgodnie z którą ***klasy pochodne*** pozwalają rozszerzyć i specjalizują się ***klasbazowych***.
 
 Nowe klasy są tworzone za pomocą deklaracji klasy. Deklaracja klasy rozpoczyna się od nagłówka, określający, atrybuty i modyfikatorów klasy, nazwa klasy, klasy podstawowej (jeśli) i interfejsy implementowane przez klasy. Nagłówek następuje treści klasy, która składa się z listy deklaracji elementu członkowskiego zapisywane między ogranicznikami `{` i `}`.
 
@@ -1313,7 +1313,7 @@ W poprzednim przykładzie wyróżniono dwa ograniczenia dotyczące struktury. Po
 
 ## <a name="arrays"></a>Tablice
 
-***Tablicy*** to struktura danych, która zawiera szereg zmiennych, które są dostępne za pośrednictwem obliczanej indeksów. Zmienne zawartych w tablicy, jest określana skrótem ***elementy*** tablicy, są wszystkie tego samego typu, a tego typu jest nazywana ***typ elementu*** tablicy.
+***Tablica*** to struktura danych zawierająca pewną liczbę zmiennych, do których dostęp jest uzyskiwany za pomocą obliczonych indeksów. Zmienne zawartych w tablicy, jest określana skrótem ***elementy*** tablicy, są wszystkie tego samego typu, a tego typu jest nazywana ***typ elementu*** tablicy.
 
 Typy tablicowe są typami odwołań, a deklaracja zmiennej tablicy po prostu rezerwuje miejsce dla odwołania do wystąpienia tablicy. Wystąpienia bieżącej tablicy są tworzone dynamicznie w czasie wykonywania za pomocą `new` operatora. `new` Operacji określa ***długość*** nowego wystąpienia tablicy naprawiliśmy dla okresu istnienia wystąpienia. Indeksy elementów z zakresu tablicy `0` do `Length - 1`. `new` Operator automatycznie inicjuje elementy tablicy, aby przywrócić wartości domyślne, na przykład są to wartości zero dla wszystkich typów liczbowych i `null` dla wszystkich typów odniesienia.
 
@@ -1445,7 +1445,7 @@ control.Paint();                        // Ok
 
 ## <a name="enums"></a>Wyliczenia
 
-***Typu wyliczeniowego*** jest typem wartości odrębnych z szeregu nazwanych stałych. Poniższy przykład deklaruje i korzysta z typu wyliczeniowego, o nazwie `Color` z trzech wartości stałych, `Red`, `Green`, i `Blue`.
+***Typ wyliczeniowy*** to odrębny typ wartości zawierający zestaw nazwanych stałych. Poniższy przykład deklaruje i korzysta z typu wyliczeniowego, o nazwie `Color` z trzech wartości stałych, `Red`, `Green`, i `Blue`.
 
 ```csharp
 using System;

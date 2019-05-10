@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: b7bb7dd575d9e2e6d5dd85bdd3e535411e29fcf4
-ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "47229931"
+ms.lasthandoff: 04/25/2019
+ms.locfileid: "64488864"
 ---
 # <a name="variables"></a>Zmienne
 
@@ -641,7 +641,7 @@ variable_reference
     ;
 ```
 
-W językach C i C++ *variable_reference* jest znany jako *l-wartości*.
+W języku C i C++, *variable_reference* jest znany jako *l-wartości*.
 
 ## <a name="atomicity-of-variable-references"></a>Niepodzielność odwołań do zmiennych
 

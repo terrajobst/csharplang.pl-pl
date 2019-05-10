@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 3232163ed91d9d8bb6b0babf94c4282bfd60976c
+ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 04/25/2019
+ms.locfileid: "64488935"
+---
 # <a name="namespaces"></a>Namespaces
 
 C# programy są zorganizowane przy użyciu przestrzeni nazw. Przestrzenie nazw są używane zarówno jako "internal" organizacji system dla programu, jak i jako system "external" organizacji — sposób przedstawiania elementy programu, które są widoczne dla innych programów.
