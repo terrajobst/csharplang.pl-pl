@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 08c14d9ef2afe30580f456995066c141653ede92
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: 994b22f5375d57cfc4c7537c64345a27ddf3e416
+ms.sourcegitcommit: 09e0ddec3bb6aa99b7340158bbac86a5a8243b43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64488984"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66193879"
 ---
 # <a name="delegates"></a>Delegaty
 
@@ -73,7 +73,7 @@ class B
 }
 ```
 
-Metody `A.M1` i `B.M1 `są zgodne z typami delegatów `D1` i `D2` , ponieważ mają one takie same zwracają typ i listą parametrów; jednak te typy delegatów są dwa różne typy, dzięki czemu nie wymienne. Metody `B.M2`, `B.M3`, i `B.M4` są zgodne z typami delegatów `D1` i `D2`, ponieważ mają one różne typy zwracane lub listy parametrów.
+Metody `A.M1` i `B.M1` są zgodne z typami delegatów `D1` i `D2` , ponieważ mają one takie same zwracają typ i listą parametrów; jednak te typy delegatów są dwa różne typy, dzięki czemu nie wymienne. Metody `B.M2`, `B.M3`, i `B.M4` są zgodne z typami delegatów `D1` i `D2`, ponieważ mają one różne typy zwracane lub listy parametrów.
 
 Podobnie jak innych deklaracji typu ogólnego argumentów typu podaje się w celu utworzenia typu skonstruowanego delegata. Typy parametrów i typ zwracany typ delegata skonstruowane są tworzone, zastępując dla każdego parametru typu w deklaracji delegata, argument typu odpowiedniego typu skonstruowanego delegata. Wynikowy typ zwracany i typy parametrów są używane w określeniu, jakie metody są zgodne z typem delegowanym skonstruowany. Na przykład:
 

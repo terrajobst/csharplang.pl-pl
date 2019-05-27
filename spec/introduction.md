@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 9a9baf63b83ae4eb8af0e3b8c65ed3256222f12f
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: 201db57d243c9d0e22553366bc653d02e183aa4b
+ms.sourcegitcommit: 09e0ddec3bb6aa99b7340158bbac86a5a8243b43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64488892"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66193873"
 ---
 # <a name="introduction"></a>Wprowadzenie
 
@@ -648,8 +648,7 @@ Pair<int,string> pair = new Pair<int,string> { First = 1, Second = "two" };
 int i = pair.First;     // TFirst is int
 string s = pair.Second; // TSecond is string
 ```
-Typ ogólny z argumentami typu pod warunkiem, takie jak `Pair<int,string>
-    ` powyżej, jest nazywany skonstruowanego typu.
+Typ ogólny z argumentami typu pod warunkiem, takie jak `Pair<int,string>` powyżej, jest nazywany skonstruowanego typu.
 
 ### <a name="base-classes"></a>Klas podstawowych
 
@@ -1131,9 +1130,7 @@ C# obsługuje zarówno wystąpienia i konstruktorów statycznych. ***Konstruktor
 
 Konstruktor jest zadeklarowany jak metody bez zwrotu typu i taką samą nazwę jak klasa zawierająca. Jeśli deklaracja konstruktora zawiera `static` modyfikator, deklaruje Konstruktor statyczny. W przeciwnym razie deklaruje konstruktora wystąpień.
 
-Konstruktory wystąpień, mogą być przeciążone. Na przykład `List<T>
-` klasa deklaruje dwa konstruktory wystąpienia, jedno z bez parametrów, a ta, która przyjmuje `int` parametru. Konstruktory wystąpień są wywoływane przy użyciu `new` operatora. Poniższe instrukcje przydzielić dwie `List<string>
-` wystąpień każdej z konstruktorów z `List` klasy.
+Konstruktory wystąpień, mogą być przeciążone. Na przykład `List<T>` klasa deklaruje dwa konstruktory wystąpienia, jedno z bez parametrów, a ta, która przyjmuje `int` parametru. Konstruktory wystąpień są wywoływane przy użyciu `new` operatora. Poniższe instrukcje przydzielić dwie `List<string>` wystąpień każdej z konstruktorów z `List` klasy.
 
 ```csharp
 List<string> list1 = new List<string>();
@@ -1151,8 +1148,7 @@ A `get` akcesor odnosi się do metody bez parametrów, z wartością zwracaną z
 
 A `set` akcesor odnosi się do metody z pojedynczym parametrem o nazwie `value` i bez zwrotu typu. Gdy właściwość odwołuje się do jako element docelowy przypisania lub operand `++` lub `--`, `set` akcesor zostanie wywołana z nieprawidłowym argumentem, który zawiera nową wartość.
 
-`List<T>
-` Klasa deklaruje dwie właściwości `Count` i `Capacity`, które są tylko do odczytu i odczytu / zapisu, odpowiednio. Oto przykład użycia tych właściwości.
+`List<T>` Klasa deklaruje dwie właściwości `Count` i `Capacity`, które są tylko do odczytu i odczytu / zapisu, odpowiednio. Oto przykład użycia tych właściwości.
 
 ```csharp
 List<string> names = new List<string>();
@@ -1188,11 +1184,9 @@ Indeksatory mogą być przeciążone, co oznacza, że klasy można zadeklarować
 
 W obrębie klasy, która deklaruje element członkowski zdarzenia zdarzenie zachowuje się tak samo jak pola typu delegata (pod warunkiem zdarzenie nie jest abstrakcyjna i nie deklaruje metody dostępu). Pole zawiera odwołanie do delegata reprezentującego procedury obsługi zdarzeń, które zostały dodane do zdarzenia. Jeśli nie obsługuje zdarzeń są obecne, pole jest `null`.
 
-`List<T>
-` Klasa deklaruje składową pojedyncze zdarzenie o nazwie `Changed`, co oznacza, że dodano nowy element do listy. `Changed` Wydarzenie jest podniesione przez `OnChanged` metody wirtualnej, który po raz pierwszy sprawdza, czy zdarzenie jest `null` (co oznacza, że nie programów obsługi istnieje). Pojęcie podnoszenie zdarzenia odpowiada dokładnie wywoływania delegata reprezentowanej przez zdarzenie — tak więc nie istnieją żadne konstrukcje specjalny język przeznaczony dla podnoszonego zdarzenia.
+`List<T>` Klasa deklaruje składową pojedyncze zdarzenie o nazwie `Changed`, co oznacza, że dodano nowy element do listy. `Changed` Wydarzenie jest podniesione przez `OnChanged` metody wirtualnej, który po raz pierwszy sprawdza, czy zdarzenie jest `null` (co oznacza, że nie programów obsługi istnieje). Pojęcie podnoszenie zdarzenia odpowiada dokładnie wywoływania delegata reprezentowanej przez zdarzenie — tak więc nie istnieją żadne konstrukcje specjalny język przeznaczony dla podnoszonego zdarzenia.
 
-Klienci reagowania na zdarzenia za pośrednictwem ***procedury obsługi zdarzeń***. Programy obsługi zdarzeń dołączonych przy użyciu `+=` operatora i usunięte przy użyciu `-=` operatora. Poniższy przykład dołącza program obsługi zdarzeń do `Changed` zdarzenia `List<string>
-`.
+Klienci reagowania na zdarzenia za pośrednictwem ***procedury obsługi zdarzeń***. Programy obsługi zdarzeń dołączonych przy użyciu `+=` operatora i usunięte przy użyciu `-=` operatora. Poniższy przykład dołącza program obsługi zdarzeń do `Changed` zdarzenia `List<string>`.
 
 ```csharp
 using System;
@@ -1221,10 +1215,7 @@ W przypadku zaawansowanych scenariuszy, w którym pożądane jest formantu powi�
 
 ***Operator*** jest element członkowski, który definiuje znaczenie zastosowania operatora poszczególnych wyrażeń do wystąpienia klasy. Można zdefiniować trzy rodzaje operatory: jednoargumentowe operatory, operatory binarne i operatory konwersji. Wszystkie operatory musi być zadeklarowany jako `public` i `static`.
 
-`List<T>
-` Klasa deklaruje dwa operatory `operator==` i `operator!=`i dlatego zapewnia nowe znaczenie wyrażenia, które są stosowane te operatory, aby `List` wystąpień. W szczególności operatorów definiowania równości dwóch `List<T>
-` wystąpienia jako porównując każdej zawartych obiektów za pomocą ich `Equals` metody. W poniższym przykładzie użyto `==` operatora do porównywania dwóch `List<int>
-` wystąpień.
+`List<T>` Klasa deklaruje dwa operatory `operator==` i `operator!=`i dlatego zapewnia nowe znaczenie wyrażenia, które są stosowane te operatory, aby `List` wystąpień. W szczególności operatorów definiowania równości dwóch `List<T>` wystąpienia jako porównując każdej zawartych obiektów za pomocą ich `Equals` metody. W poniższym przykładzie użyto `==` operatora do porównywania dwóch `List<int>` wystąpień.
 
 ```csharp
 using System;
@@ -1245,9 +1236,7 @@ class Test
 }
 ```
 
-Pierwszy `Console.WriteLine` generuje `True` ponieważ dwie listy zawiera taką samą liczbę obiektów o tej samej wartości w tej samej kolejności. Gdyby `List<T>
-` Niezdefiniowany `operator==`, pierwszy `Console.WriteLine` będzie mieć danych wyjściowych `False` ponieważ `a` i `b` odwołanie do innego `List<int>
-` wystąpień.
+Pierwszy `Console.WriteLine` generuje `True` ponieważ dwie listy zawiera taką samą liczbę obiektów o tej samej wartości w tej samej kolejności. Gdyby `List<T>` Niezdefiniowany `operator==`, pierwszy `Console.WriteLine` będzie mieć danych wyjściowych `False` ponieważ `a` i `b` odwołanie do innego `List<int>` wystąpień.
 
 #### <a name="destructors"></a>Destruktory
 

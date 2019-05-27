@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: b7bb7dd575d9e2e6d5dd85bdd3e535411e29fcf4
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: ff285fc202d14c2060c5f005c319c7886458a168
+ms.sourcegitcommit: 8152182f0a477cb3082e625b607262cc459a17f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64488864"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66174241"
 ---
 # <a name="variables"></a>Zmienne
 
@@ -574,7 +574,7 @@ Wyrażenie *expr* formularza `expr_first ?? expr_second`:
 *  Stan asercję określonego przypisania *v* przed *expr_first* jest taka sama jak stan asercję określonego przypisania *v* przed *expr*.
 *  Stan asercję określonego przypisania *v* przed *expr_second* jest taka sama jak stan asercję określonego przypisania *v* po *expr_first*.
 *  Instrukcja asercję określonego przypisania *v* po *expr* jest określana przez:
-    * Jeśli *expr_first* jest wyrażeniem stałym ([wyrażeń stałych](expressions.md#constant-expressions)) o wartości null, a następnie stan *v* po *expr* jest taka sama jako stan *v* po *expr_second*.
+    * Jeśli *expr_first* jest wyrażeniem stałym ([wyrażeń stałych](expressions.md#constant-expressions)) o wartości null, a następnie stan *v* po *expr* jest taka sama jak Stan *v* po *expr_second*.
 *  W przeciwnym razie stan *v* po *expr* jest taka sama jak stan asercję określonego przypisania *v* po *expr_first*.
 
 #### <a name="-conditional-expressions"></a>?: wyrażenia (warunkowe)

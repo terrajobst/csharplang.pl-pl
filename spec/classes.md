@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: af7af574814dc04ee3ece0396b7ae5f86b3ec8eb
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: 917e2f1e196013f85eefbda21fb3d717cc681084
+ms.sourcegitcommit: 09e0ddec3bb6aa99b7340158bbac86a5a8243b43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64488901"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66193911"
 ---
 # <a name="classes"></a>Klasy
 
@@ -1500,7 +1500,7 @@ Dla pól typu nieulotnego technik optymalizacji, które zmiana kolejności instr
 Te ograniczenia upewnij się, że wszystkie wątki będzie przestrzegać volatile zapisów wykonywane przez inny wątek, w kolejności, w którym zostały wykonane. Odpowiadające wdrożenia nie jest wymagany zapewnienie pojedynczego całkowita kolejność volatile zapisów wyświetlanego ze wszystkich wątków wykonania. Typ pola nietrwałego musi być jedną z następujących czynności:
 
 *  A *reference_type*.
-*  Typ `byte`, `sbyte`, `short`, `ushort`, `int`, `uint`, `char`, `float`, `bool`, `System.IntPtr`, lub` System.UIntPtr`.
+*  Typ `byte`, `sbyte`, `short`, `ushort`, `int`, `uint`, `char`, `float`, `bool`, `System.IntPtr`, lub `System.UIntPtr`.
 *  *Enum_type* wyliczenia podstawowego typu `byte`, `sbyte`, `short`, `ushort`, `int`, lub `uint`.
 
 Przykład

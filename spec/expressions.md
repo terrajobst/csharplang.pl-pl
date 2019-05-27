@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 066c300d4c2baa8749e132730ecd48275e2957f7
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: 130898a8b5a7b8eb986b314cb4cf78038e840b02
+ms.sourcegitcommit: 09e0ddec3bb6aa99b7340158bbac86a5a8243b43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64489014"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66193936"
 ---
 # <a name="expressions"></a>Wyrażenia
 
@@ -2489,7 +2489,7 @@ Dla operacji formularza `-x`, Rozpoznanie przeciążenia operatora jednoargument
    long operator -(long x);
    ```
 
-   Wynik jest obliczana przez odjęcie `x` od zera. Jeśli wartość elementu `x` jest najmniejszą wartość stałego typu operand (-2 ^ 31 `int` lub -2 ^ 63 dla `long`), następnie matematyczne negację `x` nie jest reprezentowanych w ramach typu operand. Jeśli ten problem wystąpi w ramach `checked` kontekstu, `System.OverflowException` zgłaszany; jeśli jego wystąpieniu w ciągu `unchecked` kontekstu, wynikiem jest wartość operandu i przeciążenia nie został zgłoszony.
+   Wynik jest obliczana przez odjęcie `x` od zera. Jeśli wartość `x` jest najmniejszą wartość stałego typu operand (-2 ^ 31 `int` lub -2 ^ 63 dla `long`), następnie matematyczne negację `x` nie jest reprezentowanych w ramach typu operand. Jeśli ten problem wystąpi w ramach `checked` kontekstu, `System.OverflowException` zgłaszany; jeśli jego wystąpieniu w ciągu `unchecked` kontekstu, wynikiem jest wartość operandu i przeciążenia nie został zgłoszony.
 
    Jeśli argument operator negacji jest typu `uint`, jest konwertowany na typ `long`, a typ wyniku jest `long`. Wyjątek stanowi regułę, która pozwala na `int` wartość -2147483648 (-2 ^ 31) do zapisania jako dziesiętna liczba całkowita literału ([literały całkowite](lexical-structure.md#integer-literals)).
 
