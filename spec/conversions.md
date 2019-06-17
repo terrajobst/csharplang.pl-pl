@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 61eeae6173eaa19f9cf6d6e985f3dc107d4c3ac9
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: d082393a00496b948ad4e3ff9e135d94e89d2448
+ms.sourcegitcommit: 1a46441156b13db6c845f4bbb886284387d73023
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64488957"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67047039"
 ---
 # <a name="conversions"></a>Konwersje
 
@@ -47,7 +47,7 @@ Jednak dynamiczne konwersje ([niejawne konwersje dynamiczne](conversions.md#impl
 
 Konwertuje konwersję tożsamości z dowolnego typu tego samego typu. Ta konwersja istnieje taki sposób, że nazywany jednostki, która już ma wymagany typ być konwertowany do tego typu.
 
-*  Ponieważ obiekt i dynamiczne są uważane za równoważne to konwersja tożsamości między `object` i `dynamic`oraz między typami skonstruowany, które są takie same, podczas zamiany wszystkich wystąpień `dynamic` z `object`.
+*  Ponieważ `object` i `dynamic` są uważane za równoważne istnieje konwersja tożsamości między `object` i `dynamic`oraz między typami skonstruowany, które są takie same, podczas zamiany wszystkich wystąpień `dynamic` z `object`.
 
 ### <a name="implicit-numeric-conversions"></a>Niejawne konwersje liczbowe
 
