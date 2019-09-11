@@ -1,22 +1,22 @@
 ---
-ms.openlocfilehash: ff285fc202d14c2060c5f005c319c7886458a168
-ms.sourcegitcommit: 8152182f0a477cb3082e625b607262cc459a17f3
+ms.openlocfilehash: a01cf9387b8dc47de036bf0bd1496c19a441d81c
+ms.sourcegitcommit: 7f7fc6e9e195e51b7ff8229aeaa70aa9fbbb63cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66174241"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70876800"
 ---
 # <a name="variables"></a>Zmienne
 
-Zmienne reprezentują lokalizacje przechowywania. Co zmienna ma typ, który określa, jakie wartości mogą być przechowywane w zmiennej. C# to język bezpieczny i kompilator języka C# gwarantuje, że wartości przechowywane w zmiennych są zawsze odpowiedniego typu. Wartość zmiennej można zmienić za pośrednictwem przydziału lub za pośrednictwem `++` i `--` operatorów.
+Zmienne reprezentują lokalizacje magazynu. Każda zmienna ma typ, który określa, jakie wartości mogą być przechowywane w zmiennej. C#jest językiem bezpiecznym dla typu, a C# kompilator gwarantuje, że wartości przechowywane w zmiennych są zawsze odpowiednim typem. Wartość zmiennej można zmienić poprzez przypisanie lub użycie `++` operatorów i. `--`
 
-Zmienna musi być ***zdecydowanie przypisywany*** ([asercję określonego przypisania](variables.md#definite-assignment)) przed jej wartość można uzyskać.
+Zmienna musi być ***ostatecznie przypisana*** ([przypisanie określone](variables.md#definite-assignment)), zanim będzie można uzyskać jej wartość.
 
-Zgodnie z opisem w poniższych sekcjach, zmienne są ***przypisane początkowo*** lub ***początkowo nieprzypisane***. Początkowo przypisanej zmiennej ma dobrze zdefiniowanych wartości początkowej i zawsze jest uznawany za zdecydowanie przypisana. Początkowo nieprzypisanej zmiennej nie ma początkowej wartości. Początkowo nieprzypisane zmiennej wziąć pod uwagę zdecydowanie przypisane w określonej lokalizacji przypisania do zmiennej musi występować w każdej ścieżce możliwe wykonanie, co prowadzi do tej lokalizacji.
+Zgodnie z opisem w poniższych sekcjach zmienne są ***początkowo przypisywane*** lub ***początkowo***nieprzypisane. Początkowo przypisana zmienna ma dobrze zdefiniowaną wartość początkową i jest zawsze traktowana jako ostatecznie przypisana. Początkowo nieprzypisana zmienna nie ma wartości początkowej. W przypadku początkowo nieprzypisanej zmiennej, która ma zostać uznana za ostatecznie przypisaną w określonej lokalizacji, przypisanie do zmiennej musi nastąpić w każdej możliwej ścieżce wykonywania prowadzącej do tej lokalizacji.
 
-## <a name="variable-categories"></a>Kategorie zmiennej
+## <a name="variable-categories"></a>Kategorie zmiennych
 
-Język C# definiuje siedem kategorii zmiennych: zmiennych statycznych, zmienne wystąpienia, elementy tablicy, wartości parametrów, parametrów w formie odwołań, parametry wyjściowe i zmiennych lokalnych. W kolejnych sekcjach opisano każdy z tych kategorii.
+C#definiuje siedem kategorii zmiennych: zmiennych statycznych, zmiennych wystąpień, elementów tablicy, parametrów wartości, parametrów odwołania, parametrów wyjściowych i zmiennych lokalnych. W poniższych sekcjach opisano każdą z tych kategorii.
 
 W przykładzie
 ```csharp
@@ -31,253 +31,253 @@ class A
     }
 }
 ```
-`x` Zmienna statyczna jest `y` jest zmienną instance `v[0]` jest element tablicy `a` jest wartość parametru, `b` jest parametr przekazany przez odwołanie, `c` jest parametrem wyjściowym i `i` jest zmienną lokalną.
+`x`to zmienna statyczna, `y` czy zmienna wystąpienia, `v[0]` jest elementem tablicy, `a` jest parametrem `c` wartości, `b` jest parametrem referencyjnym, jest parametrem wyjściowym i `i` jest zmienną lokalną .
 
 ### <a name="static-variables"></a>Zmienne statyczne
 
-Pole jest zadeklarowane za pomocą `static` nosi nazwę modyfikator ***zmienna statyczna***. Zmienna statyczna trafia do istnienia przed wykonaniem konstruktora statycznego ([konstruktorów statycznych](classes.md#static-constructors)) jego zawierający typ i przestaje istnieć, gdy domena skojarzona aplikacja przestanie istnieć.
+Pole zadeklarowane za pomocą `static` modyfikatora nosi nazwę ***zmiennej statycznej***. Zmienna statyczna występuje przed wykonaniem konstruktora statycznego ([konstruktory statyczne](classes.md#static-constructors)) dla jego typu zawierającego i przestaje istnieć, gdy skojarzona domena aplikacji przestanie istnieć.
 
-Początkowa wartość Zmienna statyczna jest wartością domyślną ([wartości domyślne](variables.md#default-values)) typu zmiennej.
+Początkowa wartość zmiennej statycznej jest wartością domyślną ([wartości domyślne](variables.md#default-values)) typu zmiennej.
 
-Do celów sprawdzania asercję określonego przypisania zmienna statyczna jest uznawany za początkowo przypisana.
+W celach o określonym przeznaczeniu, zmienna statyczna jest traktowana jako początkowo przypisana.
 
 ### <a name="instance-variables"></a>Zmienne wystąpienia
 
-Pole zadeklarowana bez `static` nosi nazwę modyfikator ***zmienną instance***.
+Pole zadeklarowane bez `static` modyfikatora jest nazywane ***zmienną wystąpienia***.
 
-#### <a name="instance-variables-in-classes"></a>Zmienne wystąpienia klas
+#### <a name="instance-variables-in-classes"></a>Zmienne wystąpień w klasach
 
-Zmiennej wystąpienia klasy trafia do istnienia, nowe wystąpienie tej klasy jest tworzona, gdy przestanie istnieć, gdy nie ma żadnych odwołań do tego wystąpienia i destruktor wystąpienia (jeśli istnieje) zostanie wykonany.
+Zmienna wystąpienia klasy występuje, gdy jest tworzone nowe wystąpienie tej klasy i przestaje istnieć, gdy nie ma odwołań do tego wystąpienia i destruktora wystąpienia (jeśli istnieje).
 
 Początkowa wartość zmiennej wystąpienia klasy jest wartością domyślną ([wartości domyślne](variables.md#default-values)) typu zmiennej.
 
-Na potrzeby sprawdzania, asercja określonego przydziału, zmiennej wystąpienia klasy jest uważany za początkowo przypisana.
+Na potrzeby określonego sprawdzania przypisania zmienna wystąpienia klasy jest traktowana jako początkowo przypisana.
 
 #### <a name="instance-variables-in-structs"></a>Zmienne wystąpienia w strukturach
 
-Zmienną instance struktury ma dokładnie ten sam okres istnienia jako zmiennej struktury, do której należy. Innymi słowy, gdy zmienną typu struktury trafia do istnienia lub przestaje istnieć, więc zbyt czy zmienne wystąpienia struktury.
+Zmienna wystąpienia struktury ma dokładnie taki sam okres istnienia, jak zmienna struktury, do której należy. Innymi słowy, gdy zmienna typu struktury jest w stanie istnienia lub przestaje istnieć, więc należy wykonać te zmienne wystąpienia struktury.
 
-Stan początkowego przydziału zmienną instance struktury jest taka sama jak zawierającego zmiennej struktury. Innymi słowy, po zmiennej struktury jest uznawany za początkowo przypisane, więc za jego zmienne wystąpienia i po zmiennej struktury jest uznawany za początkowo nieprzypisane, jego zmienne wystąpienia są podobnie nieprzypisane.
+Początkowy stan przypisania zmiennej wystąpienia struktury jest taki sam, jak w przypadku zawierającej ją zmiennej struktury. Innymi słowy, gdy zmienna struktury jest uznawana za wstępnie przypisaną, więc ich zmienne wystąpień i gdy zmienna struktury jest uznawana za początkowo nieprzypisane, jego zmienne wystąpienia są podobnie nieprzypisane.
 
 ### <a name="array-elements"></a>Elementy tablicy
 
-Elementy tablicy rozpoczęciu istnienie, gdy tworzone jest wystąpienie tablicy i przestaną istnieć, gdy istnieją żadnych odwołań do tego wystąpienia tablicy.
+Elementy tablicy są obecne w momencie utworzenia wystąpienia tablicy i przestaną istnieć, gdy nie ma odwołań do tego wystąpienia tablicy.
 
-Początkowa wartość każdego z elementów tablicy jest wartością domyślną ([wartości domyślne](variables.md#default-values)) typ elementów tablicy.
+Wartość początkowa każdego z elementów tablicy jest wartością domyślną ([wartości domyślne](variables.md#default-values)) typu elementów tablicy.
 
-Na potrzeby sprawdzania, asercja określonego przydziału, do elementu tablicy jest uważany za początkowo przypisana.
+Na potrzeby określonego sprawdzania przypisania element array jest traktowany jako wstępnie przypisany.
 
-### <a name="value-parameters"></a>Wartości parametrów
+### <a name="value-parameters"></a>Parametry wartości
 
-Parametr zadeklarowana bez `ref` lub `out` modyfikator jest ***wartość parametru***.
+Parametr zadeklarowany bez `ref` modyfikatora `out` or jest ***parametrem wartości***.
 
-Wartość parametru trafia do istnienia na wywołanie funkcji elementu członkowskiego, (metody, konstruktora wystąpienia, metody dostępu lub operator) lub funkcja anonimowa do których parametr należy i jest inicjowany z wartością argumentu wywołania. Parametr wartości zwykle przestanie istnieć po powrocie funkcja składowa lub funkcja anonimowa. Jednakże jeśli parametr wartości są przechwytywane przez funkcję anonimową ([wyrażenia funkcji anonimowych](expressions.md#anonymous-function-expressions)), jego okres istnienia co najmniej rozszerza aż delegat lub drzewa wyrażeń utworzone na podstawie tego funkcja anonimowa kwalifikuje się do wyrzucanie elementów bezużytecznych.
+Parametr value występuje w przypadku wywołania elementu członkowskiego funkcji (metody, konstruktora wystąpienia, metody dostępu lub operatora) lub funkcji anonimowej, do której należy parametr, i jest inicjowany przy użyciu wartości argumentu podanego w wywołaniu. Parametr wartości zwykle przestaje istnieć po zwrocie elementu członkowskiego funkcji lub funkcji anonimowej. Jeśli jednak parametr value jest przechwytywany przez funkcję anonimową ([wyrażenia funkcji anonimowych](expressions.md#anonymous-function-expressions)), jego czas życia rozciąga się co najmniej do momentu, aż obiekt delegowany lub drzewo wyrażenia utworzone na podstawie tej funkcji anonimowej będzie kwalifikować się do wyrzucania elementów bezużytecznych.
 
-Na potrzeby sprawdzania, asercja określonego przydziału, parametr wartości jest uważany za początkowo przypisana.
+Na potrzeby określonego sprawdzania przypisania parametr value jest traktowany jako wstępnie przypisany.
 
 ### <a name="reference-parameters"></a>Parametry odwołania
 
-Parametr zadeklarowana za pomocą `ref` modyfikator jest ***odwołać się do parametru***.
+Parametr zadeklarowany za pomocą `ref` modyfikatora jest ***parametrem referencyjnym***.
 
-Parametr przekazany przez odwołanie, nie powoduje utworzenia nowej lokalizacji magazynu. Zamiast tego parametru odwołania reprezentuje tę samą lokalizację magazynu zmienna, podane jako argument w funkcji składowej lub wywołania funkcji anonimowych. W związku z tym wartość parametru odwołania jest zawsze taki sam, jako zmienna bazowego.
+Parametr Reference nie tworzy nowej lokalizacji magazynu. Zamiast tego parametr odwołania reprezentuje tę samą lokalizację magazynu, co zmienna określona jako argument w elemencie członkowskim funkcji lub wywołaniu funkcji anonimowej. W ten sposób wartość parametru odwołania jest zawsze taka sama jak zmienna bazowa.
 
-Asercja określonego przydziału obowiązują następujące reguły do parametrów odwołania. Należy pamiętać, różne reguły dla parametrów wyjściowych, które opisano w [parametrów wyjściowych](variables.md#output-parameters).
+Następujące określone reguły przypisywania dotyczą parametrów referencyjnych. Zwróć uwagę na różne reguły parametrów wyjściowych opisanych w [parametrach wyjściowych](variables.md#output-parameters).
 
-*  Zmienna musi zostać zdecydowanie przypisany ([asercję określonego przypisania](variables.md#definite-assignment)) zanim może być przekazywany jako parametr w wywołaniu funkcji elementu członkowskiego lub delegata przekazany przez odwołanie.
-*  Funkcja składowa lub funkcja anonimowa parametr przekazany przez odwołanie jest traktowany jako wstępnie przypisany.
+*  Zmienna musi być ostatecznie przypisana ([przypisanie](variables.md#definite-assignment)), zanim będzie mogła zostać przeniesiona jako parametr odwołania w składowej funkcji lub delegatze wywołania.
+*  W składowej funkcji lub funkcji anonimowej jest uznawany za początkowo przypisany parametr Reference.
 
-Wewnątrz metody wystąpienia lub metoda dostępu do wystąpienia typu struktury `this` — słowo kluczowe zachowuje się dokładnie tak jak parametr typu struktury przekazany przez odwołanie ([dostęp](expressions.md#this-access)).
+W ramach metody wystąpienia lub akcesora wystąpienia typu `this` struktury słowo kluczowe zachowuje się dokładnie jako parametr Reference typu struktury ([ten dostęp](expressions.md#this-access)).
 
 ### <a name="output-parameters"></a>Parametry wyjściowe
 
-Parametr zadeklarowana za pomocą `out` modyfikator jest ***parametr wyjściowy***.
+Parametr zadeklarowany za pomocą `out` modyfikatora jest ***parametrem wyjściowym***.
 
-Parametr wyjściowy nie powoduje utworzenia nowej lokalizacji magazynu. Zamiast tego parametru output reprezentuje tę samą lokalizację magazynu zmienna, podane jako argument w wywołaniu funkcji elementu członkowskiego lub delegata. W związku z tym wartość parametru wyjściowego jest zawsze taki sam, jako zmienna bazowego.
+Parametr wyjściowy nie tworzy nowej lokalizacji magazynu. Zamiast tego parametr wyjściowy reprezentuje tę samą lokalizację magazynu, co zmienna określona jako argument elementu członkowskiego funkcji lub delegata wywołania. W ten sposób wartość parametru wyjściowego jest zawsze taka sama jak zmienna bazowa.
 
-Asercja określonego przydziału obowiązują następujące reguły do parametrów danych wyjściowych. Należy pamiętać, różne reguły odniesienia parametrów opisanych w [odwołania do parametrów](variables.md#reference-parameters).
+Następujące określone reguły przypisywania mają zastosowanie do parametrów wyjściowych. Zwróć uwagę na różne reguły parametrów referencyjnych opisanych w [parametrach referencyjnych](variables.md#reference-parameters).
 
-*  Zmienna musi nie być zdecydowanie przypisana może być przekazywany jako parametr wyjściowy w funkcji składowej, lub delegować wywołania.
-*  Po zakończeniu normalne wywołanie funkcji elementu członkowskiego lub delegata każda zmienna, która została przekazana jako parametr wyjściowy jest uznawany za przypisane w tej ścieżce wykonywania.
-*  Funkcja składowa lub funkcja anonimowa początkowo nieprzypisane jest traktowany jako parametr wyjściowy.
-*  Każdy parametr wyjściowy, funkcja składowa lub funkcja anonimowa musi być zdecydowanie przypisana ([asercję określonego przypisania](variables.md#definite-assignment)) przed funkcją członka lub funkcja anonimowa zwraca normalnie.
+*  Zmienna nie musi być ostatecznie przypisana, zanim będzie mogła zostać przeniesiona jako parametr wyjściowy w składowej funkcji lub w wywołaniu obiektu delegowanego.
+*  Po normalnym zakończeniu elementu członkowskiego funkcji lub delegatze wywołania Każda zmienna, która została przeniesiona jako parametr wyjściowy, jest uznawana za przypisaną w tej ścieżce wykonywania.
+*  W ramach składowej funkcji lub funkcji anonimowej, parametr wyjściowy jest uznawany za początkowo nieprzypisane.
+*  Każdy parametr wyjściowy elementu członkowskiego funkcji lub funkcji anonimowej musi być ostatecznie przypisany ([przypisanie określone](variables.md#definite-assignment)) zanim element członkowski funkcji lub funkcja anonimowa normalnie zwróci wynik.
 
-W konstruktorze wystąpienia typu struktury `this` — słowo kluczowe zachowuje się dokładnie jako parametr wyjściowy typu struktury ([dostęp](expressions.md#this-access)).
+W konstruktorze wystąpienia typu `this` struktury słowo kluczowe zachowuje się dokładnie jako parametr wyjściowy typu struktury ([dostęp](expressions.md#this-access)).
 
 ### <a name="local-variables"></a>Zmienne lokalne
 
-A ***zmienna lokalna*** zadeklarowano *local_variable_declaration*, które mogą wystąpić w *bloku*, *for_statement*, *switch_statement* lub *using_statement*; lub *foreach_statement* lub *specific_catch_clause* dla *try_statement*.
+***Zmienna lokalna*** jest zadeklarowana przez element *local_variable_declaration*, który może wystąpić w *bloku*, *for_statement*, *switch_statement* lub *using_statement*; lub *foreach_statement* lub *specific_catch_clause* dla *try_statement*.
 
-Okres istnienia zmiennej lokalnej jest części wykonywania programu, w którym magazyn jest gwarantowane do zarezerwowania dla niego. Ten okres istnienia co najmniej rozciąga się od wejścia *bloku*, *for_statement*, *switch_statement*, *using_statement*, *foreach_statement*, lub *specific_catch_clause* za pomocą którego jest skojarzony, aż do wykonania tego *bloku*, *for_statement*, *switch_statement*, *using_statement*, *foreach_statement*, lub *specific_catch_clause* kończy się w dowolny sposób. (Wprowadź ujęty *bloku* lub wywołanie metody wstrzymuje, ale nie kończy wykonywanie bieżącego *bloku*, *for_statement*, *switch_statement* , *using_statement*, *foreach_statement*, lub *specific_catch_clause*.) Jeśli zmienna lokalna jest przechwytywany przez funkcja anonimowa ([przechwyconych zmiennych zewnętrznych](expressions.md#captured-outer-variables)), jego okres istnienia co najmniej rozszerza aż delegat lub wyrażenie drzewa, utworzone na podstawie funkcja anonimowa, wraz ze wszystkimi innymi obiektami, które zaczynają odwoływać się do przechwyconej zmiennej, kwalifikują się do wyrzucania elementów bezużytecznych.
+Okres istnienia zmiennej lokalnej jest częścią wykonywania programu, podczas której zagwarantowano, że magazyn jest zarezerwowany dla tego obiektu. Ten okres istnienia rozszerza co najmniej od wpisu do *bloku*, *for_statement*, *switch_statement*, *using_statement*, *foreach_statement*lub *specific_catch_clause* , z którym jest skojarzony, do wykonywanie tego *bloku*, *for_statement*, *switch_statement*, *using_statement*, *foreach_statement*lub *specific_catch_clause* kończą się w dowolny sposób. (Wprowadzenie do zamkniętego *bloku* lub wywołanie metody zawiesza się, ale nie kończy wykonywania bieżącego *bloku*, *for_statement*, *switch_statement*, *using_statement*, *foreach_statement*lub *specific_ catch_clause*.) Jeśli zmienna lokalna jest przechwytywana przez funkcję anonimową ([przechwycone zmienne zewnętrzne](expressions.md#captured-outer-variables)), jego okres istnienia rozszerza co najmniej do momentu delegata lub drzewa wyrażenia utworzonego na podstawie funkcji anonimowej, wraz z innymi obiektami, które odwołują się do przechwycona zmienna kwalifikuje się do wyrzucania elementów bezużytecznych.
 
-Jeśli element nadrzędny *bloku*, *for_statement*, *switch_statement*, *using_statement*, *foreach_statement*, lub *specific_catch_clause* jest wprowadzana cyklicznie, nowe wystąpienie zmiennej lokalnej jest tworzony za każdym razem i jego *local_variable_initializer*, jeśli istnieje, nie zostało ocenione każdorazowo.
+Jeśli *blok*nadrzędny, *for_statement*, *switch_statement*, *using_statement*, *foreach_statement*lub *specific_catch_clause* jest wprowadzany rekursywnie, tworzone jest nowe wystąpienie zmiennej lokalnej czas i jego *local_variable_initializer*, jeśli istnieją, są oceniane za każdym razem.
 
-Zmienna lokalna wynikające z *local_variable_declaration* nie została zainicjowana automatycznie i w związku z tym nie ma wartości domyślnej. Na potrzeby sprawdzania, asercja określonego przydziału, zmienna lokalna wprowadzone przez *local_variable_declaration* jest uznawany za początkowo nieprzypisane. A *local_variable_declaration* mogą obejmować *local_variable_initializer*, w którym to przypadku zmienna jest uznawany za zdecydowanie przypisany dopiero po wyrażenie inicjujące ([ Instrukcje deklaracji](variables.md#declaration-statements)).
+Zmienna lokalna wprowadzona przez *local_variable_declaration* nie jest inicjowana automatycznie i w związku z tym nie ma wartości domyślnej. Na potrzeby określonego sprawdzania przypisania, zmienna lokalna wprowadzona przez *local_variable_declaration* jest uznawana za początkowo nieprzypisane. *Local_variable_declaration* może zawierać *local_variable_initializer*, w tym przypadku zmienna jest uważana za ostatecznie przypisaną tylko po wyrażeniu inicjowania ([instrukcje deklaracji](variables.md#declaration-statements)).
 
-W zakresie zmienną lokalną, wynikające z *local_variable_declaration*, jest to błąd czasu kompilacji do odwoływania się do tej zmiennej lokalnej w stanie tekstową poprzedzającym jego *local_variable_declarator*. Jeśli w deklaracji zmiennej lokalnej jest niejawne ([deklaracje zmiennych lokalnych](statements.md#local-variable-declarations)), również jest błędem do odwoływania się do zmiennej w ramach jego *local_variable_declarator*.
+W zakresie zmiennej lokalnej wprowadzonej przez *local_variable_declaration*jest to błąd czasu kompilacji, który odwołuje się do tej zmiennej lokalnej w pozycji tekstowej, która poprzedza jej *local_variable_declarator*. Jeśli deklaracja zmiennej lokalnej jest niejawna ([deklaracje zmiennych lokalnych](statements.md#local-variable-declarations)), jest również błędem do odwoływania się do zmiennej w ramach jej *local_variable_declarator*.
 
-Zmienna lokalna wynikające z *foreach_statement* lub *specific_catch_clause* jest uważana za cały zakres zdecydowanie przypisany.
+Zmienna lokalna wprowadzona przez *foreach_statement* lub *specific_catch_clause* jest uznawana za ostatecznie przypisaną w całym zakresie.
 
-Rzeczywisty okres istnienia zmiennej lokalnej jest zależna od implementacji. Na przykład kompilatora statycznie określić, że zmienna lokalna w bloku jest używana tylko dla małych części tego bloku. Za pomocą tej analizy, kompilator może wygenerować kod, który skutkuje magazynu zmiennej o krótszy okres istnienia niż bloku go zawierającego.
+Rzeczywisty okres istnienia zmiennej lokalnej jest zależny od implementacji. Na przykład kompilator może statycznie określić, że zmienna lokalna w bloku jest używana tylko dla małej części tego bloku. Korzystając z tej analizy, kompilator może wygenerować kod, który powoduje, że magazyn zmiennej ma krótszy okres istnienia niż jego blok zawierający.
 
-Magazyn, określone przez zmienną lokalnego odwołania jest odzyskiwane niezależnie od okresu istnienia tej zmiennej lokalnego odwołania ([automatyczne zarządzanie pamięcią](basic-concepts.md#automatic-memory-management)).
+Magazyn, do którego odwołuje się lokalna zmienna referencyjna, jest odzyskiwana niezależnie od okresu istnienia lokalnej zmiennej odwołania ([Automatyczne zarządzanie pamięcią](basic-concepts.md#automatic-memory-management)).
 
 ## <a name="default-values"></a>Wartości domyślne
 
-Następujące kategorie zmienne są automatycznie inicjowane do wartości domyślnych:
+Następujące kategorie zmiennych są automatycznie inicjowane na wartości domyślne:
 
 *  Zmienne statyczne.
-*  Zmienne wystąpienia wystąpienia klasy.
+*  Zmienne wystąpienia klasy Instances.
 *  Elementy tablicy.
 
-Wartość domyślna zmiennej zależy od typu zmiennej i jest określany w następujący sposób:
+Wartość domyślna zmiennej zależy od typu zmiennej i jest określana w następujący sposób:
 
-*  Dla zmiennej *value_type*, wartością domyślną jest taka sama jak wartość obliczona przez *value_type*firmy domyślnego konstruktora ([domyślne konstruktory](types.md#default-constructors)).
-*  Dla zmiennej *reference_type*, wartość domyślna to `null`.
+*  Dla zmiennej *value_type*wartość domyślna jest taka sama jak wartość obliczana przez konstruktora domyślnego *value_type*([konstruktory domyślne](types.md#default-constructors)).
+*  Dla zmiennej *reference_type*wartość domyślna to `null`.
 
-Inicjowanie do wartości domyślnych jest zazwyczaj wykonywane przez Menedżera pamięci lub modułu zbierającego elementy bezużyteczne zainicjowanie pamięci, aby wszystkie bity zero, zanim jest przydzielany do użycia. Z tego powodu jest łatwa w użyciu wszystkie bity zero do reprezentowania odwołanie o wartości null.
+Inicjowanie do wartości domyślnych jest zwykle wykonywane przez zainicjowanie pamięci przez Menedżera pamięci lub moduł wyrzucania elementów bezużytecznych do wszystkich-bitów-zero przed przydzieleniem do użycia. Z tego powodu wygodnie jest użyć wszystkich-bitów-zero do reprezentowania odwołania o wartości null.
 
-## <a name="definite-assignment"></a>Asercja określonego przydziału
+## <a name="definite-assignment"></a>Przypisanie określone
 
-W podanej lokalizacji w kod wykonywalny funkcji elementu członkowskiego, zmienna jest nazywany ***zdecydowanie przypisywany*** w przypadku kompilator może potwierdzić podczas analizy statycznej przepływu ([dokładne zasady ustalania określony Przypisanie](variables.md#precise-rules-for-determining-definite-assignment)), zmienna automatycznie zainicjować lub zostało celem co najmniej jedno przypisanie. Nieformalnie wspomniano, są następujące reguły asercję określonego przypisania:
+W danej lokalizacji kodu wykonywalnego elementu członkowskiego, zmienna jest określana jako ***czasowo przypisana*** , jeśli kompilator może udowodnić, przez określoną analityczny przepływ statyczny ([precyzyjne reguły określania określonego przypisania](variables.md#precise-rules-for-determining-definite-assignment)), że zmienna Program został zainicjowany automatycznie lub miał miejsce docelowe co najmniej jedno przypisanie. Nieformalnie określone reguły przypisywania są następujące:
 
-*  Początkowo przypisanej zmiennej ([początkowo przypisana zmienne](variables.md#initially-assigned-variables)) zawsze jest uznawany za zdecydowanie przypisany.
-*  Początkowo nieprzypisanej zmiennej ([początkowo nieprzypisane zmienne](variables.md#initially-unassigned-variables)) jest uznawana za zdecydowanie przypisany w danej lokalizacji, jeśli wszystkie możliwe wykonania ścieżki prowadzące do tej lokalizacji zawiera co najmniej jeden z następujących czynności:
-    * Przypisanie proste ([przypisanie proste](expressions.md#simple-assignment)), w którym zmienna jest lewy operand.
-    * Wyrażenie wywołania ([wyrażenia wywołania](expressions.md#invocation-expressions)) lub wyrażenie tworzenia obiektu ([wyrażenia tworzenia obiektów](expressions.md#object-creation-expressions)) który przekazuje zmiennej jako parametr wyjściowy.
-    * Dla zmiennej lokalnej deklaracji zmiennej lokalnej ([deklaracje zmiennych lokalnych](statements.md#local-variable-declarations)) zawierającej inicjatorze zmiennych.
+*  Początkowo przypisana zmienna ([wstępnie przypisane zmienne](variables.md#initially-assigned-variables)) jest zawsze uznawana za ostatecznie przypisaną.
+*  Początkowo nieprzypisane zmienne (początkowo nieprzypisane[zmienne](variables.md#initially-unassigned-variables)) są uznawane za ostatecznie przypisane w danej lokalizacji, jeśli wszystkie możliwe ścieżki wykonywania prowadzące do tej lokalizacji zawierają co najmniej jedną z następujących czynności:
+    * Proste przypisanie ([przypisanie proste](expressions.md#simple-assignment)), w którym zmienna jest argumentem lewego operandu.
+    * Wyrażenie wywołania (wyrażenia[wywołania](expressions.md#invocation-expressions)) lub wyrażenie tworzenia obiektu ([wyrażenia tworzenia obiektów](expressions.md#object-creation-expressions)), które przekazuje zmienną jako parametr wyjściowy.
+    * Dla zmiennej lokalnej deklaracja zmiennej lokalnej ([lokalnych deklaracji zmiennych](statements.md#local-variable-declarations)), która zawiera inicjator zmiennych.
 
-Formalną specyfikację nieformalne powyższych zasad podstawowych jest opisana w [początkowo przypisana zmienne](variables.md#initially-assigned-variables), [początkowo nieprzypisane zmienne](variables.md#initially-unassigned-variables), i [dokładne zasady ustalania asercja określonego przydziału](variables.md#precise-rules-for-determining-definite-assignment).
+Formalna Specyfikacja zgodna z powyższymi regułami nieformalnymi jest opisana w [wstępnie przypisanych zmiennych](variables.md#initially-assigned-variables), [początkowo nieprzypisane zmienne](variables.md#initially-unassigned-variables)i [precyzyjne reguły określania przypisania](variables.md#precise-rules-for-determining-definite-assignment).
 
-Stany asercję określonego przypisania zmiennych wystąpienia *struct_type* zmiennej są śledzone osobno również jak zbiorczo. W dodatkowych reguł powyżej, następujące reguły dotyczą *struct_type* zmienne oraz ich zmienne wystąpienia:
+Określone Stany przypisania zmiennych wystąpienia zmiennej *struct_type* są śledzone indywidualnie, a także w sposób zbiorczy. Oprócz powyższych reguł stosowane są następujące reguły do zmiennych *struct_type* i ich zmiennych wystąpień:
 
-*  Zmienną instance jest uznawana za zdecydowanie przypisany jeśli jego zawierający *struct_type* zmienna jest uznawany za zdecydowanie przypisany.
-*  A *struct_type* zmienna jest uznawana za zdecydowanie przypisany Jeśli każdego z jego zmienne wystąpienia jest uznawany za zdecydowanie przypisany.
+*  Zmienna wystąpienia jest uznawana za ostatecznie przypisaną, jeśli jej zawierająca zmienną *struct_type* jest uznawana za ostatecznie przypisaną.
+*  Zmienna *struct_type* jest uznawana za ostatecznie przypisaną, jeśli każda z jej zmiennych wystąpienia jest uznawana za ostatecznie przypisaną.
 
-Asercja określonego przydziału jest to wymagane w następujących okolicznościach:
+Określone przypisanie jest wymaganiem w następujących kontekstach:
 
-*  Zmienna musi być zdecydowanie przypisana w każdej lokalizacji, w których uzyskuje się wartość. Daje to gwarancję, niezdefiniowane wartości nigdy nie wystąpi. Wystąpienie zmiennej w wyrażeniu jest uważany za uzyskiwanie wartości zmiennej, chyba że
-    * zmienna jest lewy operand przypisanie proste
-    * zmienna jest przekazywana jako parametr wyjściowy lub
-    * zmienna jest *struct_type* zmiennej i pojawia się jako lewy operand dostępu elementu członkowskiego.
-*  Zmienna musi być zdecydowanie przypisana w każdej lokalizacji, w której jest przekazywany jako parametr przekazany przez odwołanie. Gwarantuje to, czy funkcja składowa, wywoływana można wziąć pod uwagę parametr odwołania początkowo przypisana.
-*  Wszystkie parametry wyjściowe funkcji elementu członkowskiego musi być zdecydowanie przypisana w każdej lokalizacji, w którym element członkowski funkcji zwraca (za pośrednictwem `return` instrukcji lub za pośrednictwem wykonywania osiągnięcia końca treści funkcji składowej). Daje to gwarancję, że funkcji elementów członkowskich nie zwracają niezdefiniowane wartości w parametry wyjściowe kompilatora wziąć pod uwagę wywołania elementu funkcji, która przyjmuje zmienną jako parametr wyjściowy równoważne do przypisania do zmiennej umożliwiając w ten sposób.
-*  `this` Zmiennej *struct_type* konstruktora wystąpienia musi być zdecydowanie przypisana w każdej lokalizacji, w których zwraca tego konstruktora wystąpienia.
+*  Zmienna musi być ostatecznie przypisana w każdej lokalizacji, w której zostanie uzyskana wartość. Gwarantuje to, że niezdefiniowane wartości nigdy nie wystąpią. Wystąpienie zmiennej w wyrażeniu jest traktowane do uzyskania wartości zmiennej, z wyjątkiem przypadków, gdy
+    * Zmienna jest lewym operandem prostego przypisywania,
+    * Zmienna jest przenoszona jako parametr wyjściowy lub
+    * Zmienna jest zmienną *struct_type* i występuje jako lewy operand dostępu do elementu członkowskiego.
+*  Zmienna musi być ostatecznie przypisana w każdej lokalizacji, w której jest przenoszona jako parametr referencyjny. Daje to pewność, że wywoływany element członkowski funkcji może uwzględniać początkowo przypisany parametr Reference.
+*  Wszystkie parametry wyjściowe elementu członkowskiego funkcji muszą być ostatecznie przypisane do każdej lokalizacji, w której element członkowski funkcji zwraca ( `return` za pomocą instrukcji lub przez wykonanie do końca treści elementu członkowskiego funkcji). Gwarantuje to, że elementy członkowskie funkcji nie zwracają niezdefiniowanych wartości w parametrach wyjściowych, dzięki czemu kompilator powinien wziąć pod uwagę wywołanie elementu członkowskiego, który pobiera zmienną jako parametr wyjściowy równoważne przypisanie do zmiennej.
+*  Zmienna konstruktora wystąpienia struct_type musi być ostatecznie przypisana w każdej lokalizacji, w której Konstruktor wystąpienia zwraca. `this`
 
-### <a name="initially-assigned-variables"></a>Początkowo zmiennymi
+### <a name="initially-assigned-variables"></a>Wstępnie przypisane zmienne
 
-Następujące kategorie zmienne są klasyfikowane jako początkowo przypisana:
+Następujące kategorie zmiennych są klasyfikowane jako początkowo przypisane:
 
 *  Zmienne statyczne.
-*  Zmienne wystąpienia wystąpienia klasy.
-*  Zmienne wystąpienia struktury wstępnie przypisanych zmiennych.
+*  Zmienne wystąpienia klasy Instances.
+*  Zmienne wystąpienia wstępnie przypisanych zmiennych struktury.
 *  Elementy tablicy.
-*  Wartości parametrów.
+*  Parametry wartości.
 *  Parametry odwołania.
-*  Zmienne zadeklarowane w `catch` klauzuli lub `foreach` instrukcji.
+*  Zmienne zadeklarowane w `catch` klauzuli `foreach` lub instrukcji.
 
-### <a name="initially-unassigned-variables"></a>Początkowo nieprzypisane zmiennych
+### <a name="initially-unassigned-variables"></a>Początkowo nieprzypisane zmienne
 
-Następujące kategorie zmienne są klasyfikowane jako początkowo nieprzypisane:
+Następujące kategorie zmiennych są klasyfikowane jako początkowo nieprzypisane:
 
-*  Zmienne wystąpienia struktury początkowo nieprzypisane zmiennych.
-*  Dane wyjściowe parametrów, w tym `this` zmiennej konstruktorów wystąpienia struktury.
-*  Zmienne lokalne, oprócz tych zadeklarowanych w `catch` klauzuli lub `foreach` instrukcji.
+*  Zmienne wystąpienia początkowo nieprzypisane zmienne struktury.
+*  Parametry wyjściowe, w tym `this` zmienna konstruktorów wystąpień struktury.
+*  Zmienne lokalne, z wyjątkiem tych zadeklarowanych `catch` w klauzuli `foreach` lub instrukcji.
 
-### <a name="precise-rules-for-determining-definite-assignment"></a>Dokładne zasady określania asercję określonego przypisania
+### <a name="precise-rules-for-determining-definite-assignment"></a>Precyzyjne reguły określania określonego przypisania
 
-Aby określić, że zmiennych używanych jest zdecydowanie przypisany, kompilator korzystać procesu, który jest odpowiednikiem to opisane w tej sekcji.
+Aby określić, że każda użyta zmienna jest ostatecznie przypisana, kompilator musi użyć procesu, który jest równoważny z opisanym w tej sekcji.
 
-Kompilator przetwarza treść każdy element członkowski funkcji, który ma co najmniej jednej zmiennej początkowo nieprzypisane. Dla każdej zmiennej początkowo nieprzypisane *v*, kompilator Określa ***stanu asercję określonego przypisania*** dla *v* w każdym z następujących punktów w elemencie członkowskim funkcji:
+Kompilator przetwarza treść każdego elementu członkowskiego funkcji, który ma co najmniej jedną wstępnie przypisaną zmienną. Dla każdej początkowo nieprzypisanej zmiennej *v*kompilator określa ***określony stan przypisania*** dla *v* w każdym z następujących punktów w składowej funkcji:
 
 *  Na początku każdej instrukcji
-*  W punkcie końcowym ([punktów końcowych i osiągalności](statements.md#end-points-and-reachability)) każdej instrukcji
-*  Na każdym łuku który przekazuje sterowanie do innej instrukcji lub punkt końcowy w instrukcji
+*  W punkcie końcowym ([punkty końcowe i osiągalność](statements.md#end-points-and-reachability)) każdej instrukcji
+*  Na każdym łuku, który przenosi formant do innej instrukcji lub do punktu końcowego instrukcji
 *  Na początku każdego wyrażenia
-*  Na koniec każdego wyrażenia
+*  Na końcu każdego wyrażenia
 
-Stan asercję określonego przypisania *v* może być albo:
+Określony stan przypisania *v* może być:
 
-*  Zdecydowanie przypisany. Oznacza to, że na wszystkich przepływów sterowania możliwe do tej pory *v* zostanie przypisana wartość.
-*  Zdecydowanie Nieprzypisana. Stan zmiennej na końcu wyrażenia typu `bool`, stan zmienna, która nie jest zdecydowanie przypisywany może (ale nie zawsze) można podzielić na jeden z następujących stanów podrzędnych:
-    * Zdecydowanie przypisana po wartość true, wyrażenie. Ten stan wskazuje, że *v* jest zdecydowanie przypisana, jeśli wyrażenie logiczne oceniane jako PRAWDA, ale nie jest koniecznie przypisany, jeśli wyrażenie logiczne ocenione jako fałszywe.
-    * Zdecydowanie przypisana po wyrażeniu false. Ten stan wskazuje, że *v* jest zdecydowanie przypisana, jeśli wyrażenie logiczne ocenione jako fałszywe, ale nie jest koniecznie przypisany, jeśli wyrażenie logiczne jest oceniane jako PRAWDA.
+*  W nieskończony sposób. Oznacza *to, że* dla wszystkich możliwych przepływów sterowania do tego punktu przypisano wartość.
+*  Nie jest on ostatecznie przypisany. W przypadku stanu zmiennej na końcu wyrażenia typu `bool`, stan zmiennej, która nie jest ostatecznie przypisany, może (ale niekoniecznie) wchodzić do jednego z następujących podstanów:
+    * W nieskończony sposób przypisany po prawdziwe wyrażenie. Ten stan wskazuje, że wartość *v* jest ostatecznie przypisana, jeśli wyrażenie logiczne jest oceniane jako prawdziwe, ale nie musi być przypisywane, jeśli wyrażenie logiczne zostało ocenione jako FAŁSZ.
+    * Jest on przypisany w nieskończoność po wyrażeniu false. Ten stan wskazuje, że w przypadku wyrażenia logicznego ocenianego jako FAŁSZ jest przypisywana wartość " *v* ", ale nie jest to konieczne, jeśli wyrażenie logiczne jest oceniane jako true.
 
-Następujące reguły określają sposób, w jaki stan zmiennej *v* jest określana w każdej lokalizacji.
+Poniższe reguły określają, jak stan zmiennej *v* jest określany w każdej lokalizacji.
 
-#### <a name="general-rules-for-statements"></a>Ogólne zasady dla instrukcji
+#### <a name="general-rules-for-statements"></a>Ogólne reguły dla instrukcji
 
-*  *v* nie jest zdecydowanie przypisany na początku treści funkcji składowej.
-*  *v* jest zdecydowanie przypisany na początku każdej instrukcji jest nieosiągalny.
-*  Stan asercję określonego przypisania *v* na początku innych instrukcji jest określany przez sprawdzenie stanu asercję określonego przypisania *v* na wszystkie transfery przepływu sterowania, przeznaczonych dla początku, Instrukcja. Gdy (i tylko wtedy, gdy) *v* zdecydowanie jest przypisany na wszystkich takich transferu przepływu sterowania, na następnie *v* jest zdecydowanie przypisany na początku instrukcji. Zbiór transfery przepływu sterowania możliwe jest określana w taki sam sposób jak w przypadku sprawdzania osiągalności — instrukcja ([punktów końcowych i osiągalności](statements.md#end-points-and-reachability)).
-*  Stan asercję określonego przypisania *v* w punkcie końcowym bloku `checked`, `unchecked`, `if`, `while`, `do`, `for`, `foreach`, `lock`, `using`, lub `switch` instrukcji jest określany przez sprawdzenie stanu asercję określonego przypisania *v* na wszystkie transfery przepływu sterowania, przeznaczonych dla punktu końcowego w tej instrukcji. Jeśli *v* zdecydowanie jest przypisany na wszystkich takich transferu przepływu sterowania, na następnie *v* jest zdecydowanie przypisana w punkcie końcowym instrukcji. W przeciwnym razie; *v* zdecydowanie nie jest przypisana w punkcie końcowym instrukcji. Zbiór transfery przepływu sterowania możliwe jest określana w taki sam sposób jak w przypadku sprawdzania osiągalności — instrukcja ([punktów końcowych i osiągalności](statements.md#end-points-and-reachability)).
+*  wartość *v* nie jest ostatecznie przypisana na początku treści elementu członkowskiego funkcji.
+*  *v* jest ostatecznie przypisana na początku dowolnej nieosiągalnej instrukcji.
+*  Określony stan przypisania *v* na początku każdej innej instrukcji jest określany przez sprawdzenie, czy stan przypisania jest określony *, na wszystkich* transferach przepływów sterowania przeznaczonych dla początku tej instrukcji. Jeśli (i tylko wtedy, gdy) *v* jest ostatecznie przypisany do wszystkich takich transferów przepływów sterowania, a następnie *v* jest ostatecznie przypisana na początku instrukcji. Zestaw możliwych transferów przepływów sterowania jest określany w taki sam sposób, jak sprawdzanie osiągalności instrukcji ([punkty końcowe i osiągalność](statements.md#end-points-and-reachability)).
+*  Określony stan przypisania *v* w punkcie `checked`końcowym bloku, `do`, `while` `if` `unchecked` `for` ,,`foreach`,,,,, lub `lock` `using` `switch`instrukcja jest określana przez sprawdzenie, czy stan przypisania jest określony *, na wszystkich* transferach przepływów sterowania przeznaczonych dla punktu końcowego tej instrukcji. Jeśli wartość *v* jest ostatecznie przypisana do wszystkich takich transferów przepływów sterowania, to *v* jest ostatecznie przypisana w punkcie końcowym instrukcji. Przypadku wartość *v* nie jest ostatecznie przypisana w punkcie końcowym instrukcji. Zestaw możliwych transferów przepływów sterowania jest określany w taki sam sposób, jak sprawdzanie osiągalności instrukcji ([punkty końcowe i osiągalność](statements.md#end-points-and-reachability)).
 
-#### <a name="block-statements-checked-and-unchecked-statements"></a>Blok instrukcji, pole jest zaznaczone oraz instrukcje niezaznaczone
+#### <a name="block-statements-checked-and-unchecked-statements"></a>Blokuj instrukcje, sprawdzone i niesprawdzone instrukcje
 
-Stan asercję określonego przypisania *v* w kontrolce transferu do pierwszej instrukcji listy instrukcji w bloku (lub punkt końcowy w bloku, jeśli lista instrukcji jest pusta) jest taka sama jak instrukcja asercję określonego przypisania *v* przed blokiem `checked`, lub `unchecked` instrukcji.
+Określony stan przypisania *v* na formancie transfer do pierwszej instrukcji z listy instrukcji w bloku (lub do punktu końcowego bloku, jeśli lista instrukcji jest pusta) jest taka sama jak w przypadku instrukcji przypisania " *v* " przed blokiem , `checked`, lub `unchecked` .
 
 #### <a name="expression-statements"></a>Instrukcje wyrażeń
 
-Dla instrukcji wyrażenia *instrukcji INSERT* składający się z wyrażenia *expr*:
+Dla instrukcji wyrażenia *stmt* , która składa się z *wyrażenia expression:*
 
-*  *v* ma ten sam stan asercję określonego przypisania na początku *expr* podobnie jak na początku *instrukcji INSERT*.
-*  Jeśli *v* Jeśli zdecydowanie przypisany na końcu *expr*, zdecydowanie jest przypisana w momencie zakończenia *instrukcji INSERT*; w przeciwnym razie; nie jest zdecydowanie przypisany na punkt końcowy *instrukcji INSERT*.
+*  *v* ma ten sam określony stan przypisania na początku *wyrażenia* , jak na początku *stmt*.
+*  Jeśli wartość *v* jest ostatecznie przypisana na końcu *wyrażenia*, jest on ostatecznie przypisywany w punkcie końcowym *stmt*; przypadku nie jest on ostatecznie przypisywany w punkcie końcowym *stmt*.
 
-#### <a name="declaration-statements"></a>Instrukcje deklaracji
+#### <a name="declaration-statements"></a>Deklaracje deklaracji
 
-*  Jeśli *instrukcji INSERT* jest następnie instrukcji deklaracji bez inicjatorów, *v* ma ten sam stan asercję określonego przypisania w momencie zakończenia *instrukcji INSERT* podobnie jak na początku *instrukcji INSERT*.
-*  Jeśli *instrukcji INSERT* jest następnie instrukcji deklaracji z inicjatorami, jego stan asercję określonego przypisania *v* jest określane tak, jakby *instrukcji INSERT* zostały listę instrukcji, za pomocą jednego przypisania Instrukcja dla każdej deklaracji za pomocą inicjatora (wymienione w kolejności deklaracji).
+*  Jeśli *stmt* jest instrukcją deklaracji bez inicjatorów, wówczas *v* ma ten sam, określony stan przypisania w punkcie końcowym *stmt* , jak na początku *stmt*.
+*  Jeśli *stmt* jest instrukcją deklaracji z inicjatorami, oznacza to, że określony stan przypisania dla *v* jest określany tak, jakby *stmt* były listą instrukcji z jedną instrukcją przypisania dla każdej deklaracji z inicjatorem (w kolejności Deklaracja).
 
-#### <a name="if-statements"></a>Jeśli instrukcji
+#### <a name="if-statements"></a>If — instrukcje
 
-Aby uzyskać `if` instrukcji *instrukcji INSERT* formularza:
+Dla instrukcji stmt formularza: `if`
 ```csharp
 if ( expr ) then_stmt else else_stmt
 ```
 
-*  *v* ma ten sam stan asercję określonego przypisania na początku *expr* podobnie jak na początku *instrukcji INSERT*.
-*  Jeśli *v* jest zdecydowanie przypisany na końcu *expr*, a następnie jest zdecydowanie przypisany na przesyłanie przepływu sterowania do *then_stmt* i albo *else_stmt*  lub do punktu końcowego *instrukcji INSERT* przypadku nie klauzuli else.
-*  Jeśli *v* ma stan "zdecydowanie przypisana, aby po wartość true, wyrażenie" na końcu *expr*, a następnie jest zdecydowanie przypisany na przesyłanie przepływu sterowania do *then_stmt*, a nie Zdecydowanie przypisany na transfer przepływu sterowania do jednej *else_stmt* lub do punktu końcowego *instrukcji INSERT* przypadku nie klauzuli else.
-*  Jeśli *v* ma stan "zdecydowanie przypisana, aby po wyrażeniu false" na końcu *expr*, a następnie jest zdecydowanie przypisany na przesyłanie przepływu sterowania do *else_stmt*, a nie Zdecydowanie przypisany na przesyłanie przepływu sterowania do *then_stmt*. Zdecydowanie jest przypisana w punktu końcowego *instrukcji INSERT* tylko wtedy, gdy jest zdecydowanie przypisany na punktu końcowego *then_stmt*.
-*  W przeciwnym razie *v* zostanie uznane za zdecydowanie przypisany na transfer przepływu sterowania do jednej *then_stmt* lub *else_stmt*, lub do punktu końcowego  *instrukcji INSERT* przypadku nie klauzuli else.
+*  *v* ma ten sam określony stan przypisania na początku *wyrażenia* , jak na początku *stmt*.
+*  Jeśli wartość *v* jest ostatecznie przypisana na końcu *wyrażenia*, to jest on ostatecznie przypisany do transferu przepływu sterowania do *then_stmt* i do *else_stmt* lub do punktu końcowego *stmt* , jeśli nie ma klauzuli else.
+*  Jeśli funkcja *v* ma stan "czas przypisania po prawdziwym wyrażeniu" na końcu wyrażenia *, to*jest on ostatecznie przypisany do transferu przepływu sterowania do *then_stmt*i nie jest on ostatecznie przypisywany w przepływie sterowania do *else_ stmt* lub do punktu końcowego *stmt* , jeśli nie ma klauzuli else.
+*  Jeśli w wersji *v* znajduje się stan "czas przypisania po wartości false" na końcu *wyrażenia, to*jest on ostatecznie przypisany do transferu przepływu sterowania do *else_stmt*i nie jest on ostatecznie przypisywany w przepływie sterowania do *then_stmt* . Jest on ostatecznie przypisywany w punkcie końcowym *stmt* , jeśli i tylko wtedy, gdy jest on ostatecznie przypisywany w punkcie końcowym *then_stmt*.
+*  W przeciwnym razie *v* jest uznawana za nieczasowo przypisane w przepływie sterowania do *then_stmt* lub *else_stmt*lub do punktu końcowego *stmt* , jeśli nie istnieje klauzula else.
 
-#### <a name="switch-statements"></a>Instrukcje Switch
+#### <a name="switch-statements"></a>Instrukcji switch
 
-W `switch` instrukcji *instrukcji INSERT* z wyrażeniem kontrolowania *expr*:
+W instrukcji stmt *z wyrażeniem kontrolnym:* `switch`
 
-*  Stan asercję określonego przypisania *v* na początku *expr* jest taka sama jak stan *v* na początku *instrukcji INSERT*.
-*  Stan asercję określonego przypisania *v* przepływowi sterowania przesyłanie danych do instrukcji zablokowanych przełącznika dostępny jest taka sama jak stan asercję określonego przypisania *v* na końcu *expr*.
+*  Określony stan przypisania *v* na początku *wyrażenia* jest taki sam jak stan *v* na początku *stmt*.
+*  Określony stan przypisania *v* w przepływie sterowania przeniesieniu do osiągalnej listy instrukcji bloku przełączenia jest taki sam, jak określony stan przypisania *v* na końcu *wyrażenia*.
 
-#### <a name="while-statements"></a>Podczas gdy instrukcji
+#### <a name="while-statements"></a>While — instrukcje
 
-Aby uzyskać `while` instrukcji *instrukcji INSERT* formularza:
+W przypadku instrukcji stmt formularza: `while`
 ```csharp
 while ( expr ) while_body
 ```
 
-*  *v* ma ten sam stan asercję określonego przypisania na początku *expr* podobnie jak na początku *instrukcji INSERT*.
-*  Jeśli *v* jest zdecydowanie przypisany na końcu *expr*, a następnie jest zdecydowanie przypisany na przesyłanie przepływu sterowania do *while_body* i punkt końcowy  *instrukcji INSERT*.
-*  Jeśli *v* ma stan "zdecydowanie przypisana, aby po wartość true, wyrażenie" na końcu *expr*, a następnie jest zdecydowanie przypisany na przesyłanie przepływu sterowania do *while_body*, ale nie Zdecydowanie przypisany na punktu końcowego *instrukcji INSERT*.
-*  Jeśli *v* ma stan "zdecydowanie przypisana, aby po wyrażeniu false" na końcu *expr*, a następnie jest zdecydowanie przypisany na transfer przepływu sterowania do punktu końcowego *instrukcji INSERT* , ale zdecydowanie nie przypisano na przesyłanie przepływu sterowania do *while_body*.
+*  *v* ma ten sam określony stan przypisania na początku *wyrażenia* , jak na początku *stmt*.
+*  Jeśli wartość *v* jest ostatecznie przypisana na końcu *wyrażenia*, to jest on ostatecznie przypisany do transferu przepływu sterowania do *while_body* i do punktu końcowego *stmt*.
+*  Jeśli funkcja *v* ma stan "czas przypisania po prawdziwym wyrażeniu" na końcu wyrażenia *, to*jest on ostatecznie przypisany do przepływu sterowania przepływem do *while_body*, ale nie jest on ostatecznie przypisywany w punkcie końcowym *stmt*.
+*  Jeśli w wersji *v* znajduje się stan "czas przypisania po wartości false" na końcu *wyrażenia, to*jest on ostatecznie przypisany do przepływu sterowania, który jest przesyłany do punktu końcowego *stmt*, ale nie jest on ostatecznie przypisany w przepływie sterowania do *while _body*.
 
-#### <a name="do-statements"></a>Wykonaj instrukcje
+#### <a name="do-statements"></a>Instrukcje do
 
-Aby uzyskać `do` instrukcji *instrukcji INSERT* formularza:
+W przypadku instrukcji stmt formularza: `do`
 ```csharp
 do do_body while ( expr ) ;
 ```
 
-*  *v* ma ten sam stan asercję określonego przypisania przeniesienia przepływ sterowania od początku *instrukcji INSERT* do *do_body* podobnie jak na początku *instrukcji INSERT*.
-*  *v* ma ten sam stan asercję określonego przypisania na początku *expr* na punkt końcowy *do_body*.
-*  Jeśli *v* jest zdecydowanie przypisany na końcu *expr*, a następnie jest zdecydowanie przypisany na transfer przepływu sterowania do punktu końcowego *instrukcji INSERT*.
-*  Jeśli *v* ma stan "zdecydowanie przypisana, aby po wyrażeniu false" na końcu *expr*, a następnie jest zdecydowanie przypisany na transfer przepływu sterowania do punktu końcowego *instrukcji INSERT* .
+*  *v* ma ten sam nieograniczony stan przypisania w przepływie sterowania, od początku *stmt* do *do_body* , jak na początku *stmt*.
+*  *v* ma ten sam określony stan przypisania na początku *wyrażenia* , jak w punkcie końcowym *do_body*.
+*  Jeśli wartość *v* jest ostatecznie przypisana na końcu *wyrażenia*, to jest on ostatecznie przypisany do przepływu sterowania, który jest przenoszony do punktu końcowego *stmt*.
+*  Jeśli w wersji *v* znajduje się stan "czas przypisania po wartości false" na końcu *wyrażenia, to*jest on ostatecznie przypisany do przepływu sterowania, który jest przesyłany do punktu końcowego *stmt*.
 
-#### <a name="for-statements"></a>Aby uzyskać instrukcje
+#### <a name="for-statements"></a>For — instrukcje
 
-Asercja określonego przydziału sprawdzania pod kątem `for` instrukcji formularza:
+Określone sprawdzanie przypisania dla `for` instrukcji formularza:
 ```csharp
 for ( for_initializer ; for_condition ; for_iterator ) embedded_statement
 ```
-odbywa się tak, jakby zostały napisane instrukcji:
+wykonuje się tak, jakby instrukcja była zapisywana:
 ```csharp
 {
     for_initializer ;
@@ -288,45 +288,45 @@ odbywa się tak, jakby zostały napisane instrukcji:
 }
 ```
 
-Jeśli *for_condition* pominięto w `for` instrukcji, a następnie oceny asercję określonego przypisania kontynuowane tak, jakby *for_condition* zostały zastąpione `true` w rozwinięciu powyżej .
+Jeśli *for_condition* zostanie pominięty z `for` instrukcji, oszacowanie ostatecznego przypisania jest realizowane tak, jakby *for_condition* zostały zastąpione `true` w powyższym rozszerzeniu.
 
-#### <a name="break-continue-and-goto-statements"></a>Przerwij, Kontynuuj i instrukcje goto
+#### <a name="break-continue-and-goto-statements"></a>Instrukcje Break, Continue i goto
 
-Stan asercję określonego przypisania *v* na transfer przepływu sterowania spowodowane `break`, `continue`, lub `goto` instrukcji jest taka sama jak stan asercję określonego przypisania *v* w Początek instrukcji.
+Określony stan przypisania *v* w przeniesieniu przepływu `break`sterowania spowodowany przez, `continue`, lub `goto` instrukcji jest taki sam jak określony stan przypisania *v* na początku instrukcji.
 
 #### <a name="throw-statements"></a>Throw — instrukcje
 
-Dla instrukcji *instrukcji INSERT* formularza
+Dla instrukcji *stmt* formularza
 ```csharp
 throw expr ;
 ```
 
-Stan asercję określonego przypisania *v* na początku *expr* jest taka sama jak stan asercję określonego przypisania *v* na początku *instrukcji INSERT*.
+Określony stan przypisania *v* na początku *wyrażenia* jest taki sam jak określony stan przypisania *v* na początku *stmt*.
 
-#### <a name="return-statements"></a>Instrukcje powrotu
+#### <a name="return-statements"></a>Return — instrukcje
 
-Dla instrukcji *instrukcji INSERT* formularza
+Dla instrukcji *stmt* formularza
 ```csharp
 return expr ;
 ```
 
-*  Stan asercję określonego przypisania *v* na początku *expr* jest taka sama jak stan asercję określonego przypisania *v* na początku *instrukcji INSERT*.
-*  Jeśli *v* to parametr wyjściowy, a następnie go musi być zdecydowanie przypisana albo:
-    * Po *expr*
-    * lub na końcu `finally` bloku `try` - `finally` lub `try` - `catch` - `finally` który otacza `return` instrukcji.
+*  Określony stan przypisania *v* na początku *wyrażenia* jest taki sam jak określony stan przypisania *v* na początku *stmt*.
+*  Jeśli *v* jest parametrem wyjściowym, musi być ostatecznie przypisany:
+    * po wyjściu
+    * lub na `finally` końcu bloku `try` - lub`try` ,który`return` należy do instrukcji. - `finally` `catch` - `finally`
 
-Dla instrukcji INSERT instrukcji formularza:
+W przypadku instrukcji stmt formularza:
 ```csharp
 return ;
 ```
 
-*  Jeśli *v* to parametr wyjściowy, a następnie go musi być zdecydowanie przypisana albo:
-    * przed *instrukcji INSERT*
-    * lub na końcu `finally` bloku `try` - `finally` lub `try` - `catch` - `finally` który otacza `return` instrukcji.
+*  Jeśli *v* jest parametrem wyjściowym, musi być ostatecznie przypisany:
+    * przed *stmt*
+    * lub na `finally` końcu bloku `try` - lub`try` ,który`return` należy do instrukcji. - `finally` `catch` - `finally`
 
 #### <a name="try-catch-statements"></a>Instrukcje try-catch
 
-Dla instrukcji *instrukcji INSERT* formularza:
+W przypadku instrukcji *stmt* formularza:
 ```csharp
 try try_block
 catch(...) catch_block_1
@@ -334,28 +334,28 @@ catch(...) catch_block_1
 catch(...) catch_block_n
 ```
 
-*  Stan asercję określonego przypisania *v* na początku *try_block* jest taka sama jak stan asercję określonego przypisania *v* na początku *instrukcji INSERT*.
-*  Stan asercję określonego przypisania *v* na początku *catch_block_i* (dla dowolnej *i*) jest taka sama jak stan asercję określonego przypisania *v*na początku *instrukcji INSERT*.
-*  Stan asercję określonego przypisania *v* na punktu końcowego *instrukcji INSERT* jest zdecydowanie przypisany if (i tylko wtedy, gdy) *v* zdecydowanie przydzielono punktu końcowego  *try_block* , a następnie co *catch_block_i* (dla każdego *i* z zakresu od 1 do *n*).
+*  Określony stan przypisania *v* na początku *try_block* jest taki sam, jak określony stan przypisania *v* na początku *stmt*.
+*  Określony stan przypisania *v* na początku *catch_block_i* ( *dla każdej z*nich) jest taki sam jak określony stan przypisania *v* na początku *stmt*.
+*  Określony stan przypisania *v* w punkcie końcowym *stmt* jest w przypadku, gdy (i tylko wtedy, gdy) *v* jest ostatecznie przypisywany w punkcie końcowym *try_block* i każdy *catch_block_i* (za każdym *i* z 1 do *n* ).
 
-#### <a name="try-finally-statements"></a>Try-finally-instrukcje
+#### <a name="try-finally-statements"></a>Try-finally — instrukcje
 
-Aby uzyskać `try` instrukcji *instrukcji INSERT* formularza:
+W przypadku instrukcji stmt formularza: `try`
 ```csharp
 try try_block finally finally_block
 ```
 
-*  Stan asercję określonego przypisania *v* na początku *try_block* jest taka sama jak stan asercję określonego przypisania *v* na początku *instrukcji INSERT*.
-*  Stan asercję określonego przypisania *v* na początku *finally_block* jest taka sama jak stan asercję określonego przypisania *v* na początku *instrukcji INSERT* .
-*  Stan asercję określonego przypisania *v* na punktu końcowego *instrukcji INSERT* jest zdecydowanie przypisany if (i tylko wtedy, gdy) dotyczy co najmniej jeden z następujących czynności:
-    * *v* zdecydowanie przydzielono punktu końcowego *try_block*
-    * *v* zdecydowanie przydzielono punktu końcowego *finally_block*
+*  Określony stan przypisania *v* na początku *try_block* jest taki sam, jak określony stan przypisania *v* na początku *stmt*.
+*  Określony stan przypisania *v* na początku *finally_block* jest taki sam, jak określony stan przypisania *v* na początku *stmt*.
+*  Określony stan przypisania *v* w punkcie końcowym *stmt* jest ostatecznie przypisany, jeśli (i tylko wtedy, gdy) co najmniej jeden z następujących warunków jest spełniony:
+    * wartość *v* jest ostatecznie przypisana w punkcie końcowym *try_block*
+    * wartość *v* jest ostatecznie przypisana w punkcie końcowym *finally_block*
 
-Jeśli transfer przepływu sterowania (na przykład `goto` instrukcji) wykonano, który rozpoczyna się w ramach *try_block*i kończy się poza *try_block*, następnie *v* jest również uznawany za zdecydowanie przypisany na ten transfer przepływu sterowania, jeśli *v* zdecydowanie przydzielono punktu końcowego *finally_block*. (Nie jest to tylko wtedy, gdy — Jeśli *v* jest zdecydowanie przypisana z innego powodu na to przeniesienie przepływu sterowania, a następnie go jest nadal uważana za zdecydowanie przypisany.)
+Jeśli przeprowadzono transfer przepływu sterowania `goto` (na przykład instrukcja), który rozpoczyna się w *try_block*i kończą się poza *try_block*, wówczas *v* jest również uznawany za oczekiwany w przypadku, gdy *v* jest ostatecznie przypisano w punkcie końcowym *finally_block*. (To nie jest tylko wtedy, gdy w przypadku, gdy *v* jest ostatecznie przypisany z innego powodu tego transferu przepływu sterowania, nadal jest uznawany za ostatecznie przypisany).
 
-#### <a name="try-catch-finally-statements"></a>Instrukcje try-catch-finally
+#### <a name="try-catch-finally-statements"></a>Try-catch-finally — instrukcje
 
-Analiza asercję określonego przypisania `try` - `catch` - `finally` instrukcji formularza:
+Analiza określona przez przypisanie dla `try` - `catch` instrukcjiwpostaci-: `finally`
 ```csharp
 try try_block
 catch(...) catch_block_1
@@ -363,7 +363,7 @@ catch(...) catch_block_1
 catch(...) catch_block_n
 finally *finally_block*
 ```
-odbywa się tak, jakby były instrukcji `try` - `finally` otaczającej instrukcji `try` - `catch` instrukcji:
+wykonuje się tak, jakby `try` instrukcja była - `finally` instrukcją otaczającą `try` - `catch` instrukcję:
 ```csharp
 try {
     try try_block
@@ -374,7 +374,7 @@ try {
 finally finally_block
 ```
 
-Poniższy przykład pokazuje, jak różne bloki `try` — instrukcja ([instrukcjami "try"](statements.md#the-try-statement)) wpływają na asercję określonego przypisania.
+Poniższy przykład ilustruje sposób, w jaki różne bloki `try` instrukcji ([Instrukcja try](statements.md#the-try-statement)) wpływają na określone przypisanie.
 ```csharp
 class A
 {
@@ -406,105 +406,105 @@ class A
 }
 ```
 
-#### <a name="foreach-statements"></a>Instrukcji foreach
+#### <a name="foreach-statements"></a>Instrukcja foreach
 
-Aby uzyskać `foreach` instrukcji *instrukcji INSERT* formularza:
+W przypadku instrukcji stmt formularza: `foreach`
 ```csharp
 foreach ( type identifier in expr ) embedded_statement
 ```
 
-*  Stan asercję określonego przypisania *v* na początku *expr* jest taka sama jak stan *v* na początku *instrukcji INSERT*.
-*  Stan asercję określonego przypisania *v* na przesyłanie przepływu sterowania do *embedded_statement* lub punkt końcowy *instrukcji INSERT* jest taka sama jak stan *v* na końcu *expr*.
+*  Określony stan przypisania *v* na początku *wyrażenia* jest taki sam jak stan *v* na początku *stmt*.
+*  Określony stan przypisania *v* w przepływie sterowania transfer do *embedded_statement* lub do punktu końcowego *stmt* jest taki sam jak stan *v* na końcu *wyrażenia*.
 
-#### <a name="using-statements"></a>Za pomocą instrukcji
+#### <a name="using-statements"></a>Using — instrukcje
 
-Aby uzyskać `using` instrukcji *instrukcji INSERT* formularza:
+W przypadku instrukcji stmt formularza: `using`
 ```csharp
 using ( resource_acquisition ) embedded_statement
 ```
 
-*  Stan asercję określonego przypisania *v* na początku *resource_acquisition* jest taka sama jak stan *v* na początku *instrukcji INSERT*.
-*  Stan asercję określonego przypisania *v* na przesyłanie przepływu sterowania do *embedded_statement* jest taka sama jak stan *v* na końcu *resource_ pozyskiwanie*.
+*  Określony stan przypisania *v* na początku *resource_acquisition* jest taki sam jak stan *v* na początku *stmt*.
+*  Określony stan przypisania *v* w przeniesieniu przepływu sterowania do *embedded_statement* jest taki sam jak stan *v* na końcu *resource_acquisition*.
 
-#### <a name="lock-statements"></a>Blokady instrukcji
+#### <a name="lock-statements"></a>Instrukcje Lock
 
-Aby uzyskać `lock` instrukcji *instrukcji INSERT* formularza:
+W przypadku instrukcji stmt formularza: `lock`
 ```csharp
 lock ( expr ) embedded_statement
 ```
 
-*  Stan asercję określonego przypisania *v* na początku *expr* jest taka sama jak stan *v* na początku *instrukcji INSERT*.
-*  Stan asercję określonego przypisania *v* na przesyłanie przepływu sterowania do *embedded_statement* jest taka sama jak stan *v* na końcu *expr*.
+*  Określony stan przypisania *v* na początku *wyrażenia* jest taki sam jak stan *v* na początku *stmt*.
+*  Określony stan przypisania *v* w przeniesieniu przepływu sterowania do *embedded_statement* jest taki sam jak stan *v* na końcu *wyrażenia*.
 
-#### <a name="yield-statements"></a>Instrukcje YIELD
+#### <a name="yield-statements"></a>Instrukcje Yield
 
-Aby uzyskać `yield return` instrukcji *instrukcji INSERT* formularza:
+W przypadku instrukcji stmt formularza: `yield return`
 ```csharp
 yield return expr ;
 ```
 
-*  Stan asercję określonego przypisania *v* na początku *expr* jest taka sama jak stan *v* na początku *instrukcji INSERT*.
-*  Stan asercję określonego przypisania *v* na końcu *instrukcji INSERT* jest taka sama jak stan *v* na końcu *expr*.
-*  A `yield break` instrukcji nie ma wpływu na stan asercję określonego przypisania.
+*  Określony stan przypisania *v* na początku *wyrażenia* jest taki sam jak stan *v* na początku *stmt*.
+*  Określony stan przypisania *v* na końcu *stmt* jest taki sam jak stan *v* na końcu *wyrażenia*.
+*  `yield break` Instrukcja nie ma wpływu na stan o określonym przypisaniu.
 
-#### <a name="general-rules-for-simple-expressions"></a>Ogólne zasady proste wyrażenia
+#### <a name="general-rules-for-simple-expressions"></a>Ogólne reguły dla prostych wyrażeń
 
-Następująca reguła ma zastosowanie do tego rodzaju wyrażeń: literały ([literały](expressions.md#literals)), nazwy proste ([proste nazwy](expressions.md#simple-names)), wyrażenia dostępu do składowych ([dostęp do elementu członkowskiego](expressions.md#member-access)), wyrażenia dostępu bazowego nieindeksowaną ([podstawowa dostępu](expressions.md#base-access)), `typeof` wyrażenia ([typeof — operator](expressions.md#the-typeof-operator)), domyślna wartość wyrażenia ([wyrażenia wartości domyślne ](expressions.md#default-value-expressions)) i `nameof` wyrażenia ([wyrażeń Nameof](expressions.md#nameof-expressions)).
+Następująca reguła ma zastosowanie do tych rodzajów wyrażeń: literałów ([literałów](expressions.md#literals)), proste nazwy ([proste nazwy](expressions.md#simple-names)), wyrażenia dostępu do składowych ([dostęp do elementów członkowskich](expressions.md#member-access)), nieindeksowane wyrażenia dostępu podstawowego ([dostęp podstawowy](expressions.md#base-access)), `typeof`wyrażenia ([operator typeof](expressions.md#the-typeof-operator)), wyrażenia wartości domyślnych ([wyrażenia wartości domyślnych](expressions.md#default-value-expressions)) i `nameof` wyrażenia ([wyrażenia nameof](expressions.md#nameof-expressions)).
 
-*  Stan asercję określonego przypisania *v* na końcu wyrażenia jest taka sama jak stan asercję określonego przypisania *v* na początku wyrażenia.
+*  Określony stan przypisania *v* na końcu takiego wyrażenia jest taki sam jak określony stan przypisania *v* na początku wyrażenia.
 
-#### <a name="general-rules-for-expressions-with-embedded-expressions"></a>Ogólne reguły dotyczące wyrażeń z wyrażenia osadzone
+#### <a name="general-rules-for-expressions-with-embedded-expressions"></a>Ogólne reguły dla wyrażeń z osadzonymi wyrażeniami
 
-Następujące reguły mają zastosowanie do tego rodzaju wyrażeń: wyrażenia ujętego w nawiasy ([wyrażeniach z nawiasami](expressions.md#parenthesized-expressions)), wyrażeniach dostępu do elementu ([dostępu do elementu](expressions.md#element-access)), podstawowej dostęp do wyrażenia z Indeksowanie ([podstawowa dostępu](expressions.md#base-access)), zwiększyć i zmniejszyć wyrażenia ([przyrostka inkrementacji i dekrementacji operatory](expressions.md#postfix-increment-and-decrement-operators), [prefiksów inkrementacji i dekrementacji operatory](expressions.md#prefix-increment-and-decrement-operators)), rzutowane wyrażenia ([rzutowane wyrażenia,](expressions.md#cast-expressions)), jednoargumentowe `+`, `-`, `~`, `*` wyrażenia binarnego `+`, `-`, `*`, `/`, `%`, `<<`, `>>`, `<`, `<=`, `>`, `>=`, `==`, `!=`, `is`, `as`, `&`, `|`, `^` wyrażenia ([operatorów arytmetycznych](expressions.md#arithmetic-operators), [operatory przesunięcia](expressions.md#shift-operators), [relacyjne i badania typu operatory](expressions.md#relational-and-type-testing-operators) [Operatorów logicznych](expressions.md#logical-operators)), złożone wyrażenia przypisania ([przydział złożony](expressions.md#compound-assignment)), `checked` i `unchecked` wyrażenia ([checked i unchecked operatory](expressions.md#the-checked-and-unchecked-operators)), oraz wyrażeń tworzenia tablicy i delegata ([operatora new](expressions.md#the-new-operator)).
+Następujące reguły mają zastosowanie do tych rodzajów wyrażeń: wyrażeń ujętych w nawiasy ([wyrażenia w nawiasach](expressions.md#parenthesized-expressions)), wyrażenia dostępu do elementów ([dostęp do elementów](expressions.md#element-access)), podstawowe wyrażenia dostępu z indeksowanie ([dostęp podstawowy](expressions.md#base-access)), przyrosty i wyrażenia zmniejszania ([Operatory przyrostka i zmniejszenie](expressions.md#postfix-increment-and-decrement-operators), [Operatory przyrostu i zmniejszania prefiksu](expressions.md#prefix-increment-and-decrement-operators)), wyrażenia rzutowania ( `+`[wyrażenia rzutowania](expressions.md#cast-expressions)), jednoargumentowe `-`,, `~`, `*`wyrażenia, dane `+`binarne `-`, `*` `/`,, ,,`%`,,,,,, `<<` `>>` `<` `<=` `>` `>=` `==`, `!=`, ,`is`,, ,`^`wyrażenia ([Operatory arytmetyczne](expressions.md#arithmetic-operators), [operatory przesunięcia](expressions.md#shift-operators), relacyjne i testy typu `|` `as` `&` [ Operatory](expressions.md#relational-and-type-testing-operators), [Operatory logiczne](expressions.md#logical-operators)), złożone wyrażenia przypisania `checked` ([przypisanie złożone](expressions.md#compound-assignment)) i `unchecked` wyrażenia ([Operatory sprawdzone i niesprawdzone](expressions.md#the-checked-and-unchecked-operators)), a także tablica i delegat wyrażenia tworzenia ([operator new](expressions.md#the-new-operator)).
 
-Każda z tych wyrażeń ma jeden lub więcej wyrażeń podrzędnych, które bezwarunkowo są obliczane w ustalonej kolejności. Na przykład plik binarny `%` operator ocenia po lewej stronie operatora, a następnie po prawej stronie. Operacja indeksowania oblicza wyrażenie indeksowane, a następnie ocenia każdy wyrażenia indeksu, w kolejności od lewej do prawej. Wyrażenie *expr*, który ma podrzędną wyrażeniach *e1 i e2,..., eN*, ocenione w podanej kolejności:
+Każdy z tych wyrażeń zawiera co najmniej jedno Podwyrażenie, które jest niewarunkowo oceniane w ustalonej kolejności. Na przykład operator binarny `%` oblicza po lewej stronie operatora, po prawej stronie. Operacja indeksowania szacuje wyrażenie indeksowane, a następnie oblicza każde wyrażenie indeksu w kolejności od lewej do prawej. Dla *wyrażenia Expression,* które ma podwyrażenia *E1, E2,..., EN*, oceniane w tej kolejności:
 
-*  Stan asercję określonego przypisania *v* na początku *e1* jest taka sama jak stan asercję określonego przypisania na początku *expr*.
-*  Stan asercję określonego przypisania *v* na początku *ei* (*i* więcej niż jeden) jest taka sama jak stan asercję określonego przypisania na końcu poprzednie Podwyrażenie.
-*  Stan asercję określonego przypisania *v* na końcu *expr* jest taka sama jak stan asercję określonego przypisania na końcu *eN*
+*  Określony stan przypisania *v* na początku *E1* jest taki sam jak określony stan przypisania na początku *wyrażenia*.
+*  Określony stan przypisania *v* na początku *EI* (*i* więcej niż jeden) jest taki sam jak określony stan przypisania na końcu poprzedniego wyrażenia podrzędnego.
+*  Określony stan przypisania *v* na końcu *wyrażenia* jest taki sam, jak określony stan przypisania na końcu *pl*
 
 #### <a name="invocation-expressions-and-object-creation-expressions"></a>Wyrażenia wywołania i wyrażenia tworzenia obiektów
 
-Wyrażenie wywołania *expr* formularza:
+*Wyrażenie wyrażenia wywołania* w postaci:
 ```csharp
 primary_expression ( arg1 , arg2 , ... , argN )
 ```
-lub wyrażenie tworzenia obiektu w postaci:
+lub wyrażenie tworzenia obiektu formularza:
 ```csharp
 new type ( arg1 , arg2 , ... , argN )
 ```
 
-*  Wyrażenie wywołania, stan asercję określonego przypisania *v* przed *primary_expression* jest taka sama jak stan *v* przed *expr*.
-*  Wyrażenie wywołania, stan asercję określonego przypisania *v* przed *arg1* jest taka sama jak stan *v* po *primary_expression*.
-*  Wyrażenie tworzenia obiektu, stan asercję określonego przypisania *v* przed *arg1* jest taka sama jak stan *v* przed *expr*.
-*  Dla każdego argumentu *argi*, stan asercję określonego przypisania *v* po *argi* jest określana przez reguły wyrażenie normalne, ignorowanie dowolne `ref` lub `out`modyfikatorów.
-*  Dla każdego argumentu *argi* dla każdego *i* więcej niż jeden stan asercję określonego przypisania *v* przed *argi* jest taka sama jak stanu *v* po poprzednim *arg*.
-*  Jeśli zmienna *v* jest przekazywany jako `out` argumentu (czyli argument w postaci `out v`) w jednym z argumentów, a następnie stan *v* po *expr* jest zdecydowanie przypisany. W przeciwnym razie; Stan *v* po *expr* jest taka sama jak stan *v* po *argN*.
-*  Dla inicjatora tablicy ([wyrażenie tworzenia tablicy](expressions.md#array-creation-expressions)), inicjatorach obiektów ([inicjatorach obiektów](expressions.md#object-initializers)), inicjatory kolekcji ([inicjatory kolekcji](expressions.md#collection-initializers)) i Inicjatory obiektów anonimowe ([wyrażenia tworzenia obiektu anonimowego](expressions.md#anonymous-object-creation-expressions)), stan asercja określonego przydziału jest określana przez rozszerzenie, które te konstrukcje są definiowane w kategoriach.
+*  Dla wyrażenia wywołania, określony stan przypisania *v* przed *primary_expression* jest taki sam jak stan *v* przed *wyrażeniem*.
+*  Dla wyrażenia wywołania, określony stan przypisania *v* przed *arg1* jest taki sam jak stan *v* po *primary_expression*.
+*  W przypadku wyrażenia tworzenia obiektu określony stan przypisania *v* przed *arg1* jest taki sam jak stan *v* przed *wyrażeniem*.
+*  Dla każdego argumentu *Argi*, określony stan przypisania *v* po *Argi* jest określany przez reguły wyrażeń normalnych, ignorując wszystkie `ref` lub `out` modyfikatory.
+*  Dla każdego argumentu *Argi* dla każdego *i* więcej niż jednego, określony stan przypisania *v* przed *Argi* jest taki sam jak stan *v* po poprzednim *ARG*.
+*  Jeśli zmienna *v* jest `out` przenoszona jako argument (tj. argument formularza `out v`) w którymkolwiek z argumentów, stanie *v* po elemencie *Expr* jest ostatecznie przypisany. Przypadku stan *v* po wyszukiwaniu *jest taki* sam jak stan *v* po *argN*.
+*  Dla inicjatorów tablicy ([wyrażenia tworzenia tablic](expressions.md#array-creation-expressions)), inicjatorów obiektów ([inicjatorów obiektów](expressions.md#object-initializers)), inicjatorów kolekcji ([Inicjatory kolekcji](expressions.md#collection-initializers)) i inicjatorów obiektów anonimowych ([Tworzenie obiektów anonimowych wyrażenia](expressions.md#anonymous-object-creation-expressions)) określony stan przypisania jest określany przez rozszerzanie, że te konstrukcje są zdefiniowane w warunkach.
 
-#### <a name="simple-assignment-expressions"></a>Przypisanie proste wyrażenia
+#### <a name="simple-assignment-expressions"></a>Proste wyrażenia przypisania
 
-Wyrażenie *expr* formularza `w = expr_rhs`:
+*Wyrażenie wyrażenia w* postaci `w = expr_rhs`:
 
-*  Stan asercję określonego przypisania *v* przed *expr_rhs* jest taka sama jak stan asercję określonego przypisania *v* przed *expr*.
-*  Stan asercję określonego przypisania *v* po *expr* jest określana przez:
-   * Jeśli *w* jest tę samą zmienną jako *v*, następnie asercję określonego przypisania stan *v* po *expr* jest zdecydowanie przypisany.
-   * W przeciwnym razie, jeśli przypisania występuje w ramach konstruktora wystąpienia typu struktury, jeśli *w* jest dostęp do właściwości wyznaczanie automatycznie implementowanej właściwości *P* wystąpieniu budowany i *v* jest pole ukryte zapasowy *P*, następnie asercję określonego przypisania stan *v* po *expr* to przypisane.
-   * W przeciwnym razie stan asercję określonego przypisania *v* po *expr* jest taka sama jak stan asercję określonego przypisania *v* po *expr_rhs*.
+*  Określony stan przypisania wartości *v* przed *expr_rhs* jest taki sam, jak określony stan przypisania *v* przed *wyrażeniem*.
+*  Określony stan przypisania *v* po wyjściu jest określany przez:
+   * Jeśli *w* jest taka sama jak zmienna *v*, *oznacza to,* że określony stan przypisania *v* po wystawce jest ostatecznie przypisany.
+   * W przeciwnym razie, jeśli przypisanie występuje w konstruktorze wystąpienia typu struktury, jeśli *w* jest dostęp do właściwości wskazującej automatycznie zaimplementowaną Właściwość *P* w tworzonym wystąpieniu i *v* jest polem ukrytego zapasowego *P*, a następnie określony stan przypisania *v* po elemencie *Expr* jest ostatecznie przypisany.
+   * W przeciwnym razie określony stan przypisania *v* po wyszukiwaniu *jest taki* sam jak w przypadku określonego stanu przypisania *v* po *expr_rhs*.
 
-#### <a name="-conditional-and-expressions"></a>& & (oraz warunkowego) wyrażeń
+#### <a name="-conditional-and-expressions"></a>wyrażenia & & (warunkowe i)
 
-Wyrażenie *expr* formularza `expr_first && expr_second`:
+*Wyrażenie wyrażenia w* postaci `expr_first && expr_second`:
 
-*  Stan asercję określonego przypisania *v* przed *expr_first* jest taka sama jak stan asercję określonego przypisania *v* przed *expr*.
-*  Stan asercję określonego przypisania *v* przed *expr_second* jest zdecydowanie przypisana, jeśli stan *v* po *expr_first* jest Zdecydowanie przypisany lub "zdecydowanie przypisany po wartość true, wyrażenie". W przeciwnym razie nie jest zdecydowanie przydzielone.
-*  Stan asercję określonego przypisania *v* po *expr* jest określana przez:
-    * Jeśli *expr_first* jest wyrażeniem stałym wartością `false`, następnie asercję określonego przypisania stan *v* po *expr* jest taka sama jak asercję określonego przypisania Stan *v* po *expr_first*.
-    * W przeciwnym razie, jeśli stan *v* po *expr_first* jest zdecydowanie przypisana, następnie stan *v* po *expr* jest zdecydowanie przypisany.
-    * W przeciwnym razie, jeśli stan *v* po *expr_second* jest zdecydowanie przypisana, a stan *v* po *expr_first* to " przypisane po wyrażeniu false", a następnie stan *v* po *expr* jest zdecydowanie przypisany.
-    * W przeciwnym razie, jeśli stan *v* po *expr_second* jest zdecydowanie przypisany lub "zdecydowanie przypisany po wartość true, wyrażenie", a następnie stan *v* po  *wyrażenie* jest "zdecydowanie przypisana po wartość true, wyrażenie".
-    * W przeciwnym razie, jeśli stan *v* po *expr_first* jest "zdecydowanie przypisany po wyrażeniu false", a stan *v* po *expr_second* jest "zdecydowanie przypisany po wyrażeniu false", a następnie stan *v* po *expr* jest "zdecydowanie przypisana po wyrażeniu false".
-    * W przeciwnym razie stan *v* po *expr* nie jest zdecydowanie przypisany.
+*  Określony stan przypisania wartości *v* przed *expr_first* jest taki sam, jak określony stan przypisania *v* przed *wyrażeniem*.
+*  Określony stan przypisania wartości *v* przed *expr_second* jest ostatecznie przypisywany, jeśli stanem *v* po *expr_first* jest w nieskończony sposób przypisany lub "w znacznym przypisaniu po true Expression". W przeciwnym razie nie jest to ostatecznie przypisane.
+*  Określony stan przypisania *v* po wyjściu jest określany przez:
+    * Jeśli *expr_first* jest wyrażeniem stałym o wartości `false`, oznacza to, że określony stan przypisania *v* po *wyrażeniu* jest taki sam, jak w przypadku określonego stanu przypisania *v* po *expr_first*.
+    * W przeciwnym razie, jeśli stan *v* po *expr_first* jest ostatecznie przypisany, stan *v* po elemencie *Expr* jest ostatecznie przypisany.
+    * W przeciwnym razie, jeśli stan *v* po *expr_second* jest ostatecznie przypisany, a stanem *v* po *expr_first* jest "w sposób terminowy przypisany po wartości false", wówczas stanem *v* *po wyrażeniu jest* nieskończoność pisywany.
+    * W przeciwnym razie, jeśli stan *v* po *expr_second* jest ostatecznie przypisany lub "w sposób terminowy przypisany po prawdziwe wyrażenie", wówczas stanem *v* *po wyrażeniu jest* "w sposób terminowy przypisany po prawdziwe wyrażenie".
+    * W przeciwnym razie, jeśli stanem *v* po *expr_first* jest "w sposób terminowy przypisany po false Expression", a stanem *v* po *expr_second* jest "w sposób terminowy przypisany po false Expression", wówczas stanem *v* po  *wyrażenie* jest "w sposób terminowy przypisany po false Expression".
+    * W przeciwnym razie stan *v* *po wyszukiwaniu nie jest* ostatecznie przypisany.
 
 W przykładzie
 ```csharp
@@ -522,21 +522,21 @@ class A
     }
 }
 ```
-Zmienna `i` jest uznawany za zdecydowanie przypisane w jednym z osadzonych instrukcji dla `if` instrukcji, ale nie w innych. W `if` instrukcji w metodzie `F`, zmienna `i` zdecydowanie jest przypisana w pierwszej instrukcji osadzony, ponieważ wykonywania wyrażenia `(i = y)` zawsze poprzedza wykonywania części tekstu niniejszych osadzonych. Z drugiej strony, zmienna `i` nie jest zdecydowanie przypisana w drugiej instrukcji osadzony, ponieważ `x >= 0` może zostały przetestowane "false", co w zmiennej `i` trwa nieprzypisane.
+zmienna `i` jest uznawana za ostatecznie przypisaną w jednej z osadzonych instrukcji `if` instrukcji, ale nie w drugim. W instrukcji w metodzie `F`zmienna `i` jest ostatecznie przypisana w pierwszej instrukcji osadzonej, ponieważ wykonywanie wyrażenia `(i = y)` zawsze poprzedza wykonywanie tej osadzonej instrukcji. `if` Natomiast zmienna `i` nie jest ostatecznie przypisana w drugiej instrukcji osadzonej, ponieważ `x >= 0` mogło przetestować wartość false, co spowodowało przypisanie zmiennej `i` .
 
-#### <a name="-conditional-or-expressions"></a>|| (OR warunkowe) wyrażeń
+#### <a name="-conditional-or-expressions"></a>|| wyrażenia (warunkowe lub)
 
-Wyrażenie *expr* formularza `expr_first || expr_second`:
+*Wyrażenie wyrażenia w* postaci `expr_first || expr_second`:
 
-*  Stan asercję określonego przypisania *v* przed *expr_first* jest taka sama jak stan asercję określonego przypisania *v* przed *expr*.
-*  Stan asercję określonego przypisania *v* przed *expr_second* jest zdecydowanie przypisana, jeśli stan *v* po *expr_first* jest Zdecydowanie przypisany lub "zdecydowanie przypisany po wyrażeniu false". W przeciwnym razie nie jest zdecydowanie przydzielone.
-*  Instrukcja asercję określonego przypisania *v* po *expr* jest określana przez:
-    * Jeśli *expr_first* jest wyrażeniem stałym wartością `true`, następnie asercję określonego przypisania stan *v* po *expr* jest taka sama jak asercję określonego przypisania Stan *v* po *expr_first*.
-    * W przeciwnym razie, jeśli stan *v* po *expr_first* jest zdecydowanie przypisana, następnie stan *v* po *expr* jest zdecydowanie przypisany.
-    * W przeciwnym razie, jeśli stan *v* po *expr_second* jest zdecydowanie przypisana, a stan *v* po *expr_first* to " przypisane po wartość true, wyrażenie", a następnie stan *v* po *expr* jest zdecydowanie przypisany.
-    * W przeciwnym razie, jeśli stan *v* po *expr_second* jest zdecydowanie przypisany lub "zdecydowanie przypisany po wyrażeniu false", a następnie stan *v* po *expr* jest "zdecydowanie przypisana po wyrażeniu false".
-    * W przeciwnym razie, jeśli stan *v* po *expr_first* "zdecydowanie przypisany po wartość true, wyrażenie" i stan *v* po *expr_second*jest "zdecydowanie przypisany po wartość true, wyrażenie", a następnie stan *v* po *expr* jest "zdecydowanie przypisana po wartość true, wyrażenie".
-    * W przeciwnym razie stan *v* po *expr* nie jest zdecydowanie przypisany.
+*  Określony stan przypisania wartości *v* przed *expr_first* jest taki sam, jak określony stan przypisania *v* przed *wyrażeniem*.
+*  Określony stan przypisania wartości *v* przed *expr_second* jest ostatecznie przypisany, jeśli stanem *v* po *expr_first* jest albo "w sposób terminowy przypisany po wartości false". W przeciwnym razie nie jest to ostatecznie przypisane.
+*  Instrukcja przypisania o określonej wartości *v* po *wyrażeniu* jest określana przez:
+    * Jeśli *expr_first* jest wyrażeniem stałym o wartości `true`, oznacza to, że określony stan przypisania *v* po *wyrażeniu* jest taki sam, jak w przypadku określonego stanu przypisania *v* po *expr_first*.
+    * W przeciwnym razie, jeśli stan *v* po *expr_first* jest ostatecznie przypisany, stan *v* po elemencie *Expr* jest ostatecznie przypisany.
+    * W przeciwnym razie, jeśli stan *v* po *expr_second* jest ostatecznie przypisany, a stanem *v* po *expr_first* jest "w sposób terminowy przypisany po prawdziwe wyrażenie", wówczas stanem *v* *po wyrażeniu jest* nieskończoność pisywany.
+    * W przeciwnym razie, jeśli stan *v* po *expr_second* jest ostatecznie przypisany lub "w sposób terminowy przypisany po wartości false", wówczas stanem *v* *po wyrażeniu jest* "w sposób terminowy przypisany po false Expression".
+    * W przeciwnym razie, jeśli stanem *v* po *expr_first* jest "w sposób terminowy przypisany po prawdziwym wyrażeniu", a stanem *v* po *expr_second* jest "w sposób terminowy przypisany po prawdziwe wyrażenie", wówczas stanem *v* *po wyrażeniu* jest "w sposób terminowy przypisany po true Expression".
+    * W przeciwnym razie stan *v* *po wyszukiwaniu nie jest* ostatecznie przypisany.
 
 W przykładzie
 ```csharp
@@ -554,52 +554,52 @@ class A
     }
 }
 ```
-Zmienna `i` jest uznawany za zdecydowanie przypisane w jednym z osadzonych instrukcji dla `if` instrukcji, ale nie w innych. W `if` instrukcji w metodzie `G`, zmienna `i` zdecydowanie jest przypisana w drugiej instrukcji osadzony, ponieważ wykonywania wyrażenia `(i = y)` zawsze poprzedza wykonywania części tekstu niniejszych osadzonych. Z drugiej strony, zmienna `i` nie jest zdecydowanie przypisana w pierwszej instrukcji osadzony, ponieważ `x >= 0` może zostały przetestowane ma wartość true, co w zmiennej `i` trwa nieprzypisane.
+zmienna `i` jest uznawana za ostatecznie przypisaną w jednej z osadzonych instrukcji `if` instrukcji, ale nie w drugim. W instrukcji w metodzie `G`zmienna `i` jest ostatecznie przypisana w drugiej instrukcji osadzonej, ponieważ wykonanie wyrażenia `(i = y)` zawsze poprzedza wykonywanie tej osadzonej instrukcji. `if` Natomiast zmienna `i` nie jest ostatecznie przypisana w pierwszej instrukcji osadzonej, ponieważ `x >= 0` mogło przetestować wartość true, co spowodowało przypisanie zmiennej `i` .
 
-#### <a name="-logical-negation-expressions"></a>! wyrażenia (negacja logiczna)
+#### <a name="-logical-negation-expressions"></a>! wyrażenia logicznej negacji
 
-Wyrażenie *expr* formularza `! expr_operand`:
+*Wyrażenie wyrażenia w* postaci `! expr_operand`:
 
-*  Stan asercję określonego przypisania *v* przed *expr_operand* jest taka sama jak stan asercję określonego przypisania *v* przed *expr*.
-*  Stan asercję określonego przypisania *v* po *expr* jest określana przez:
-    * Jeśli stan *v* po * expr_operand * jest zdecydowanie przypisana, następnie stan *v* po *expr* jest zdecydowanie przypisany.
-    * Jeśli stan *v* po * expr_operand * nie jest zdecydowanie przypisana, następnie stan *v* po *expr* nie jest zdecydowanie przypisany.
-    * Jeśli stan *v* po * expr_operand * jest "zdecydowanie przypisany po wyrażeniu false", a następnie stan *v* po *expr* jest "zdecydowanie przypisana po true wyrażenie".
-    * Jeśli stan *v* po * expr_operand * jest "zdecydowanie przypisany po wartość true, wyrażenie", a następnie stan *v* po *expr* jest "zdecydowanie przypisana po false wyrażenie".
+*  Określony stan przypisania wartości *v* przed *expr_operand* jest taki sam, jak określony stan przypisania *v* przed *wyrażeniem*.
+*  Określony stan przypisania *v* po wyjściu jest określany przez:
+    * Jeśli stan *v* po * expr_operand * jest przypisywany w określony sposób, stan *v* po elemencie *Expr* jest ostatecznie przypisany.
+    * Jeśli stan *v* *po ** expr_operand * nie jest ostatecznie przypisany, stan *v* po wyjściu nie jest przypisany ostatecznie.
+    * Jeśli stanem *v* po * expr_operand * jest "w sposób terminowy przypisany po wartości false", wówczas stanem *v* *po wyrażeniu jest* "w sposób terminowy przypisany po prawdziwe wyrażenie".
+    * Jeśli stanem *v* po * expr_operand * jest "w sposób terminowy przypisany po prawdziwe wyrażenie", wówczas stanem *v* *po wyrażeniu jest* "w sposób terminowy przypisany po false Expression".
 
-#### <a name="-null-coalescing-expressions"></a>?? wyrażenia (łączenie wartości null)
+#### <a name="-null-coalescing-expressions"></a>?? (zerowe łączenie) wyrażenia
 
-Wyrażenie *expr* formularza `expr_first ?? expr_second`:
+*Wyrażenie wyrażenia w* postaci `expr_first ?? expr_second`:
 
-*  Stan asercję określonego przypisania *v* przed *expr_first* jest taka sama jak stan asercję określonego przypisania *v* przed *expr*.
-*  Stan asercję określonego przypisania *v* przed *expr_second* jest taka sama jak stan asercję określonego przypisania *v* po *expr_first*.
-*  Instrukcja asercję określonego przypisania *v* po *expr* jest określana przez:
-    * Jeśli *expr_first* jest wyrażeniem stałym ([wyrażeń stałych](expressions.md#constant-expressions)) o wartości null, a następnie stan *v* po *expr* jest taka sama jak Stan *v* po *expr_second*.
-*  W przeciwnym razie stan *v* po *expr* jest taka sama jak stan asercję określonego przypisania *v* po *expr_first*.
+*  Określony stan przypisania wartości *v* przed *expr_first* jest taki sam, jak określony stan przypisania *v* przed *wyrażeniem*.
+*  Określony stan przypisania *v* przed *expr_second* jest taki sam, jak w przypadku określonego stanu przypisania *v* po *expr_first*.
+*  Instrukcja przypisania o określonej wartości *v* po *wyrażeniu* jest określana przez:
+    * Jeśli *expr_first* jest wyrażeniem stałym ([wyrażenia stałe](expressions.md#constant-expressions)) o wartości null, stanie *v* po *wyrażeniu* jest taka sama jak stan *v* po *expr_second*.
+*  W przeciwnym razie stan *v* po wyszukiwaniu *jest taki* sam jak w przypadku określonego stanu przypisania *v* po *expr_first*.
 
-#### <a name="-conditional-expressions"></a>?: wyrażenia (warunkowe)
+#### <a name="-conditional-expressions"></a>?: (warunkowe) wyrażenia
 
-Wyrażenie *expr* formularza `expr_cond ? expr_true : expr_false`:
+*Wyrażenie wyrażenia w* postaci `expr_cond ? expr_true : expr_false`:
 
-*  Stan asercję określonego przypisania *v* przed *expr_cond* jest taka sama jak stan *v* przed *expr*.
-*  Stan asercję określonego przypisania *v* przed *expr_true* jest zdecydowanie przypisana tylko wtedy, gdy posiada jedną z następujących czynności:
-    * *expr_cond* jest wyrażeniem stałym z wartością `false`
-    * Stan *v* po *expr_cond* jest zdecydowanie przypisana, lub "zdecydowanie przypisana, aby po wartość true, wyrażenie".
-*  Stan asercję określonego przypisania *v* przed *expr_false* jest zdecydowanie przypisana tylko wtedy, gdy posiada jedną z następujących czynności:
-    * *expr_cond* jest wyrażeniem stałym z wartością `true`
-*  Stan *v* po *expr_cond* jest zdecydowanie przypisana, lub "zdecydowanie przypisana, aby po wyrażeniu false".
-*  Stan asercję określonego przypisania *v* po *expr* jest określana przez:
-    * Jeśli *expr_cond* jest wyrażeniem stałym ([wyrażeń stałych](expressions.md#constant-expressions)) z wartością `true` następnie stan *v* po *expr* jest taka sama jak stan *v* po *expr_true*.
-    * W przeciwnym razie, jeśli *expr_cond* jest wyrażeniem stałym ([wyrażeń stałych](expressions.md#constant-expressions)) z wartością `false` następnie stan *v* po *expr* jest taka sama jak stan *v* po *expr_false*.
-    * W przeciwnym razie, jeśli stan *v* po *expr_true* jest zdecydowanie przypisany i stan *v* po *expr_false* to następnie przypisano mu stan *v* po *expr* jest zdecydowanie przypisany.
-    * W przeciwnym razie stan *v* po *expr* nie jest zdecydowanie przypisany.
+*  Określony stan przypisania *v* przed *expr_cond* jest taki sam jak stan *v* przed *wyrażeniem*.
+*  Określony stan przypisania *v* przed *expr_true* jest ostatecznie przypisany, jeśli tylko jedno z następujących posiada:
+    * *expr_cond* jest wyrażeniem stałym z wartością`false`
+    * stan *v* po *expr_cond* jest ostatecznie przypisany lub "w sposób terminowy przypisany po true Expression".
+*  Określony stan przypisania *v* przed *expr_false* jest ostatecznie przypisany, jeśli tylko jedno z następujących posiada:
+    * *expr_cond* jest wyrażeniem stałym z wartością`true`
+*  stan *v* po *expr_cond* jest ostatecznie przypisany lub "w sposób terminowy przypisany po false Expression".
+*  Określony stan przypisania *v* po wyjściu jest określany przez:
+    * Jeśli *expr_cond* jest wyrażeniem stałym[(wyrażenia stałe](expressions.md#constant-expressions)) z `true` wartością, wówczas stanem *v* po wyrażeniu *jest taka* sama jak stan *v* po *expr_true*.
+    * W przeciwnym razie, jeśli *expr_cond* jest wyrażeniem stałym ([wyrażenia stałe](expressions.md#constant-expressions) `false` ) z wartością, stanem *v* po wyrażeniu jest taka sama jak stan *v* po *expr_false*.
+    * W przeciwnym razie, jeśli stan *v* po *expr_true* jest ostatecznie przypisany i stanem *v* po *expr_false* jest ostatecznie przypisany, stan *v* po elemencie *Expr* jest ostatecznie przypisany.
+    * W przeciwnym razie stan *v* *po wyszukiwaniu nie jest* ostatecznie przypisany.
 
 #### <a name="anonymous-functions"></a>Funkcje anonimowe
 
-Aby uzyskać *lambda_expression* lub *anonymous_method_expression* *wyrażenie* z treścią (albo *bloku* lub *wyrażenia* ) *treści*:
+Dla wyrażenia *lambda_expression* lub *anonymous_method_expression* *z treścią*(albo *blokiem* lub *wyrażeniem*):
 
-*  Stan asercję określonego przypisania zewnętrzna zmienna *v* przed *treści* jest taka sama jak stan *v* przed *expr*. Oznacza to, że stan asercję określonego przypisania zmiennych zewnętrznych jest dziedziczona z kontekstu funkcja anonimowa.
-*  Stan asercję określonego przypisania zewnętrzna zmienna *v* po *expr* jest taka sama jak stan *v* przed *expr*.
+*  Określony stan przypisania zewnętrznej zmiennej *v* przed *treścią* jest taki sam jak stan *v* przed *wyrażeniem*. Oznacza to, że określony stan przypisania zmiennych zewnętrznych jest Dziedziczony z kontekstu funkcji anonimowej.
+*  Określony stan przypisania zmiennej zewnętrznej *v* po wyjściu jest taki sam jak stan *v* przed *wyrażeniem*.
 
 Przykład
 ```csharp
@@ -615,7 +615,7 @@ void F() {
     DoWork(f);
 }
 ```
-generuje błąd w czasie kompilacji od `max` nie jest zdecydowanie przypisany której jest zadeklarowana funkcja anonimowa. Przykład
+generuje błąd czasu kompilacji, ponieważ `max` nie jest on ostatecznie przypisany, gdzie jest zadeklarowana funkcja anonimowa. Przykład
 ```csharp
 delegate void D();
 
@@ -629,11 +629,11 @@ void F() {
     Console.WriteLine(n);
 }
 ```
-również generuje błąd w czasie kompilacji od przypisania do `n` w funkcja anonimowa nie ma wpływu na stan asercję określonego przypisania `n` poza funkcja anonimowa.
+generuje również błąd czasu kompilacji, ponieważ przypisanie do `n` funkcji anonimowej nie ma wpływu na określony `n` stan przypisania poza funkcję anonimową.
 
-## <a name="variable-references"></a>Odwołań do zmiennych
+## <a name="variable-references"></a>Odwołania do zmiennych
 
-A *variable_reference* jest *wyrażenie* , zostanie sklasyfikowany jako zmienną. A *variable_reference* oznacza lokalizację magazynu, który jest możliwy do pobrania bieżącą wartość i przechowywać nową wartość.
+*Variable_reference* jest *wyrażeniem* , które jest sklasyfikowane jako zmienna. *Variable_reference* oznacza lokalizację magazynu, do którego można uzyskać dostęp zarówno w celu pobrania bieżącej wartości, jak i zapisania nowej wartości.
 
 ```antlr
 variable_reference
@@ -641,9 +641,9 @@ variable_reference
     ;
 ```
 
-W języku C i C++, *variable_reference* jest znany jako *l-wartości*.
+W języku C C++i *variable_reference* jest znany jako *lvalue*.
 
 ## <a name="atomicity-of-variable-references"></a>Niepodzielność odwołań do zmiennych
 
-Odczyty i zapisy następujące typy danych są niepodzielne: `bool`, `char`, `byte`, `sbyte`, `short`, `ushort`, `uint`, `int`, `float`i typy referencyjne. Ponadto odczyty i zapisy typach wyliczeniowych z typu podstawowego na poprzedniej liście również są niepodzielne. Odczytuje i zapisuje je w innych typów, w tym `long`, `ulong`, `double`, i `decimal`, a także typy zdefiniowane przez użytkownika nie ma gwarancji niepodzielnych. Oprócz funkcji biblioteki przeznaczone do tego celu nie ma żadnej gwarancji elementu atomic odczytu modify-write, takie jak w przypadku inkrementacyjna lub dekrementacyjna.
+Odczyty i zapisy następujących typów danych są niepodzielne `bool`: `char`, `byte` `uint` `ushort`, `sbyte` `short` `int`, ,,,,,itypyreferencyjne.`float` Ponadto odczyty i zapisy typów wyliczeniowych z typem podstawowym na poprzedniej liście również są niepodzielne. Odczyty i zapisy innych typów, w `long`tym `ulong` `double`,,, `decimal`i, jak również typy zdefiniowane przez użytkownika, nie są gwarantowane jako niepodzielne. Poza funkcjami biblioteki zaprojektowanymi do tego celu nie istnieje gwarancja niepodzielnego odczytu i zapisu, na przykład w przypadku zwiększenia lub zmniejszenia.
 

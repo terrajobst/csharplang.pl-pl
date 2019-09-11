@@ -1,46 +1,46 @@
 ---
-ms.openlocfilehash: e103f6629a363c6cd76607699ff74d69aa73ed57
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: 5fbe0267b5b33b1a24dbdca493d118c576092573
+ms.sourcegitcommit: 7f7fc6e9e195e51b7ff8229aeaa70aa9fbbb63cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64488968"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70876913"
 ---
 # <a name="lexical-structure"></a>Struktura leksykalna
 
 ## <a name="programs"></a>Programy
 
-C# ***program*** składa się z co najmniej jeden ***pliki źródłowe***, nazywanej formalnie ***jednostki kompilacji*** ([jednostki kompilacji](namespaces.md#compilation-units)). Plik źródłowy jest uporządkowana sekwencja znaków Unicode. Pliki źródłowe zwykle mają relację z plikami w systemie plików, ale ta zgodność nie jest wymagana. Maksymalny przenośności, zalecane jest, że pliki w systemie plików jest zakodowane za pomocą UTF-8 kodowania.
+C# ***Program*** składa się z co najmniej jednego ***pliku źródłowego***, znanego formalnie jako ***jednostki kompilacji*** ([jednostki kompilacji](namespaces.md#compilation-units)). Plik źródłowy jest uporządkowaną sekwencją znaków Unicode. Pliki źródłowe zwykle mają zgodność jeden-do-jednego z plikami w systemie plików, ale ta korespondencja nie jest wymagana. W celu uzyskania maksymalnej przenośności zaleca się, aby pliki w systemie plików były kodowane przy użyciu kodowania UTF-8.
 
-Koncepcyjnie mówiąc, program jest kompilowany, za pomocą trzech kroków:
+Koncepcyjnie mówiąc, program jest kompilowany przy użyciu trzech kroków:
 
-1. Przekształcenie, które służy do konwertowania pliku Repertuar znaków określonego i schemat kodowania na sekwencję znaków Unicode.
-2. Poddawać analizie leksykalnej, co przekłada strumień wejściowy znaki Unicode w strumieniu tokenów.
-3. Analizy składni, która przetwarza strumień tokenów na kod wykonywalny.
+1. Transformacja, która konwertuje plik z określonego znaku repertuar i schematu kodowania na sekwencję znaków Unicode.
+2. Analiza leksykalna, która tłumaczy strumień znaków wejściowych Unicode na strumień tokenów.
+3. Analiza składni, która tłumaczy strumień tokenów na kod wykonywalny.
 
-## <a name="grammars"></a>Gramatyki
+## <a name="grammars"></a>Gramatykach
 
-Ta specyfikacja przedstawia informacje o składni programowania w języku C# za pomocą dwóch gramatyki. ***Gramatyka leksykalna*** ([gramatyka Leksykalna](lexical-structure.md#lexical-grammar)) definiuje, jak znaki Unicode są łączone w celu terminatory linii w formularzu, biały znak, komentarze, tokenów i dyrektywy przetwarzania wstępnego. ***Składni gramatyki*** ([składni gramatyki](lexical-structure.md#syntactic-grammar)) definiuje, jak tokeny, wynikające z gramatyka leksykalna są łączone w celu programy formularzy C#.
+Ta specyfikacja przedstawia składnię języka C# programowania przy użyciu dwóch gramatyki. ***Gramatyka leksykalna*** ([Gramatyka leksykalna](lexical-structure.md#lexical-grammar)) definiuje, w jaki sposób znaki Unicode są łączone z terminatorami wierszy formularza, białym znakiem, komentarzem, tokenami i dyrektywami wstępnego przetwarzania. ***Gramatyka składni*** ([Gramatyka składni](lexical-structure.md#syntactic-grammar)) definiuje, jak tokeny pochodzące z gramatyki leksykalnej są C# łączone z programami formularzy.
 
 ### <a name="grammar-notation"></a>Notacja gramatyki
 
-Gramatyki leksykalne i składniowych są prezentowane w formularz Backus-naur przy użyciu notacji ANTLR narzędzie gramatyki.
+Gramatyki leksykalne i syntaktyczne są prezentowane w formularzu back-Naura za pomocą notacji narzędzia gramatyki ANTLR.
 
 ### <a name="lexical-grammar"></a>Gramatyka leksykalna
 
-Gramatyka leksykalna języka C# są prezentowane w [poddawać analizie Leksykalnej](lexical-structure.md#lexical-analysis), [tokenów](lexical-structure.md#tokens), i [przetwarzania wstępnego dyrektywy](lexical-structure.md#pre-processing-directives). Terminalu symbole gramatyka leksykalna są znaki z zestawu znaków Unicode i gramatyka leksykalna Określa, jak znaki są łączone w celu tokenów formularza ([tokenów](lexical-structure.md#tokens)), biały ([biały](lexical-structure.md#white-space)), komentarze ([komentarze](lexical-structure.md#comments)) oraz dyrektywy przetwarzania wstępnego ([przetwarzania wstępnego dyrektywy](lexical-structure.md#pre-processing-directives)).
+Gramatyka leksykalna C# jest przedstawiana w ramach [analizy leksykalnej](lexical-structure.md#lexical-analysis), [tokenów](lexical-structure.md#tokens)i [dyrektyw wstępnego przetwarzania](lexical-structure.md#pre-processing-directives). Symbole terminalu leksykalnej gramatycznej są znakami zestawu znaków Unicode, a Gramatyka leksykalna określa, jak znaki są łączone z tokenami formularza ([tokenami](lexical-structure.md#tokens)), białym znakiem ([białym znakiem](lexical-structure.md#white-space)), komentarzami ([komentarzami](lexical-structure.md#comments)) i dyrektywy wstępnego przetwarzania ([dyrektywy wstępnego przetwarzania](lexical-structure.md#pre-processing-directives)).
 
-Każdy plik źródłowy w języku C# służącego musi być zgodna z *wejściowych* wersji produkcyjnej, gramatyka leksykalna ([poddawać analizie Leksykalnej](lexical-structure.md#lexical-analysis)).
+Każdy plik źródłowy w C# programie musi być zgodny z produkcją *wejściową* gramatyki leksykalnej ([Analiza leksykalna](lexical-structure.md#lexical-analysis)).
 
 ### <a name="syntactic-grammar"></a>Gramatyka składni
 
-Gramatyka składni języka C# są prezentowane w rozdziałach i dodatki, które należy wykonać w tym rozdziale. Terminalu symbole gramatyki składniowe są tokeny zdefiniowane przez gramatyka leksykalna i gramatyki składni Określa, jak tokeny są łączone w celu formularza C# programy.
+Składnia gramatyki C# jest przedstawiona w działach i dodatkach, które obserwują ten rozdział. Symbole terminalu składni gramatycznej są tokenami zdefiniowanymi przez gramatykę leksykalną, a Gramatyka składni określa, jak tokeny są łączone C# z programami formularzy.
 
-Każdy plik źródłowy w C# program musi być zgodna z *compilation_unit* produkcji składni gramatyki ([jednostki kompilacji](namespaces.md#compilation-units)).
+Każdy plik źródłowy w C# programie musi być zgodny z produkcją *compilation_unitą* gramatyki składniowej ([jednostki kompilacji](namespaces.md#compilation-units)).
 
-## <a name="lexical-analysis"></a>Poddawać analizie leksykalnej
+## <a name="lexical-analysis"></a>Analiza leksykalna
 
-*Wejściowych* produkcji definiuje strukturę leksykalne plik źródłowy C#. Każdy plik źródłowy w języku C# służącego musi być zgodna z ten produkcji gramatyka leksykalna.
+Produkcja *wejściowa* definiuje strukturę leksykalną pliku C# źródłowego. Każdy plik źródłowy w C# programie musi być zgodny z tą leksykalną produkcją gramatyki.
 
 ```antlr
 input
@@ -63,17 +63,17 @@ input_element
     ;
 ```
 
-Pięć podstawowych elementów tworzą struktura leksykalna C# pliku źródłowego: Wiersz terminatory ([wiersz terminatory](lexical-structure.md#line-terminators)), biały ([biały](lexical-structure.md#white-space)), komentarze ([komentarze](lexical-structure.md#comments)), tokeny ([tokenów](lexical-structure.md#tokens)), i Przetwarzanie wstępne dyrektywy ([przetwarzania wstępnego dyrektywy](lexical-structure.md#pre-processing-directives)). Z tych podstawowych elementów tylko tokeny są istotne w gramatyce składni programu w języku C# ([składni gramatyki](lexical-structure.md#syntactic-grammar)).
+Pięć podstawowych elementów tworzą strukturę leksykalną pliku C# źródłowego: Terminatory wiersza ([terminatory wierszy](lexical-structure.md#line-terminators)), biały znak ([biały znak](lexical-structure.md#white-space)), Komentarze ([Komentarze](lexical-structure.md#comments)), tokeny ([tokeny](lexical-structure.md#tokens)) i dyrektywy wstępnego przetwarzania ([dyrektywy wstępnego przetwarzania](lexical-structure.md#pre-processing-directives)). W przypadku tych podstawowych elementów tylko tokeny są znaczące w gramatyce składni C# programu ([gramatyki](lexical-structure.md#syntactic-grammar)składniowej).
 
-Leksykalne przetwarzanie plik źródłowy C# zawiera zmniejszenie pliku sekwencję tokenów, która staje się dane wejściowe do analizy składni. Terminatory wiersza, biały i komentarze, które może służyć do oddzielania tokenów, dyrektywy przetwarzania wstępnego mogą powodować części pliku źródłowego do pominięcia, a w przeciwnym razie te elementy leksykalne nie mają wpływu na strukturę składni programu w języku C#.
+Przetwarzanie leksykalne pliku C# źródłowego składa się z zmniejszenia pliku do sekwencji tokenów, które staną się danymi wejściowymi analizy składni. Terminatory wierszy, biały znak i komentarze mogą służyć do oddzielania tokenów, a dyrektywy wstępnego przetwarzania mogą spowodować pominięcie sekcji w pliku źródłowym, ale w przeciwnym razie te elementy leksykalne nie mają wpływu na strukturę składni C# programu.
 
-W przypadku literały ciągów znaków interpolowanych ([interpolowane literałów ciągów](lexical-structure.md#interpolated-string-literals)) pojedynczy token początkowo jest generowany przez poddawać analizie leksykalnej, ale został podzielony na kilka elementów wejściowych, które wielokrotnie poddać analizie leksykalnej dopóki wszystkie literały ciągów znaków interpolowanych zostały rozwiązane. Tokenami wynikowymi następnie służyć jako dane wejściowe do analizy składni.
+W przypadku interpolowanych literałów ciągu ([interpolowane literały ciągu](lexical-structure.md#interpolated-string-literals)) pojedynczy token jest początkowo tworzony przez analizę leksykalną, ale jest podzielony na kilka elementów wejściowych, które są wielokrotnie poddawane analizie leksykalnej do momentu, gdy wszystkie interpolowane Literały ciągu zostały rozwiązane. Otrzymane tokeny następnie stanowią dane wejściowe do analizy składni.
 
-Po kilku produkcji gramatyka leksykalna odpowiada sekwencji znaków w pliku źródłowym, leksykalne przetwarzania zawsze stanowi element najdłuższy leksykalne możliwe. Na przykład sekwencja znaków `//` jest przetwarzany jako początek komentarz jednowierszowy, ponieważ leksykalne elementu jest dłuższy niż jeden `/` tokenu.
+Gdy kilka leksykalnych produkcji gramatyki pasuje do sekwencji znaków w pliku źródłowym, przetwarzanie leksykalne zawsze tworzy najdłuższy możliwy element leksykalny. Na przykład sekwencja `//` znaków jest przetwarzana jako początek jednowierszowego komentarza, ponieważ ten element leksykalny jest dłuższy niż pojedynczy `/` token.
 
 ### <a name="line-terminators"></a>Terminatory wiersza
 
-Terminatory wiersza podzielić wiersze znaki plik źródłowy C#.
+Terminatory wierszy dzielą znaki pliku C# źródłowego na wiersze.
 
 ```antlr
 new_line
@@ -86,14 +86,14 @@ new_line
     ;
 ```
 
-Dla zgodności przy użyciu źródła code narzędzia edycji Dodaj znaczniki końca pliku, a umożliwiające źródło pliku do wyświetlenia jako sekwencja prawidłowo zakończony wierszy, następujące przekształcenia są stosowane w kolejności, aby każdy plik źródłowy w języku C# służącego:
+W celu zapewnienia zgodności z narzędziami do edycji kodu źródłowego, które dodają znaczniki końca pliku i umożliwiają wyświetlanie pliku źródłowego jako sekwencji prawidłowo zakończonych wierszy, do każdego pliku źródłowego w C# programie są stosowane następujące przekształcenia:
 
-*  Jeśli ostatni znak pliku źródłowego jest znakiem formantu-Z (`U+001A`), ten znak jest usuwany.
-*  Znak powrotu karetki (`U+000D`) zostanie dodany na końcu pliku źródłowego, jeśli ten plik źródłowy jest pusty, a ostatni znak pliku źródłowego nie jest znak powrotu karetki (`U+000D`), znak wysuwu wiersza (`U+000A`), separator wiersza (`U+2028`), lub separatorem akapitów (`U+2029`).
+*  Jeśli ostatni znak pliku źródłowego jest znakiem Control-Z (`U+001A`), ten znak jest usuwany.
+*  Znak powrotu karetki (`U+000D`) jest dodawany na końcu pliku źródłowego, jeśli ten plik źródłowy nie jest pusty i jeśli ostatni znak w pliku źródłowym nie jest Return karetki (`U+000D`)`U+000A`, wierszem wysuwu wiersza (), separatorem wiersza (`U+2028`) lub separator akapitu (`U+2029`).
 
 ### <a name="comments"></a>Komentarze
 
-Obsługiwane są dwa rodzaje komentarzy: Komentarze jednowierszowe i rozdzielany komentarzy. ***Komentarze jednowierszowe*** rozpoczynających się od znaków `//` i Rozszerz do końca wiersza źródłowego. ***Rozdzielany komentarze*** rozpoczynających się od znaków `/*` oraz kończyć się znakami `*/`. Rozdzielany komentarze może obejmować wiele wierszy.
+Obsługiwane są dwie formy komentarzy: Komentarze jednowierszowe i rozdzielane Komentarze. ***Komentarze jednowierszowe*** zaczynają się od `//` znaków i zwiększają się do końca wiersza źródłowego. ***Rozdzielane Komentarze*** zaczynają się od `/*` znaków i kończą się znakami. `*/` Rozdzielane komentarze mogą obejmować wiele wierszy.
 
 ```antlr
 comment
@@ -135,9 +135,9 @@ not_slash_or_asterisk
     ;
 ```
 
-Nie zagnieżdżaj komentarzy. Sekwencje znaków `/*` i `*/` nie mają specjalnego znaczenia w ramach `//` komentarz i sekwencje znaków `//` i `/*` nie mają specjalnego znaczenia w ramach rozdzielany komentarz.
+Komentarze nie są zagnieżdżane. Sekwencje `/*` znaków i `*/` `//` `/*` nie mają specjalnego znaczenia w komentarzuisekwencjeznakówiniemająspecjalnychznaczeniawkomentarzuograniczonym.`//`
 
-Komentarze nie są przetwarzane w ramach znakowe i literały.
+Komentarze nie są przetwarzane w literałach znaków i ciągów.
 
 Przykład
 ```csharp
@@ -151,7 +151,7 @@ class Hello
     }
 }
 ```
-Zawiera rozdzielaną komentarz.
+zawiera rozdzielany komentarz.
 
 Przykład
 ```csharp
@@ -165,11 +165,11 @@ class Hello // any name will do for this class
     }
 }
 ```
-Pokazuje kilka Komentarze jednowierszowe.
+pokazuje kilka komentarzy jednowierszowych.
 
 ### <a name="white-space"></a>Biały znak
 
-Biały znak jest zdefiniowany jako dowolny znak z klasą Unicode Zs (która zawiera znak spacji), a także znaku tabulacji poziomej, znak tabulacji pionowej i formularzu znaku wysuwu.
+Spacja jest definiowana jako dowolny znak z klasą Unicode ZS (która zawiera znak spacji), a także znak tabulacji poziomej, znak tabulacji pionowej i znak wysuwu strony.
 
 ```antlr
 whitespace
@@ -182,7 +182,7 @@ whitespace
 
 ## <a name="tokens"></a>Tokeny
 
-Istnieje kilka rodzajów tokenów: identyfikatory, słowa kluczowe, literały, operatorów i przerywniki języka. Biały znak i komentarze nie są tokeny, chociaż działają jako separatory tokenów.
+Istnieje kilka rodzajów tokenów: identyfikatory, słowa kluczowe, literały, operatory i przerywniki. Biały znak i komentarze nie są tokenami, chociaż działają jako separatory dla tokenów.
 
 ```antlr
 token
@@ -199,7 +199,7 @@ token
 
 ### <a name="unicode-character-escape-sequences"></a>Sekwencje ucieczki znaków Unicode
 
-Znak sekwencji ucieczki Unicode reprezentuje znak Unicode. Sekwencje ucieczki znaków Unicode są przetwarzane w identyfikatorach ([identyfikatory](lexical-structure.md#identifiers)), znaków w literałach ([literały znakowe](lexical-structure.md#character-literals)) i regularnego literałów ([Literałyciągu](lexical-structure.md#string-literals)). Znak ucieczki Unicode nie są przetwarzane w innym miejscu (na przykład w celu utworzenia operatora, znak interpunkcyjny lub słowa kluczowego).
+Sekwencja ucieczki znaków Unicode reprezentuje znak Unicode. Sekwencje ucieczki znaków Unicode są przetwarzane w identyfikatorach ([identyfikatorach](lexical-structure.md#identifiers)), literałach znaków ([literałach znaków](lexical-structure.md#character-literals)) i zwykłych literałach ciągów ([literały ciągów](lexical-structure.md#string-literals)). Znak ucieczki Unicode nie jest przetwarzany w żadnej innej lokalizacji (na przykład w celu utworzenia operatora, punctuator lub słowa kluczowego).
 
 ```antlr
 unicode_escape_sequence
@@ -208,9 +208,9 @@ unicode_escape_sequence
     ;
 ```
 
-Sekwencja unikowa Unicode reprezentuje pojedynczy znak Unicode sformułowany wykonując liczb szesnastkowych "`\u`"or"`\U`" znaków. Ponieważ języka C# używa kodowania 16-bitowych punkty kodowe Unicode i ciągi znaków, znak Unicode z zakresu od U + 10000 do U + 10FFFF nie jest dozwolona w literale znakowym i jest reprezentowana w literale ciągu za pomocą para zastępcza Unicode. Znaki Unicode z punktów kod powyżej 0x10FFFF nie są obsługiwane.
+Sekwencja unikowa Unicode reprezentuje pojedynczy znak Unicode utworzony przez liczbę szesnastkową po znakach "`\u`" lub "`\U`". Ponieważ C# program korzysta z 16-bitowego kodowania punktów kodowych Unicode w znakach i wartościach ciągu, znak Unicode w zakresie u + 10000 do u + 10FFFF jest niedozwolony w literale znakowym i jest reprezentowany przy użyciu pary wieloskładnikowej Unicode w literale ciągu. Znaki Unicode z punktami kodu powyżej 0x10FFFF nie są obsługiwane.
 
-Wiele tłumaczeń nie są wykonywane. Na przykład, literał ciągu "`\u005Cu005C`"jest odpowiednikiem"`\u005C`"zamiast"`\`". Wartość Unicode `\u005C` jest znakiem "`\`".
+Nie wykonano wielu tłumaczeń. Na przykład literał ciągu "`\u005Cu005C`" jest odpowiednikiem "`\u005C`" zamiast "`\`". Wartość `\u005C` Unicode jest znakiem "`\`".
 
 Przykład
 ```csharp
@@ -223,7 +223,7 @@ class Class1
     }        
 }
 ```
-Pokazuje kilka zastosowań `\u0066`, czyli sekwencji unikowej na literę "`f`". Program jest odpowiednikiem
+pokazuje kilka zastosowania `\u0066`, czyli sekwencję ucieczki dla litery "`f`". Program jest równoważny
 ```csharp
 class Class1
 {
@@ -237,7 +237,7 @@ class Class1
 
 ### <a name="identifiers"></a>Identyfikatory
 
-Reguły dotyczące identyfikatorów podane w tej sekcji dokładnie odpowiadać elementowi zalecane przez Unicode Standard załącznika 31, z tą różnicą, że podkreślenie jest dozwolona jako znak początkowy (tak jak to tradycyjne w języku programowania C), specjalne Unicode, który sekwencje to dozwolone w identyfikatorach, a "`@`" znak jest dozwolony jako prefiksu potrzeba włączenia słów kluczowych jako identyfikatorów.
+Reguły dotyczące identyfikatorów podane w tej sekcji odpowiadają dokładnie wymaganiom zalecanym przez standard Unicode załącznika 31, z wyjątkiem tego, że podkreślenie jest dozwolone jako znak początkowy (jak tradycyjna w języku programowania C), sekwencje unikowe Unicode są dozwolone w identyfikatorach, a znak`@`"" jest dozwolony jako prefiks, aby można było używać słów kluczowych jako identyfikatorów.
 
 ```antlr
 identifier
@@ -292,13 +292,13 @@ formatting_character
     ;
 ```
 
-Instrukcje dotyczące klas znaków Unicode, które są wymienione powyżej Zobacz Unicode Standard, w wersji 3.0, sekcja 4.5.
+Aby uzyskać informacje na temat klas znaków Unicode wymienionych powyżej, zobacz Standard Unicode w wersji 3,0, sekcja 4,5.
 
-Przykłady prawidłowych identyfikatorów "`identifier1`","`_identifier2`", a "`@if`".
+Przykłady prawidłowych identyfikatorów to "`identifier1`", "`_identifier2`" i "`@if`".
 
-Identyfikator programu odpowiadające musi być w formacie kanonicznym definicją formularza normalizacji Unicode C, zgodnie z definicją standardu Unicode Standard załącznika 15. Zachowanie w przypadku napotkania identyfikator nie jest w formularzu C normalizacji jest zdefiniowane w implementacji; jednak Diagnostyka nie jest wymagana.
+Identyfikator w programie zgodnym musi znajdować się w formacie kanonicznym zdefiniowanym przez normalizację Unicode w postaci C, zgodnie z definicją standardu Unicode w załączniku 15. Zachowanie podczas napotkania identyfikatora, którego nie ma w postaci normalizacji C, jest zdefiniowane w implementacji; jednak Diagnostyka nie jest wymagana.
 
-Prefiks "`@`" umożliwia słów kluczowych jako identyfikatorów, co jest przydatne, gdy komunikuje się z innymi językami programowania. Znak `@` nie jest częścią identyfikatora, więc identyfikator może być widoczny w innych językach, jako identyfikator normalne, bez prefiksu. Identyfikator z `@` nosi nazwę prefiks ***identyfikator dosłownego wyrażenia***. Korzystanie z `@` prefiks dla identyfikatorów, które nie są słowami kluczowymi jest dozwolone, ale zdecydowanie niezalecane jako stylu.
+Prefiks "`@`" umożliwia używanie słów kluczowych jako identyfikatorów, co jest przydatne w przypadku współdziałania z innymi językami programowania. Znak `@` nie jest w rzeczywistości częścią identyfikatora, więc identyfikator może być widziany w innych językach jako normalny identyfikator, bez prefiksu. Identyfikator z `@` prefiksem nazywa się ***identyfikatorem Verbatim***. `@` Używanie prefiksu dla identyfikatorów, które nie są słowami kluczowymi jest dozwolone, ale zdecydowanie odradza się jako kwestia stylu.
 
 Przykład:
 ```csharp
@@ -319,19 +319,19 @@ class Class1
     }
 }
 ```
-definiuje klasę o nazwie "`class`"ze statyczną metodę o nazwie"`static`"pobierającej parametr o nazwie"`bool`". Należy zauważyć, że ponieważ specjalne Unicode nie są dozwolone w słów kluczowych, token "`cl\u0061ss`"jest identyfikatorem i jest taki sam identyfikator jak"`@class`".
+definiuje klasę o nazwie "`class`" z metodą statyczną o nazwie`static`"", która przyjmuje parametr o`bool`nazwie "". Należy zauważyć, że ponieważ wyrażenia ucieczki Unicode nie są dozwolone w słowach`cl\u0061ss`kluczowych, token "" jest identyfikatorem i jest tym samym`@class`identyfikatorem jak "".
 
-Dwa identyfikatory są uważane za takie same, jeśli są one identyczne, po zastosowaniu następujące przekształcenia w kolejności:
+Dwa identyfikatory są uważane za takie same, jeśli są identyczne po zastosowaniu następujących przekształceń:
 
-*  Prefiks "`@`", jeśli używany, zostanie usunięty.
-*  Każdy *unicode_escape_sequence* jest przekształcana na jego odpowiedniego znaku Unicode.
-*  Wszelkie *formatting_character*s są usuwane.
+*  Prefiks "`@`", jeśli jest używany, jest usuwany.
+*  Każdy *unicode_escape_sequence* jest przekształcany do odpowiedniego znaku Unicode.
+*  Wszystkie *formatting_character*s zostaną usunięte.
 
-Identyfikatory zawierające dwóch następujących po sobie znaki podkreślenia (`U+005F`) są zarezerwowane do użytku przez implementację. Na przykład implementacja może zawierać słów kluczowych rozszerzonych, które zaczynają się od dwóch podkreśleń.
+Identyfikatory zawierające dwa kolejne znaki podkreślenia (`U+005F`) są zarezerwowane do użytku przez implementację. Na przykład implementacja może zapewnić rozszerzone słowa kluczowe, które zaczynają się od dwóch znaków podkreślenia.
 
 ### <a name="keywords"></a>słowa kluczowe
 
-A ***— słowo kluczowe*** to identyfikator jak sekwencja znaków jest zarezerwowany i nie można użyć jako identyfikatora z wyjątkiem sytuacji, gdy są poprzedzone `@` znaków.
+***Słowo kluczowe*** to sekwencja znaków, która jest zastrzeżona i nie może być używana jako identyfikator, z wyjątkiem sytuacji, gdy jest `@` poprzedzona znakiem.
 
 ```antlr
 keyword
@@ -354,11 +354,11 @@ keyword
     ;
 ```
 
-W pewnych miejscach w gramatyce określone identyfikatory mają specjalne znaczenie, ale nie są słowami kluczowymi. Takie identyfikatory są czasami określane jako "kontekstowymi słowami kluczowymi". Na przykład w deklaracji właściwości "`get`"i"`set`" identyfikatory mają specjalne znaczenie ([Akcesory](classes.md#accessors)). Identyfikator innego niż `get` lub `set` nigdy nie jest dozwolona w tych lokalizacjach, więc to zastosowanie nie powoduje konfliktu z użyciem tych słów jako identyfikatorów. W innych przypadkach, takich jak o identyfikatorze "`var`" w niejawnie wpisane deklaracje zmiennych lokalnych ([deklaracje zmiennych lokalnych](statements.md#local-variable-declarations)), kontekstowe słowo kluczowe, mogą powodować konflikt z nazwami zadeklarowane. W takich przypadkach zadeklarowana nazwa mają pierwszeństwo przed użyciem identyfikator kontekstowego słowa kluczowego.
+W niektórych miejscach gramatycznych określone identyfikatory mają specjalne znaczenie, ale nie są słowami kluczowymi. Takie identyfikatory są czasami nazywane "kontekstowymi słowami kluczowymi". Na przykład w deklaracji właściwości identyfikatory "`get`" i "`set`" mają specjalne znaczenie (metody[dostępu](classes.md#accessors)). Identyfikator inny niż `get` lub `set` nigdy nie jest dozwolony w tych lokalizacjach, dlatego to użycie nie powoduje konfliktu z użyciem tych słów jako identyfikatorów. W innych przypadkach, na przykład z identyfikatorem "`var`" w deklaracjach zmiennych lokalnych niejawnie wpisanych ([lokalnych deklaracji zmiennych](statements.md#local-variable-declarations)), kontekstowe słowo kluczowe może powodować konflikt z zadeklarowanymi nazwami. W takich przypadkach zadeklarowana nazwa ma pierwszeństwo przed użyciem identyfikatora jako kontekstowego słowa kluczowego.
 
 ### <a name="literals"></a>Literały
 
-A ***literału*** jest reprezentacją kod źródłowy wartość.
+***Literał*** jest reprezentacją kodu źródłowego wartości.
 
 ```antlr
 literal
@@ -371,9 +371,9 @@ literal
     ;
 ```
 
-#### <a name="boolean-literals"></a>Wartość logiczna literałów
+#### <a name="boolean-literals"></a>Literały logiczne
 
-Istnieją dwie wartości literałów wartości logicznych: `true` i `false`.
+Istnieją dwie wartości literału logicznego `true` : `false`i.
 
 ```antlr
 boolean_literal
@@ -382,11 +382,11 @@ boolean_literal
     ;
 ```
 
-Typ *boolean_literal* jest `bool`.
+Typem elementu *boolean_literal* jest `bool`.
 
 #### <a name="integer-literals"></a>Literały całkowite
 
-Literały całkowite służy do zapisywania wartości typów `int`, `uint`, `long`, i `ulong`. Literały całkowite mają dwa możliwe formy: dziesiętną, a szesnastkową.
+Literały całkowite są używane do zapisywania wartości `int`typów, `uint`, `long`i `ulong`. Literały całkowite mają dwie możliwe formy: dziesiętną i szesnastkową.
 
 ```antlr
 integer_literal
@@ -416,25 +416,25 @@ hex_digit
     | 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'a' | 'b' | 'c' | 'd' | 'e' | 'f';
 ```
 
-Typ literału typu integer jest określany w następujący sposób:
+Typ literału liczby całkowitej jest określany w następujący sposób:
 
-*  Jeśli literał ma Brak przyrostka, ma to pierwsza z tych typów, w których jej wartość może być reprezentowana: `int`, `uint`, `long`, `ulong`.
-*  Jeśli jako sufiks literału przez `U` lub `u`, ma to pierwsza z tych typów, w których jej wartość może być reprezentowana: `uint`, `ulong`.
-*  Jeśli jako sufiks literału przez `L` lub `l`, ma to pierwsza z tych typów, w których jej wartość może być reprezentowana: `long`, `ulong`.
-*  Jeśli jako sufiks literału przez `UL`, `Ul`, `uL`, `ul`, `LU`, `Lu`, `lU`, lub `lu`, jest on typu `ulong`.
+*  Jeśli literał nie ma sufiksu, ma pierwszy z tych typów, w którym można przedstawić `int`jego wartość:, `uint`, `long`, `ulong`.
+*  Jeśli literał `U` jest poprzedzony przez lub `u`, ma pierwszy z tych typów, w których można reprezentować wartość: `uint`, `ulong`.
+*  Jeśli literał `L` jest poprzedzony przez lub `l`, ma pierwszy z tych typów, w których można reprezentować wartość: `long`, `ulong`.
+*  Jeśli literał jest `UL`sufiksem, `LU` `ul` `uL` `Ul` ,,`Lu`,,, ,lub`lu`, jest typem `ulong`. `lU`
 
-Jeśli wartością reprezentowaną przez literał liczby całkowitej jest poza zakresem `ulong` typu, wystąpi błąd kompilacji.
+Jeśli wartość reprezentowana przez literał liczby całkowitej znajduje się poza zakresem `ulong` typu, wystąpi błąd w czasie kompilacji.
 
-Jako styl, zalecane jest, "`L`"można użyć zamiast"`l`" podczas zapisywania literały ciągów typu `long`, ponieważ łatwo pomylić literę "`l`"z cyfrą"`1`".
+Ze względu na styl`L`zaleca się użycie "" zamiast "`l`" podczas pisania literałów typu `long`, ponieważ można łatwo pomylić literę`l`"" z cyfrą "`1`".
 
-Aby zezwolić na najmniejszą możliwą `int` i `long` wartości do zapisania jako dziesiętna liczba całkowita literały, istnieją następujące dwie reguły:
+Aby zezwolić na zapisanie `int` najmniejszych możliwych i `long` wartości w postaci dziesiętnych literałów liczb całkowitych, istnieją następujące dwie reguły:
 
-* Gdy *decimal_integer_literal* wartością 2147483648 (2 ^ 31) i nie *integer_type_suffix* pojawia się jako token bezpośrednio po jednoargumentowego znaku minusa token operatora ([minus jednoargumentowy operator](expressions.md#unary-minus-operator)), wynik jest stałą typu `int` o wartości od -2147483648 (-2 ^ 31). W innych sytuacjach takich *decimal_integer_literal* typu `uint`.
-* Gdy *decimal_integer_literal* wartością 9223372036854775808 (2 ^ 63) i nie *integer_type_suffix* lub *integer_type_suffix* `L` lub `l` pojawia się jako token bezpośrednio po jednoargumentowego znaku minusa token operatora ([jednoargumentowy minus operator](expressions.md#unary-minus-operator)), wynik jest stałą typu `long` wartością wartość -9223372036854775808 (-2 ^ 63). W innych sytuacjach takich *decimal_integer_literal* typu `ulong`.
+* Gdy *decimal_integer_literal* o wartości 2147483648 (2 ^ 31) i bez *integer_type_suffix* pojawia się jako token bezpośrednio po jednoargumentowym tokenie operatora minus ([jednoargumentowy operator minus](expressions.md#unary-minus-operator)), wynik jest stałą typu `int`wartość-2147483648 (-2 ^ 31). We wszystkich innych sytuacjach takie *decimal_integer_literal* jest typu `uint`.
+* Gdy *decimal_integer_literal* o wartości zakresu od (2 ^ 63) i bez *integer_type_suffix* lub *integer_type_suffix* `L` lub `l` pojawia się jako token bezpośrednio po jednoargumentowym znaku minus token operatora ([jednoargumentowy operator minus](expressions.md#unary-minus-operator)), wynik jest stałą typu `long` z wartością-zakresu od (-2 ^ 63). We wszystkich innych sytuacjach takie *decimal_integer_literal* jest typu `ulong`.
 
-#### <a name="real-literals"></a>Literały rzeczywistych
+#### <a name="real-literals"></a>Literały prawdziwe
 
-Literały rzeczywistych służy do zapisywania wartości typów `float`, `double`, i `decimal`.
+Literały prawdziwe są używane do zapisywania wartości typów `float`, `double`i `decimal`.
 
 ```antlr
 real_literal
@@ -459,23 +459,23 @@ real_type_suffix
     ;
 ```
 
-Jeśli nie *real_type_suffix* określono typ rzeczywistego literał jest `double`. W przeciwnym razie sufiks rzeczywistego typu, określa typ rzeczywistego literału w następujący sposób:
+Jeśli *real_type_suffix* nie jest określony, typem literału rzeczywistego jest `double`. W przeciwnym razie sufiks typu rzeczywistego określa typ literału rzeczywistego w następujący sposób:
 
-*  Literał rzeczywisty sufiks przez `F` lub `f` typu `float`. Na przykład literały `1f`, `1.5f`, `1e10f`, i `123.456F` są wszystkie typu `float`.
-*  Literał rzeczywisty sufiks przez `D` lub `d` typu `double`. Na przykład literały `1d`, `1.5d`, `1e10d`, i `123.456D` są wszystkie typu `double`.
-*  Literał rzeczywisty sufiks przez `M` lub `m` typu `decimal`. Na przykład literały `1m`, `1.5m`, `1e10m`, i `123.456M` są wszystkie typu `decimal`. Ten literał jest konwertowany na `decimal` wartość biorąc dokładna wartość, a w razie potrzeby zaokrąglania do najbliższej przy użyciu wartości reprezentowanych przez zaokrąglenie banker ([typu dziesiętnego](types.md#the-decimal-type)). Dowolnej skali, które są widoczne w literale są zachowywane, chyba że wartość jest zaokrąglana, lub wartość wynosi zero (w takim przypadku ostatnie logowania i skalowanie będzie 0). Z tego powodu literału `2.900m` będzie analizowany w celu utworzenia dziesiętnych znakiem `0`, współczynnik `2900`i skalowanie `3`.
+*  Literał prawdziwy sufiksu `F` lub `f` jest typu `float`. Na przykład `1f`literały, `1e10f` `1.5f`,, i `123.456F` są wszystkie typu `float`.
+*  Literał prawdziwy sufiksu `D` lub `d` jest typu `double`. Na przykład `1d`literały, `1e10d` `1.5d`,, i `123.456D` są wszystkie typu `double`.
+*  Literał prawdziwy sufiksu `M` lub `m` jest typu `decimal`. Na przykład `1m`literały, `1e10m` `1.5m`,, i `123.456M` są wszystkie typu `decimal`. Ten literał jest konwertowany na `decimal` wartość przez pobranie dokładnej wartości i, w razie potrzeby, zaokrąglenie do najbliższej wartości, którą można przedstawić, przy użyciu zaokrąglenia banku ([Typ dziesiętny](types.md#the-decimal-type)). Każda Skala widoczna w literale jest zachowywana, chyba że wartość jest zaokrąglana lub wartość jest równa zero (w którym ostatnim przypadku znak i Skala będzie równa 0). W związku z tym `2.900m` literał zostanie przeanalizowany w celu utworzenia wartości dziesiętnej `0`ze znakiem, współczynnikiem `2900`i skalą `3`.
 
-Jeśli określony literał nie może być przedstawiony w wskazanego typu, wystąpi błąd kompilacji.
+Jeśli określony literał nie może być reprezentowany w wskazanym typie, wystąpi błąd w czasie kompilacji.
 
-Wartość rzeczywistego literału typu `float` lub `double` jest określana za pomocą IEEE tryb "zaokrąglony do najbliższej".
+Wartość rzeczywistego literału typu `float` lub `double` jest określana za pomocą typu "okrągłe do najbliższe".
 
-Należy pamiętać, że w rzeczywistych literał, cyfry dziesiętne zawsze są wymagane po przecinku. Na przykład `1.3F` jest literał liczby rzeczywistej ale `1.F` nie jest.
+Należy pamiętać, że w literale rzeczywistym cyfry dziesiętne są zawsze wymagane po przecinku dziesiętnym. Na przykład jest `1.3F` słowem rzeczywistym, ale `1.F` nie jest.
 
-#### <a name="character-literals"></a>Literały znakowe
+#### <a name="character-literals"></a>Literały znaków
 
-Literał znakowy, który reprezentuje pojedynczy znak, a składa się zwykle znaku w cudzysłowie, jak w `'a'`.
+Literał znakowy reprezentuje pojedynczy znak i zwykle składa się z znaku w cudzysłowie, jak w `'a'`.
 
-Uwaga: Notacja gramatyki ANTLR sprawia, że następujące mylące! W ANTLR, kiedy piszesz `\'` oznacza pojedynczy cudzysłów `'`. I podczas wpisywania `\\` oznacza pojedynczy ukośnik odwrotny `\`. W związku z tym pierwsze reguły dla literału znakowego oznacza, że zaczyna się od pojedynczy cudzysłów znaków, a następnie pojedynczy cudzysłów. I jedenaście możliwe proste sekwencje ucieczki są `\'`, `\"`, `\\`, `\0`, `\a`, `\b`, `\f`, `\n`, `\r`, `\t`, `\v`.
+Uwaga: Notacja gramatyki ANTLR sprawia, że jest to mylące. W antlr, gdy piszesz `\'` , oznacza pojedynczy cudzysłów. `'` A gdy piszesz `\\` , oznacza pojedynczy ukośnik odwrotny `\`. W związku z tym pierwsza reguła dla literału znakowego oznacza, że rozpoczyna się od pojedynczego cudzysłowu, a następnie pojedynczego cudzysłowu. I jedenaście możliwych prostych sekwencji ucieczki to `\'` `\\`, `\"`,, `\0` `\b` ,,`\t`, `\n` ,`\r`,,, `\f` `\a` `\v`.
 
 ```antlr
 character_literal
@@ -501,40 +501,40 @@ hexadecimal_escape_sequence
     : '\\x' hex_digit hex_digit? hex_digit? hex_digit?;
 ```
 
-Znak, który następuje znak ukośnika odwrotnego (`\`) w *znak* musi mieć jedną z następujących znaków: `'`, `"`, `\`, `0`, `a`, `b` , `f`, `n`, `r`, `t`, `u`, `U`, `x`, `v`. W przeciwnym razie wystąpi błąd kompilacji.
+Znak`\`, który następuje po znaku ukośnika odwrotnego () w *znaku* musi być jednym z następujących znaków `'` `0`:, `"` `b`, `\` `a`,,,, `f` , `n`, `r`, `t`, `u`, `U`, `x`, `v`. W przeciwnym razie wystąpi błąd w czasie kompilacji.
 
-Szesnastkowa sekwencja unikowa reprezentuje pojedynczy znak Unicode o wartości sformułowany wykonując liczb szesnastkowych "`\x`".
+Szesnastkowa sekwencja ucieczki reprezentuje pojedynczy znak Unicode, z wartością utworzoną przez liczbę szesnastkową następującej po znaku`\x`"".
 
-Jeśli wartością reprezentowaną przez literału znakowego jest większa niż `U+FFFF`, wystąpi błąd kompilacji.
+Jeśli wartość reprezentowana przez literał znakowy jest większa niż `U+FFFF`, wystąpi błąd w czasie kompilacji.
 
-Sekwencje znaków Unicode ([sekwencje ucieczki znaków Unicode](lexical-structure.md#unicode-character-escape-sequences)) w literale znakowym musi należeć do zakresu `U+0000` do `U+FFFF`.
+Sekwencja ucieczki znaków Unicode ([Sekwencje ucieczki znaków Unicode](lexical-structure.md#unicode-character-escape-sequences)) w literale znakowym musi należeć `U+FFFF`do zakresu `U+0000` od do.
 
-Proste sekwencje reprezentuje kodowania znaków Unicode, zgodnie z opisem w poniższej tabeli.
+Prosta sekwencja ucieczki reprezentuje kodowanie znaków Unicode, zgodnie z opisem w poniższej tabeli.
 
 
-| __Sekwencja unikowa__ | __Nazwa znaków__ | __Kodowanie Unicode__ |
+| __Sekwencja unikowa__ | __Nazwa znaku__ | __Kodowanie Unicode__ |
 |---------------------|--------------------|----------------------|
-| `\'`                | pojedynczy cudzysłów       | `0x0027`             | 
-| `\"`                | podwójny cudzysłów       | `0x0022`             | 
-| `\\`                | Ukośnik odwrotny          | `0x005C`             | 
+| `\'`                | Pojedynczy cytat       | `0x0027`             | 
+| `\"`                | Podwójny cudzysłów       | `0x0022`             | 
+| `\\`| Ukośnik odwrotny |`0x005C`             | 
 | `\0`                | Null               | `0x0000`             | 
 | `\a`                | Alerty              | `0x0007`             | 
 | `\b`                | Backspace          | `0x0008`             | 
-| `\f`                | Wysuw strony          | `0x000C`             | 
+| `\f`                | Kanał informacyjny formularza          | `0x000C`             | 
 | `\n`                | Nowy wiersz           | `0x000A`             | 
-| `\r`                | Powrót karetki    | `0x000D`             | 
-| `\t`                | tabulator poziomy     | `0x0009`             | 
-| `\v`                | tabulator pionowy       | `0x000B`             | 
+| `\r`                | Znak powrotu karetki    | `0x000D`             | 
+| `\t`                | Tabulator poziomy     | `0x0009`             | 
+| `\v`                | Tabulator pionowy       | `0x000B`             | 
 
-Typ *character_literal* jest `char`.
+Typem elementu *character_literal* jest `char`.
 
 #### <a name="string-literals"></a>Literały ciągu
 
-C# obsługuje dwa rodzaje literałów ciągów: ***literałów ciągów regularne*** i ***literały ciąg verbatim***.
+C#obsługuje dwa formy literałów ciągu: ***zwykłe literały ciągów*** i ***literały ciągu Verbatim***.
 
-Literał ciągu regularne składa się z zero lub więcej znaków ujęte w cudzysłów, podobnie jak w `"hello"`i mogą obejmować zarówno proste sekwencje ucieczki (takie jak `\t` na znak tabulacji) i szesnastkowym, jak i sekwencje unikowe Unicode.
+Regularne literały ciągu składa się z zera lub większej liczby znaków ujętych w podwójne `"hello"`cudzysłowy, jak w i mogą zawierać proste sekwencje `\t` ucieczki (takie jak dla znaku tabulacji) oraz sekwencje szesnastkowe i Unicode.
 
-Literał ciągu verbatim składa się z `@` znaków, po której następuje znak podwójnego cudzysłowu, zero lub więcej znaków i znaku podwójnego cudzysłowu zamykającego. Prosty przykład `@"hello"`. Literał ciągu verbatim, znaków między ogranicznikami interpretuje dosłownie, tylko on wyjątek *quote_escape_sequence*. W szczególności proste sekwencje ucieczki i szesnastkowym i sekwencje unikowe Unicode nie są przetwarzane w literałach ciąg verbatim. Literał ciągu verbatim może obejmować wiele wierszy.
+Literał ciągu Verbatim składa się ze `@` znaku, po którym następuje znak podwójnego cudzysłowu, zero lub więcej znaków i zamykający znak podwójnego cudzysłowu. Prostym przykładem `@"hello"`jest. W literale ciągu Verbatim znaki między ogranicznikami są interpretowane jako Verbatim, jedyny wyjątek to *quote_escape_sequence*. W szczególności proste sekwencje unikowe i sekwencje unikowe szesnastkowe i Unicode nie są przetwarzane w literałach ciągów Verbatim. Literał ciągu Verbatim może obejmować wiele wierszy.
 
 ```antlr
 string_literal
@@ -575,7 +575,7 @@ quote_escape_sequence
     ;
 ```
 
-Znak, który następuje znak ukośnika odwrotnego (`\`) w *regular_string_literal_character* musi mieć jedną z następujących znaków: `'`, `"`, `\`, `0`, `a` , `b`, `f`, `n`, `r`, `t`, `u`, `U`, `x`, `v`. W przeciwnym razie wystąpi błąd kompilacji.
+Znak, który następuje po ukośniku odwrotnym`\`() w *regular_string_literal_character* , musi mieć jeden z następujących znaków `0`: `'`, `"`, `\` `a`,,, `b` , `f`, `n`, `r`, `t`, `u`, `U`, `x`, `v`. W przeciwnym razie wystąpi błąd w czasie kompilacji.
 
 Przykład
 ```csharp
@@ -596,13 +596,13 @@ string j = @"one
 two
 three";
 ```
-przedstawia różne literały ciągu. Ostatnim ciągiem literału, `j`, jest verbatim literału ciągu obejmującej wiele wierszy. Znaki między znakami cudzysłowu, w tym znak odstępu, takie jak znaki nowego wiersza są zachowywane verbatim.
+pokazuje różne literały ciągu. Ostatni literał ciągu, `j`, jest Verbatim literał ciągu, który obejmuje wiele wierszy. Znaki między znakami cudzysłowu, w tym odstępy, takie jak znaki nowego wiersza, są zachowywane Verbatim.
 
-Ponieważ szesnastkowa sekwencja unikowa mogą mieć różną liczbą znaków szesnastkowych, literał ciągu `"\x123"` zawiera pojedynczy znak z wartości szesnastkowej 123. Aby utworzyć ciąg zawierający znak wartości szesnastkowych 12 następuje znak 3, jeden napisać `"\x00123"` lub `"\x12" + "3"` zamiast tego.
+Ponieważ szesnastkowa sekwencja ucieczki może mieć zmienną liczbę cyfr szesnastkowych, literał `"\x123"` ciągu zawiera pojedynczy znak z wartością szesnastkową 123. Aby utworzyć ciąg zawierający znak o wartości szesnastkowej 12, po którym następuje znak 3, jeden może napisać `"\x00123"` lub `"\x12" + "3"` zamiast tego.
 
-Typ *string_literal* jest `string`.
+Typem elementu *string_literaL* jest `string`.
 
-Literał ciągu nie zawsze skutkuje nowego wystąpienia ciągu. Po co najmniej dwóch Literały ciągu, są równoważne zgodnie z operatora równości ciągu ([operatory porównania ciągów](expressions.md#string-equality-operators)) są wyświetlane w tym samym programie te literałów ciągów odwołują się do tego samego wystąpienia ciągu. Na przykład dane wyjściowe wytwarzane przez
+Każdy literał ciągu nie musi powodować wystąpienia nowego ciągu. Gdy co najmniej dwa literały ciągu, które są równoważne względem operatora równości ciągów ([Operatory równości ciągów](expressions.md#string-equality-operators)) pojawiają się w tym samym programie, te literały ciągu odwołują się do tego samego wystąpienia ciągu. Na przykład dane wyjściowe generowane przez
 ```csharp
 class Test
 {
@@ -613,15 +613,15 @@ class Test
     }
 }
 ```
-jest `True` ponieważ dwa literały odwołują się do tego samego wystąpienia ciągu.
+jest `True` , ponieważ dwa literały odwołują się do tego samego wystąpienia ciągu.
 
-#### <a name="interpolated-string-literals"></a>Literały ciągu interpolowanego
+#### <a name="interpolated-string-literals"></a>Interpolowane literały ciągów
 
-Literały ciągów znaków interpolowanych są podobne do Literały ciągu, ale zawiera luki rozdzielone `{` i `}`, którym określeń mogą wystąpić. W czasie wykonywania są obliczane wyrażenia, mający na celu ułatwienie o swoje formularze tekstową zamieniony na ciąg w miejscu, w którym występuje dziura. Składnia i semantyka Interpolacja ciągów, które są opisane w sekcji ([ciągi interpolowane](expressions.md#interpolated-strings)).
+Interpolowane literały ciągów są podobne do literałów ciągów, ale zawierają dziury, które `{` mogą `}`wystąpić w wyrażeniach. W czasie wykonywania wyrażenia są oceniane w celu zamienienia ich formularzy tekstowych na ciąg w miejscu, w którym występuje otwór. Składnia interpolacji ciągu jest opisana w sekcji ([ciągi interpolowane](expressions.md#interpolated-strings)).
 
-Jak literałów ciągów literałów ciągu interpolowanego może być regularnie lub verbatim. Literały ciągu interpolowanego regularnych są rozdzielane znakami `$"` i `"`, i literały ciągu interpolowanego verbatim są rozdzielane znakami `$@"` i `"`.
+Podobnie jak literały ciągu, interpolowane literały ciągów mogą być zwykłe lub Verbatim. Interpolowane zwykłe literały ciągu są rozdzielane przez `$"` i `"`, a interpolowane literały ciągu Verbatim są rozdzielane przez `$@"` i `"`.
 
-Podobnie jak inne literały poddawać analizie leksykalnej literału ciągu interpolowanego początkowo powoduje pojedynczy token, zgodnie z poniższym gramatyki. Jednak przed analizą składni pojedynczy token literału ciągu interpolowanego jest dzielony na kilka tokenów dla części ciągu otaczający otwory i elementów wejściowych pojawiają się w otwory leksykalnie analizuje się ponownie. Z kolei może to zwrócić więcej interpolowane literałów ciągów do przetworzenia, ale, jeśli leksykalnie rozwiązać, ostatecznie doprowadzi do sekwencja tokeny składni analizy do przetwarzania.
+Podobnie jak w przypadku innych literałów, analiza leksykalna interpolowanego literału ciągu początkowo skutkuje pojedynczym tokenem, zgodnie z poniższą gramatyką. Jednak przed analizą składni pojedynczy token interpolowanego literału ciągu jest podzielony na kilka tokenów części ciągu otaczających otwory, a elementy wejściowe występujące w dziurach są następnie analizowane ponownie. Może to spowodować wygenerowanie bardziej interpolowanych literałów ciągów do przetworzenia, ale w przypadku, gdy są poprawne, w rezultacie będzie możliwe przetworzenie sekwencji tokenów analizy składni.
 
 ```antlr
 interpolated_string_literal
@@ -780,17 +780,17 @@ single_verbatim_balanced_text_character
     ;
 ```
 
-*Interpolated_string_literal* tokenu to ponowne interpretowanie jako wiele tokenów i inne dane wejściowe elementów w następujący sposób, w kolejności ich występowania w *interpolated_string_literal*:
+Token *interpolated_string_literal* jest ponownie interpretowany jako wiele tokenów i innych elementów wejściowych w następujący sposób w kolejności wystąpienia w *interpolated_string_literal*:
 
-* Wystąpienia następujących są reinterpretowane jako osobne oddzielne tokeny: wiodące `$` logowania, *interpolated_regular_string_whole*, *interpolated_regular_string_start*, *interpolated_regular_string_mid*, *interpolated_regular_string_end*, *interpolated_verbatim_string_whole*,  *interpolated_verbatim_string_start*, *interpolated_verbatim_string_mid* i *interpolated_verbatim_string_end*.
-* Wystąpienia *regular_balanced_text* i *verbatim_balanced_text* między tymi są ponownie przetwarzany jako *input_section* ([poddawać analizie Leksykalnej ](lexical-structure.md#lexical-analysis)) i są reinterpretowane jako wynikowa sekwencja elementów wejściowych. Z kolei mogą one obejmować tokenów literałów ciągu interpolowanego ponowne interpretowanie.
+* Wystąpienia następujących elementów są interpretowane jako oddzielne pojedyncze tokeny: znak wiodący `$` , *interpolated_regular_string_whole*, *interpolated_regular_string_start*, *interpolated_regular_string_mid*, *interpolated_regular_string_end*, *interpolated_verbatim_string_whole*, *interpolated_verbatim_string_start*, *interpolated_verbatim_string_mid* i *interpolated_verbatim_string_end*.
+* Wystąpienia *regular_balanced_text* i *verbatim_balanced_text* między tymi elementami są ponownie przetwarzane jako *input_section* ([Analiza leksykalna](lexical-structure.md#lexical-analysis)) i są ponownie interpretowane jako wyniki sekwencji elementów wejściowych. Mogą one z kolei obejmować interpolowane tokeny literałów ciągów do reinterpretacji.
 
-Analiza składni zostanie następnie tokenów do *interpolated_string_expression* ([ciągi interpolowane](expressions.md#interpolated-strings)).
+Analiza składni spowoduje ponowne połączenie tokenów z *interpolated_string_expression* ([ciągami interpolowanymi](expressions.md#interpolated-strings)).
 
-Przykłady zadań do wykonania
+Przykłady do zrobienia
 
 
-#### <a name="the-null-literal"></a>Literał null
+#### <a name="the-null-literal"></a>Literał o wartości null
 
 ```antlr
 null_literal
@@ -798,11 +798,11 @@ null_literal
     ;
 ```
 
-*Null_literal* mogą być niejawnie konwertowane na typ referencyjny lub typ dopuszczający wartość null.
+*Null_literal* można niejawnie przekonwertować na typ referencyjny lub typ dopuszczający wartość null.
 
-### <a name="operators-and-punctuators"></a>Operatory i przerywniki języka
+### <a name="operators-and-punctuators"></a>Operatory i przerywniki
 
-Istnieje kilka rodzajów operatory i przerywniki języka. Operatory są używane w wyrażeniach opisujący operacje dotyczące jednego lub większej liczbie operandów. Na przykład, wyrażenie `a + b` używa `+` operatora, aby dodać dwa operandy `a` i `b`. Przerywniki języka służą do grupowania i oddzielając.
+Istnieje kilka rodzajów operatorów i przerywniki. Operatory są używane w wyrażeniach do opisywania operacji obejmujących jeden lub więcej operandów. `a + b` Na przykład, wyrażenie `+` używa operatora, aby `a` dodać dwa operandy i `b`. Przerywniki są przeznaczone do grupowania i oddzielania.
 
 ```antlr
 operator_or_punctuator
@@ -822,11 +822,11 @@ right_shift_assignment
     ;
 ```
 
-Pionowy pasek w *right_shift* i *right_shift_assignment* produkcji są używane do wskazania, że, w przeciwieństwie do innych produkcji w składni gramatykę, żadne znaki dowolnego rodzaju (nawet białych znaków) są dozwolone między tokenami. Zaprojektuj te są traktowane specjalnie w celu umożliwienia obsługi poprawne *type_parameter_list*s ([parametry typu](classes.md#type-parameters)).
+Pionowy pasek w produkcji *right_shift* i *right_shift_assignment* jest używany do wskazania, że w przeciwieństwie do innych produkcji w gramatyce składni nie są dozwolone żadne znaki jakiegokolwiek rodzaju (nieparzyste odstępy) między tokenami. Te produkcje są traktowane specjalnie w celu zapewnienia prawidłowej obsługi *type_parameter_list*s ([parametry typu](classes.md#type-parameters)).
 
-## <a name="pre-processing-directives"></a>Dyrektywy przetwarzania wstępnego
+## <a name="pre-processing-directives"></a>Dyrektywy wstępnego przetwarzania
 
-Dyrektywy przetwarzania wstępnego zapewniają możliwość warunkowo pominąć części plików źródłowych, zgłoszenia błędu i warunków ostrzeżenia i odróżniać odrębne regiony kodu źródłowego. Termin "przetwarzania wstępnego dyrektywy" jest używana tylko w celu zachowania spójności z językami programowania C i C++. W języku C# jest nie niezależnym przetwarzania wstępnego; dyrektywy przetwarzania wstępnego są przetwarzane w ramach fazy poddawać analizie leksykalnej.
+Dyrektywy wstępnego przetwarzania zapewniają możliwość warunkowego pomijania sekcji plików źródłowych, do zgłaszania błędów i ostrzeżeń oraz odróżnić odrębnych regionów kodu źródłowego. Termin "dyrektywy wstępnego przetwarzania" jest używany tylko w celu zapewnienia spójności z językami C++ C i programowaniem. W C#programie nie ma oddzielnego kroku przetwarzania wstępnego; dyrektywy przetwarzania wstępnego są przetwarzane jako część fazy analizy leksykalnej.
 
 ```antlr
 pp_directive
@@ -839,20 +839,20 @@ pp_directive
     ;
 ```
 
-Dostępne są następujące dyrektywy przetwarzania wstępnego:
+Dostępne są następujące dyrektywy wstępnego przetwarzania:
 
-*  `#define` i `#undef`, które są używane do definiowania i Usuń odpowiednio symbole kompilacji warunkowej ([dyrektywy deklaracji](lexical-structure.md#declaration-directives)).
-*  `#if`, `#elif`, `#else`, i `#endif`, które są używane do warunkowo pominąć części kodu źródłowego ([dyrektywy kompilacji warunkowej](lexical-structure.md#conditional-compilation-directives)).
-*  `#line`, które jest używane do kontrolowania numery wierszy emitowane błędów i ostrzeżeń ([wiersz dyrektywy](lexical-structure.md#line-directives)).
-*  `#error` i `#warning`, które są używane do wysyłania błędów i ostrzeżeń, odpowiednio ([diagnostycznych dyrektywy](lexical-structure.md#diagnostic-directives)).
-*  `#region` i `#endregion`, które są używane do wyraźnie oznaczyć części kodu źródłowego ([dyrektywy regionu](lexical-structure.md#region-directives)).
-*  `#pragma`, używany do określenia opcjonalne informacje kontekstowe w kompilatorze ([dyrektyw Pragma](lexical-structure.md#pragma-directives)).
+*  `#define`i `#undef`, które są używane do definiowania i niedefiniowania odpowiednio symboli kompilacji warunkowej ([dyrektywy deklaracji](lexical-structure.md#declaration-directives)).
+*  `#if`, `#elif`, `#else`, i`#endif`, które są używane do warunkowego pomijania sekcji kodu źródłowego ([dyrektywy kompilacji warunkowej](lexical-structure.md#conditional-compilation-directives)).
+*  `#line`, który jest używany do sterowania numerami wierszy emitowanych pod kątem błędów i ostrzeżeń ([dyrektywy wiersza](lexical-structure.md#line-directives)).
+*  `#error`i `#warning`, które są używane do wydawania błędów i ostrzeżeń odpowiednio ([dyrektywy diagnostyczne](lexical-structure.md#diagnostic-directives)).
+*  `#region`i `#endregion`, które są używane do jawnego oznaczania sekcji kodu źródłowego ([dyrektywy regionu](lexical-structure.md#region-directives)).
+*  `#pragma`, który jest używany do określania opcjonalnych informacji kontekstowych do kompilatora ([dyrektywy pragma](lexical-structure.md#pragma-directives)).
 
-Dyrektywy przetwarzania wstępnego zawsze zajmuje w osobnym wierszu kodu źródłowego i zawsze zaczyna się od `#` znak i nazwę dyrektywy przetwarzania wstępnego. Biały znak może występować przed `#` znaków oraz między `#` znaków i nazwa dyrektywy.
+Dyrektywa poprzedzająca przetwarzanie zawsze zawiera oddzielny wiersz kodu źródłowego i zawsze zaczyna `#` się od znaku i nazwy dyrektywy wstępnego przetwarzania. Spacja może wystąpić przed `#` znakiem i `#` znakiem oraz między nazwą dyrektywy.
 
-Źródło zawierające wiersza `#define`, `#undef`, `#if`, `#elif`, `#else`, `#endif`, `#line`, lub `#endregion` dyrektywy może kończyć się znakiem jednowierszowego komentarza. Lista komentarzy ( `/* */` styl komentarzy) nie są dozwolone w wierszach źródłowych zawierających dyrektywy przetwarzania wstępnego.
+Wiersz `#define`źródłowy zawierający, `#undef` `#if` ,,`#elif` ,,`#endregion` , lub dyrektywy może kończyć się jednowierszowym komentarzem. `#else` `#endif` `#line` Rozdzielane Komentarze ( `/* */` styl komentarzy) nie są dozwolone w wierszach źródłowych zawierających dyrektywy poprzedzające przetwarzanie.
 
-Dyrektywy przetwarzania wstępnego nie są tokenów i nie są częścią składni gramatyki języka C#. Jednak dyrektywy przetwarzania wstępnego może służyć do dołączania lub wykluczania sekwencje tokenów i w ten sposób wpływają na znaczenie programu w języku C#. Na przykład, gdy kompilowany, program:
+Dyrektywy poprzedzające przetwarzanie nie są tokenami i nie są częścią gramatyki składni C#. Jednakże dyrektywy wstępnego przetwarzania mogą być używane do dołączania lub wykluczania sekwencji tokenów i mogą w ten sposób mieć wpływ C# na znaczenie programu. Na przykład podczas kompilowania programu:
 ```csharp
 #define A
 #undef B
@@ -872,7 +872,7 @@ class C
 #endif
 }
 ```
-wyniki w dokładnie takiej samej kolejności tokenów jako programu:
+wynikiem jest dokładna sekwencja tokenów co program:
 ```csharp
 class C
 {
@@ -881,11 +881,11 @@ class C
 }
 ```
 
-W efekcie leksykalnie, dwa programy są zupełnie inny syntaktycznie, są identyczne.
+W związku z tym te dwa programy są bardzo różne i syntaktycznie są identyczne.
 
 ### <a name="conditional-compilation-symbols"></a>Symbole kompilacji warunkowej
 
-Kompilacja warunkowa funkcjonalność `#if`, `#elif`, `#else`, i `#endif` dyrektyw jest kontrolowany za pośrednictwem przetwarzania wstępnego wyrażenia ([przetwarzania wstępnego wyrażeń](lexical-structure.md#pre-processing-expressions)) i symbole kompilacji warunkowej.
+Funkcje kompilacji `#if`warunkowej udostępniane przez `#else`, `#elif`,, i `#endif` dyrektywy są kontrolowane przez wyrażenia wstępnego przetwarzania ([wyrażenia wstępnego przetwarzania](lexical-structure.md#pre-processing-expressions)) i warunkowe symbole kompilacji.
 
 ```antlr
 conditional_symbol
@@ -893,15 +893,15 @@ conditional_symbol
     ;
 ```
 
-Kompilacja warunkowa symbolu ma dwa możliwe stany: ***zdefiniowane*** lub ***niezdefiniowane***. Na początku leksykalne przetworzenia pliku źródłowego, symbol kompilacja warunkowa jest niezdefiniowana, chyba że ma je jawnie zdefiniowany przez mechanizm zewnętrznych (takich jak opcja kompilatora wiersza polecenia). Gdy `#define` dyrektywa jest przetwarzany, symbol kompilacji warunkowej, o nazwie w tej dyrektywy staje się zdefiniowany w tym pliku źródłowym. Symbol pozostaje zdefiniowany aż `#undef` dyrektywy dla tego samego symbolu jest przetwarzana lub dopóki nie zostanie osiągnięty koniec pliku źródłowego. Domniemanie tego jest fakt, że `#define` i `#undef` dyrektywy w jednym pliku źródłowym nie mają wpływu na innych plikach źródłowych, w tym samym programie.
+Symbol kompilacji warunkowej ma dwa stany: ***zdefiniowane*** lub ***niezdefiniowane***. Na początku przetwarzania leksykalnego pliku źródłowego symbol kompilacji warunkowej jest niezdefiniowany, chyba że został jawnie zdefiniowany przez mechanizm zewnętrzny (na przykład opcję kompilatora wiersza polecenia). Po przetworzeniu `#define` dyrektywy, symbol kompilacji warunkowej o nazwie w tej dyrektywie zostanie zdefiniowany w tym pliku źródłowym. Symbol pozostaje zdefiniowany do czasu `#undef` przetworzenia dyrektywy dla tego samego symbolu lub do momentu osiągnięcia końca pliku źródłowego. Implikacją tego jest to, `#define` że `#undef` dyrektywy w jednym pliku źródłowym nie mają wpływu na inne pliki źródłowe w tym samym programie.
 
-Gdy do którego odwołuje się wyrażenie przetwarzania wstępnego, symboli zdefiniowanych kompilacji warunkowej ma wartość logiczna `true`, a symbol Niezdefiniowany kompilacji warunkowej ma wartość logiczna `false`. Nie jest wymagane, czy symbole kompilacji warunkowej jest jawnie zadeklarowana przed występuje do nich podczas wstępnego przetwarzania wyrażenia. Zamiast tego należy niezadeklarowany symbole są po prostu niezdefiniowane i dlatego mają wartość `false`.
+W przypadku odwołania w wyrażeniu poprzedzającym przetwarzanie, zdefiniowany symbol kompilacji warunkowej ma wartość `true`logiczną, a niezdefiniowany symbol kompilacji warunkowej ma wartość `false`logiczną. Nie istnieje wymóg, aby symbole kompilacji warunkowej były jawnie zadeklarowane przed odwołaniami do nich w wyrażeniach poprzedzających przetwarzanie. Zamiast tego symbole niezadeklarowane są po prostu niezdefiniowane i dlatego `false`mają wartość.
 
-Przestrzeń nazw dla symbole kompilacji warunkowej jest odrębna i oddzielona od innych jednostek o nazwie w programie C#. Symbole kompilacji warunkowej mogą być przywoływane tylko w `#define` i `#undef` dyrektywy w przetwarzania wstępnego wyrażeń.
+Przestrzeń nazw dla symboli kompilacji warunkowej jest odrębna i oddzielona od wszystkich innych nazwanych C# jednostek w programie. Do symboli kompilacji warunkowej można odwoływać `#define` się `#undef` tylko w dyrektywach i i w wyrażeniach poprzedzających przetwarzanie.
 
-### <a name="pre-processing-expressions"></a>Przetwarzanie wstępne wyrażeń
+### <a name="pre-processing-expressions"></a>Wyrażenia wstępnego przetwarzania
 
-Przetwarzanie wstępne wyrażeń może wystąpić w `#if` i `#elif` dyrektywy. Operatory `!`, `==`, `!=`, `&&` i `||` są dozwolone w przetwarzania wstępnego wyrażeń, i nawiasy mogą być używane do grupowania.
+Wyrażenia wstępnego przetwarzania mogą wystąpić w `#if` dyrektywach i `#elif` . Operatory `!`, `==`, ,`!=` isą`||` dozwolone w wyrażeniach poprzedzających przetwarzanie, a nawiasy mogą być używane do grupowania. `&&`
 
 ```antlr
 pp_expression
@@ -937,13 +937,13 @@ pp_primary_expression
     ;
 ```
 
-Gdy do którego odwołuje się wyrażenie przetwarzania wstępnego, symboli zdefiniowanych kompilacji warunkowej ma wartość logiczna `true`, a symbol Niezdefiniowany kompilacji warunkowej ma wartość logiczna `false`.
+W przypadku odwołania w wyrażeniu poprzedzającym przetwarzanie, zdefiniowany symbol kompilacji warunkowej ma wartość `true`logiczną, a niezdefiniowany symbol kompilacji warunkowej ma wartość `false`logiczną.
 
-Obliczanie wyrażenia przetwarzania wstępnego zawsze daje wartość logiczną. Reguły oceny wyrażenia przetwarzania wstępnego są takie same jak w przypadku stałego wyrażenia ([wyrażeń stałych](expressions.md#constant-expressions)), z tą różnicą, że tylko obiekty zdefiniowane przez użytkownika, które mogą być przywoływane są symbole kompilacji warunkowej .
+Obliczenie wyrażenia przetwarzania wstępnego zawsze zwraca wartość logiczną. Reguły obliczania dla wyrażenia przetwarzania wstępnego są takie same jak dla wyrażeń stałych ([wyrażeń stałych](expressions.md#constant-expressions)), z tą różnicą, że jedyne jednostki zdefiniowane przez użytkownika, do których można się odwoływać, są symbolami kompilacji warunkowej.
 
 ### <a name="declaration-directives"></a>Dyrektywy deklaracji
 
-Dyrektywy deklaracji są używane do definiowania lub Usuń symbole kompilacji warunkowej.
+Dyrektywy deklaracji są używane do definiowania lub niedefiniowania symboli kompilacji warunkowej.
 
 ```antlr
 pp_declaration
@@ -956,9 +956,9 @@ pp_new_line
     ;
 ```
 
-Przetwarzanie `#define` dyrektywy powoduje, że symbol danej kompilacji warunkowej, aby stać się zdefiniowana, począwszy od wiersza źródłowego, który następuje po dyrektywie. Podobnie, przetwarzanie `#undef` dyrektywy powoduje, że stają się niezdefiniowane, zaczynając od wiersza źródłowego, który następuje po dyrektywie symbol danej kompilacji warunkowej.
+Przetwarzanie `#define` dyrektywy powoduje, że dany symbol kompilacji warunkowej zostanie zdefiniowany, rozpoczynając od wiersza źródłowego, który następuje po dyrektywie. Podobnie przetwarzanie `#undef` dyrektywy powoduje, że dany symbol kompilacji warunkowej staje się niezdefiniowany, rozpoczynając od wiersza źródłowego, który następuje po dyrektywie.
 
-Wszelkie `#define` i `#undef` dyrektywy w pliku źródłowym musi wystąpić przed pierwszym *tokenu* ([tokenów](lexical-structure.md#tokens)) w pliku źródłowym; w przeciwnym razie błąd kompilacji występuje. W sposób intuicyjny `#define` i `#undef` dyrektywy musi poprzedzać "rzeczywistego kodu" w pliku źródłowym.
+Wszystkie `#define` i`#undef` dyrektywy w pliku źródłowym muszą wystąpić przed pierwszym *tokenem* ([tokenami](lexical-structure.md#tokens)) w pliku źródłowym; w przeciwnym razie wystąpi błąd kompilacji. W intuicyjnych warunkach `#define` , `#undef` dyrektywy muszą poprzedzać dowolny "kod prawdziwy" w pliku źródłowym.
 
 Przykład:
 ```csharp
@@ -975,9 +975,9 @@ namespace Megacorp.Data
     #endif
 }
 ```
-jest nieprawidłowy ponieważ `#define` dyrektyw, poprzedź pierwszy token ( `namespace` — słowo kluczowe) w pliku źródłowym.
+jest prawidłowy, `#define` ponieważ dyrektywy poprzedzają pierwszy token `namespace` (słowo kluczowe) w pliku źródłowym.
 
-Poniższy przykład powoduje błąd kompilacji, ponieważ `#define` następuje rzeczywistego kodu:
+Poniższy przykład powoduje błąd czasu kompilacji, ponieważ `#define` następujący kod prawdziwy:
 ```csharp
 #define A
 namespace N
@@ -989,13 +989,13 @@ namespace N
 }
 ```
 
-A `#define` może zdefiniować symbol kompilacji warunkowej, który jest już zdefiniowany, bez żadnych aktywne `#undef` dla tego symbolu. Poniższy przykład definiuje symbol kompilacji warunkowej `A` i ponownie go definiuje.
+A `#define` może zdefiniować znak kompilacji warunkowej, który jest już zdefiniowany, bez występowania jakichkolwiek `#undef` interwencji dla tego symbolu. W poniższym przykładzie zdefiniowano symbol `A` kompilacji warunkowej, a następnie definiuje go ponownie.
 ```csharp
 #define A
 #define A
 ```
 
-Element `#undef` może "Usuń" symbol kompilacji warunkowej, który nie został zdefiniowany. Poniższy przykład definiuje symbol kompilacji warunkowej `A` i następnie definicji do usunięcia go dwukrotnie; mimo że drugi `#undef` nie ma wpływu, jest nadal ważny.
+A `#undef` może "usuń definicję" warunkowego symbolu kompilacji, który nie jest zdefiniowany. W poniższym przykładzie zdefiniowano symbol `A` kompilacji warunkowej, a następnie jego definicję należy wykonać dwa razy. Mimo że druga `#undef` nie ma wpływu, jest nadal ważna.
 ```csharp
 #define A
 #undef A
@@ -1004,7 +1004,7 @@ Element `#undef` może "Usuń" symbol kompilacji warunkowej, który nie został 
 
 ### <a name="conditional-compilation-directives"></a>Dyrektywy kompilacji warunkowej
 
-Dyrektywy kompilacji warunkowej są używane do warunkowo dołączania lub wykluczania części pliku źródłowego.
+Dyrektywy kompilacji warunkowej są używane do warunkowego dołączania lub wykluczania części pliku źródłowego.
 
 ```antlr
 pp_conditional
@@ -1050,19 +1050,19 @@ not_number_sign
     ;
 ```
 
-Wskazane przez składnię dyrektywy kompilacji warunkowej musi być napisana jako zestawy składające się z, w kolejności, `#if` dyrektywy, zero lub więcej `#elif` dyrektyw, zero lub jeden `#else` dyrektywy i `#endif` dyrektywy. Dyrektywy mogą sekcje warunkowe kodu źródłowego. Każda sekcja jest kontrolowana przez dyrektywy bezpośrednio poprzedzającego. Sekcja warunkowa może sam zawierać dyrektywy kompilacji warunkowej zagnieżdżonych pod warunkiem dyrektywy te tworzą pełną zestawów.
+Jak wskazano w składni, dyrektywy kompilacji warunkowej muszą być zapisywane jako zestawy składające się z, w `#if` kolejności, dyrektywy, dyrektyw `#elif` , zero lub więcej dyrektywy `#else` , zero lub `#endif` jedna dyrektywa i dyrektywa. Między dyrektywami są warunkowe sekcje kodu źródłowego. Każda sekcja jest kontrolowana przez bezpośrednio poprzednią dyrektywę. Sekcja warunkowa może sama zawierać zagnieżdżone dyrektywy kompilacji warunkowej, jeśli te dyrektywy tworzą kompletne zestawy.
 
-A *pp_conditional* wybiera co najwyżej jeden zamkniętego *conditional_section*pod kątem normalne przetwarzanie leksykalne:
+*Pp_conditional* wybiera co najwyżej jeden z zawartych *conditional_section*s do normalnego przetwarzania leksykalnego:
 
-*  *Pp_expression*s `#if` i `#elif` dyrektywy są obliczane w kolejności, aż jedną daje `true`. Jeśli wyrażenie zwraca `true`, *conditional_section* odpowiedniego dyrektywy jest zaznaczone.
-*  Jeśli wszystkie *pp_expression*s yield `false`i jeśli `#else` występuje dyrektywie *conditional_section* z `#else` dyrektywa jest zaznaczone.
-*  W przeciwnym razie nie *conditional_section* jest zaznaczone.
+*  *Pp_expression* `#if` s dyrektyw i `#elif` są `true`oceniane w kolejności do momentu 1. Jeśli wynikiem jest wyrażenie `true`, *conditional_section* odpowiedniej dyrektywy jest zaznaczone.
+*  Jeśli wszystkie *pp_expression*s `false` `#else` , a jeśli `#else` jest obecna dyrektywa, zostanie wybrana *conditional_section* dyrektywy.
+*  W przeciwnym razie nie jest zaznaczona żadna *conditional_section* .
 
-Wybrane *conditional_section*, jeśli istnieje, jest przetwarzany jako normalny *input_section*: gramatyka leksykalna kodu źródłowego, znajdujących się w sekcji muszą być zgodne; tokeny są generowane na podstawie źródła kod w sekcji. i dyrektywy przetwarzania wstępnego, w sekcji realizowania efekty.
+Wybrany *conditional_section*(jeśli istnieje) jest przetwarzany jako normalny *input_section*: kod źródłowy zawarty w sekcji musi być zgodny z gramatyką leksykalną; tokeny są generowane na podstawie kodu źródłowego w sekcji; i dyrektywy wstępnego przetwarzania w sekcji mają określone efekty.
 
-Pozostałe *conditional_section*s, jeśli istnieje, są przetwarzane jako *skipped_section*s: z wyjątkiem dyrektywy przetwarzania wstępnego, kod źródłowy w sekcji potrzebne jest zgodna leksykalne gramatyki; nie tokeny są generowane na podstawie kodu źródłowego w sekcji. i dyrektywy przetwarzania wstępnego, w sekcji musi być poprawna, leksykalnie, ale nie są przetwarzane w przeciwnym razie. W ramach *conditional_section* , jest przetwarzana jako *skipped_section*, wszelkie zagnieżdżone *conditional_section*s (zawarty w zagnieżdżone `#if`... `#endif` i `#region`... `#endregion` tworzy) również są przetwarzane jako *skipped_section*s.
+Pozostałe *conditional_section*s, jeśli istnieją, są przetwarzane jako *skipped_section*s: z wyjątkiem dyrektyw poprzedzających przetwarzanie, kod źródłowy w sekcji nie musi być zgodny z gramatyką leksykalną; nie Wygenerowano żadnych tokenów z kodu źródłowego w sekcji; i dyrektywy wstępnego przetwarzania w sekcji muszą być poprawiane w sposób leksykalny, ale nie są przetwarzane w inny sposób. W *conditional_section* , który jest przetwarzany jako *skipped_section*, wszystkie zagnieżdżone *conditional_section*s (zawarte w zagnieżdżonych `#if`... `#endif` i`#region`... Konstrukcje) są również przetwarzane jako *skipped_section s.* `#endregion`
 
-Poniższy przykład ilustruje jak kompilacja warunkowa dyrektywy można zagnieżdżać:
+Poniższy przykład ilustruje, jak można zagnieżdżać dyrektywy kompilacji warunkowej:
 ```csharp
 #define Debug       // Debugging on
 #undef Trace        // Tracing off
@@ -1081,7 +1081,7 @@ class PurchaseTransaction
 }
 ```
 
-Z wyjątkiem dyrektywy przetwarzania wstępnego, pominięto kod źródłowy jest poddawać analizie leksykalnej. Na przykład poniżej przedstawiono prawidłowe pomimo niezakończony komentarz w `#else` sekcji:
+Z wyjątkiem dyrektyw poprzedzających przetwarzanie pominięty kod źródłowy nie podlega analizie leksykalnej. Na przykład następujące elementy są prawidłowe pomimo niezakończonego komentarza w `#else` sekcji:
 ```csharp
 #define Debug        // Debugging on
 
@@ -1097,9 +1097,9 @@ class PurchaseTransaction
 }
 ```
 
-Należy jednak pamiętać, że dyrektywy przetwarzania wstępnego są wymagane było leksykalnie poprawne nawet w przypadku pominiętych części kodu źródłowego.
+Należy jednak zauważyć, że dyrektywy poprzedzające przetwarzanie są wymagane do poprawnego działania, nawet w pominiętych sekcjach kodu źródłowego.
 
-Dyrektywy przetwarzania wstępnego nie są przetwarzane, gdy są one wyświetlane w wielowierszowym elementów wejściowych. Na przykład program:
+Dyrektywy poprzedzające przetwarzanie nie są przetwarzane, gdy są wyświetlane wewnątrz wielowierszowych elementów wejściowych. Na przykład program:
 ```csharp
 class Hello
 {
@@ -1124,7 +1124,7 @@ hello,
 #endif
 ```
 
-W szczególnych przypadkach zbiór dyrektywy przetwarzania wstępnego, który jest przetwarzany może zależeć od oceny *pp_expression*. Przykład:
+W szczególnych przypadkach zestaw dyrektyw przetwarzania wstępnego, które są przetwarzane, może zależeć od oceny *pp_expression*. Przykład:
 ```csharp
 #if X
     /*
@@ -1132,11 +1132,11 @@ W szczególnych przypadkach zbiór dyrektywy przetwarzania wstępnego, który je
     /* */ class Q { }
 #endif
 ```
-zawsze daje ten sam token strumienia (`class` `Q` `{` `}`), niezależnie od tego, czy `X` jest zdefiniowana. Jeśli `X` jest zdefiniowany, tylko dyrektywy przetwarzania są `#if` i `#endif`ze względu na komentarz wielowierszowy. Jeśli `X` jest niezdefiniowana, następnie trzy dyrektywy (`#if`, `#else`, `#endif`) są dostępne w ramach zestawu dyrektywy.
+zawsze generuje ten sam strumień tokenu (`class` `}` `Q` `{` ), niezależnie od tego, czy `X` jest zdefiniowany. Jeśli `X` jest zdefiniowany, jedynymi przetworzonymi `#if` dyrektywami są i `#endif`, ze względu na komentarz wielowierszowy. Jeśli `X` jest niezdefiniowany, wówczas trzy dyrektywy`#if`( `#else`, `#endif`,) są częścią zestawu dyrektywy.
 
 ### <a name="diagnostic-directives"></a>Dyrektywy diagnostyczne
 
-Dyrektywy diagnostycznych są używane do jawnie generować błędów i komunikaty ostrzegawcze, które są zgłaszane w taki sam sposób jak inne błędy kompilacji i ostrzeżenia.
+Dyrektywy diagnostyczne służą do jawnego generowania komunikatów błędów i ostrzeżeń, które są zgłaszane w taki sam sposób jak inne błędy i ostrzeżenia w czasie kompilacji.
 
 ```antlr
 pp_diagnostic
@@ -1160,11 +1160,11 @@ Przykład:
 
 class Test {...}
 ```
-zawsze generuje ostrzeżenie ("Przegląd kodu potrzebne przed zaewidencjonowaniem") i generuje błąd w czasie kompilacji ("kompilacji nie może być zarówno debugowania, jak i handlu detalicznego") Jeżeli symbole warunkowego `Debug` i `Retail` są zdefiniowane. Należy pamiętać, że *pp_message* może zawierać dowolny tekst; ściślej mówiąc, go nie muszą zawierać tokeny poprawnie sformułowany, jak to przedstawiono w pojedynczy cudzysłów wyraz `can't`.
+zawsze generuje ostrzeżenie ("Przegląd kodu wymagany przed zaewidencjonowaniem") i generuje błąd czasu kompilacji ("kompilacja nie może jednocześnie debugować i detalicznych"), jeśli symbole `Debug` warunkowe i `Retail` zostały zdefiniowane. Należy pamiętać, że element *pp_message* może zawierać dowolny tekst; w przeciwnym razie nie musi zawierać poprawnie sformułowanych tokenów, jak pokazano w pojedynczym cudzysłowie w `can't`wyrazie.
 
-### <a name="region-directives"></a>Dyrektywy regionu
+### <a name="region-directives"></a>Dyrektywy regionów
 
-Dyrektywy regionu są używane do wyraźnie oznaczyć regiony kodu źródłowego.
+Dyrektywy regionów są używane do jawnego oznaczania regionów kodu źródłowego.
 
 ```antlr
 pp_region
@@ -1180,26 +1180,26 @@ pp_end_region
     ;
 ```
 
-Nie znaczenia semantycznego jest dołączony do regionu; regiony są przeznaczone do użytku przez programistę lub zautomatyzowanych narzędzi do oznaczania sekcję kodu źródłowego. Komunikat określony w `#region` lub `#endregion` dyrektywy również nie ma znaczenia semantycznego; służy ona jedynie do identyfikowania regionu. Dopasowywanie `#region` i `#endregion` dyrektywy może mieć różne *pp_message*s.
+Do regionu nie dołączono znaczenia semantycznego; regiony są przeznaczone do użytku przez programistę lub przez zautomatyzowane narzędzia do oznaczania sekcji kodu źródłowego. Komunikat określony w `#region` dyrektywie lub `#endregion` również nie ma znaczenia semantycznego, a jedynie służy do identyfikowania regionu. `#region` Dopasowywanie `#endregion` i dyrektywy mogą mieć różne *pp_message*s.
 
-Leksykalne przetwarzanie regionu:
+Przetwarzanie leksykalne regionu:
 ```csharp
 #region
 ...
 #endregion
 ```
-dokładnie odpowiada leksykalne przetwarzania dyrektywy kompilacji warunkowej w postaci:
+odpowiada dokładnie na przetwarzanie leksykalne dyrektywy warunkowej kompilacji w postaci:
 ```csharp
 #if true
 ...
 #endif
 ```
 
-### <a name="line-directives"></a>Dyrektywy line
+### <a name="line-directives"></a>Dyrektywy linii
 
-Dyrektywy line można zmienić numery wierszy i nazw plików źródłowych, które są zgłaszane przez kompilator w danych wyjściowych, takie jak ostrzeżenia i błędy, a które są używane przez caller — atrybuty informacji ([Caller — atrybuty informacji](attributes.md#caller-info-attributes)).
+Dyrektywy wiersza mogą służyć do zmiany numerów wierszy i nazw plików źródłowych raportowanych przez kompilator w danych wyjściowych, takich jak ostrzeżenia i błędy, i które są używane przez atrybuty informacji o wywołującym ([atrybuty informacji o wywołaniu](attributes.md#caller-info-attributes)).
 
-Dyrektywy line są najczęściej używane narzędzia meta-programowania, które generuje kod źródłowy języka C# z innym tekstem danych wejściowych.
+Dyrektywy wiersza są najczęściej używane w narzędziach meta-programistycznych, C# które generują kod źródłowy na podstawie innych danych wejściowych tekstu.
 
 ```antlr
 pp_line
@@ -1222,17 +1222,17 @@ file_name_character
     ;
 ```
 
-Gdy nie `#line` dyrektyw, kompilator raporty numery wierszy true i nazw plików źródłowych w danych wyjściowych. Podczas przetwarzania `#line` dyrektywę, który zawiera *line_indicator* , który nie jest `default`, kompilator traktuje wiersza po dyrektywie jako posiadające podany numer wiersza (i nazwę pliku, jeśli określono).
+Gdy żadne `#line` dyrektywy nie są obecne, kompilator zgłasza w danych wyjściowych prawdziwe numery wierszy i nazwy plików źródłowych. Podczas przetwarzania `#line` dyrektywy, która zawiera *line_indicator* , która nie `default`jest, kompilator traktuje wiersz po dyrektywie jako mający podany numer wiersza (i nazwę pliku, jeśli jest określony).
 
-A `#line default` dyrektywy cofa efekt wszystkich poprzednich dyrektyw #line. Kompilator zgłasza true wiersza informacji dla kolejnych wierszy, dokładnie tak, jakby nie `#line` przetworzył dyrektywy.
+`#line default` Dyrektywa Odwraca efekt wszystkich poprzednich dyrektyw #line. Kompilator raportuje prawdziwe informacje o wierszu dla kolejnych wierszy, dokładnie tak, `#line` jakby nie zostały przetworzone dyrektywy.
 
-A `#line hidden` dyrektywy nie ma wpływu na plik i numery wierszy zgłosił błąd komunikaty, ale wpływa na debugowanie na poziomie źródła. Podczas debugowania, wszystkie linie między `#line hidden` dyrektywy i kolejne `#line` — dyrektywa (nie jest to `#line hidden`) mają nie informacja o numerach wierszy. Podczas krokowego wykonywania kodu w debugerze, wiersze te zostaną pominięte całkowicie.
+`#line hidden` Dyrektywa nie ma wpływu na numery plików i wierszy raportowane w komunikatach o błędach, ale wpływa na Debugowanie na poziomie źródła. Podczas debugowania wszystkie wiersze między `#line hidden` dyrektywą a kolejną `#line` dyrektywą (nie `#line hidden`) nie zawierają informacji o numerze wiersza. Podczas przechodzenia przez kod w debugerze te wiersze zostaną całkowicie pominięte.
 
-Należy pamiętać, że *nazwa_pliku* różni się od regularnych literału ciągu, w tym znaki ucieczki nie są przetwarzane; "`\`" znak po prostu wyznacza zwykłych ukośnika w ramach *nazwa_pliku*.
+Należy zauważyć, że *nazwa_pliku* różni się od zwykłego literału ciągu w tym znaku ucieczki nie są przetwarzane; znak "`\`" oznacza po prostu zwykły ukośnik odwrotny w ciągu *nazwa_pliku*.
 
-### <a name="pragma-directives"></a>Pragma — dyrektywy
+### <a name="pragma-directives"></a>Dyrektywy pragma
 
-`#pragma` Dyrektywy preprocesora jest używany do określenia opcjonalne informacje kontekstowe do kompilatora. Informacje dostarczone w `#pragma` dyrektywy nigdy nie zmienia semantykę program.
+`#pragma` Dyrektywa przetwarzania wstępnego służy do określania opcjonalnych informacji kontekstowych do kompilatora. Informacje podane w `#pragma` dyrektywie nigdy nie zmieniają semantyki programu.
 
 ```antlr
 pp_pragma
@@ -1244,11 +1244,11 @@ pragma_body
     ;
 ```
 
-C# zawiera `#pragma` dyrektywy do kontrolowania ostrzeżeń kompilatora. Przyszłe wersje języka może zawierać dodatkowe `#pragma` dyrektywy. Aby zapewnić współdziałanie za pomocą innych kompilatorów języka C#, kompilator Microsoft C# nie generuje błędy kompilacji nieznany `#pragma` dyrektywy; takie nie dyrektyw, jednak generowanie ostrzeżenia.
+C#zawiera `#pragma` dyrektywy kontrolujące ostrzeżenia kompilatora. Przyszłe wersje języka mogą zawierać dodatkowe `#pragma` dyrektywy. Aby zapewnić współdziałanie C# z innymi kompilatorami, C# kompilator firmy Microsoft nie wydaje błędów kompilacji w `#pragma` przypadku nieznanych dyrektyw; takie dyrektywy nie generują jednak ostrzeżeń.
 
-#### <a name="pragma-warning"></a>Warning elementu pragma
+#### <a name="pragma-warning"></a>Ostrzeżenie pragma
 
-`#pragma warning` Dyrektywy służy do wyłączenia lub przywrócenia wszystkich lub określonego zestawu ostrzeżenie komunikatów podczas kompilacji i kolejne tekstu.
+`#pragma warning` Dyrektywa służy do wyłączania lub przywracania całego lub określonego zestawu komunikatów ostrzegawczych podczas kompilacji kolejnego tekstu programu.
 
 ```antlr
 pragma_warning_body
@@ -1266,13 +1266,13 @@ warning_list
     ;
 ```
 
-A `#pragma warning` dyrektywy, które pomija listy ostrzeżenie ma wpływ na wszystkie ostrzeżenia. A `#pragma warning` dyrektywy zawierają listę ostrzeżenie dotyczy tylko tych ostrzeżeń, które są określone na liście.
+`#pragma warning` Dyrektywa, która pomija listę ostrzeżeń, ma wpływ na wszystkie ostrzeżenia. `#pragma warning` Dyrektywa, która zawiera listę ostrzeżeń, ma wpływ tylko na te ostrzeżenia, które są określone na liście.
 
-A `#pragma warning disable` dyrektywy wyłącza wszystkie lub danego zestawu ostrzeżeń.
+`#pragma warning disable` Dyrektywa powoduje wyłączenie wszystkich lub danego zestawu ostrzeżeń.
 
-A `#pragma warning restore` dyrektywy przywraca wszystkie lub danego zestawu ostrzeżeń do stanu który obowiązywały na początku jednostki kompilacji. Należy pamiętać, że jeśli określonego ostrzeżenie zostało wyłączone z zewnątrz, `#pragma warning restore` (czy dla wszystkich lub określonych ostrzeżeń) nie będzie ponownie włączyć tego ostrzeżenia.
+`#pragma warning restore` Dyrektywa przywraca wszystkie lub dany zestaw ostrzeżeń do stanu, który obowiązywał na początku jednostki kompilacji. Należy pamiętać, że jeśli określone ostrzeżenie zostało wyłączone zewnętrznie, `#pragma warning restore` to (czy dla wszystkich lub określonych ostrzeżeń) nie będzie ponownie włączać tego ostrzeżenia.
 
-W poniższym przykładzie pokazano użycie `#pragma warning` tymczasowo wyłączyć ostrzeżenia zgłoszone podczas zamieniono przestarzały parametr składowych są wywoływane za pomocą numeru ostrzeżenia kompilatora Microsoft C#.
+W poniższym przykładzie pokazano `#pragma warning` sposób tymczasowego wyłączenia ostrzeżenia raportowanego w przypadku odwołania do przestarzałych elementów członkowskich przy użyciu numeru ostrzeżenia z kompilatora firmy Microsoft. C#
 ```csharp
 using System;
 

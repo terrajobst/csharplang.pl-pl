@@ -1,24 +1,24 @@
 ---
-ms.openlocfilehash: 201db57d243c9d0e22553366bc653d02e183aa4b
-ms.sourcegitcommit: 09e0ddec3bb6aa99b7340158bbac86a5a8243b43
+ms.openlocfilehash: 8bc4bf6310fb8a8457beee167f18d30aaca10a8e
+ms.sourcegitcommit: 7f7fc6e9e195e51b7ff8229aeaa70aa9fbbb63cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66193873"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70876903"
 ---
 # <a name="introduction"></a>Wprowadzenie
 
-C# (wymowa: „si szarp”) to prosty, nowoczesny, zorientowany obiektowo i bezpieczny język programowania. C# ma korzenie jego rodziny C w językach i będzie znane w programowaniu w języku C, C++ i Java. C# jest standardowym by ECMA International jako ***ECMA 334*** standardowe i ISO/IEC jako ***23270 ISO/IEC*** standardowych. Kompilator języka C# firmy Microsoft dla programu .NET Framework jest odpowiadające wykonania obu tych standardach.
+C# (wymowa: „si szarp”) to prosty, nowoczesny, zorientowany obiektowo i bezpieczny język programowania. C#ma swoje elementy główne w rodzinie C i będzie od razu znane programistom języków C, C++i Java. C#jest ustandaryzowany przez ECMA International jako standard ***ECMA-334*** i ISO/IEC jako standard ***iso/IEC 23270*** . C# Kompilator firmy Microsoft dla .NET Framework jest zgodny z implementacją obu tych standardów.
 
-C# to język zorientowany obiektowo, ale obsługuje również programowanie ***zorientowane na składniki***. Tworzone dziś oprogramowanie w coraz większym stopniu opiera się na składnikach mających formę niezależnych i samoopisujących się pakietów funkcji. Kluczem są tutaj właściwości, metody i zdarzenia dostarczanie przez składniki. Składniki mają swoje atrybuty, które zapewniają informacje deklaratywne, a także obejmują dokumentację. C# zawiera konstrukcji języka, aby bezpośrednio obsługują te pojęcia wprowadzania C# bardzo języka naturalnego, w której do tworzenia i używania składników oprogramowania.
+C# to język zorientowany obiektowo, ale obsługuje również programowanie ***zorientowane na składniki***. Tworzone dziś oprogramowanie w coraz większym stopniu opiera się na składnikach mających formę niezależnych i samoopisujących się pakietów funkcji. Kluczem są tutaj właściwości, metody i zdarzenia dostarczanie przez składniki. Składniki mają swoje atrybuty, które zapewniają informacje deklaratywne, a także obejmują dokumentację. C#Program udostępnia konstrukcje językowe umożliwiające bezpośrednie wsparcie tych koncepcji, C# co sprawia, że jest to bardzo naturalny język, w którym można tworzyć i używać składników oprogramowania.
 
-C# ma również bardzo pomocne funkcje do tworzenia niezawodnych i trwałych aplikacji. ***Wyrzucanie elementów bezużytecznych*** automatycznie odzyskuje pamięć zajęta przez nieużywanych obiektów; ***wyjątków*** ze strukturą i rozszerzalny podejście do wykrywania błędów i odzyskiwania; i ***bezpieczny*** projekt języka umożliwia odczytywanie niezainicjowane zmienne Indeksowanie tablic poza ich zakresem, lub wykonać unchecked typu rzutowania.
+C# ma również bardzo pomocne funkcje do tworzenia niezawodnych i trwałych aplikacji. ***Wyrzucanie elementów bezużytecznych*** automatycznie odzyskuje pamięć zajmowaną przez nieużywane obiekty; ***Obsługa wyjątków*** zapewnia strukturalne i rozszerzalne podejście do wykrywania błędów i odzyskiwania. a ***bezpieczny typ*** projektu języka sprawia, że nie można odczytać z niezainicjowanych zmiennych, indeksować tablice poza granicami lub wykonywać rzutowania typu unchecked.
 
 C# korzysta z ***ujednoliconego systemu typów***. Wszystkie typy w tym języku, w tym typy podstawowe takie jak `int` czy `double`, dziedziczą z jednego typu głównego typu `object`. W rezultacie wszystkie typy dzielą między sobą ten sam zestaw metod, a wartości dowolnego typu można zapisywać, przesyłać i wykorzystywać w jednolity sposób. C# obsługuje też typy odwołań i wartości zdefiniowanych przez użytkownika, co pozwala na dynamiczną alokację obiektów, a także na wbudowane przechowywanie uproszczonych struktur.
 
-Aby upewnić się, że programy C# i biblioteki mogą z czasem ewoluować w sposób zgodny, znacznie większym naciskiem został umieszczony na ***versioning*** w języku C# w projekcie. Wiele języków programowania interesuje tego problemu, a w rezultacie, programy napisane w tych języków podziału częściej niż to konieczne, w przypadku nowszych wersjach zależne biblioteki zostały wprowadzone. Aspektów projektu C# w, które zostały bezpośrednio wpływa uwagi dotyczące wersji zawierać oddzielne `virtual` i `override` modyfikatorów, reguły dla rozwiązania przeciążenia metody i pomoc techniczna dla deklaracji elementu członkowskiego interfejsu jawnego.
+Aby upewnić C# się, że programy i biblioteki mogą się rozwijać w czasie w zgodnym zakresie, przeznaczenie ma duże znaczenie C#w projekcie ***wersji*** . W wielu językach programowania jest mało uwagi na ten problem, a w efekcie programy w tych językach są częściej częściej niż to konieczne, gdy są wprowadzane nowsze wersje bibliotek zależnych. C#Zagadnienia dotyczące projektu, które miały bezpośredni wpływ na wersje, obejmują oddzielność `virtual` i `override` modyfikatory, reguły rozpoznawania przeciążania metod oraz obsługę jawnych deklaracji elementów członkowskich interfejsu.
 
-W pozostałej części w tym rozdziale opisano podstawowe funkcje języka C#. Mimo że dalszych rozdziałach opisano regułami i wyjątkami zorientowane na szczegółów i czasami matematyczne w sposób, w tym rozdziale dokłada starań uściślenia i zwięzłości kosztem informacje były kompletne. Celem jest zapewnienie czytnik zawiera wprowadzenie do języka, który ułatwi pisanie programów wczesne i Odczyt rozdziały nowsze.
+Pozostała część tego rozdziału zawiera opis najważniejszych funkcji C# języka. Chociaż dalsze rozdziały opisują reguły i wyjątki w szczegółowo zorientowanym i niekiedy w sposób matematyczny, ten rozdział dąży do przejrzystości i zwięzłości na koszt kompletności. Celem jest zapewnienie czytelnikowi wprowadzenia do języka, który ułatwia pisanie wczesnych programów i odczytywanie dalszych rozdziałów.
 
 ## <a name="hello-world"></a>Hello, World
 
@@ -35,24 +35,24 @@ class Hello
 }
 ```
 
-Pliki źródłowe C# zazwyczaj mają rozszerzenie `.cs`. Przy założeniu, że program "Hello, World" jest przechowywany w pliku `hello.cs`, program może być kompilowane przez kompilator Microsoft C# przy użyciu wiersza polecenia
+Pliki źródłowe C# zazwyczaj mają rozszerzenie `.cs`. Przy założeniu, że program "Hello, World" jest przechowywany w `hello.cs`pliku, program można skompilować za pomocą kompilatora firmy C# Microsoft przy użyciu wiersza polecenia
 ```
 csc hello.cs
 ```
-który tworzy zestaw pliku wykonywalnego o nazwie `hello.exe`. Dane wyjściowe generowane przez tę aplikację po jej uruchomieniu
+tworzy zestaw wykonywalny o nazwie `hello.exe`. Dane wyjściowe generowane przez tę aplikację po jej uruchomieniu to
 ```
 Hello, World
 ```
 
 Program „Hello, World” rozpoczyna się od dyrektywy `using`, która odwołuje się do przestrzeni nazw `System`. Przestrzenie nazw zapewniają hierarchiczny sposób organizowania programów i bibliotek C#. Zawierają one typy i inne przestrzenie nazw — np. przestrzeń nazw `System` zawiera wiele typów (takich jak klasa `Console`, do której odwołuje się program) i wiele innych przestrzeni nazw, takich jak `IO` czy `Collections`. Dyrektywa `using` odwołująca się do danej przestrzeni nazw umożliwia niekwalifikowane korzystanie z typów, które są składowymi tej przestrzeni nazw. Dzięki skorzystaniu z dyrektywy `using` program może użyć polecenia `Console.WriteLine` jako skrótu dla `System.Console.WriteLine`.
 
-Klasa `Hello` zadeklarowa przez program „Hello, World” zawiera jedną składową, którą jest metoda o nazwie `Main`. `Main` Metody jest zadeklarowana za pomocą `static` modyfikator. Podczas gdy metody wystąpień mogą odwoływać się do konkretnego wystąpienia obiektu otaczającego przy użyciu słowa kluczowego `this`, metody statyczne działają bez odwoływania się do konkretnego obiektu. Zgodnie z konwencją, metoda statyczna o nazwie `Main` służy jako punkt wejścia programu.
+Klasa `Hello` zadeklarowa przez program „Hello, World” zawiera jedną składową, którą jest metoda o nazwie `Main`. Metoda jest zadeklarowana `static` z modyfikatorem. `Main` Podczas gdy metody wystąpień mogą odwoływać się do konkretnego wystąpienia obiektu otaczającego przy użyciu słowa kluczowego `this`, metody statyczne działają bez odwoływania się do konkretnego obiektu. Zgodnie z konwencją, metoda statyczna o nazwie `Main` służy jako punkt wejścia programu.
 
-Dane wyjściowe programu są generowane przez metodę `WriteLine` klasy `Console` w przestrzeni nazw `System`. Ta klasa jest zapewniana przez biblioteki klas .NET Framework, które domyślnie są automatycznie dołączane do kompilatora Microsoft C#. Należy pamiętać, że C# sam nie ma biblioteki oddzielne środowiska uruchomieniowego. Zamiast tego program .NET Framework jest biblioteka środowiska uruchomieniowego języka C#.
+Dane wyjściowe programu są generowane przez metodę `WriteLine` klasy `Console` w przestrzeni nazw `System`. Ta klasa jest dostarczana przez .NET Framework biblioteki klas, które domyślnie są przywoływane przez kompilator firmy Microsoft C# . Należy zauważyć C# , że sama nie ma oddzielnej biblioteki środowiska uruchomieniowego. Zamiast tego .NET Framework jest biblioteką środowiska uruchomieniowego C#programu.
 
 ## <a name="program-structure"></a>Struktura programu
 
-Kluczowe założenia organizacji w języku C# są ***programy***, ***przestrzenie nazw***, ***typy***, ***członków***, i ***zestawy***. C# programy składają się z jednego lub więcej plików źródłowych. Programy deklarują typy, które zawierają elementy członkowskie i mogą być organizowane w przestrzeni nazw. Klasy i interfejsy są przykłady typów. Pola, metody, właściwości i zdarzenia są przykłady elementów członkowskich. Po skompilowaniu C# programy są fizycznie spakowane do zestawów. Zestawy zwykle z rozszerzeniem pliku `.exe` lub `.dll`, w zależności od tego, czy zaimplementować ***aplikacje*** lub ***biblioteki***.
+Kluczowe koncepcje organizacyjne C# w programie to ***programy***, ***przestrzenie nazw***, ***typy***, ***elementy członkowskie***i ***zestawy***. C#programy składają się z co najmniej jednego pliku źródłowego. Programy deklarują typy, które zawierają składowe i mogą być zorganizowane w przestrzenie nazw. Klasy i interfejsy są przykładami typów. Pola, metody, właściwości i zdarzenia są przykładami elementów członkowskich. Gdy C# programy są kompilowane, są fizycznie spakowane do zestawów. Zestawy `.exe` zazwyczaj mają rozszerzenie pliku lub `.dll`, w zależności od tego, czy implementują ***aplikacje*** lub ***biblioteki***.
 
 Przykład
 
@@ -89,16 +89,16 @@ namespace Acme.Collections
     }
 }
 ```
-deklaruje klasę o nazwie `Stack` w przestrzeni nazw o nazwie `Acme.Collections`. W pełni kwalifikowana nazwa tej klasy to `Acme.Collections.Stack`. Klasa zawiera kilka elementów członkowskich: pole o nazwie `top`, dwie metody o nazwie `Push` i `Pop`i klasę zagnieżdżoną o nazwie `Entry`. `Entry` Dodatkowo klasa zawiera trzy elementy członkowskie: pole o nazwie `next`, pole o nazwie `data`i konstruktora. Przy założeniu, że kod źródłowy przykładu znajduje się w pliku `acme.cs`, wiersza polecenia
+deklaruje klasę o `Stack` nazwie w przestrzeni nazw `Acme.Collections`o nazwie. W pełni kwalifikowana nazwa tej klasy `Acme.Collections.Stack`to. Klasa zawiera kilka elementów członkowskich: pole o nazwie `top`, dwie metody o `Push` nazwie `Pop`i i zagnieżdżoną klasę o `Entry`nazwie. Klasa dodatkowo zawiera trzy elementy członkowskie: pole o nazwie `next`, pole o nazwie `data`i Konstruktor. `Entry` Przy założeniu, że kod źródłowy przykładu jest przechowywany w pliku `acme.cs`, wiersz polecenia
 
 ```
 csc /t:library acme.cs
 ```
-kompiluje przykład jako biblioteki (kod bez `Main` punktu wejścia) i tworzy zestaw o nazwie `acme.dll`.
+kompiluje przykład jako bibliotekę (kod bez `Main` punktu wejścia) i tworzy zestaw o nazwie. `acme.dll`
 
-Zestawy zawierają kod wykonywalny w formie ***języka pośredniego*** instrukcje (IL), a także informacji o symbolach w formie ***metadanych***. Przed wykonaniem jego kodu IL w zestawie jest automatycznie konwertowany na kod specyficzny dla procesora przez kompilator just in Time (JIT) środowiska uruchomieniowego języka wspólnego platformy .NET.
+Zestawy zawierają kod wykonywalny w postaci instrukcji ***języka pośredniego*** (IL) i informacji symbolicznych w formie ***metadanych***. Przed wykonaniem kod IL w zestawie jest automatycznie konwertowany na kod specyficzny dla procesora przez kompilator just-in-Time (JIT) środowiska uruchomieniowego języka wspólnego platformy .NET.
 
-Ponieważ zestaw jest samoopisujący jednostka zawierająca kod i metadanych funkcji, nie ma potrzeby dla `#include` dyrektyw i pliki nagłówkowe w języku C#. Typy publiczne i elementów członkowskich znajdujących się w określonym zestawie są udostępniane w programie C# poprzez odwołanie do tego zestawu podczas kompilowania kodu programu. Na przykład ten program używa `Acme.Collections.Stack` klasy z `acme.dll` zestawu:
+Ponieważ zestaw jest samoopisującą się jednostką funkcji, która zawiera kod i metadane, nie ma potrzeby stosowania `#include` dyrektyw i plików nagłówkowych w programie. C# Typy publiczne i składowe zawarte w określonym zestawie są udostępniane w C# programie po prostu przez odwołanie się do tego zestawu podczas kompilowania programu. Na przykład ten program używa `Acme.Collections.Stack` klasy `acme.dll` z zestawu:
 
 ```csharp
 using System;
@@ -117,92 +117,92 @@ class Test
     }
 }
 ```
-Jeśli program jest przechowywany w pliku `test.cs`, gdy `test.cs` jest kompilowany, `acme.dll` zestawu można odwoływać się za pomocą kompilatora `/r` opcji:
+Jeśli program jest `test.cs`przechowywany w pliku, po `test.cs` skompilowaniu `acme.dll` `/r` zestawu można odwoływać się za pomocą opcji kompilatora:
 
 ```
 csc /r:acme.dll test.cs
 ```
-Spowoduje to utworzenie pliku wykonywalnego zestaw o nazwie `test.exe`, który, po uruchomieniu tworzy dane wyjściowe:
+Spowoduje to utworzenie zestawu wykonywalnego `test.exe`o nazwie, który w przypadku uruchamiania generuje dane wyjściowe:
 
 ```
 100
 10
 1
 ```
-C# umożliwia tekst źródłowy program ma być przechowywany w kilku plików źródłowych. Wielu plików języka C# program jest skompilowany, wszystkie pliki źródłowe są przetwarzane razem, gdy pliki źródłowe mogą swobodnie odwoływać się do siebie nawzajem — model jest tak, jakby wszystkie pliki źródłowe zostały połączone w jeden duży plik przed przetworzeniem. Deklaracje przechodzenia do przodu nigdy nie są wymagane w języku C#, ponieważ z nielicznymi wyjątkami, kolejności deklaracji jest niewielka. C# nie istnieje limit pliku źródłowego do deklarowania tylko jeden typ publiczny ani nie wymaga nazwy pliku źródłowego, aby dopasować typ zadeklarowany w pliku źródłowym.
+C#zezwala na przechowywanie tekstu źródłowego programu w kilku plikach źródłowych. W przypadku kompilowania programu C# z obsługą wielu plików wszystkie pliki źródłowe są przetwarzane razem, a pliki źródłowe mogą swobodnie odwoływać się do siebie nawzajem — jest to tak samo, jakby wszystkie pliki źródłowe zostały połączone w jeden duży plik przed przetworzeniem. Deklaracje przesyłania dalej nie są C# nigdy niewymagane w programie, w związku z czym z kilkoma wyjątkami, zamówienie deklaracji jest nieważne. C#nie ogranicza pliku źródłowego do deklarowania tylko jednego typu publicznego ani nie wymaga, aby nazwa pliku źródłowego była zgodna z typem zadeklarowanym w pliku źródłowym.
 
 ## <a name="types-and-variables"></a>Typy i zmienne
 
-Istnieją dwa rodzaje typów w języku C#: ***typy wartości*** i ***typy odwołań***. Zmienne typu wartości zawierają bezpośrednio swoje dane, natomiast zmiennych typu referencyjnego są przechowywane odwołania do swoich danych, te ostatnie są nazywane obiektów. W przypadku typów referencyjnych jest możliwe w dwóch zmiennych odwoływać się do tego samego obiektu i dlatego możliwe dla operacji na jednej zmiennej miały wpływ na obiekt odwołuje się druga zmienna. Z typami wartości zmiennych każda ma własne kopię danych i nie jest możliwe dla operacji na jednym wpłynie na inne (z wyjątkiem w przypadku właściwości `ref` i `out` zmiennych parametrów).
+Istnieją dwa rodzaje typów w C#: ***typy wartości*** i ***typy odwołań***. Zmienne typów wartości bezpośrednio zawierają swoje dane, a zmienne typów referencyjnych przechowują odwołania do danych, które są znane jako obiekty. W przypadku typów referencyjnych istnieje możliwość, że dwie zmienne odwołują się do tego samego obiektu, w tym przypadku operacje na jednej zmiennej mają wpływ na obiekt, do którego odwołuje się inna zmienna. W przypadku typów wartości zmiennych każda z nich ma własną kopię danych i nie jest możliwe wykonywanie operacji na nich, aby wpływać na inne (z wyjątkiem `ref` zmiennych i `out` parametrów).
 
-Podzielono na typach wartości języka C# w ***typów prostych***, ***typach wyliczeniowych***, ***typy struktury***, i ***typów dopuszczających wartości zerowe***, a przez odwołanie w C# typy są podzielone na ***klasy typów***, ***typy interfejsów***, ***tablicy typów***, i ***typy delegatów***.
+C#typy wartości są dalej podzielone na ***typy proste***, ***typy wyliczeniowe***, ***typy struktur***i ***Typy dopuszczające wartość null***, a C#typy odwołań są dalej podzielone na ***typy klas***, ***typy interfejsów***, ***Tablica typy***i ***typy delegatów***.
 
-Poniższa tabela zawiera omówienie w systemie typu C#.
+Poniższa tabela zawiera omówienie C#systemu typu.
 
 | __Kategoria__    |                 | __Opis__ |
 |-----------------|-----------------|-----------------|
-| Typy wartości     | Typy proste    | Podpisana całkowitego: `sbyte`, `short`, `int`, `long` |
-|                 |                 | Całkowite bez znaku: `byte`, `ushort`, `uint`, `ulong` |
-|                 |                 | Znaki Unicode: `char` |
-|                 |                 | Liczba zmiennoprzecinkowa IEEE: `float`, `double` |
-|                 |                 | Decimal wysokiej precyzji: `decimal` |
-|                 |                 | Atrybut typu wartość logiczna: `bool` |
-|                 | Typach wyliczeniowych      | Typy zdefiniowane przez użytkownika w postaci `enum E {...}` |
-|                 | Typy — struktura    | Typy zdefiniowane przez użytkownika w postaci `struct S {...}` |
-|                 | Typy dopuszczające wartości null  | Rozszerzenia z innych typów wartości za pomocą `null` wartość |
-| Typy odwołań | Typy klas     | Ultimate klasa bazowa innych typów: `object` |
-|                 |                 | Ciągi Unicode: `string` |
-|                 |                 | Typy zdefiniowane przez użytkownika w postaci `class C {...}` |
-|                 | Typy interfejsów | Typy zdefiniowane przez użytkownika w postaci `interface I {...}` |
-|                 | Typy tablic     | Jedno - i są one wielowymiarowe, na przykład `int[]` i `int[,]` |
-|                 | Typy delegatów  | Typy zdefiniowane przez użytkownika w postaci np. `delegate int  D(...)` |
+| Typy wartości     | Typy proste    | Całkowita część ze `sbyte`znakiem `int`:, `short`,,`long` |
+|                 |                 | Całka bez `byte`znaku `ushort`: `uint`,,,`ulong` |
+|                 |                 | Znaki Unicode:`char` |
+|                 |                 | Liczba zmiennoprzecinkowa IEEE `float`:,`double` |
+|                 |                 | Liczba dziesiętna o dużej precyzji:`decimal` |
+|                 |                 | Typu`bool` |
+|                 | Typy wyliczeniowe      | Typy formularza zdefiniowane przez użytkownika`enum E {...}` |
+|                 | Typy struktur    | Typy formularza zdefiniowane przez użytkownika`struct S {...}` |
+|                 | Typy dopuszczające wartości null  | Rozszerzenia wszystkich innych typów wartości z `null` wartością |
+| Typy odwołań | Typy klas     | Ostateczna Klasa bazowa dla wszystkich innych typów:`object` |
+|                 |                 | Ciągi Unicode:`string` |
+|                 |                 | Typy formularza zdefiniowane przez użytkownika`class C {...}` |
+|                 | Typy interfejsów | Typy formularza zdefiniowane przez użytkownika`interface I {...}` |
+|                 | Typy tablic     | Pojedyncze i wielowymiarowe, na przykład `int[]` i`int[,]` |
+|                 | Typy delegatów  | Typy formularzy zdefiniowane przez użytkownika, np.`delegate int  D(...)` |
 
-Osiem typów całkowitych zapewniają obsługę wartości 8-bitową, 16-bitowych, 32-bitowych i 64-bitowe podpisane lub niepodpisane formularza.
+Osiem typów całkowitych zapewnia obsługę 8-bitowych, 16-bitowych, 32-bitowych i 64-bitowych wartości w postaci podpisanej lub niepodpisanej.
 
-Polecenie dwóch liczb zmiennoprzecinkowych typów, `float` i `double`, są reprezentowane przy użyciu 32-bitowe o pojedynczej dokładności i 64-bitowe o podwójnej dokładności IEEE 754 formatów.
+Dwa typy zmiennoprzecinkowe, `float` i `double`, są reprezentowane przy użyciu 32-bitowej pojedynczej precyzji i 64-bitowe formatów IEEE 754 o podwójnej precyzji.
 
-`decimal` Typ to typ danych 128-bitowych, odpowiedni do obliczeń finansowych i walutowych.
+`decimal` Typ jest 128-bitowym typem danych odpowiednim dla obliczeń finansowych i pieniężnych.
 
-C# w `bool` typ jest używany do reprezentowania wartości logicznych — wartości, które są albo `true` lub `false`.
+C#Typ jest używany do reprezentowania wartości logicznych — wartości, które `true` są lub `false`. `bool`
 
-Znakowe i przetwarzania w języku C# przy użyciu kodowania Unicode. `char` Typ reprezentuje jednostkę kodu UTF-16 i `string` typu reprezentuje sekwencję jednostki kodu UTF-16.
+Przetwarzanie znaków i ciągów w C# programie używa kodowania Unicode. Typ reprezentuje jednostkę kodu UTF-16, `string` a typ reprezentuje sekwencję jednostek kodu UTF-16. `char`
 
-W poniższej tabeli przedstawiono typy liczbowe języka C# firmy.
+Poniższa tabela zawiera podsumowanie C#typów liczbowych.
 
 
-| __Kategoria__      | __Usługa BITS__ | __Typ__  | __Zakres/dokładności__ |
+| __Kategoria__      | __Bitów__ | __Typ__  | __Zakres/precyzja__ |
 |-------------------|----------|-----------|---------------------|
-| Całkowite podpisem   | 8        | `sbyte`   | -128...127 |
-|                   | 16       | `short`   | -32,768...32,767 |
-|                   | 32       | `int`     | -2,147,483,648...2,147,483,647 |
-|                   | 64       | `long`    | -9,223,372,036,854,775,808...9,223,372,036,854,775,807 |
-| Całkowite bez znaku | 8        | `byte`    | 0...255 |
-|                   | 16       | `ushort`  | 0...65,535 |
-|                   | 32       | `uint`    | 0...4,294,967,295 |
-|                   | 64       | `ulong`   | 0...18,446,744,073,709,551,615 |
-| Liczba zmiennoprzecinkowa    | 32       | `float`   | 1,5 x 10 ^ −45 do 3,4 x 10 ^ 38, dokładności 7 cyfr |
-|                   | 64       | `double`  | W wersji 5.0 x 10 ^ −324 do wersji 1.7 x 10 ^ 308, dokładności 15 cyfr |
-| Wartość dziesiętna           | 128      | `decimal` | 1.0 x 10 ^ −28 do 7,9 x 10 ^ 28, 28 cyfr precyzji |
+| Całkowita ze znakiem   | 8        | `sbyte`   | -128...127 |
+|                   | 16       | `short`   | -32768... 32, 767 |
+|                   | 32       | `int`     | -2147483648... 2, 147, 483 647 |
+|                   | 64       | `long`    | -zakresu od... 9, 223, 372, 036, 854, 775, |
+| Całkowita bez znaku | 8        | `byte`    | 0... 255 |
+|                   | 16       | `ushort`  | 0... 65, 535 |
+|                   | 32       | `uint`    | 0... 4, 294, 967, 295 |
+|                   | 64       | `ulong`   | 0... 18, 446, 744, 073, 709, 551, 615 |
+| Liczba zmiennoprzecinkowa    | 32       | `float`   | 1,5 × 10 ^ − 45 do 3,4 × 10 ^ 38, 7-cyfrowa precyzja |
+|                   | 64       | `double`  | 5,0 × 10 ^ − 324 do 1,7 × 10 ^ 308, 15-cyfrowa precyzja |
+| Wartość dziesiętna           | 128      | `decimal` | 1,0 × 10 ^ − 28 do 7,9 × 10 ^ 28, 28-cyfrowa precyzja |
 
-C# programy użyj ***wpisz deklaracje*** do tworzenia nowych typów. Deklaracja typu Określa nazwę i elementy członkowskie nowego typu. Pięć języka C# w kategorie typów są definiowane przez użytkownika: klasy, typy, typy struktury, typy interfejsów, typach wyliczeniowych i typy delegatów.
+C#programy używają ***deklaracji typu*** do tworzenia nowych typów. Deklaracja typu określa nazwę i składowe nowego typu. C#Pięć kategorii typów są definiowane przez użytkownika: typy klas, typy struktur, typy interfejsów, typy wyliczeniowe i typy delegatów.
 
-Typ klasy definiuje strukturę danych, który zawiera elementy członkowskie danych (pola) i składowe funkcji (metody, właściwości i inne). Typy klas obsługuje pojedyncze dziedziczenie i polimorfizmu, mechanizmów, według której rozszerzać i specialize klas bazowych klas pochodnych.
+Typ klasy definiuje strukturę danych, która zawiera składowe danych (pola) i składowe funkcji (metody, właściwości i inne). Typy klas obsługują pojedyncze dziedziczenie i polimorfizm, czyli mechanizmy, w których klasy pochodne mogą poszerzać i specjalizację klas bazowych.
 
-Typ struktury jest podobny do typu klasy, w tym, że reprezentuje strukturę z elementów członkowskich danych i składowe funkcji. W przeciwieństwie do klasy, struktury są typami wartości i nie wymagają alokacji sterty. Typy struktury nie obsługują dziedziczenia określonych przez użytkownika, a wszystkie typy struktury niejawnie dziedziczą z typu `object`.
+Typ struktury jest podobny do typu klasy w tym, że reprezentuje strukturę z składowymi danych i składowymi funkcji. Jednak w przeciwieństwie do klas, struktury są typami wartości i nie wymagają przydziału sterty. Typy struktur nie obsługują dziedziczenia określonego przez użytkownika, a wszystkie typy struktur niejawnie dziedziczą `object`po typie.
 
-Typ interfejsu definiuje kontrakt jako nazwany zestaw funkcji publicznych elementów członkowskich. Klasa lub struktura, która implementuje interfejs należy podać implementacji interfejsu funkcji członków. Interfejs może dziedziczyć z wielu interfejsach podstawowych, a klasa lub struktura może zaimplementować wiele interfejsów.
+Typ interfejsu definiuje kontrakt jako nazwany zestaw elementów członkowskich funkcji publicznych. Klasa lub struktura implementująca interfejs musi zapewniać implementacje składowych funkcji interfejsu. Interfejs może dziedziczyć z wielu interfejsów podstawowych, a Klasa lub struktura może zaimplementować wiele interfejsów.
 
-To typ delegowany reprezentuje odwołania do metod z określoną listą parametrów i typ zwracany. Delegatów można umożliwić traktować metod jako jednostki, które mogą być przypisane do zmiennych i przekazywane jako parametry. Delegaty są podobne do koncepcji wskaźników funkcji, w przeciwieństwie do innych języków, ale w przeciwieństwie do wskaźników funkcji, obiekty delegowane są zorientowane obiektowo i bezpieczny typowo.
+Typ delegata reprezentuje odwołania do metod z określoną listą parametrów i zwracanym typem. Delegaty umożliwiają traktowanie metod jako jednostek, które mogą być przypisane do zmiennych i przekazane jako parametry. Delegaty są podobne do koncepcji wskaźników funkcji, które znajdują się w innych językach, ale w przeciwieństwie do wskaźników funkcji Delegaty są zorientowane obiektowo i są bezpieczne dla typów.
 
-Klasy, struktury, interfejsów i delegatów typy wszystkie elementy rodzajowe pomocy technicznej, według których mogą być parametryzowane przy użyciu innych typów.
+Typy klas, struktur, interfejsów i delegatów obsługują ogólne, dzięki czemu można je sparametryzowane z innymi typami.
 
-Typ wyliczeniowy jest typem samodzielnym z nazwanych stałych. Każdy typ wyliczenia ma typu podstawowego musi być jednym z ośmiu typów całkowitych. Zbiór wartości Typ wyliczeniowy jest taka sama jak zestaw wartości typu podstawowego.
+Typ wyliczeniowy jest typem odrębnym o nazwanych stałych. Każdy typ wyliczeniowy ma typ podstawowy, który musi być jednym z ośmiu typów całkowitych. Zestaw wartości typu wyliczeniowego jest taki sam jak zestaw wartości typu podstawowego.
 
-C# obsługuje dimensional jednym i wielu tablic dowolnego typu. W przeciwieństwie do typów wymienionych powyżej typy tablic ma zadeklarowany, zanim będzie można ich użyć. Zamiast tego typy tablicowe są konstruowane wykonując nazwę typu z nawiasami kwadratowymi. Na przykład `int[]` to Jednowymiarowa tablica `int`, `int[,]` to dwuwymiarowa tablica `int`, i `int[][]` to Jednowymiarowa tablica tablice jednowymiarowe `int`.
+C#obsługuje tablice pojedynczych i wielowymiarowych dowolnego typu. W przeciwieństwie do typów wymienionych powyżej, typy tablicy nie muszą być zadeklarowane przed użyciem. Zamiast tego typy tablic są konstruowane przez następujące nazwy typu z nawiasami kwadratowymi. Na przykład `int[]` jest `int` `int` `int`tablicą jednowymiarową, `int[,]` która jest tablicą dwuwymiarową, i `int[][]` jest tablicą jednowymiarową tablic jednowymiarowych.
 
-Typy dopuszczające wartości zerowe również nie trzeba być zadeklarowany, zanim będzie można ich użyć. Dla każdego typu wartości niedopuszczającym wartości `T` Brak odpowiedniego typu dopuszczającego wartość null `T?`, który może zawierać dodatkowe wartości `null`. Na przykład `int?` to typ, który może zawierać żadnych 32-bitowej liczby całkowitej lub wartość `null`.
+Typy dopuszczające wartość null nie muszą również być zadeklarowane, aby można było ich używać. Dla każdego typu `T` wartości niedopuszczających wartości null istnieje odpowiedni typ `T?`dopuszczający wartość null, który może `null`zawierać dodatkowe wartości. Na przykład `int?` jest typem, który może zawierać dowolną 32 bitową liczbę całkowitą lub wartość `null`.
 
-W systemie typu C# jest jednolita w taki sposób, że wartość dowolnego typu może być traktowana jako obiekt. Każdy typ w języku C#, bezpośrednio lub pośrednio pochodzi z `object` typ, klasy i `object` jest ultimate klasą bazową wszystkich typów. Wartości typu referencyjnego są traktowane jako obiekty poprzez wyświetlanie wartości jako typu `object`. Wartości typu wartości są traktowane jako obiekty, wykonując ***pakowania*** i ***Rozpakowywanie*** operacji. W poniższym przykładzie `int` wartość jest konwertowana na `object` i wykonać ich kopię ponownie do `int`.
+C#System typów jest jednorodny tak, że wartość dowolnego typu może być traktowana jako obiekt. Każdy typ C# bezpośrednio lub pośrednio pochodzi od `object` typu klasy i `object` jest ostateczną klasą bazową wszystkich typów. Wartości typów referencyjnych są traktowane jako obiekty, po prostu wyświetlając wartości jako typ `object`. Wartości typów wartości są traktowane jako obiekty ***przez wykonywanie operacji*** ***pakowania i*** rozpakowywania. W poniższym przykładzie `int` wartość jest konwertowana na `object` i z powrotem do `int`.
 
 ```csharp
 using System;
@@ -216,21 +216,21 @@ class Test
     }
 }
 ```
-Gdy wartość typu wartości jest konwertowany na typ `object`, wystąpienie obiektu, nazywany również "pola", jest przeznaczona do przechowywania wartości i kopiuje wartość do tego pola. Z drugiej strony, gdy `object` odwołanie jest rzutowany na typ wartości, dokonuje, przywoływanego obiektu jest polem typu poprawnej wartości, i, jeśli sprawdzenie zakończy się powodzeniem, wartość w polu jest kopiowana.
+Gdy wartość typu wartości jest konwertowana na typ `object`, wystąpienie obiektu, nazywane również "polem", jest przydzielone do przechowywania wartości, a wartość jest kopiowana do tego pola. Z drugiej strony, `object` gdy odwołanie jest rzutowane na typ wartości, jest przeprowadzane sprawdzenie, że przywoływany obiekt jest polem poprawnego typu wartości i, jeśli sprawdzenie zakończy się powodzeniem, wartość w polu jest kopiowana.
 
-Firmy ujednoliconego systemie typu C# oznacza, że typy wartości może stać się obiekty "na żądanie." Ze względu na ujednolicenie ogólnego przeznaczenia biblioteki, które używają typu `object` mogą być używane z typami odwołań i typy wartości.
+C#ujednolicony system typów efektywnie oznacza, że typy wartości mogą stać się obiektami "na żądanie". Ze względu na niezjednoczenie bibliotek ogólnego przeznaczenia, które używają `object` typu, można używać zarówno z typami referencyjnymi, jak i typami wartości.
 
-Istnieje kilka rodzajów z ***zmienne*** w języku C#, w tym pól, elementy tablicy, zmienne lokalne i parametry. Zmienne reprezentują lokalizacje przechowywania, a co zmienna ma typ, który określa, jakie wartości mogą być przechowywane w zmiennej, jak pokazano w poniższej tabeli.
+W programie istnieją różne rodzaje ***zmiennych*** , w C#tym pola, elementy tablicy, zmienne lokalne i parametry. Zmienne reprezentują lokalizacje przechowywania, a Każda zmienna ma typ, który określa, jakie wartości mogą być przechowywane w zmiennej, jak pokazano w poniższej tabeli.
 
 
-| __Typ zmiennej__    | __Zawartość możliwa__ |
+| __Typ zmiennej__    | __Możliwa zawartość__ |
 |-------------------------|-----------------------|
-| Typ wartości nieprzyjmujące | Wartość tego typu dokładnie |
-| Typ wartości null     | Wartość null lub wartość tego typu dokładnie |
-| `object`                | Odwołanie o wartości null, odwołanie do obiektu typu odwołania lub odwołania do wartości spakowanej dowolnego typu wartości |
-| Typ klasy              | Odwołanie o wartości null, odwołanie do wystąpienia tego typu klasy lub odwołanie do wystąpienia klasy pochodnej z typu klasy |
-| Typ interfejsu          | Odwołanie o wartości null, odwołanie do typu klasy, która implementuje interfejs typu wystąpienia lub odwołania do wartości spakowanej typu wartości, która implementuje interfejs typu |
-| Typ tablicy              | Odwołanie o wartości null, odwołanie do wystąpienia tego typu tablicy lub odwołanie do wystąpienia typu tablicy zgodne |
+| Typ wartości niedopuszczający wartości null | Wartość tego dokładnego typu |
+| Typ wartości null     | Wartość null lub wartość tego dokładnego typu |
+| `object`                | Odwołanie o wartości null, odwołanie do obiektu dowolnego typu odwołania lub odwołanie do wartości opakowanej dowolnego typu wartości |
+| Typ klasy              | Odwołanie o wartości null, odwołanie do wystąpienia tego typu klasy lub odwołanie do wystąpienia klasy pochodzącej od tego typu klasy. |
+| Typ interfejsu          | Odwołanie o wartości null, odwołanie do wystąpienia typu klasy implementującego ten typ interfejsu lub odwołanie do wartości opakowanej typu wartości implementującej ten typ interfejsu |
+| Typ tablicy              | Odwołanie o wartości null, odwołanie do wystąpienia tego typu tablicy lub odwołanie do wystąpienia zgodnego typu tablicy |
 | Typ delegata           | Odwołanie o wartości null lub odwołanie do wystąpienia tego typu delegata |
 
 ## <a name="expressions"></a>Wyrażenia
@@ -241,7 +241,7 @@ Gdy wyrażenie zawiera wiele operatorów ***pierwszeństwo*** operatorów okreś
 
 Większość operatorów może być ***przeciążona***. Przeciążanie operatora umożliwia określanie definiowanych przez użytkownika implementacji operatorów dla operacji, w których jeden lub oba operandy mają typ struktury lub klasy zdefiniowanej przez użytkownika.
 
-Poniższa tabela zawiera podsumowanie operatory C# firmy, lista kategorii operatora w kolejność pierwszeństwa od najwyższego do najniższego. Operatory w tej samej kategorii mają takie samo pierwszeństwo.
+Poniższa tabela podsumowuje C#operatory, wymieniając kategorie operatorów w kolejności od najwyższego do najniższego. Operatory w tej samej kategorii mają takie samo pierwszeństwo.
 
 
 | __Kategoria__                     | __Expression__    | __Opis__ |
@@ -252,15 +252,15 @@ Poniższa tabela zawiera podsumowanie operatory C# firmy, lista kategorii operat
 |                                  | `x++`             | Postinkrementacja |
 |                                  | `x--`             | Postdekrementacja |
 |                                  | `new T(...)`      | Utworzenie obiektu i delegata |
-|                                  | `new T(...){...}` | Utworzenie obiektu za pomocą inicjatora |
+|                                  | `new T(...){...}` | Tworzenie obiektu z inicjatorem |
 |                                  | `new {...}`       | Inicjator obiektu anonimowego |
-|                                  | `new T[...]`      | Do utworzenia tablicy |
-|                                  | `typeof(T)`       | Uzyskaj `System.Type` dla obiektu `T` |
+|                                  | `new T[...]`      | Tworzenie tablicy |
+|                                  | `typeof(T)`       | Uzyskaj `System.Type` obiekt dla`T` |
 |                                  | `checked(x)`      | Obliczenie wyrażenia w kontekście sprawdzanym |
 |                                  | `unchecked(x)`    | Obliczenie wyrażenia w kontekście niesprawdzanym |
-|                                  | `default(T)`      | Uzyskanie wartości domyślnej typu `T` |
+|                                  | `default(T)`      | Uzyskaj wartość domyślną typu`T` |
 |                                  | `delegate {...}`  | Funkcja anonimowa (metoda anonimowa) |
-| Jednoargumentowy                            | `+x`              | Tożsamość |
+| Jednostk                            | `+x`              | Tożsamość |
 |                                  | `-x`              | Negacja |
 |                                  | `!x`              | Negacja logiczna |
 |                                  | `~x`              | Negacja bitowa |
@@ -271,56 +271,56 @@ Poniższa tabela zawiera podsumowanie operatory C# firmy, lista kategorii operat
 | Mnożeniowy                   | `x * y`           | Mnożenie |
 |                                  | `x / y`           | Dzielenie |
 |                                  | `x % y`           | Reszta |
-| Dodatku                         | `x + y`           | Dodawanie, łączenie ciągów, łączenie delegatów |
+| Dana                         | `x + y`           | Dodawanie, łączenie ciągów, łączenie delegatów |
 |                                  | `x - y`           | Odejmowanie, usuwanie delegata |
 | Shift                            | `x << y`          | Przesunięcie w lewo |
 |                                  | `x >> y`          | Przesunięcie w prawo |
-| Relacyjne i badania typu      | `x < y`           | Mniejsze niż |
+| Testowanie relacyjne i typu      | `x < y`           | Mniejsze niż |
 |                                  | `x > y`           | Większe niż |
 |                                  | `x <= y`          | Mniejsze niż lub równe |
 |                                  | `x >= y`          | Większe niż lub równe |
-|                                  | `x is T`          | Zwróć `true` Jeśli `x` jest `T`, `false` inaczej |
-|                                  | `x as T`          | Zwróć `x` wpisanych w formie `T`, lub `null` Jeśli `x` nie jest `T` |
+|                                  | `x is T`          | `true` Zwracaj `T`, jeśli `x` jest ,`false` w przeciwnym razie |
+|                                  | `x as T`          | Zwraca `x` wartość wpisaną `T`jako, `null` lub `x` Jeśli nie jest`T` |
 | Równości                         | `x == y`          | Równa się      |
 |                                  | `x != y`          | Nie równa się |
-| Logicznego AND                      | `x & y`           | Liczba całkowita bitowe i logicznych logiczne AND |
+| Logicznego AND                      | `x & y`           | Liczba całkowita bitowa, koniunkcja logiczna i |
 | Logicznego XOR                      | `x ^ y`           | Bitowe XOR dla wartości całkowitych, logiczne XOR dla wartości binarnych |
 | Logicznego OR                       | <code>x &#124; y</code> | Bitowe OR dla wartości całkowitych, logiczne OR dla wartości binarnych |
-| Warunkowego AND                  | `x && y`          | Ocenia `y` tylko wtedy, gdy `x` jest `true` |
-| Warunkowego OR                   | <code>x &#124;&#124; y</code> | Ocenia `y` tylko wtedy, gdy `x` jest `false` |
-| Łączenia wartości null                  | `x ?? y`          | Daje w wyniku `y` Jeśli `x` jest `null`, `x` inaczej |
-| Warunkowe                      | `x ? y : z`       | Ocenia `y` Jeśli `x` jest `true`, `z` Jeśli `x` jest `false` |
+| Warunkowego AND                  | `x && y`          | Oblicza tylko wtedy, `x`gdyjest `y``true` |
+| Warunkowego OR                   | <code>x &#124;&#124; y</code> | Oblicza tylko wtedy, `x`gdyjest `y``false` |
+| Łączenia wartości null                  | `x ?? y`          | Jest wynikiem, Aby`x` w przeciwnym razie `null` `y` `x` |
+| Warunkowe                      | `x ? y : z`       | `x` Daje w `y` przypadku, gdy`z` jest`x` `true``false` |
 | Przypisania lub funkcji anonimowej | `x = y`           | Przypisanie |
-|                                  | `x op= y`         | Przydział złożony; obsługiwane operatory to `*=` `/=` `%=` `+=` `-=` `<<=` `>>=` `&=` `^=` <code>&#124;=</code> |
+|                                  | `x op= y`         | Przypisanie złożone; obsługiwane operatory to `*=` `/=` `%=` `+=` `-=` `<<=` `>>=` `&=` `^=`<code>&#124;=</code> |
 |                                  | `(T x) => y`      | Funkcja anonimowa (wyrażenie lambda) |
 
 ## <a name="statements"></a>Instrukcje
 
-Akcje programu są wyrażone za pomocą ***instrukcji***. C# obsługuje wiele rodzajów instrukcji, z których są definiowane zgodnie z osadzonych instrukcji.
+Akcje programu są wyrażane przy użyciu ***instrukcji***. C#obsługuje kilka różnych rodzajów instrukcji, które są zdefiniowane w zakresie osadzonych instrukcji.
 
-A ***bloku*** zezwala na wiele instrukcji, które ma zostać zapisany w kontekstach, których jest dozwolone pojedynczej instrukcji. Blok zawiera listę instrukcji, zapisywane między ogranicznikami `{` i `}`.
+***Blok*** umożliwia zapisanie wielu instrukcji w kontekstach, w których Pojedyncza instrukcja jest dozwolona. Blok składa się z listy instrukcji pisanych między ogranicznikami `{` i. `}`
 
-***Instrukcje deklaracji*** są używane do deklarowania stałe i zmienne lokalne.
+***Instrukcje deklaracji*** są używane do deklarowania zmiennych lokalnych i stałych.
 
-***Instrukcje wyrażeń*** są używane do oceny wyrażenia. Wyrażenia, które mogą służyć jako stwierdzenia obejmują wywołań metod obiektu alokacje za pomocą `new` operator, za pomocą przypisań `=` i operatorów przypisania złożonego, operacje inkrementacji i dekrementacji przy użyciu `++`i `--` operatory i wyrażenia await.
+***Instrukcje wyrażeń*** są używane do obliczania wyrażeń. Wyrażenia, które mogą być używane jako instrukcje, obejmują wywołania metod, alokacje obiektów przy użyciu `new` operatora, przydziałów używających `=` i operatorów przypisania złożonego, operacji zwiększania i zmniejszania przy użyciu `++`operatory i`--` .
 
-***Instrukcje wyboru*** są używane, aby wybrać jeden z wielu możliwych instrukcji do wykonania na podstawie wartości w wyrażeniu. W tej grupie są `if` i `switch` instrukcji.
+***Instrukcje wyboru*** są używane do wybierania jednej z wielu możliwych instrukcji do wykonania na podstawie wartości niektórych wyrażeń. W tej grupie są `if` instrukcje i. `switch`
 
-***Instrukcje iteracji*** są używane wielokrotnie wykonać osadzona instrukcja. W tej grupie są `while`, `do`, `for`, i `foreach` instrukcji.
+***Instrukcje iteracji*** są używane do wielokrotnego wykonywania osadzonej instrukcji. W `while`tej grupie są instrukcje, `do`, `for`, i. `foreach`
 
-***Instrukcje skoku*** służą do przekazywania kontroli. W tej grupie są `break`, `continue`, `goto`, `throw`, `return`, i `yield` instrukcji.
+***Instrukcje skoku*** są używane do transferowania kontroli. W tej `break`grupie są instrukcje, `continue`, `goto` `throw` `yield` , ,i.`return`
 
-`try`... `catch` instrukcja jest używane do przechwytywania wyjątków, które występują podczas wykonywania blok, a `try`... `finally` instrukcja jest używane do określenia kod finalizacji, który jest zawsze wykonywana, czy wystąpił wyjątek, czy nie.
+`try`... Instrukcja jest używana do przechwytywania wyjątków, które występują podczas wykonywania bloku, `try`i... `catch` `finally` Instrukcja służy do określania kodu finalizacji, który jest zawsze wykonywany, niezależnie od tego, czy wystąpił wyjątek, czy nie.
 
-`checked` i `unchecked` instrukcje są używane do kontrolowania przepełnienia, sprawdzając kontekst dla typu całkowitego operacje arytmetyczne i konwersje.
+Instrukcje `checked` and`unchecked` są używane do kontrolowania kontekstu sprawdzania przepełnienia dla operacji arytmetycznych typu całkowitego i konwersji.
 
-`lock` Instrukcja jest używane do uzyskania blokadę wykluczania wzajemnego dla danego obiektu, wykonania instrukcji i następnie zwalnia blokadę.
+`lock` Instrukcja służy do uzyskiwania blokady wzajemnego wykluczania dla danego obiektu, wykonywania instrukcji i zwalniania blokady.
 
-`using` Instrukcja jest używane do uzyskania zasobu, należy wykonać instrukcję, a następnie usunąć tego zasobu.
+`using` Instrukcja służy do uzyskiwania zasobu, wykonywania instrukcji, a następnie usuwania tego zasobu.
 
-Poniżej przedstawiono przykłady każdego rodzaju — instrukcja
+Poniżej przedstawiono przykłady poszczególnych rodzajów instrukcji
 
-__Deklaracje zmiennych lokalnych__
+__Deklaracje zmiennej lokalnej__
 
 ```csharp
 static void Main() {
@@ -332,7 +332,7 @@ static void Main() {
 ```
 
 
-__Deklaracji stałej lokalnej__
+__Lokalna deklaracja stała__
 
 ```csharp
 static void Main() {
@@ -343,7 +343,7 @@ static void Main() {
 ```
 
 
-__Instrukcja wyrażeń__
+__Instrukcja wyrażenia__
 
 ```csharp
 static void Main() {
@@ -355,7 +355,7 @@ static void Main() {
 }
 ```
 
-__`if` Instrukcja__
+__`if`Merge__
 
 ```csharp
 static void Main(string[] args) {
@@ -369,7 +369,7 @@ static void Main(string[] args) {
 ```
 
 
-__`switch` Instrukcja__
+__`switch`Merge__
 
 ```csharp
 static void Main(string[] args) {
@@ -388,7 +388,7 @@ static void Main(string[] args) {
 }
 ```
 
-__`while` Instrukcja__
+__`while`Merge__
 
 ```csharp
 static void Main(string[] args) {
@@ -401,7 +401,7 @@ static void Main(string[] args) {
 ```
 
 
-__`do` Instrukcja__
+__`do`Merge__
 
 ```csharp
 static void Main() {
@@ -413,7 +413,7 @@ static void Main() {
 }
 ```
 
-__`for` Instrukcja__
+__`for`Merge__
 
 ```csharp
 static void Main(string[] args) {
@@ -423,7 +423,7 @@ static void Main(string[] args) {
 }
 ```
 
-__`foreach` Instrukcja__
+__`foreach`Merge__
 
 ```csharp
 static void Main(string[] args) {
@@ -433,7 +433,7 @@ static void Main(string[] args) {
 }
 ```
 
-__`break` Instrukcja__
+__`break`Merge__
 
 ```csharp
 static void Main() {
@@ -445,7 +445,7 @@ static void Main() {
 }
 ```
 
-__`continue` Instrukcja__
+__`continue`Merge__
 
 ```csharp
 static void Main(string[] args) {
@@ -456,7 +456,7 @@ static void Main(string[] args) {
 }
 ```
 
-__`goto` Instrukcja__
+__`goto`Merge__
 
 ```csharp
 static void Main(string[] args) {
@@ -469,7 +469,7 @@ static void Main(string[] args) {
 }
 ```
 
-__`return` Instrukcja__
+__`return`Merge__
 
 ```csharp
 static int Add(int a, int b) {
@@ -482,7 +482,7 @@ static void Main() {
 }
 ```
 
-__`yield` Instrukcja__
+__`yield`Merge__
 
 ```csharp
 static IEnumerable<int> Range(int from, int to) {
@@ -499,7 +499,7 @@ static void Main() {
 }
 ```
 
-__`throw` i `try` instrukcji__
+__`throw`and `try` — instrukcje__
 
 ```csharp
 static double Divide(double x, double y) {
@@ -525,7 +525,7 @@ static void Main(string[] args) {
 }
 ```
 
-__`checked` i `unchecked` instrukcji__
+__`checked`and `unchecked` — instrukcje__
 
 ```csharp
 static void Main() {
@@ -539,7 +539,7 @@ static void Main() {
 }
 ```
 
-__`lock` Instrukcja__
+__`lock`Merge__
 
 ```csharp
 class Account
@@ -556,7 +556,7 @@ class Account
 }
 ```
 
-__`using` Instrukcja__
+__`using`Merge__
 
 ```csharp
 static void Main() {
@@ -570,11 +570,11 @@ static void Main() {
 
 ## <a name="classes-and-objects"></a>Klasy i obiekty
 
-***Klasy*** są najbardziej podstawowym typem w języku C#. Klasa jest strukturą danych, która łączy stanu (pola) i akcje (metody i innych funkcji elementów członkowskich) w pojedynczą jednostkę. Klasa zawiera definicję dla tworzone dynamicznie ***wystąpień*** klasy, nazywana również ***obiektów***. Klasy obsługi ***dziedziczenia*** i ***polimorfizm***, mechanizmów zgodnie z którą ***klasy pochodne*** pozwalają rozszerzyć i specjalizują się ***klasbazowych***.
+***Klasy*** są najbardziej podstawowym typem w języku C#. Klasa jest strukturą danych, która łączy stan (pola) i akcje (metody i inne elementy członkowskie funkcji) w jednej jednostce. Klasa zawiera definicję dla dynamicznie utworzonych ***wystąpień*** klasy, znanych również jako ***obiekty***. Klasy obsługują ***dziedziczenie*** i ***polimorfizm***, natomiast mechanizmy, w których ***klasy pochodne*** mogą poszerzać i specjalizację ***klas bazowych***.
 
-Nowe klasy są tworzone za pomocą deklaracji klasy. Deklaracja klasy rozpoczyna się od nagłówka, określający, atrybuty i modyfikatorów klasy, nazwa klasy, klasy podstawowej (jeśli) i interfejsy implementowane przez klasy. Nagłówek następuje treści klasy, która składa się z listy deklaracji elementu członkowskiego zapisywane między ogranicznikami `{` i `}`.
+Nowe klasy są tworzone za pomocą deklaracji klasy. Deklaracja klasy rozpoczyna się od nagłówka, który określa atrybuty i Modyfikatory klasy, nazwę klasy, klasę bazową (jeśli ma to zastosowanie) i interfejsy zaimplementowane przez klasę. Po tym nagłówku następuje treść klasy, która składa się z listy deklaracji elementów członkowskich, które są zapisywane między `{` ogranicznikami `}`i.
 
-Poniżej przedstawiono deklarację klasie proste o nazwie `Point`:
+Poniżej znajduje się deklaracja klasy prostej o nazwie `Point`:
 
 ```csharp
 public class Point
@@ -587,50 +587,50 @@ public class Point
     }
 }
 ```
-Wystąpienia klas są tworzone przy użyciu `new` operatora, który przydziela pamięć dla nowego wystąpienia, wywołuje konstruktor do inicjowania wystąpienia i zwraca odwołanie do wystąpienia. Poniższe instrukcje utworzysz dwa `Point` obiekty i przechowuje odwołania do tych obiektów w dwóch zmiennych:
+Wystąpienia klas są tworzone przy użyciu `new` operatora, który przydziela pamięć dla nowego wystąpienia, wywołuje konstruktora w celu zainicjowania wystąpienia i zwraca odwołanie do wystąpienia. Poniższe instrukcje tworzą dwa `Point` obiekty i przechowują odwołania do tych obiektów w dwóch zmiennych:
 
-```
+```csharp
 Point p1 = new Point(0, 0);
 Point p2 = new Point(10, 20);
 ```
-Pamięć zajęta przez obiekt jest automatycznie odzyskana, gdy obiekt nie jest już używana. Go nie ma potrzeby ani można jawnie cofnięcie przydziału obiektów w języku C#.
+Pamięć zajęta przez obiekt jest automatycznie odzyskiwana, gdy obiekt nie jest już używany. Nie jest to konieczne ani możliwe, aby jawnie cofnąć alokację obiektów w programie C#.
 
 ### <a name="members"></a>Elementy członkowskie
 
-Elementy członkowskie klasy są albo ***statyczne elementy członkowskie*** lub ***wystąpieniami elementów członkowskich***. Statyczne elementy członkowskie należą do klas i składowych wystąpienia należą do obiektów (wystąpienia klasy).
+Elementy członkowskie klasy są ***statycznymi elementami członkowskimi*** lub ***wystąpieniami***. Statyczne składowe należą do klas, a elementy członkowskie wystąpienia należą do obiektów (wystąpień klas).
 
-Poniższa tabela zawiera omówienie rodzajów elementów członkowskich, który może zawierać klasę.
+Poniższa tabela zawiera omówienie rodzajów elementów członkowskich, które może zawierać Klasa.
 
 
-| __Element członkowski__   | __Opis__ |
+| __Członkiem__   | __Opis__ |
 |------------  |-----------------|
-| Stałe    | Skojarzony z klasą wartości stałych |
+| Stałe    | Wartości stałe skojarzone z klasą |
 | Pola       | Zmienne klasy |
-| Metody      | Obliczeń i akcji, które mogą być wykonywane przez klasę |
-| Właściwości   | Akcje skojarzone z odczytywaniem i zapisywaniem nazwane właściwości klasy |
-| Indeksatory     | Akcje skojarzone z indeksowania wystąpienia klasy, jak tablica |
-| Zdarzenia       | Powiadomienia, które mogą być generowane przez klasę |
-| Operatory    | Konwersje i operatory wyrażeń obsługiwany przez klasę |
-| Konstruktorów | Działania wymagane w celu zainicjowania wystąpienia klasy lub samej klasy |
-| Destruktory  | Akcje do wykonania przed wystąpienia klasy stałe są odrzucane. |
-| Types        | Zagnieżdżone typy zadeklarowane w klasie |
+| Metody      | Obliczenia i akcje, które mogą być wykonywane przez klasę |
+| Właściwości   | Akcje skojarzone z odczytem i pisaniem nazwanych właściwości klasy |
+| Indeksatory     | Akcje skojarzone z wystąpieniami indeksowania klasy, takimi jak tablica |
+| Zdarzenia       | Powiadomienia, które mogą zostać wygenerowane przez klasę |
+| Operatory    | Konwersje i operatory wyrażeń obsługiwane przez klasę |
+| Konstruktorów | Akcje wymagane do zainicjowania wystąpień klasy lub samej klasy |
+| Destruktory  | Akcje do wykonania przed trwałe odrzuceniem wystąpień klasy |
+| Types        | Zagnieżdżone typy zadeklarowane przez klasę |
 
 ### <a name="accessibility"></a>Ułatwienia dostępu
 
-Każdy członek klasy ma skojarzone ułatwień dostępu, który kontroluje regionach tekst programu, które mogą uzyskiwać dostęp do elementu członkowskiego do. Istnieje pięć możliwe formy ułatwień dostępu. Ich podsumowanie można znaleźć w poniższej tabeli.
+Każdy element członkowski klasy ma skojarzoną dostępność, która kontroluje regiony tekstu programu, które mogą uzyskać dostęp do elementu członkowskiego. Istnieje pięć możliwych form ułatwień dostępu. Są one podsumowane w poniższej tabeli.
 
 
 | __Ułatwienia dostępu__    | __Znaczenie__ |
 |----------------------|-----------------|
-| `public`             | Nie ograniczając dostęp |
-| `protected`          | Dostęp ograniczony do tej klasy lub klas pochodzących z tej klasy |
+| `public`             | Dostęp nie jest ograniczony |
+| `protected`          | Dostęp ograniczony do tej klasy lub klas pochodnych od tej klasy |
 | `internal`           | Dostęp ograniczony do tego programu |
-| `protected internal` | Dostęp ograniczony do tego programu lub klasy pochodne względem tej klasy |
-| `private`            | Dostęp ograniczony do klasy |
+| `protected internal` | Dostęp ograniczony do tego programu lub klas pochodzących od tej klasy |
+| `private`            | Dostęp ograniczony do tej klasy |
 
 ### <a name="type-parameters"></a>Parametry typu
 
-Definicja klasy mogą określać zestaw parametrów typu wykonując nazwę klasy za pomocą nawias ostry otaczający listę nazwy parametrów typu. Parametry typu mogą być używane w treści deklaracji klasy do definiowania elementów członkowskich klasy. W poniższym przykładzie parametry typu `Pair` są `TFirst` i `TSecond`:
+Definicja klasy może określać zestaw parametrów typu przez poniższą nazwę klasy z nawiasami kątowymi zawierającymi listę nazw parametrów typu. Parametry typu mogą być używane w treści deklaracji klasy do definiowania elementów członkowskich klasy. W poniższym przykładzie parametry `Pair` typu są `TFirst` i `TSecond`:
 
 ```csharp
 public class Pair<TFirst,TSecond>
@@ -639,20 +639,20 @@ public class Pair<TFirst,TSecond>
     public TSecond Second;
 }
 ```
-Typ klasy, który jest zadeklarowany przyjmują parametry typu nosi nazwę typu klasy ogólnej. Ogólny może być również typy struktury, interfejsów i delegatów.
+Typ klasy zadeklarowanej do wykonania parametrów typu jest nazywany typem klasy generycznej. Typy struktur, interfejsów i delegatów mogą być również rodzajowe.
 
-W przypadku klasy ogólnej argumentów typu należy określić dla każdego z parametrów typu:
+Gdy używana jest Klasa generyczna, należy podać argumenty typu dla każdego z parametrów typu:
 
 ```csharp
 Pair<int,string> pair = new Pair<int,string> { First = 1, Second = "two" };
 int i = pair.First;     // TFirst is int
 string s = pair.Second; // TSecond is string
 ```
-Typ ogólny z argumentami typu pod warunkiem, takie jak `Pair<int,string>` powyżej, jest nazywany skonstruowanego typu.
+Typ ogólny z podanymi argumentami typu, `Pair<int,string>` jak powyżej, jest nazywany typem skonstruowanym.
 
 ### <a name="base-classes"></a>Klas podstawowych
 
-Deklaracji klasy może określać klasy bazowej, postępując zgodnie z parametrów nazwy i typu klasy, dwukropek i nazwą klasy bazowej. Pominięcie specyfikacji klasy bazowej jest taka sama jak pochodząca z typu `object`. W poniższym przykładzie klasa bazowa `Point3D` jest `Point`i klasę bazową `Point` jest `object`:
+Deklaracja klasy może określać klasę bazową, postępując według nazwy klasy i parametrów typu z dwukropkiem i nazwą klasy bazowej. Pominięcie specyfikacji klasy bazowej jest taka sama jak pochodna typu `object`. `Point3D` W poniższym przykładzie klasą bazową jest `Point`, `Point` a klasą bazową jest `object`:
 
 ```csharp
 public class Point
@@ -674,9 +674,9 @@ public class Point3D: Point
     }
 }
 ```
-Klasa dziedziczy członków klasy podstawowej. Dziedziczenie oznacza, że klasa niejawnie zawiera wszystkie elementy członkowskie klasy podstawowej, z wyjątkiem wystąpienia i statyczne konstruktory i destruktory klasy bazowej. Klasy pochodne mogą dodawać nowych członków do tych, które dziedziczy, ale go nie można usunąć definicji dziedziczonego członka. W poprzednim przykładzie `Point3D` dziedziczy `x` i `y` pola z `Point`, a następnie co `Point3D` wystąpienie zawiera trzy pola `x`, `y`, i `z`.
+Klasa dziedziczy elementy członkowskie swojej klasy bazowej. Dziedziczenie oznacza, że Klasa niejawnie zawiera wszystkie elementy członkowskie swojej klasy podstawowej, z wyjątkiem dla wystąpienia i konstruktorów statycznych i destruktorów klasy bazowej. Klasa pochodna może dodawać nowych członków do tych, które dziedziczy, ale nie może usunąć definicji dziedziczonego elementu członkowskiego. W poprzednim przykładzie `Point3D` `x` dziedziczy pola i `y` z `Point`, i każde `Point3D` wystąpienie zawiera trzy pola, `x`, `y`, i `z`.
 
-Istnieje niejawna konwersja z typu klasy dowolny z jej typów klasy bazowej. W związku z tym zmienna typu klasy mogą odwoływać się do wystąpienia tej klasy lub wystąpienia klasy pochodnej. Na przykład, biorąc pod uwagę poprzedniej deklaracji klasy, zmienna typu `Point` może odwoływać się albo `Point` lub `Point3D`:
+Niejawna konwersja istnieje z typu klasy do dowolnego z jego typów klas podstawowych. W związku z tym zmienna typu klasy może odwoływać się do wystąpienia tej klasy lub wystąpienia dowolnej klasy pochodnej. Na przykład uwzględniając poprzednie deklaracje klas, zmienna typu `Point` może odwoływać się do `Point` lub `Point3D`:
 
 ```csharp
 Point a = new Point(10, 20);
@@ -685,13 +685,13 @@ Point b = new Point3D(10, 20, 30);
 
 ### <a name="fields"></a>Pola
 
-Pole jest zmienną, która jest skojarzona z klasą lub przy użyciu wystąpienia klasy.
+Pole jest zmienną, która jest skojarzona z klasą lub wystąpieniem klasy.
 
-Pole jest zadeklarowane za pomocą `static` definiuje modyfikator ***pole statyczne***. Pole statyczne identyfikuje dokładnie jednej lokalizacji magazynu. Niezależnie od tego, jak wiele wystąpień klasy są tworzone istnieje tylko kiedykolwiek jedną kopię pole statyczne.
+Pole zadeklarowane z `static` modyfikatorem definiuje ***pole statyczne***. Pole statyczne identyfikuje dokładnie jedną lokalizację magazynu. Niezależnie od tego, ile wystąpień klasy zostało utworzonych, istnieje tylko jedna kopia pola statycznego.
 
-Pole zadeklarowana bez `static` definiuje modyfikator ***pola wystąpienia***. Każde wystąpienie klasy zawiera osobną kopię wszystkie pola wystąpienia tej klasy.
+Pole zadeklarowane bez `static` modyfikatora definiuje ***pole wystąpienia***. Każde wystąpienie klasy zawiera oddzielną kopię wszystkich pól wystąpienia tej klasy.
 
-W poniższym przykładzie, każde wystąpienie `Color` klasa ma osobną kopię `r`, `g`, i `b` wystąpienia pól, ale istnieje tylko jedna kopia `Black`, `White`, `Red`, `Green`, i `Blue` pola statyczne:
+W `Color` poniższym przykładzie każde wystąpienie klasy ma oddzielną kopię `r` `g` `White`pól,, i `b` `Black`wystąpienia `Red`, ale istnieje tylko jedna kopia,,, `Green` i`Blue` pola statyczne:
 
 ```csharp
 public class Color
@@ -710,27 +710,27 @@ public class Color
     }
 }
 ```
-Jak pokazano w poprzednim przykładzie ***pola tylko do odczytu*** może być zadeklarowana z `readonly` modyfikator. Przypisanie do `readonly` pola mogą występować wyłącznie jako część deklaracji pola lub za pomocą konstruktora w tej samej klasy.
+Jak pokazano w poprzednim przykładzie ***pola tylko do odczytu*** mogą być zadeklarowane za pomocą `readonly` modyfikatora. Przypisanie do `readonly` pola może wystąpić tylko jako część deklaracji pola lub konstruktora w tej samej klasie.
 
 ### <a name="methods"></a>Metody
 
-A ***metoda*** jest elementem członkowskim, który implementuje obliczenia lub akcji, które mogą być wykonywane przez obiekt lub klasa. ***Metody statyczne*** są dostępne za pośrednictwem klasy. ***Wystąpienie metody*** są dostępne za pośrednictwem wystąpienia klasy.
+***Metoda*** to element członkowski implementujący obliczenia lub akcję, które mogą być wykonywane przez obiekt lub klasę. ***Metody statyczne*** są dostępne za pomocą klasy. ***Metody wystąpienia*** są dostępne za pomocą wystąpień klasy.
 
-Metody mają (prawdopodobnie pusta) lista ***parametry***, zawierające wartości i odwołań do zmiennych przekazywany do metody i ***zwracany typ***, określający typ wartości, obliczana i zwrócony przez Metoda. Typ zwracany metody jest `void` Jeśli nie zwraca wartości.
+Metody mają (prawdopodobnie pustą) listę ***parametrów***reprezentujących wartości lub odwołania do zmiennych, które są przenoszone do metody i ***Typ zwracany***, który określa typ wartości obliczanej i zwracanej przez metodę. Zwracany typ metody to `void` , jeśli nie zwraca wartości.
 
-Podobnie jak typy metody mogą również mieć zestaw parametrów typu, dla których należy określić argumenty typu, gdy wywoływana jest metoda. W przeciwieństwie do typów argumentów typu często można wywnioskować z argumentów wywołania metody i nie jest jawnie konieczne.
+Podobnie jak typy, metody mogą także mieć zestaw parametrów typu, dla których argumenty typu muszą być określone, gdy wywoływana jest metoda. W przeciwieństwie do typów, argumenty typu często można wywnioskować na podstawie argumentów wywołania metody i nie muszą być jawnie określone.
 
-***Podpisu*** metody muszą być unikatowe w klasie, w którym zadeklarowany jest metoda. Podpis metody zawiera nazwę metody, liczba parametrów typu i liczby, Modyfikatory i typy parametrów. Podpis metody nie ma typ zwracany.
+***Sygnatura*** metody musi być unikatowa w klasie, w której metoda jest zadeklarowana. Podpis metody składa się z nazwy metody, liczby parametrów typu oraz liczby, modyfikatorów i typów jego parametrów. Sygnatura metody nie zawiera typu zwracanego.
 
 #### <a name="parameters"></a>Parametry
 
-Parametry są używane do przekazywania wartości lub odwołania zmiennej do metody. Parametry metody uzyskać wartości rzeczywiste z ***argumenty*** które są określone, gdy metoda jest wywoływana. Istnieją cztery rodzaje parametrów: wartości parametrów, parametrów w formie odwołań, parametry wyjściowe i tablice parametrów.
+Parametry służą do przekazywania wartości lub odwołań do zmiennych do metod. Parametry metody pobierają rzeczywiste wartości z ***argumentów*** , które są określone podczas wywoływania metody. Istnieją cztery rodzaje parametrów: parametry wartości, parametry odwołania, parametry wyjściowe i tablice parametrów.
 
-A ***wartość parametru*** służy do przekazywania parametru wejściowego. Wartość parametru odnosi się do zmiennej lokalnej, która pobiera jej wartość początkową z argumentem, która została przekazana dla parametru. Modyfikacje parametr wartości nie wpływają na argumentu, która została przekazana dla parametru.
+***Parametr value*** jest używany do przekazywania parametru wejściowego. Parametr value odnosi się do zmiennej lokalnej, która pobiera jej wartość początkową z argumentu, który został przesłany dla parametru. Modyfikacje parametru value nie wpływają na argument, który został przesłany dla parametru.
 
-Wartości parametrów można opcjonalnie, określając wartość domyślną, dzięki czemu można pominąć odpowiednie argumenty.
+Parametry wartości mogą być opcjonalne, określając wartość domyślną, aby można było pominąć odpowiednie argumenty.
 
-A ***odwołać się do parametru*** jest używany zarówno dla danych wejściowych i przekazywania parametru wyjściowego. Argument przekazana dla parametru odwołania musi być zmienną, a podczas wykonywania metody, parametr odniesienia reprezentuje tę samą lokalizację magazynu zmiennej argumentu. Parametr przekazany przez odwołanie jest zadeklarowana za pomocą `ref` modyfikator. Poniższy przykład pokazuje użycie `ref` parametrów.
+***Parametr Reference*** służy do przekazywania parametrów wejściowych i wyjściowych. Argument przesłany dla parametru odwołania musi być zmienną i podczas wykonywania metody parametr Reference reprezentuje tę samą lokalizację magazynu co zmienna argumentu. Parametr odwołania jest zadeklarowany z `ref` modyfikatorem. W poniższym przykładzie pokazano sposób użycia `ref` parametrów.
 
 ```csharp
 using System;
@@ -750,7 +750,7 @@ class Test
     }
 }
 ```
-***Parametr wyjściowy*** służy do parametru wyjściowego przekazywania. Parametr wyjściowy jest podobny do parametr przekazany przez odwołanie, z tą różnicą, że początkowa wartość argumentu dostarczane przez obiekt wywołujący jest "nieważne". Parametr wyjściowy jest zadeklarowana za pomocą `out` modyfikator. Poniższy przykład pokazuje użycie `out` parametrów.
+***Parametr wyjściowy*** jest używany do przekazywania parametrów wyjściowych. Parametr wyjściowy jest podobny do parametru odwołania, z tą różnicą, że początkowa wartość argumentu dostarczonego przez wywołującego jest nieważna. Parametr wyjściowy jest zadeklarowany z `out` modyfikatorem. W poniższym przykładzie pokazano sposób użycia `out` parametrów.
 
 ```csharp
 using System;
@@ -769,7 +769,7 @@ class Test
     }
 }
 ```
-A ***tablicy parametrów*** zezwala na zmienną liczbę argumentów, które zostaną przekazane do metody. Tablica parametrów jest zadeklarowana za pomocą `params` modyfikator. Ostatni parametr metody może być tablicą parametrów i typ tablicy parametrów musi być typem tablicy jednowymiarowej. `Write` i `WriteLine` metody `System.Console` klasy są dobrym przykładem użycia tablicy parametrów. Są deklarowane w następujący sposób.
+***Tablica parametrów*** umożliwia przekazanie zmiennej liczbie argumentów do metody. Tablica parametrów jest zadeklarowana z `params` modyfikatorem. Tylko ostatni parametr metody może być tablicą parametrów, a typ tablicy parametrów musi być typem tablicy jednowymiarowej. Metody `Write` i`WriteLine` klasy są dobrymi przykładami użycia tablicy parametrów. `System.Console` Są one deklarowane w następujący sposób.
 
 ```csharp
 public class Console
@@ -779,12 +779,12 @@ public class Console
     ...
 }
 ```
-W metodzie, która korzysta z tablicy parametrów Tablica parametrów zachowuje się tak samo jak parametru regularnego typu tablicowego. Jednak w wywołaniu metody z tablicą parametrów, istnieje możliwość przekazania pojedynczy argument typu tablicy parametrów albo dowolnej liczby argumentów typu elementu tablicy parametrów. W tym ostatnim przypadku wystąpienie tablicy jest automatycznie tworzone i inicjowane z danego argumentów. W tym przykładzie
+W metodzie, która używa tablicy parametrów, tablica parametrów zachowuje się dokładnie tak jak zwykły parametr typu tablicy. Jednak w wywołaniu metody z tablicą parametrów możliwe jest przekazanie jednego argumentu typu tablicy parametrów lub dowolnej liczby argumentów typu elementu tablicy parametrów w parametrze. W tym drugim przypadku wystąpienie tablicy jest automatycznie tworzone i inicjowane z podanym argumentami. Ten przykład
 
 ```csharp
 Console.WriteLine("x={0} y={1} z={2}", x, y, z);
 ```
-jest odpowiednikiem pisania poniżej.
+jest równoznaczny z zapisem poniżej.
 
 ```csharp
 string s = "x={0} y={1} z={2}";
@@ -797,9 +797,9 @@ Console.WriteLine(s, args);
 
 #### <a name="method-body-and-local-variables"></a>Treść metody i zmienne lokalne
 
-Treść metody określa instrukcji do wykonania, gdy metoda jest wywoływana.
+Treść metody Określa instrukcje do wykonania, gdy metoda jest wywoływana.
 
-Treść metody można zadeklarować zmienne, które są specyficzne dla wywołania metody. Tych zmiennych są nazywane ***zmienne lokalne***. Deklaracji zmiennej lokalnej Określa nazwę typu, nazwa zmiennej i prawdopodobnie wartość początkową. Poniższy przykład deklaruje zmienną lokalną `i` o wartości początkowej zero i zmienna lokalna `j` bez wartości początkowej.
+Treść metody może deklarować zmienne, które są specyficzne dla wywołania metody. Takie zmienne są nazywane ***zmiennymi lokalnymi***. Deklaracja zmiennej lokalnej określa nazwę typu, nazwę zmiennej i prawdopodobnie wartość początkową. Poniższy przykład deklaruje zmienną `i` lokalną z początkową wartością zero i zmienną `j` lokalną bez wartości początkowej.
 
 ```csharp
 using System;
@@ -817,17 +817,17 @@ class Squares
     }
 }
 ```
-Język C# wymaga lokalnej zmiennej jako ***zdecydowanie przypisywany*** przed jej wartość można uzyskać. Na przykład jeśli deklaracja poprzedniego `i` nie zawiera wartości początkowej, kompilator może zgłosić błąd do późniejszego użycia `i` ponieważ `i` nie może zostać zdecydowanie przypisany w tych punktach w programie.
+C#wymaga, aby zmienna lokalna była ***przypisana ostatecznie*** przed uzyskaniem jej wartości. Na przykład jeśli deklaracja poprzedniej `i` nie zawierała wartości początkowej, kompilator zgłosi błąd dla kolejnych zastosowań `i` , ponieważ `i` nie zostanie on ostatecznie przypisany w tych punktach w programie.
 
-Można użyć metody `return` instrukcje, aby zwrócić sterowanie do obiektu wywołującego. W metodzie, zwracając `void`, `return` instrukcji nie można określić wyrażenie. W metodzie, zwracając non -`void`, `return` instrukcje mogą zawierać wyrażenie, które oblicza wartość zwracaną.
+Metoda może użyć `return` instrukcji do zwrócenia kontroli do obiektu wywołującego. W wyniku zwrócenia `void` `return` metody instrukcje nie mogą określać wyrażenia. W metodzie zwracającej`void`nie, `return` instrukcje muszą zawierać wyrażenie, które oblicza wartość zwracaną.
 
-#### <a name="static-and-instance-methods"></a>Metody statyczne i wystąpienia
+#### <a name="static-and-instance-methods"></a>Metody static i instance
 
-Metoda zadeklarowana za pomocą `static` modyfikator jest ***statycznej metody***. Metoda statyczna nie będzie działać na określonym wystąpieniu i można uzyskać tylko bezpośredni dostęp do statycznych elementów członkowskich.
+Metoda zadeklarowana za pomocą `static` modyfikatora jest ***metodą statyczną***. Metoda statyczna nie działa w konkretnym wystąpieniu i może bezpośrednio uzyskiwać dostęp do statycznych elementów członkowskich.
 
-Metoda zadeklarowana bez `static` modyfikator jest ***metodę wystąpienia***. Metoda wystąpienia działa na określonym wystąpieniu i można dostęp do statycznych i wystąpieniami elementów członkowskich. Wystąpienia, na której wywołano metodę wystąpienia, które może być jawnie dostępna jako `this`. Jest to błąd do odwoływania się do `this` w metodzie statycznej.
+Metoda zadeklarowana bez `static` modyfikatora jest ***metodą wystąpienia***. Metoda wystąpienia działa w konkretnym wystąpieniu i może uzyskiwać dostęp do elementów członkowskich static i instance. Wystąpienie, na którym wywołano metodę wystąpienia, można jawnie uzyskać do niego `this`dostęp. Wystąpił błąd podczas odwoływania się `this` do w metodzie statycznej.
 
-Następujące `Entity` klasa ma statycznych i elementów członkowskich wystąpienia.
+Następująca `Entity` Klasa zawiera elementy członkowskie statyczne i wystąpienia.
 
 ```csharp
 class Entity
@@ -852,9 +852,9 @@ class Entity
     }
 }
 ```
-Każdy `Entity` wystąpienie zawiera numer seryjny (i prawdopodobnie niektóre inne informacje, które nie został tutaj pokazany). `Entity` Konstruktora (co przypomina metodą wystąpienia) inicjuje nowe wystąpienie następny dostępny numer seryjny. Ponieważ Konstruktor nie jest składową wystąpienia, jest dozwolony dostęp zarówno do `serialNo` pola wystąpienia i `nextSerialNo` pole statyczne.
+Każde `Entity` wystąpienie zawiera numer seryjny (i najprawdopodobniej inne informacje, które nie są wyświetlane w tym miejscu). `Entity` Konstruktor (który przypomina metodę wystąpienia) Inicjuje nowe wystąpienie przy użyciu następnego dostępnego numeru seryjnego. Ponieważ Konstruktor jest członkiem wystąpienia, może uzyskać dostęp zarówno `serialNo` do pola wystąpienia, `nextSerialNo` jak i pola statycznego.
 
-`GetNextSerialNo` i `SetNextSerialNo` mogą uzyskiwać dostęp do metod statycznych `nextSerialNo` pole statyczne, ale będzie błąd dla nich bezpośredni dostęp `serialNo` pole wystąpienia.
+Metody `GetNextSerialNo` `serialNo` i `SetNextSerialNo`staticmogą uzyskać dostęp do pola statycznego,alemożetobyćbłąd,abyuzyskaćbezpośrednidostępdopolawystąpienia.`nextSerialNo`
 
 Poniższy przykład pokazuje użycie `Entity` klasy.
 
@@ -873,19 +873,19 @@ class Test
     }
 }
 ```
-Należy pamiętać, że `SetNextSerialNo` i `GetNextSerialNo` są wywoływane metody statyczne klasy, natomiast `GetSerialNo` metoda wystąpienia jest wywoływane na wystąpienia klasy.
+Należy zauważyć, `SetNextSerialNo` że `GetNextSerialNo` metody i są wywoływane `GetSerialNo` dla klasy, podczas gdy metoda wystąpienia jest wywoływana w wystąpieniach klasy.
 
-#### <a name="virtual-override-and-abstract-methods"></a>Wirtualne zastąpienia i metody abstrakcyjne
+#### <a name="virtual-override-and-abstract-methods"></a>Metody wirtualne, przesłonięcia i abstrakcyjne
 
-Po deklaracji metody wystąpienia obejmuje `virtual` modyfikator, metoda jest nazywany ***metodę wirtualną***. Gdy nie `virtual` modyfikator, metoda jest nazywany ***metody niewirtualnej***.
+Gdy deklaracja metody wystąpienia zawiera `virtual` modyfikator, metoda jest uznawana za ***metodę wirtualną***. Gdy modyfikator `virtual` nie jest obecny, metoda jest uznawana za ***metodę niewirtualną***.
 
-Po wywołaniu metody wirtualnej ***typu run-time*** wystąpienia, dla którego tego wywołania ma miejsce określa rzeczywista implementacja metody do wywołania. W wywołaniu metody niewirtualnej ***typów w czasie kompilacji*** wystąpienia jest czynnikiem decydującym.
+Gdy wywoływana jest metoda wirtualna, ***typem czasu wykonywania*** wystąpienia, dla którego odbywa się wywołanie określa rzeczywistą implementację metody do wywołania. W wywołaniu metody niewirtualnej ***Typ czasu kompilacji*** wystąpienia jest czynnikiem decydującym.
 
-Metoda wirtualna może być ***zastąpione*** w klasie pochodnej. Po deklaracji metody wystąpienia obejmuje `override` modyfikator, metoda zastępuje dziedziczoną metodę wirtualną przy użyciu tego samego podpisu. Dlatego deklaracja metody wirtualnej wprowadzono nowe metody, deklaracji metody zastąpienie specjalizuje się istniejących dziedziczoną metodę wirtualną, podając nową metodę implementacji tej metody.
+Metoda wirtualna może zostać ***przesłonięta*** w klasie pochodnej. Gdy deklaracja metody wystąpienia zawiera `override` modyfikator, metoda zastępuje dziedziczną metodę wirtualną z tą samą sygnaturą. Podczas gdy deklaracja metody wirtualnej wprowadza nową metodę, Deklaracja metody przesłonięcia specjalizacji istniejącej dziedziczonej metody wirtualnej, dostarczając nową implementację tej metody.
 
-***Abstrakcyjne*** metoda jest metodą wirtualną bez wdrażania. Metoda abstrakcyjna jest zadeklarowana za pomocą `abstract` modyfikator i jest dozwolona tylko w klasie, który także jest zadeklarowany `abstract`. Metoda abstrakcyjna musi zostać zastąpiona w każdym nieabstrakcyjnej klasie pochodnej.
+Metoda ***abstrakcyjna*** jest metodą wirtualną bez implementacji. Metoda abstrakcyjna jest zadeklarowana z `abstract` modyfikatorem i jest dozwolona tylko w klasie, która również jest `abstract`zadeklarowana. Metoda abstrakcyjna musi zostać przesłonięta w każdej nieabstrakcyjnej klasie pochodnej.
 
-Poniższy przykład deklaruje klasę abstrakcyjną, `Expression`, który reprezentuje węzeł drzewa wyrażeń i trzy klasy, pochodne `Constant`, `VariableReference`, i `Operation`, który implementuje węzły drzewa wyrażeń stałych zmiennych odwołania, a operacje arytmetyczne. (Jest to podobne do, ale nie należy mylić z typami drzewo wyrażenia, wprowadzona w [typy drzewa wyrażenie](types.md#expression-tree-types)).
+Poniższy przykład deklaruje klasę `Expression`abstrakcyjną, która reprezentuje węzeł drzewa wyrażenia i trzy `Constant`klasy pochodne,, `VariableReference`i `Operation`, które implementują węzły drzewa wyrażeń dla stałych, zmienna odwołania i operacje arytmetyczne. (Jest to podobne do, ale nie należy mylić z typami drzewa wyrażenia wprowadzonymi w [typach drzew wyrażeń](types.md#expression-tree-types)).
 
 ```csharp
 using System;
@@ -951,7 +951,7 @@ public class Operation: Expression
     }
 }
 ```
-Poprzednie cztery klasy może służyć do modelowania wyrażeniach arytmetycznych. Na przykład za pomocą wystąpień tych klas, wyrażenie `x + 3` mogą być reprezentowane w następujący sposób.
+Poprzednie cztery klasy mogą służyć do modelowania wyrażeń arytmetycznych. Na przykład przy użyciu wystąpień tych klas wyrażenie `x + 3` może być reprezentowane w następujący sposób.
 
 ```csharp
 Expression e = new Operation(
@@ -959,11 +959,11 @@ Expression e = new Operation(
     '+',
     new Constant(3));
 ```
-`Evaluate` Metody `Expression` wystąpienia jest wywoływane w celu oceny danemu wyrażeniu i generować `double` wartość. Ta metoda przyjmuje jako argument `Hashtable` zawiera nazwy zmiennych (jako klucze, wpisy) i wartości (jako wartości wpisów). `Evaluate` Metoda jest abstrakcyjna metody wirtualnej, co oznacza, że nieabstrakcyjnej klasy pochodne muszą przesłaniać z jego Podaj rzeczywistą implementację.
+Metoda wystąpienia jest wywoływana w celu obliczenia `double` danego wyrażenia i utworzenia wartości. `Expression` `Evaluate` Metoda przyjmuje jako argument a `Hashtable` , który zawiera nazwy zmiennych (jako klucze wpisów) i wartości (jako wartości wpisów). `Evaluate` Metoda jest wirtualną metodą abstrakcyjną, co oznacza, że nieabstrakcyjne klasy pochodne muszą zastąpić je, aby zapewnić rzeczywistą implementację.
 
-A `Constant`przez implementację `Evaluate` po prostu zwraca przechowywaną stała. A `VariableReference`jego implementacja wyszukuje nazwę zmiennej w tablicy skrótów i zwraca wartość wynikową. `Operation`w implementacji najpierw ocenia operandy lewy i prawy (cyklicznie, wywołanie ich `Evaluate` metod), a następnie wykonuje danej operacji arytmetycznej.
+`Constant` Implementacjapoprostu`Evaluate` zwraca przechowywaną stałą. Implementacja `VariableReference`programu wyszukuje nazwę zmiennej w elemencie Hashtable i zwraca wartość wynikową. Implementacja najpierw szacuje lewy i prawy operand (cyklicznie wywołując ich `Evaluate` metody), a następnie wykonuje daną operację arytmetyczną. `Operation`
 
-Następujący program używa `Expression` klasy można oszacować wyrażenia `x * (y + 2)` zależności od wartości `x` i `y`.
+Poniższy program używa `Expression` klas do obliczenia wyrażenia `x * (y + 2)` pod kątem różnych wartości `x` i `y`.
 
 ```csharp
 using System;
@@ -992,9 +992,9 @@ class Test
 }
 ```
 
-#### <a name="method-overloading"></a>Przeciążenie metody
+#### <a name="method-overloading"></a>Przeciążanie metody
 
-Metoda ***przeciążenie*** zezwala na wiele sposobów w tej samej klasie w celu mają taką samą nazwę, tak długo, jak długo mają unikatowe podpisów. Podczas kompilowania wywołanie metody przeciążonej, kompilator używa ***Rozpoznanie przeciążenia*** ustalenie określonej metody do wywołania. Rozpoznanie przeciążenia umożliwia znalezienie jednej metody, najlepiej odpowiada argumenty lub zgłasza błąd, jeśli można znaleźć nie pojedyncze najlepsze dopasowanie. Poniższy kod przedstawia obowiązuje przeciążeniu rozdzielczości. Komentarz dla każdego wywołania w `Main` metoda ma pokazać, jakiej metody faktycznie jest wywoływana.
+***Przeciążanie*** metod pozwala wielu metodom w tej samej klasie mieć taką samą nazwę, o ile mają unikatowe podpisy. Podczas kompilowania wywołania przeciążonej metody kompilator używa ***rozdzielczości przeciążenia*** do określenia konkretnej metody do wywołania. Rozpoznanie przeciążenia umożliwia znalezienie jednej metody, która najlepiej pasuje do argumentów lub zgłasza błąd, jeśli nie można znaleźć pojedynczego najlepszego dopasowania. W poniższym przykładzie przedstawiono sposób rozwiązywania przeciążenia. Komentarz dla każdego wywołania `Main` metody pokazuje, która metoda jest faktycznie wywoływana.
 
 ```csharp
 class Test
@@ -1035,13 +1035,13 @@ class Test
     }
 }
 ```
-Jak pokazano na przykładzie, zawsze można wybrać określoną metodę przez jawne rzutowanie argumentów do typów parametru dokładne i/lub jawnie podanie argumentów typu.
+Jak pokazano w przykładzie, dana metoda może być zawsze wybierana przez jawne rzutowanie argumentów na dokładne typy parametrów i/lub jawne dostarczenie argumentów typu.
 
-### <a name="other-function-members"></a>Inni członkowie — funkcja
+### <a name="other-function-members"></a>Inne elementy członkowskie funkcji
 
-Elementy członkowskie, które zawierają kod wykonywalny są nazywane zbiorczo ***funkcji elementów członkowskich*** klasy. W poprzedniej sekcji opisano metody, które są podstawowym typem funkcji elementów członkowskich. W tej sekcji opisano inne rodzaje elementów członkowskich funkcji obsługiwanych przez C#: konstruktory, właściwości, indeksatory, zdarzenia, operatorów i destruktory.
+Elementy członkowskie, które zawierają kod wykonywalny, są określane zbiorczo jako ***elementy członkowskie*** klasy. W poprzedniej sekcji opisano metody, które są podstawowym rodzajem elementów członkowskich funkcji. W tej sekcji opisano inne rodzaje składowych funkcji obsługiwane przez C#: konstruktory, właściwości, indeksatory, zdarzenia, operatory i destruktory.
 
-Poniższy kod ilustruje klasę ogólną o nazwie `List<T>`, który implementuje growable listy obiektów. Klasa zawiera kilka przykładów typowych rodzajów funkcji elementów członkowskich.
+Poniższy kod przedstawia klasę generyczną o nazwie `List<T>`, która implementuje rozwijaną listę obiektów. Klasa zawiera kilka przykładów typowych rodzajów elementów członkowskich funkcji.
 
 
 ```csharp
@@ -1126,29 +1126,29 @@ public class List<T> {
 
 #### <a name="constructors"></a>Konstruktorów
 
-C# obsługuje zarówno wystąpienia i konstruktorów statycznych. ***Konstruktora wystąpienia*** jest elementem członkowskim implementujący działania wymagane w celu zainicjowania wystąpienia klasy. A ***statyczny Konstruktor*** jest elementem członkowskim, który implementuje działania wymagane w celu zainicjowania samej klasy po pierwszym załadowaniu.
+C#obsługuje zarówno konstruktory wystąpienia, jak i statyczne. ***Konstruktor wystąpienia*** jest członkiem, który implementuje akcje wymagane do zainicjowania wystąpienia klasy. ***Statyczny Konstruktor*** jest członkiem, który implementuje akcje wymagane do zainicjowania samej klasy podczas pierwszego ładowania.
 
-Konstruktor jest zadeklarowany jak metody bez zwrotu typu i taką samą nazwę jak klasa zawierająca. Jeśli deklaracja konstruktora zawiera `static` modyfikator, deklaruje Konstruktor statyczny. W przeciwnym razie deklaruje konstruktora wystąpień.
+Konstruktor jest zadeklarowany jak metoda bez zwracanego typu i o takiej samej nazwie jak zawierająca klasy. Jeśli deklaracja konstruktora zawiera `static` modyfikator, deklaruje Konstruktor statyczny. W przeciwnym razie deklaruje Konstruktor wystąpienia.
 
-Konstruktory wystąpień, mogą być przeciążone. Na przykład `List<T>` klasa deklaruje dwa konstruktory wystąpienia, jedno z bez parametrów, a ta, która przyjmuje `int` parametru. Konstruktory wystąpień są wywoływane przy użyciu `new` operatora. Poniższe instrukcje przydzielić dwie `List<string>` wystąpień każdej z konstruktorów z `List` klasy.
+Konstruktory wystąpień mogą być przeciążone. Na przykład `List<T>` Klasa deklaruje dwa konstruktory wystąpień, jeden bez parametrów i jeden, który `int` pobiera parametr. Konstruktory wystąpień są wywoływane przy `new` użyciu operatora. Poniższe instrukcje przydzielą `List<string>` dwa wystąpienia przy użyciu każdego konstruktora `List` klasy.
 
 ```csharp
 List<string> list1 = new List<string>();
 List<string> list2 = new List<string>(10);
 ```
-W przeciwieństwie do innych członków konstruktorów wystąpienia nie są dziedziczone, a klasa nie ma konstruktorów wystąpienia innych niż rzeczywiście zgłoszonymi w klasie. Jeśli żaden konstruktor wystąpienia zostanie podany dla klasy, następnie pustą bez parametrów jest dostarczana automatycznie.
+W przeciwieństwie do innych elementów członkowskich, konstruktory wystąpień nie są dziedziczone, a Klasa nie ma konstruktorów wystąpień innych niż zadeklarowane w klasie. Jeśli nie podano konstruktora wystąpienia dla klasy, zostanie automatycznie podana pusta wartość bez parametrów.
 
 #### <a name="properties"></a>Właściwości
 
-***Właściwości*** to naturalne rozszerzenie pola. Nazwanych elementów członkowskich skojarzonych typów i składnia do uzyskiwania dostępu do pola i właściwości jest taka sama. Jednak w przeciwieństwie do pola, właściwości określa lokalizacji przechowywania. Właściwości mają ***Akcesory*** określające instrukcji do wykonania, gdy ich wartości są odczytu lub zapisu.
+***Właściwości*** są naturalnym rozszerzeniem pól. Oba są nazwanymi członkami ze skojarzonymi typami, a składnia dostępu do pól i właściwości jest taka sama. Jednak w przeciwieństwie do pól właściwości nie oznacza lokalizacji magazynu. Zamiast tego właściwości mają metody ***dostępu*** określające instrukcje, które mają być wykonywane, gdy ich wartości są odczytywane lub zapisywane.
 
-Właściwość deklarowany jest jak pola, z tą różnicą, że deklaracja kończy się `get` metody dostępu i/lub `set` akcesor zapisywane między ogranicznikami `{` i `}` zamiast kończy się średnikiem. Właściwości, które ma obydwa `get` metody dostępu i `set` akcesor jest ***odczytu i zapisu właściwości***, właściwość, która ma tylko `get` akcesor jest ***właściwość tylko do odczytu***i Właściwość, która ma tylko `set` akcesor jest ***właściwość tylko do zapisu***.
+Właściwość jest zadeklarowana jako pole, z tą różnicą, że deklaracja kończy `get` się akcesorem i/ `set` lub akcesorem zapisanym `{` między ogranicznikami i `}` zamiast kończyć się średnikiem. Właściwość, która `get` ma zarówno akcesor, `set` jak i akcesora `get` , jest ***właściwością do odczytu i zapisu***, właściwość, która ma tylko metodę dostępu, jest ***właściwością tylko do odczytu***i właściwość, która `set` ma tylko metodę dostępu, jest ***Właściwość tylko do zapisu***.
 
-A `get` akcesor odnosi się do metody bez parametrów, z wartością zwracaną z typem właściwości. Z wyjątkiem elementem docelowym przypisania, gdy właściwość jest przywoływany w wyrażeniu, `get` metody dostępu właściwości jest wywoływana w celu obliczenia wartości właściwości.
+Metoda `get` dostępu odpowiada metodzie bez parametrów z wartością zwracaną typu właściwości. Poza elementem docelowym przypisania, gdy właściwość jest przywoływana w wyrażeniu, `get` metoda dostępu do właściwości jest wywoływana w celu obliczenia wartości właściwości.
 
-A `set` akcesor odnosi się do metody z pojedynczym parametrem o nazwie `value` i bez zwrotu typu. Gdy właściwość odwołuje się do jako element docelowy przypisania lub operand `++` lub `--`, `set` akcesor zostanie wywołana z nieprawidłowym argumentem, który zawiera nową wartość.
+Metoda dostępu odpowiada metodzie z pojedynczym parametrem o nazwie `value` i bez zwracanego typu. `set` Gdy właściwość jest przywoływana jako element docelowy przypisania lub jako operand `++` lub `--`, `set` metoda dostępu jest wywoływana z argumentem, który dostarcza nową wartość.
 
-`List<T>` Klasa deklaruje dwie właściwości `Count` i `Capacity`, które są tylko do odczytu i odczytu / zapisu, odpowiednio. Oto przykład użycia tych właściwości.
+Klasa deklaruje dwie `Count` właściwości i `Capacity`, które są tylko do odczytu i odczytu i zapisu. `List<T>` Poniżej przedstawiono przykład użycia tych właściwości.
 
 ```csharp
 List<string> names = new List<string>();
@@ -1156,15 +1156,15 @@ names.Capacity = 100;            // Invokes set accessor
 int i = names.Count;             // Invokes get accessor
 int j = names.Capacity;          // Invokes get accessor
 ```
-Podobnie jak pola i metody, C# obsługuje zarówno właściwości wystąpienia i właściwości statyczne. Właściwości statyczne są uznane za pomocą `static` modyfikator i właściwości instancji, które są zadeklarowane bez niego.
+Podobnie jak pola i metody, C# obsługuje zarówno właściwości wystąpienia, jak i właściwości statyczne. Właściwości statyczne są zadeklarowane za `static` pomocą modyfikatora, a właściwości wystąpienia są deklarowane bez użycia.
 
-Accessor(s) właściwości mogą być wirtualne. Jeśli deklaracja właściwości zawiera `virtual`, `abstract`, lub `override` modyfikator, dotyczy ona accessor(s) właściwości.
+Metody dostępu właściwości mogą być wirtualne. Gdy Deklaracja właściwości zawiera `virtual`modyfikator, `abstract`lub `override` , ma zastosowanie do akcesorów właściwości.
 
 #### <a name="indexers"></a>Indeksatory
 
-***Indeksatora*** jest element członkowski, który umożliwia obiekty, które mają być indeksowane w taki sam sposób, w postaci tablicy. Indeksator deklarowany jest jak właściwości, z tą różnicą, że nazwa elementu członkowskiego jest `this` następuje lista parametrów, zapisywane między ogranicznikami `[` i `]`. Parametry są dostępne w accessor(s) indeksatora. Podobnie jak właściwości, indeksatory można odczytu i zapisu, tylko do odczytu i tylko do zapisu, a accessor(s) indeksatora mogą być wirtualne.
+***Indeksator*** jest członkiem, który umożliwia indeksowanie obiektów w taki sam sposób jak w przypadku tablicy. Indeksator jest zadeklarowany jak właściwość, z tą różnicą, że `this` po nazwie składowej następuje lista parametrów zapisywana między `[` ogranicznikami i `]`. Parametry są dostępne w metodach dostępu indeksatora. Podobnie jak w przypadku właściwości, indeksatory mogą być tylko do odczytu i zapisu, tylko do odczytu i do zapisu, a Akcesory dla indeksatora mogą być wirtualne.
 
-`List` Klasa deklaruje pojedynczego indeksatora odczytu i zapisu, która przyjmuje `int` parametru. Indeksator umożliwia indeksu `List` wystąpień z `int` wartości. Na przykład
+Klasa deklaruje pojedynczy indeksator do odczytu i zapisu, który `int` pobiera parametr. `List` Indeksator umożliwia indeksowanie `List` wystąpień z `int` wartościami. Na przykład
 
 ```csharp
 List<string> names = new List<string>();
@@ -1176,17 +1176,17 @@ for (int i = 0; i < names.Count; i++) {
     names[i] = s.ToUpper();
 }
 ```
-Indeksatory mogą być przeciążone, co oznacza, że klasy można zadeklarować wiele indeksatorów, tak długo, jak liczba lub rodzaju ich parametrów różnią się.
+Indeksatory mogą być przeciążone, co oznacza, że Klasa może deklarować wiele indeksatorów, o ile liczba lub typy ich parametrów różnią się.
 
 #### <a name="events"></a>Zdarzenia
 
-***Zdarzeń*** jest elementem członkowskim, który umożliwia klasa lub obiekt, do udostępniania powiadomień o. Zdarzenie deklarowany jest jak pola, z tą różnicą, że deklaracja zawiera `event` — słowo kluczowe i typ musi być typem delegowanym.
+***Zdarzenie*** jest członkiem, który umożliwia klasy lub obiektowi dostarczanie powiadomień. Zdarzenie jest zadeklarowane jak pole, z tą różnicą, że `event` deklaracja zawiera słowo kluczowe i typ musi być typem delegata.
 
-W obrębie klasy, która deklaruje element członkowski zdarzenia zdarzenie zachowuje się tak samo jak pola typu delegata (pod warunkiem zdarzenie nie jest abstrakcyjna i nie deklaruje metody dostępu). Pole zawiera odwołanie do delegata reprezentującego procedury obsługi zdarzeń, które zostały dodane do zdarzenia. Jeśli nie obsługuje zdarzeń są obecne, pole jest `null`.
+W obrębie klasy, która deklaruje element członkowski zdarzenia, zdarzenie zachowuje się podobnie jak pole typu delegata (pod warunkiem, że zdarzenie nie jest abstrakcyjne i nie deklaruje metod dostępu). W polu jest przechowywane odwołanie do delegata, który reprezentuje programy obsługi zdarzeń, które zostały dodane do zdarzenia. Jeśli nie ma żadnych dojść do zdarzeń, pole jest `null`.
 
-`List<T>` Klasa deklaruje składową pojedyncze zdarzenie o nazwie `Changed`, co oznacza, że dodano nowy element do listy. `Changed` Wydarzenie jest podniesione przez `OnChanged` metody wirtualnej, który po raz pierwszy sprawdza, czy zdarzenie jest `null` (co oznacza, że nie programów obsługi istnieje). Pojęcie podnoszenie zdarzenia odpowiada dokładnie wywoływania delegata reprezentowanej przez zdarzenie — tak więc nie istnieją żadne konstrukcje specjalny język przeznaczony dla podnoszonego zdarzenia.
+Klasa deklaruje pojedynczy element członkowski zdarzenia o `Changed`nazwie, który wskazuje, że dodano nowy element do listy. `List<T>` Zdarzenie jest zgłaszane `OnChanged` przez metodę wirtualną, która najpierw sprawdza, czy zdarzenie jest `null` (oznacza, że nie ma żadnych programów obsługi). `Changed` Pojęcie związane z wywoływaniem zdarzenia jest dokładnie równoważne do wywołania delegata reprezentowanego przez zdarzenie, co oznacza, że nie istnieją żadne specjalne konstrukcje języka do wywoływania zdarzeń.
 
-Klienci reagowania na zdarzenia za pośrednictwem ***procedury obsługi zdarzeń***. Programy obsługi zdarzeń dołączonych przy użyciu `+=` operatora i usunięte przy użyciu `-=` operatora. Poniższy przykład dołącza program obsługi zdarzeń do `Changed` zdarzenia `List<string>`.
+Klienci reagują na zdarzenia za poorednictwem ***programów obsługi zdarzeń***. Procedury obsługi zdarzeń są dołączane `+=` przy użyciu operatora i usuwane `-=` przy użyciu operatora. Poniższy przykład dołącza procedurę obsługi zdarzeń do `Changed` zdarzenia. `List<string>`
 
 ```csharp
 using System;
@@ -1209,13 +1209,13 @@ class Test
     }
 }
 ```
-W przypadku zaawansowanych scenariuszy, w którym pożądane jest formantu powiązanego magazynu zdarzenie, jawnie określić deklaracji zdarzenia `add` i `remove` metod dostępu, które są nieco podobne do `set` metody dostępu właściwości.
+W przypadku zaawansowanych scenariuszy, w których wymagana jest kontrola bazowego magazynu zdarzenia, deklaracja zdarzenia może jawnie dostarczyć `add` i `remove` akcesorów, które `set` są nieco podobne do metody dostępu do właściwości.
 
 #### <a name="operators"></a>Operatory
 
-***Operator*** jest element członkowski, który definiuje znaczenie zastosowania operatora poszczególnych wyrażeń do wystąpienia klasy. Można zdefiniować trzy rodzaje operatory: jednoargumentowe operatory, operatory binarne i operatory konwersji. Wszystkie operatory musi być zadeklarowany jako `public` i `static`.
+***Operator*** jest członkiem, który definiuje znaczenie zastosowania określonego operatora wyrażenia do wystąpienia klasy. Można zdefiniować trzy rodzaje operatorów: operatory jednoargumentowe, operatory binarne i operatory konwersji. Wszystkie operatory muszą być zadeklarowane `public` jako `static`i.
 
-`List<T>` Klasa deklaruje dwa operatory `operator==` i `operator!=`i dlatego zapewnia nowe znaczenie wyrażenia, które są stosowane te operatory, aby `List` wystąpień. W szczególności operatorów definiowania równości dwóch `List<T>` wystąpienia jako porównując każdej zawartych obiektów za pomocą ich `Equals` metody. W poniższym przykładzie użyto `==` operatora do porównywania dwóch `List<int>` wystąpień.
+Klasa deklaruje dwa `operator==` operatory i `operator!=`i w ten sposób daje nowe znaczenie dla wyrażeń, które stosują te `List` operatory do wystąpień. `List<T>` W tym celu operatory definiują równość dwóch `List<T>` wystąpień w porównaniu z poszczególnymi obiektami zawartymi `Equals` przy użyciu metod. Poniższy przykład używa `==` operatora do porównywania dwóch `List<int>` wystąpień.
 
 ```csharp
 using System;
@@ -1236,21 +1236,21 @@ class Test
 }
 ```
 
-Pierwszy `Console.WriteLine` generuje `True` ponieważ dwie listy zawiera taką samą liczbę obiektów o tej samej wartości w tej samej kolejności. Gdyby `List<T>` Niezdefiniowany `operator==`, pierwszy `Console.WriteLine` będzie mieć danych wyjściowych `False` ponieważ `a` i `b` odwołanie do innego `List<int>` wystąpień.
+Pierwsze `Console.WriteLine` dane wyjściowe `True` , ponieważ dwie listy zawierają tę samą liczbę obiektów z tymi samymi wartościami w tej samej kolejności. `Console.WriteLine` `False` `List<int>` Nie zdefiniowano `operator==`, pierwsze miałoby wynik, ponieważ `a` i odwołuje się do `b` różnych wystąpień. `List<T>`
 
 #### <a name="destructors"></a>Destruktory
 
-A ***destruktor*** jest elementem członkowskim implementujący działania wymagane do niszczenia wystąpienia klasy. Destruktory nie mogą mieć parametrów, nie mają modyfikatory dostępności i nie można wywołać jawnie. Destruktor dla wystąpienia jest wywoływana automatycznie podczas wyrzucania elementów bezużytecznych.
+***Destruktor*** jest członkiem, który implementuje akcje wymagane do zadestruktorowania wystąpienia klasy. Destruktory nie mogą mieć parametrów, nie mogą mieć modyfikatorów dostępności i nie mogą być wywoływane jawnie. Destruktor dla wystąpienia jest wywoływany automatycznie podczas wyrzucania elementów bezużytecznych.
 
-Moduł odśmiecania pamięci jest dozwolona szerokiego szerokości przy podejmowaniu decyzji podczas zbierania obiektów i uruchomić destruktorów. Czas wywołania destruktora nie jest jednoznaczny i destruktory mogą być wykonywane na żadnym z wątków. Dla tych i innych powodów klasy należy zaimplementować destruktory tylko wtedy, gdy nie inne rozwiązania są niewykonalne.
+Moduł wyrzucania elementów bezużytecznych jest dozwolony w przypadku podejmowania decyzji o zbieraniu obiektów i destruktorów uruchamiania. W odróżnieniu od czasu wywołania destruktorów nie jest deterministyczna, a destruktory mogą być wykonywane na dowolnym wątku. Z tych i innych powodów klasy powinny implementować destruktory tylko wtedy, gdy żadne inne rozwiązania nie są możliwe.
 
-`using` Instrukcja oferuje lepszym rozwiązaniem do zniszczenia obiektu.
+`using` Instrukcja zawiera lepsze podejście do niszczenia obiektów.
 
 ## <a name="structs"></a>Struktury
 
-Takie jak klasy, ***struktury*** są struktur danych, które mogą zawierać elementy członkowskie danych i składowe funkcji, ale w przeciwieństwie do klasy, struktury są typami wartości i nie wymagają alokacji sterty. Zmienną typu struktury bezpośrednio przechowuje dane struktury, natomiast zmienna typu klasa przechowuje odwołania do obiektu przydzielanego dynamicznie. Typy struktury nie obsługują dziedziczenia określonych przez użytkownika, a wszystkie typy struktury niejawnie dziedziczą z typu `object`.
+Podobnie jak klasy, ***struktury*** są strukturami danych, które mogą zawierać składowe danych i składowe funkcji, ale w przeciwieństwie do klas, struktury są typami wartości i nie wymagają przydziału sterty. Zmienna typu struktury bezpośrednio przechowuje dane struktury, podczas gdy zmienna typu klasy przechowuje odwołanie do obiektu przydzielanego dynamicznie. Typy struktur nie obsługują dziedziczenia określonego przez użytkownika, a wszystkie typy struktur niejawnie dziedziczą `object`po typie.
 
-Struktury są szczególnie przydatne w przypadku małych strukturach danych, które mają semantyki wartości. Liczby zespolone, punkty w układzie współrzędnych lub par klucz wartość ze słownika są dobrym przykładem struktury. Używanie struktur, zamiast klasy w małych strukturach danych ułatwia duża różnica w liczbie alokacji pamięci aplikacji wykonuje. Na przykład następujący program tworzy i inicjuje tablicę 100 punktów. Za pomocą `Point` implementowany jako klasa, 101 oddzielne obiekty są tworzone — jeden dla macierzy i jeden dla 100 elementów.
+Struktury są szczególnie przydatne w przypadku małych struktur danych, które mają semantykę wartości. Liczby zespolone, punkty w układzie współrzędnych lub pary klucz-wartość w słowniku są wszystkimi dobrymi przykładami struktur. Użycie struktur zamiast klas dla małych struktur danych może spowodować znaczną różnicę liczby alokacji pamięci wykonywanej przez aplikację. Na przykład następujący program tworzy i Inicjuje tablicę z 100 punktów. Z `Point` zaimplementowaną klasą, 101 oddzielnych obiektów są tworzone wystąpienia — jeden dla tablicy i jeden dla elementów 100.
 
 ```csharp
 class Point
@@ -1271,7 +1271,7 @@ class Test
     }
 }
 ```
-Alternatywą jest zapewnienie `Point` struktury.
+Alternatywą jest tworzenie `Point` struktury.
 
 ```csharp
 struct Point
@@ -1284,11 +1284,11 @@ struct Point
     }
 }
 ```
-Teraz, zostanie uruchomiony tylko jeden obiekt — jeden dla tablicy — i `Point` wystąpienia są przechowywane w tekście w tablicy.
+Teraz zostanie utworzony tylko jeden obiekt — jeden dla tablicy — i `Point` wystąpienia są przechowywane w wierszu tablicy.
 
-Struct — Konstruktorzy są wywoływane przy użyciu `new` operatora, ale nie oznacza, że pamięć jest przydzielane. Zamiast dynamicznej alokacji obiektu i zwraca odwołanie do niej Konstruktor struktury po prostu zwraca wartość struct (zwykle znajduje się w lokalizacji tymczasowej na stosie), a ta wartość jest następnie kopiowana gdy jest to konieczne.
+Konstruktory struktury są wywoływane z `new` operatorem, ale nie oznacza to, że pamięć jest przyznana. Zamiast dynamicznie przydzielać obiektu i zwracać odwołanie do niego, Konstruktor struktury po prostu zwraca wartość struktury (zazwyczaj w tymczasowej lokalizacji na stosie), a następnie ta wartość jest kopiowana w razie potrzeby.
 
-W przypadku klas jest możliwe dwóch zmiennych odwoływać się do tego samego obiektu dla operacji na jednej zmiennej miały wpływ na obiekt odwołuje się druga zmienna zatem możliwe. Przy użyciu struktury zmienne każda ma własne kopię danych, a nie jest możliwe dla operacji na jednym wpływa na drugi. Na przykład dane wyjściowe generowane przez następujący fragment kodu jest zależna od tego, czy `Point` jest klasą lub strukturą.
+Klasy, istnieje możliwość, że dwie zmienne odwołują się do tego samego obiektu, a tym samym możliwe dla operacji na jednej zmiennej, aby wpływać na obiekt, do którego odwołuje się inna zmienna. W przypadku struktur zmienne każda z nich ma własną kopię danych i nie jest możliwe wykonywanie operacji na nich, aby wpływać na inne. Na przykład dane wyjściowe generowane przez Poniższy fragment kodu zależą od tego, czy `Point` jest klasą czy strukturą.
 
 ```csharp
 Point a = new Point(10, 10);
@@ -1296,17 +1296,17 @@ Point b = a;
 a.x = 20;
 Console.WriteLine(b.x);
 ```
-Jeśli `Point` jest klasą, dane wyjściowe są `20` ponieważ `a` i `b` odwoływać się do tego samego obiektu. Jeśli `Point` jest strukturą, dane wyjściowe są `10` ponieważ przypisanie `a` do `b` tworzona jest kopia wartości, i nie ma wpływu następne przypisanie do tej kopii `a.x`.
+Jeśli `Point` jest klasą, dane wyjściowe są `20` spowodowane `a` `b` tym samym obiektem. Jeśli `Point` jest strukturą, dane wyjściowe wynikają `10` z faktu `a` , `b` że przypisanie do tworzy kopię wartości i ta kopia nie ma wpływ na kolejne przypisanie do `a.x`.
 
-W poprzednim przykładzie wyróżniono dwa ograniczenia dotyczące struktury. Po pierwsze całej strukturze jest to zazwyczaj mniej wydajne niż kopiowanie odwołanie do obiektu, dzięki czemu przekazywanie przypisania i wartość parametru może być bardziej kosztowne przy użyciu struktury niż w przypadku typów referencyjnych. Drugi, z wyjątkiem `ref` i `out` parametrów, nie jest możliwe do utworzenia odwołania do struktury, która wyklucza ich użycia w różnych sytuacjach.
+Poprzedni przykład wyróżnia dwa ograniczenia struktur. Najpierw kopiowanie całej struktury jest zwykle mniej wydajne niż kopiowanie odwołania do obiektu, dlatego przypisanie i wartość przekazywanie parametrów mogą być bardziej kosztowne z strukturami niż w przypadku typów referencyjnych. Po drugie, z `ref` wyjątkiem `out` parametrów i, nie jest możliwe tworzenie odwołań do struktur, które wywołują zasady ich użycia w wielu sytuacjach.
 
 ## <a name="arrays"></a>Tablice
 
-***Tablica*** to struktura danych zawierająca pewną liczbę zmiennych, do których dostęp jest uzyskiwany za pomocą obliczonych indeksów. Zmienne zawartych w tablicy, jest określana skrótem ***elementy*** tablicy, są wszystkie tego samego typu, a tego typu jest nazywana ***typ elementu*** tablicy.
+***Tablica*** to struktura danych zawierająca pewną liczbę zmiennych, do których dostęp jest uzyskiwany za pomocą obliczonych indeksów. Zmienne zawarte w tablicy, nazywane również ***elementami*** tablicy, są tego samego typu, a ten typ jest nazywany ***typem elementu*** tablicy.
 
-Typy tablicowe są typami odwołań, a deklaracja zmiennej tablicy po prostu rezerwuje miejsce dla odwołania do wystąpienia tablicy. Wystąpienia bieżącej tablicy są tworzone dynamicznie w czasie wykonywania za pomocą `new` operatora. `new` Operacji określa ***długość*** nowego wystąpienia tablicy naprawiliśmy dla okresu istnienia wystąpienia. Indeksy elementów z zakresu tablicy `0` do `Length - 1`. `new` Operator automatycznie inicjuje elementy tablicy, aby przywrócić wartości domyślne, na przykład są to wartości zero dla wszystkich typów liczbowych i `null` dla wszystkich typów odniesienia.
+Typy tablic są typami odwołań, a deklaracja zmiennej tablicowej po prostu ustawia miejsce na odwołanie do wystąpienia tablicy. Rzeczywiste wystąpienia tablicy są tworzone dynamicznie w czasie wykonywania przy użyciu `new` operatora. Operacja określa długość nowego wystąpienia tablicy, które jest następnie naprawione dla okresu istnienia wystąpienia. `new` Indeksy elementów z zakresu tablicy od `0` do. `Length - 1` Operator automatycznie inicjuje elementy tablicy do ich wartości domyślnych, które na przykład są równe zero dla wszystkich typów liczbowych i `null` dla wszystkich typów odwołań. `new`
 
-Poniższy przykład tworzy tablicę `int` elementów, inicjuje tablicy i wyświetla zawartość tablicy.
+Poniższy przykład tworzy tablicę `int` elementów, Inicjuje tablicę i drukuje zawartość tablicy.
 
 ```csharp
 using System;
@@ -1324,16 +1324,16 @@ class Test
     }
 }
 ```
-W tym przykładzie tworzy i działa na ***tablicy jednowymiarowej***. C# obsługuje również ***Wielowymiarowe tablice***. Wpisz liczbę wymiarów tablicy, znany także jako ***ranga*** typ tablicy jest jedną przesunięta liczbę przecinkami zapisywane między nawiasami kwadratowymi typu tablicy. Poniższy przykład przydziela jednowymiarową dwuwymiarowym i tablicę trójwymiarową.
+Ten przykład tworzy i działa na ***tablicy jednowymiarowej***. C#obsługuje również ***tablice***wielowymiarowe. Liczba wymiarów typu tablicy, znana również jako ***ranga*** typu tablicy, jest taka, a liczba przecinkiów zapisywana między nawiasami kwadratowymi typu tablicy. Poniższy przykład przydziela jednowymiarową, dwuwymiarową i trójwymiarową tablicę.
 
 ```csharp
 int[] a1 = new int[10];
 int[,] a2 = new int[10, 5];
 int[,,] a3 = new int[10, 5, 2];
 ```
-`a1` Tablica zawiera 10 elementów `a2` tablica zawiera 50 (10 x 5) elementów, a `a3` tablica zawiera 100 (10 x 5 x 2) elementów.
+Tablica zawiera 10 elementów `a2` , tablica zawiera 50 (10 × 5 `a3` ) elementów, a tablica zawiera 100 (10 × 5 x 2) elementów. `a1`
 
-Typ elementu tablicy może być dowolnego typu, w tym typu tablicowego. Tablicę z elementami typu tablicowego jest czasami nazywane ***tablicy nieregularnej*** ponieważ długości tablic elementu nie wszystkie muszą być takie same. Poniższy przykład przydziela tablicy tablic `int`:
+Typ elementu tablicy może być dowolnego typu, łącznie z typem tablicy. Tablica z elementami typu tablicy jest czasami nazywana ***tablicą nieregularną*** , ponieważ długości tablic elementów nie wszystkie muszą być takie same. Poniższy przykład alokuje tablicę `int`tablic:
 
 ```csharp
 int[][] a = new int[3][];
@@ -1341,19 +1341,19 @@ a[0] = new int[10];
 a[1] = new int[5];
 a[2] = new int[20];
 ```
-Pierwszy wiersz tworzy tablicę z trzech elementów, z których każdy typ `int[]` , a każdy z wartości początkowej `null`. Kolejne wiersze następnie zainicjowanie trzech elementów z odwołaniami do wystąpień poszczególnych tablicy o różnej długości.
+Pierwszy wiersz tworzy tablicę z trzema elementami, każdy typ `int[]` i każdy z początkową `null`wartością. Kolejne wiersze inicjują następnie trzy elementy z odwołaniami do poszczególnych wystąpień tablicy o różnej długości.
 
-`new` Operator zezwala na wartość początkową elementów tablicy, należy określić przy użyciu ***inicjatora tablicy***, który znajduje się lista wyrażeń zapisywane między ogranicznikami `{` i `}`. Poniższy przykład przydziela i inicjuje `int[]` za pomocą trzech elementów.
+Operator zezwala na określenie wartości początkowych elementów tablicy przy użyciu ***inicjatora tablicy***, który jest listą wyrażeń pisanych ogranicznikami `{` i. `}` `new` Poniższy przykład przydziela i inicjuje `int[]` z trzema elementami.
 
 ```csharp
 int[] a = new int[] {1, 2, 3};
 ```
-Należy pamiętać, że długość tablicy jest wnioskowany z liczba wyrażeń między `{` i `}`. Zmienna lokalna i deklaracji pól można skrócony dalsze taki sposób, że typ tablicy nie ma być przekształcone.
+Należy zauważyć, że długość tablicy jest wywnioskowana na podstawie liczby wyrażeń między `{` i. `}` Deklaracje zmiennej lokalnej i pola mogą być skrócone w taki sposób, aby nie trzeba było przestawiać tego typu tablicy.
 
 ```csharp
 int[] a = {1, 2, 3};
 ```
-W poprzednich przykładach są odpowiednikiem następujących czynności:
+Oba poprzednie przykłady są równoważne z następującymi:
 
 ```csharp
 int[] t = new int[3];
@@ -1364,9 +1364,9 @@ int[] a = t;
 ```
 ## <a name="interfaces"></a>Interfejsy
 
-***Interfejsu*** definiuje kontrakt, który może być implementowany przez klas i struktur. Interfejs może zawierać metody, właściwości, zdarzeń i indeksatorów. Interfejs nie zawiera implementacji członków definiuje — jedynie określa elementy członkowskie, które muszą być dostarczane przez klasy lub struktury, które implementują interfejs.
+***Interfejs*** definiuje kontrakt, który może być zaimplementowany przez klasy i struktury. Interfejs może zawierać metody, właściwości, zdarzenia i indeksatory. Interfejs nie dostarcza implementacji elementów członkowskich, które definiuje — tylko określa elementy członkowskie, które muszą być dostarczone przez klasy lub struktury, które implementują interfejs.
 
-Interfejsy mogą stosować ***wielokrotne dziedziczenie***. W poniższym przykładzie interfejs `IComboBox` dziedziczy z obu `ITextBox` i `IListBox`.
+Interfejsy mogą wykorzystywać ***wielokrotne dziedziczenie***. W poniższym przykładzie interfejs `IComboBox` dziedziczy z obu `ITextBox` i `IListBox`.
 
 ```csharp
 interface IControl
@@ -1386,7 +1386,7 @@ interface IListBox: IControl
 
 interface IComboBox: ITextBox, IListBox {}
 ```
-Klasy i struktury można zaimplementować wiele interfejsów. W poniższym przykładzie klasa `EditBox` implementuje interfejsy `IControl` i `IDataBound`.
+Klasy i struktury mogą implementować wiele interfejsów. W poniższym przykładzie Klasa `EditBox` implementuje zarówno `IControl` , jak i `IDataBound`.
 
 ```csharp
 interface IDataBound
@@ -1400,21 +1400,21 @@ public class EditBox: IControl, IDataBound
     public void Bind(Binder b) {...}
 }
 ```
-Gdy klasa lub struktura implementuje danego interfejsu, wystąpienia tej klasy lub struktury mogą być niejawnie konwertowane do tego typu interfejsu. Na przykład
+Gdy Klasa lub struktura implementuje określony interfejs, wystąpienia tej klasy lub struktury mogą być niejawnie konwertowane na typ tego interfejsu. Na przykład
 
 ```csharp
 EditBox editBox = new EditBox();
 IControl control = editBox;
 IDataBound dataBound = editBox;
 ```
-W przypadkach, gdy wystąpienie nie jest znany statycznie do implementowania określonego interfejsu służy rzutowania typu dynamicznego. Na przykład poniższe instrukcje użyć rzutowania typu dynamicznego do uzyskiwania obiektu `IControl` i `IDataBound` implementacji interfejsu. Ponieważ jest rzeczywisty typ obiektu `EditBox`, rzutowania powiodło się.
+W przypadkach, gdy wystąpienie nie jest statycznie znane do implementacji określonego interfejsu, można użyć rzutowania typu dynamicznego. Na przykład następujące instrukcje używają rzutowania typu dynamicznego do uzyskiwania implementacji obiektu `IControl` i `IDataBound` interfejsu. Ponieważ rzeczywisty typ obiektu to `EditBox`, Rzutowanie powiedzie się.
 
 ```csharp
 object obj = new EditBox();
 IControl control = (IControl)obj;
 IDataBound dataBound = (IDataBound)obj;
 ```
-W ciągu poprzednich `EditBox` klasy `Paint` metody z `IControl` interfejsu i `Bind` metody z `IDataBound` interfejs jest implementowany przy użyciu `public` elementów członkowskich. C# obsługuje również ***implementacji elementu członkowskiego interfejsu jawnego***, za pomocą której klasy lub struktury można uniknąć, dzięki czemu członkowie `public`. Implementacja interfejsu jawnego członka jest zapisywany przy użyciu interfejsu w pełni kwalifikowana nazwa elementu członkowskiego. Na przykład `EditBox` implementacji klasy `IControl.Paint` i `IDataBound.Bind` metod za pomocą jawnych implementacji elementu członkowskiego interfejsu w następujący sposób.
+W `EditBox` poprzedniej `public` klasie `Paint` Metoda `IControl` `IDataBound` z interfejsu i Metodazinterfejsusąimplementowanezapomocąelementówczłonkowskich.`Bind` C#obsługuje również ***jawne implementacje elementu członkowskiego interfejsu***, za pomocą którego Klasa lub struktura może uniknąć `public`tworzenia elementów członkowskich. Implementacja jawnego elementu członkowskiego interfejsu jest zapisywana przy użyciu w pełni kwalifikowanej nazwy elementu członkowskiego interfejsu. Na przykład `EditBox` Klasa może `IControl.Paint` zaimplementować metody i `IDataBound.Bind` przy użyciu jawnych implementacji elementu członkowskiego interfejsu w następujący sposób.
 
 ```csharp
 public class EditBox: IControl, IDataBound
@@ -1423,7 +1423,7 @@ public class EditBox: IControl, IDataBound
     void IDataBound.Bind(Binder b) {...}
 }
 ```
-Elementy członkowskie interfejsu jawnego zostać oceniony jedynie przez typ interfejsu. Na przykład implementacji `IControl.Paint` dostarczone przez poprzednie `EditBox` klasy może być wywoływany tylko przez uprzedniego przekonwertowania `EditBox` odwołanie do `IControl` typ interfejsu.
+Dostęp do jawnych elementów członkowskich interfejsu można uzyskać tylko za pośrednictwem typu interfejsu. Na przykład implementacja `IControl.Paint` dostarczonych przez poprzednią `EditBox` klasę może być `EditBox` wywoływana tylko przez pierwsze `IControl` przekonwertowanie odwołania do typu interfejsu.
 
 ```csharp
 EditBox editBox = new EditBox();
@@ -1434,7 +1434,7 @@ control.Paint();                        // Ok
 
 ## <a name="enums"></a>Wyliczenia
 
-***Typ wyliczeniowy*** to odrębny typ wartości zawierający zestaw nazwanych stałych. Poniższy przykład deklaruje i korzysta z typu wyliczeniowego, o nazwie `Color` z trzech wartości stałych, `Red`, `Green`, i `Blue`.
+***Typ wyliczeniowy*** to odrębny typ wartości zawierający zestaw nazwanych stałych. Poniższy przykład deklaruje i używa typu wyliczeniowego `Color` o nazwie z trzema `Red`stałymi wartościami `Blue`,, `Green`i.
 
 ```csharp
 using System;
@@ -1472,9 +1472,9 @@ class Test
     }
 }
 ```
-Każdy typ wyliczenia ma odpowiedni typ całkowity, o nazwie ***typ bazowy*** typu wyliczeniowego. Typ wyliczeniowy, który jawnie deklaruj typu podstawowego jest podstawowym typem `int`. Format magazynu i zakres możliwych wartości typu wyliczeniowego są określane przez jej typ podstawowy. Zbiór wartości, które mogą przejąć typ wyliczeniowy nie jest ograniczona przez jej elementów członkowskich wyliczenia. W szczególności dowolną wartość w podstawowym typem wyliczenia mogą być rzutowane na typ wyliczeniowy i jest różne prawidłową wartością tego typu wyliczeniowego.
+Każdy typ wyliczeniowy ma odpowiedni typ całkowity nazywany ***typem podstawowym*** typu wyliczeniowego. Typ wyliczeniowy, który nie deklaruje jawnie typu podstawowego, ma typ `int`podstawowy. Format magazynu typu wyliczeniowego i zakres możliwych wartości są określane przez jego typ podstawowy. Zbiór wartości, dla których można zastosować typ wyliczeniowy, nie jest ograniczony przez elementy członkowskie wyliczenia. W szczególności każda wartość typu podstawowego wyliczenia może być rzutowana na typ wyliczeniowy i jest unikatową prawidłową wartością tego typu wyliczeniowego.
 
-Poniższy przykład deklaruje typu wyliczeniowego, o nazwie `Alignment` z podstawowym typem `sbyte`.
+Poniższy przykład deklaruje typ wyliczeniowy o nazwie `Alignment` z `sbyte`typem podstawowym.
 
 ```csharp
 enum Alignment: sbyte
@@ -1484,15 +1484,15 @@ enum Alignment: sbyte
     Right = 1
 }
 ```
-Jak pokazano w poprzednim przykładzie, deklaracja elementu członkowskiego wyliczenia mogą zawierać wyrażenie stałe, które określa wartość elementu członkowskiego. Stała wartość dla każdego elementu członkowskiego wyliczenia musi być w zakresie podstawowym typem wyliczenia. Element członkowski w deklaracji elementu członkowskiego wyliczenia bez określenia wartości, otrzymuje wartość zero (jeśli jest to pierwszy element członkowski w typie wyliczeniowym) lub wartość składowej wyliczenia w formie tekstu poprzedniego plus jeden.
+Jak pokazano w poprzednim przykładzie, Deklaracja elementu członkowskiego wyliczenia może zawierać wyrażenie stałe, które określa wartość elementu członkowskiego. Wartość stała dla każdego elementu członkowskiego wyliczenia musi znajdować się w zakresie bazowego typu wyliczenia. Jeśli deklaracja elementu członkowskiego wyliczenia nie określa jawnie wartości, element członkowski otrzymuje wartość zero (jeśli jest to pierwszy element członkowski typu enum) lub wartość w postaci jednokrotnie poprzedzającej składową wyliczenia plus jeden.
 
-Wartości wyliczenia może być przekonwertowany na całkowite wartości i odwrotnie przy użyciu typu rzutowania. Na przykład
+Wartości wyliczeniowe mogą być konwertowane na wartości całkowite i odwrotnie przy użyciu rzutowania typu. Na przykład
 
 ```csharp
 int i = (int)Color.Blue;        // int i = 2;
 Color c = (Color)2;             // Color c = Color.Blue;
 ```
-Wartość domyślna typu wyliczenia jest wartością typu całkowitego zero konwertowane na typ wyliczeniowy. W przypadkach, gdy zmienne są automatycznie inicjowane na wartość domyślna to wartość wyliczenia typów zmiennych. Aby wartość domyślną typu wyliczeniowego ma być łatwo dostępne, literał `0` niejawnie konwertuje do dowolnego typu wyliczenia. W związku z tym że jest dozwolone.
+Wartość domyślna dowolnego typu wyliczeniowego jest wartością całkowitą zero przekonwertowaną na typ wyliczeniowy. W przypadkach, gdy zmienne są automatycznie inicjowane do wartości domyślnej, jest to wartość nadana zmiennym typów wyliczeniowych. Aby wartość domyślna typu wyliczeniowego była łatwo dostępna, literał `0` niejawnie konwertowany na dowolny typ wyliczeniowy. W ten sposób można używać następujących sposobów.
 
 ```csharp
 Color c = 0;
@@ -1500,9 +1500,9 @@ Color c = 0;
 
 ## <a name="delegates"></a>Delegaty
 
-A ***typ delegowany*** reprezentuje odwołania do metod z określonego parametru listy i typ zwracany. Delegatów można umożliwić traktować metod jako jednostki, które mogą być przypisane do zmiennych i przekazywane jako parametry. Delegaty są podobne do koncepcji wskaźników funkcji, w przeciwieństwie do innych języków, ale w przeciwieństwie do wskaźników funkcji, obiekty delegowane są zorientowane obiektowo i bezpieczny typowo.
+***Typ delegata*** reprezentuje odwołania do metod z określoną listą parametrów i zwracanym typem. Delegaty umożliwiają traktowanie metod jako jednostek, które mogą być przypisane do zmiennych i przekazane jako parametry. Delegaty są podobne do koncepcji wskaźników funkcji, które znajdują się w innych językach, ale w przeciwieństwie do wskaźników funkcji Delegaty są zorientowane obiektowo i są bezpieczne dla typów.
 
-Poniższy przykład deklaruje i wykorzystuje typ delegata, o nazwie `Function`.
+Poniższy przykład deklaruje i używa typu delegata o `Function`nazwie.
 
 ```csharp
 using System;
@@ -1543,22 +1543,22 @@ class Test
     }
 }
 ```
-Wystąpienie `Function` typ delegata można odwoływać się do dowolnej metody, która przyjmuje `double` argument i zwraca `double` wartość. `Apply` Metoda dotyczy danego `Function` do elementów `double[]`, zwracanie `double[]` z wynikami. W `Main` metody `Apply` służy do trzech różnych funkcji w celu stosowania `double[]`.
+Wystąpienie `Function` typu delegata może odwoływać się do dowolnej metody, która `double` przyjmuje argument i zwraca `double` wartość. Metoda odnosi `Function` się do elementów a `double[]`, zwracając `double[]` wynik. `Apply` Metoda jest używana do zastosowania `double[]`trzech różnych funkcji do. `Apply` `Main`
 
-Delegat może odwoływać się statycznej metody (takie jak `Square` lub `Math.Sin` w poprzednim przykładzie) lub metodą wystąpienia (takie jak `m.Multiply` w poprzednim przykładzie). Delegat, który odwołuje się do metody wystąpienia odwołuje się konkretny obiekt, a gdy wywoływana jest metoda wystąpienia, za pośrednictwem delegata, staje się ten obiekt `this` w wywołaniu.
+Delegat może odwoływać się do metody statycznej (takiej `Square` jak `Math.Sin` lub w poprzednim przykładzie) lub metody `m.Multiply` wystąpienia (na przykład w poprzednim przykładzie). Delegat, który odwołuje się do metody wystąpienia, odwołuje się również do określonego obiektu i gdy metoda wystąpienia jest wywoływana za pomocą delegata `this` , ten obiekt zostaje w wywołaniu.
 
-Delegatów można także tworzyć, używając funkcji anonimowych, które są "wbudowane metody", które są tworzone na bieżąco. Funkcje anonimowe można zobaczyć zmienne lokalne otaczającym metody. W związku z tym, w powyższym przykładzie Mnożnik można napisać tak, aby łatwiej bez korzystania z `Multiplier` klasy:
+Delegatów można także tworzyć za pomocą funkcji anonimowych, które są "metodami wbudowanymi", które są tworzone na bieżąco. Funkcje anonimowe mogą zobaczyć zmienne lokalne otaczających metod. W ten sposób przykład mnożnika można napisać łatwiej, bez użycia `Multiplier` klasy:
 
 ```csharp
 double[] doubles =  Apply(a, (double x) => x * 2.0);
 ```
-Interesujące i przydatne własności delegata jest, nie wiedzieć, i nie interesuje klasy, metody, która odwołuje się do; wszystko, co dla Ciebie ważne jest, do którego istnieje odwołanie metoda ma te same parametry oraz zwracany typ jak delegat.
+Interesująca i przydatna właściwość delegata polega na tym, że nie wie ani nie posługuje się klasą metody, do której się odwołuje; wszystkie te kwestie polegają na tym, że metoda przywoływana ma te same parametry i zwracany typ jako delegat.
 
 ## <a name="attributes"></a>Atrybuty
 
-Typy, członków i inne jednostki w programie C# obsługuje modyfikatory, które kontrolują niektóre aspekty swojego zachowania. Na przykład dostępność metody jest kontrolowany przy użyciu `public`, `protected`, `internal`, i `private` modyfikatorów. C# uogólnia tej możliwości w taki sposób, że typy zdefiniowane przez użytkownika deklaratywne informacji może być dołączony do programu jednostek i pobierane w czasie wykonywania. Programy Określ dodatkowe informacje deklaratywne przez definiowanie i korzystanie z ***atrybuty***.
+Typy, elementy członkowskie i inne jednostki w C# programie obsługują Modyfikatory kontrolujące pewne aspekty ich zachowania. Na przykład dostępność metody jest `public`kontrolowana za pomocą modyfikatorów, `protected`, `internal`i `private` . C#służy do uogólniania tej funkcji w taki sposób, aby typy informacji deklaratywnych zdefiniowanych przez użytkownika mogły być dołączane do jednostek programu i pobierane w czasie wykonywania. Programy określają te dodatkowe informacje deklaracyjne przez definiowanie i używanie ***atrybutów***.
 
-Poniższy przykład deklaruje `HelpAttribute` atrybut, który można umieścić na program jednostki zawierają łącza do ich dokumentacji skojarzone.
+Poniższy przykład deklaruje `HelpAttribute` atrybut, który może być umieszczony w jednostkach programu, aby udostępnić linki do powiązanej dokumentacji.
 
 ```csharp
 using System;
@@ -1582,7 +1582,7 @@ public class HelpAttribute: Attribute
     }
 }
 ```
-Wszystkie klasy atrybutu pochodzić od `System.Attribute` dostarczane przez program .NET Framework klasy bazowej. Atrybuty mogą być stosowane, zapewniając ich nazw, wraz z żadnych argumentów, w nawiasach kwadratowych tuż przed skojarzone deklaracji. Jeśli nazwa atrybutu, który kończy się na `Attribute`, gdy odwołuje się do atrybutu można pominąć tę część nazwy. Na przykład `HelpAttribute` atrybut może być używany w następujący sposób.
+Wszystkie klasy atrybutów pochodzą z `System.Attribute` klasy bazowej dostarczonej przez .NET Framework. Atrybuty mogą być stosowane, dając ich nazwę, wraz z dowolnymi argumentami, wewnątrz nawiasów kwadratowych tuż przed skojarzoną deklaracją. Jeśli nazwa atrybutu zostanie zakończona `Attribute`, ta część nazwy może zostać pominięta, gdy występuje odwołanie do atrybutu. Na przykład `HelpAttribute` atrybut może być używany w następujący sposób.
 
 ```csharp
 [Help("http://msdn.microsoft.com/.../MyClass.htm")]
@@ -1592,9 +1592,9 @@ public class Widget
     public void Display(string text) {}
 }
 ```
-W tym przykładzie dołącza `HelpAttribute` do `Widget` klasy, a drugi `HelpAttribute` do `Display` metody w klasie. Konstruktory publiczne klasy atrybutu kontrolować informacje, które należy podać, gdy atrybut jest dołączany do jednostki programu. Można podać dodatkowe informacje, odwołując się do właściwości publiczne odczytu / zapisu atrybutu klasy (np. odwołanie do `Topic` właściwość wcześniej).
+Ten `HelpAttribute` przykład dołącza `Widget` do klasyi`HelpAttribute` drugi do metodywklasie.`Display` Publiczne konstruktory klasy atrybutów kontrolują informacje, które muszą być dostarczone, gdy atrybut jest dołączony do jednostki programu. Dodatkowe informacje można uzyskać, odwołując się do właściwości publicznego odczytu i zapisu klasy atrybutów (takich jak odwołanie do `Topic` właściwości wcześniej).
 
-W poniższym przykładzie pokazano, jak można pobrać informacje o atrybutach dotyczące jednostki danego programu w czasie wykonywania przy użyciu odbicia.
+Poniższy przykład pokazuje, jak informacje o atrybutach danej jednostki programu mogą być pobierane w czasie wykonywania przy użyciu odbicia.
 
 ```csharp
 using System;
@@ -1620,4 +1620,4 @@ class Test
     }
 }
 ```
-Określony atrybut zleconą przez odbicie konstruktora dla klasy atrybutu jest wywoływana z informacji podanych w źródle programu, a wynikowy wystąpienie atrybutu jest zwracana. Dodatkowe informacje były udostępniane za pośrednictwem właściwości, te właściwości są ustawione na wartości podanej w przed zwróceniem wystąpienie atrybutu.
+Gdy określony atrybut jest żądany przez odbicie, Konstruktor klasy atrybutu jest wywoływany z informacjami podanymi w źródle programu i zwracane jest wystąpienie atrybutu wynikowego. Jeśli dodatkowe informacje zostały przekazane za pomocą właściwości, te właściwości są ustawiane na podane wartości przed zwróceniem wystąpienia atrybutu.
