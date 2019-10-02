@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 2c87cafb8591b9dff2aa517b65af80ab263c7faa
-ms.sourcegitcommit: 7f7fc6e9e195e51b7ff8229aeaa70aa9fbbb63cb
+ms.openlocfilehash: e0def754174ab8646f9b849abe86d2c375c958b6
+ms.sourcegitcommit: 892af9016b3317a8fae12d195014dc38ba51cf16
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70876885"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703985"
 ---
 # <a name="classes"></a>Klasy
 
@@ -21,7 +21,7 @@ class_declaration
     ;
 ```
 
-*Class_declaration* składa się z opcjonalnego zestawu *atrybutów* ([atrybutów](attributes.md)), po których następuje opcjonalny zestaw *class_modifier*s ([Modyfikatory klas](classes.md#class-modifiers)), po którym następuje opcjonalny `partial` modyfikator, po którym następuje słowo `class` kluczowe i *Identyfikator* , który nazywa klasę, po którym następuje opcjonalne *type_parameter_list* ([parametry typu](classes.md#type-parameters)), a następnie opcjonalna Specyfikacja *class_base* ([Specyfikacja bazowa klasy ](classes.md#class-base-specification)), po którym następuje opcjonalny zestaw *type_parameter_constraints_clause*s ([ograniczenia parametru typu](classes.md#type-parameter-constraints)), po którym następuje *class_body* ([Treść klasy](classes.md#class-body)), opcjonalnie po którym następuje średnik.
+*Class_declaration* składa się z opcjonalnego zestawu *atrybutów* ([atrybutów](attributes.md)), po których następuje opcjonalny zestaw *class_modifier*s ([Modyfikatory klas](classes.md#class-modifiers)), po którym następuje opcjonalny modyfikator `partial`, po którym następuje słowo kluczowe `class` i *Identyfikator* , który nadaje nazwę klasy, a następnie opcjonalne *type_parameter_list* ([parametry typu](classes.md#type-parameters)), po którym następuje opcjonalna Specyfikacja *class_base* ([Specyfikacja bazowa klasy](classes.md#class-base-specification)), a następnie Opcjonalny zestaw *type_parameter_constraints_clause*s ([ograniczenia parametru typu](classes.md#type-parameter-constraints)), po którym następuje *class_body* ([Treść klasy](classes.md#class-body)), opcjonalnie po którym następuje średnik.
 
 Deklaracja klasy nie może dostarczać *type_parameter_constraints_clause*s, chyba że dostarcza również *type_parameter_list*.
 
@@ -111,18 +111,18 @@ __Odwołujące się do typów klas statycznych__
 
 *Namespace_or_type_name* ([nazwa przestrzeni nazw i typów](basic-concepts.md#namespace-and-type-names)) może odwoływać się do klasy statycznej, jeśli
 
-*  *Namespace_or_type_name* `T` jest *namespace_or_type_nameem* formularza `T.I`lub
-*  *Namespace_or_type_name* `T` to obiekt w *typeof_expression* ([argument lists](expressions.md#argument-lists)1) formularza. `typeof(T)`
+*  *Namespace_or_type_name* jest `T` w *namespace_or_type_name* formularza `T.I`, lub
+*  *Namespace_or_type_name* jest `T` w *typeof_expression* ([Argument List](expressions.md#argument-lists)1) formularza `typeof(T)`.
 
 *Primary_expression* ([Członkowie funkcji](expressions.md#function-members)) mogą odwoływać się do klasy statycznej, jeśli
 
-*  *Primary_expression* `E` to *member_access* (sprawdzanie w[czasie kompilacji dynamicznego rozpoznawania przeciążenia](expressions.md#compile-time-checking-of-dynamic-overload-resolution)) formularza `E.I`.
+*  *Primary_expression* to `E` w *member_access* ([Sprawdzanie czasu kompilacji dynamicznego rozwiązywania przeciążenia](expressions.md#compile-time-checking-of-dynamic-overload-resolution)) formularza `E.I`.
 
 W każdym innym kontekście jest to błąd czasu kompilacji, który odwołuje się do klasy statycznej. Na przykład jest to błąd dla klasy statycznej, która ma być używana jako klasa bazowa, typ składnika ([typy zagnieżdżone](classes.md#nested-types)) elementu członkowskiego, argument typu ogólnego lub ograniczenie parametru typu. Podobnie Klasa statyczna nie może być używana w typie tablicy, `new` typie wskaźnika, wyrażeniu, wyrażeniu rzutowania `is` , wyrażeniu `sizeof` , `as` wyrażeniu, wyrażeniu ani w wyrażeniu wartości domyślnej.
 
 ### <a name="partial-modifier"></a>Modyfikator częściowy
 
-Modyfikator jest używany do wskazania, że ta class_declaration jest deklaracją typu częściowego. `partial` Wiele deklaracji typu częściowego o tej samej nazwie w otaczającej przestrzeni nazw lub deklaracji typu Połącz, aby utworzyć jedną deklarację typu, zgodnie z regułami określonymi w [typach częściowych](classes.md#partial-types).
+Modyfikator `partial` służy do wskazywania, że ta *class_declaration* jest deklaracją typu częściowego. Wiele deklaracji typu częściowego o tej samej nazwie w otaczającej przestrzeni nazw lub deklaracji typu Połącz, aby utworzyć jedną deklarację typu, zgodnie z regułami określonymi w [typach częściowych](classes.md#partial-types).
 
 Posiadanie deklaracji klasy rozproszonej za pomocą oddzielnych segmentów tekstu programu może być przydatne, jeśli te segmenty są produkowane lub utrzymywane w różnych kontekstach. Na przykład jedna część deklaracji klasy może być wygenerowana maszyną, podczas gdy druga zostaje ręcznie utworzona. Oddzielenie tekstu między nimi uniemożliwia aktualizację przez jeden z powodu konfliktu z aktualizacjami.
 
@@ -171,7 +171,7 @@ class Extend<V>: V {}            // Error, type parameter used as base class
 
 #### <a name="base-classes"></a>Klas podstawowych
 
-Gdy *class_type* jest zawarty w *class_base*, określa bezpośrednią klasę bazową zadeklarowanej klasy. Jeśli deklaracja klasy nie ma *class_base*lub jeśli *class_base* zawiera tylko typy interfejsów, przyjmuje `object`się, że bezpośrednia klasa bazowa jest. Klasa dziedziczy składowe z bezpośredniej klasy podstawowej, zgodnie z opisem w [dziedziczeniu](classes.md#inheritance).
+Gdy *class_type* jest zawarty w *class_base*, określa bezpośrednią klasę bazową zadeklarowanej klasy. Jeśli deklaracja klasy nie ma *class_base*lub jeśli *class_base* zawiera tylko typy interfejsów, przyjmuje się, że bezpośrednia klasa bazowa jest `object`. Klasa dziedziczy składowe z bezpośredniej klasy podstawowej, zgodnie z opisem w [dziedziczeniu](classes.md#inheritance).
 
 W przykładzie
 ```csharp
@@ -298,7 +298,7 @@ constructor_constraint
     ;
 ```
 
-Każdy *type_parameter_constraints_clause* składa się z `where`tokenu, po którym następuje nazwa parametru typu, po którym następuje dwukropek i lista ograniczeń dla tego parametru typu. Dla każdego parametru typu może istnieć `where` co najwyżej jedna klauzula, `where` a klauzule mogą być wyświetlane w dowolnej kolejności. Podobnie jak tokeny `set` `where` i w metodzie dostępu do właściwości, token nie jest słowem kluczowym. `get`
+Każdy *type_parameter_constraints_clause* składa się z tokenu `where`, po którym następuje nazwa parametru typu, po którym następuje dwukropek i lista ograniczeń dla tego parametru typu. Dla każdego parametru typu może istnieć `where` co najwyżej jedna klauzula, `where` a klauzule mogą być wyświetlane w dowolnej kolejności. Podobnie jak tokeny `set` `where` i w metodzie dostępu do właściwości, token nie jest słowem kluczowym. `get`
 
 Lista ograniczeń podanych w `where` klauzuli może zawierać dowolny z następujących składników, w następującej kolejności: jedno ograniczenie podstawowe, jedno lub więcej ograniczeń pomocniczych i `new()`ograniczenie konstruktora.
 
@@ -344,9 +344,9 @@ Ta relacja jest błędem czasu kompilowania dla parametru typu, aby zależała o
 Wszystkie ograniczenia muszą być spójne między zależnymi parametrami typu. Jeśli parametr `S` typu jest zależny od parametru `T` typu, wówczas:
 
 *  `T`nie może mieć ograniczenia typu wartości. W przeciwnym `T` razie jest efektywnie zapieczętowany `S` , więc wymuszony jest ten sam typ co `T`, eliminując konieczność stosowania dwóch parametrów typu.
-*  Jeśli `S` ma`T` ograniczenie typu wartości, nie może mieć ograniczenia *class_type* .
-*  Jeśli `S` ma ograniczenie `T` *class_type i* ma `A` ograniczenie class_type,musiistniećkonwersjatożsamościlubniejawnakonwersjaodwołańz`B`elementudo `A` `B`lub niejawna konwersja odwołań `B` z `A`do.
-*  Jeśli `S` również zależy od parametru `U` typu `U` i ma ograniczenie `A` *class_type* i ma ograniczenie `T` `B` *class_type* , musi istnieć konwersja tożsamości lub niejawna konwersja `A` odwołań `B` z lub do niejawnej `B` konwersji `A`odwołań z do.
+*  Jeśli `S` ma ograniczenie typu wartości, `T` nie może mieć ograniczenia *class_type* .
+*  Jeśli `S` ma ograniczenie *class_type* `A`, a `T` ma ograniczenie *class_type* `B`, należy przeprowadzić konwersję tożsamości lub niejawną konwersję odwołań z `A` do `B` lub niejawnej konwersji odwołań z `B` do `A`.
+*  Jeśli `S` również zależy od parametru typu `U` i `U` ma ograniczenie *class_type* `A` i `T` ma ograniczenie *class_type* `B`, a następnie musi mieć konwersję tożsamości lub niejawną konwersję odwołań z `A` do `B` lub konwersji niejawnego odwołania z 0 do 1.
 
 Jest on prawidłowy dla `S` , aby miał ograniczenie typu wartości i `T` ma ograniczenie typu odwołania. Efektywnie te limity `T` dla typów `System.Object`, `System.ValueType`, `System.Enum`i dowolnego typu interfejsu.
 
@@ -424,12 +424,12 @@ class StructWithClass<S,T,U>
 
 *  Jeśli `T` nie ma ograniczeń podstawowych ani ograniczeń parametrów typu, jego obowiązująca Klasa bazowa `object`to.
 *  Jeśli `T` ma ograniczenie typu wartości, jego obowiązująca Klasa bazowa to `System.ValueType`.
-*  Jeśli `T` `C`ma ograniczenie `C` class_type, ale nie ograniczenia *type_parameter* , jego obowiązująca Klasa bazowa to.
-*  Jeśli `T` nie ma ograniczenia *class_type* , ale ma co najmniej jedno ograniczenie *type_parameter* , jego obowiązująca Klasa bazowa jest najbardziej niepowiązanego typu ([podniesione operatory konwersji](conversions.md#lifted-conversion-operators)) w zestawie skutecznych klas bazowych jego *type_ ograniczenia parametru* . Reguły spójności zapewniają, że ten typ jest najbardziej odnoszący się do tego typu.
-*  Jeśli `T` ma ograniczenie *class_type* i jedno lub więcej ograniczeń *type_parameter* , jego skuteczna Klasa bazowa to najbardziej z nich typ ([zniesione operatory konwersji](conversions.md#lifted-conversion-operators)) w zestawie składającym się z *class_type* ograniczenie i obowiązujące klasy bazowe jego ograniczeń type_parameter. `T` Reguły spójności zapewniają, że ten typ jest najbardziej odnoszący się do tego typu.
-*  Jeśli `T` ma ograniczenie typu odwołania, ale nie ograniczenia *class_type* , jego obowiązująca Klasa bazowa `object`to.
+*  Jeśli `T` ma ograniczenie *class_type* `C`, ale nie *type_parameter* ograniczeń, jego obowiązująca Klasa bazowa to `C`.
+*  Jeśli `T` nie ma ograniczenia *class_type* , ale ma co najmniej jedno ograniczenie *type_parameter* , jego obowiązująca Klasa bazowa jest najbardziej niepowiązanego typu ([przenoszone operatory konwersji](conversions.md#lifted-conversion-operators)) w zestawie skutecznych klas bazowych jego *type_ ograniczenia parametru* . Reguły spójności zapewniają, że ten typ jest najbardziej odnoszący się do tego typu.
+*  Jeśli `T` ma ograniczenie *class_type* i jedno lub więcej ograniczeń *type_parameter* , jego skuteczna Klasa bazowa to najbardziej z nich typ ([podniesione operatory konwersji](conversions.md#lifted-conversion-operators)) w zestawie składającym się z *class_type* ograniczenie `T` i obowiązujące klasy bazowe jego ograniczeń *type_parameter* . Reguły spójności zapewniają, że ten typ jest najbardziej odnoszący się do tego typu.
+*  Jeśli `T` ma ograniczenie typu odwołania, ale nie ograniczenia *class_type* , jego obowiązująca Klasa bazowa jest `object`.
 
-Na potrzeby tych reguł, jeśli `V` T ma ograniczenie, które jest *value_type*, Użyj zamiast tego najbardziej `V` konkretnego typu podstawowego, który jest *class_type*. Może to nigdy potrwać jawnie określone ograniczenie, ale może wystąpić, gdy ograniczenia metody generycznej są niejawnie dziedziczone przez zastępowanie deklaracji metody lub jawną implementację metody interfejsu.
+Na potrzeby tych reguł, jeśli T ma ograniczenie `V` to *value_type*, Użyj zamiast tego najbardziej konkretnego typu podstawowego `V`, który jest *class_type*. Może to nigdy potrwać jawnie określone ograniczenie, ale może wystąpić, gdy ograniczenia metody generycznej są niejawnie dziedziczone przez zastępowanie deklaracji metody lub jawną implementację metody interfejsu.
 
 Te reguły zapewniają, że obowiązująca Klasa bazowa jest zawsze *class_type*.
 
@@ -437,8 +437,8 @@ Te reguły zapewniają, że obowiązująca Klasa bazowa jest zawsze *class_type*
 
 *  Jeśli `T` nie ma *secondary_constraints*, jego skuteczny zestaw interfejsów jest pusty.
 *  Jeśli `T` ma ograniczenia *INTERFACE_TYPE* , ale nie ograniczenia *type_parameter* , jego obowiązujący zestaw interfejsów jest jego zestawem ograniczeń *INTERFACE_TYPE* .
-*  Jeśli `T` nie ma żadnych ograniczeń *INTERFACE_TYPE* , ale ma ograniczenia *type_parameter* , jego skuteczny zestaw interfejsów jest złożeniem efektywnych zestawów interfejsów dla jego ograniczeń *type_parameter* .
-*  Jeśli `T` program zawiera ograniczenia *INTERFACE_TYPE* i ograniczenia *type_parameter* , jego skuteczny zestaw interfejsów jest Unią zestawu ograniczeń *INTERFACE_TYPE* i obowiązującymi zestawami interfejsów jego *type_parameter* ograniczenia.
+*  Jeśli `T` nie ma ograniczeń *INTERFACE_TYPE* , ale ma ograniczenia *type_parameter* , jego skuteczny zestaw interfejsów jest złożeniem efektywnych zestawów interfejsów dla jego ograniczeń *type_parameter* .
+*  Jeśli `T` ma zarówno ograniczenia *INTERFACE_TYPE* , jak i ograniczenia *type_parameter* , jego skuteczny zestaw interfejsów jest Unią zestawu ograniczeń *INTERFACE_TYPE* i obowiązującymi zestawami interfejsów jego *type_parameter* powiązanych.
 
 Parametr typu jest ***znany jako typ referencyjny*** , jeśli ma ograniczenie typu odwołania lub jego obowiązująca Klasa bazowa nie `object` jest lub. `System.ValueType`
 
@@ -472,7 +472,7 @@ class_body
 
 Deklarację typu można podzielić na wiele ***deklaracji typu częściowego***. Deklaracja typu jest zbudowana z jego części, zgodnie z regułami w tej sekcji, whereupon jest traktowany jako jedna deklaracja w trakcie pozostałej części czasu kompilacji i przetwarzania w czasie wykonywania programu.
 
-Element *class_declaration*, *struct_declaration* lub *interface_declaration* reprezentuje `partial` deklarację typu częściowego, jeśli zawiera modyfikator. `partial`nie jest słowem kluczowym i działa tylko jako modyfikator, jeśli występuje bezpośrednio przed jednym ze słów kluczowych `class` `struct` lub `interface` w deklaracji typu lub przed typem `void` w deklaracji metody. W innych kontekstach można używać ich jako normalnego identyfikatora.
+*Class_declaration*, *struct_declaration* lub *interface_declaration* reprezentuje deklarację typu częściowego, jeśli zawiera modyfikator `partial`. `partial`nie jest słowem kluczowym i działa tylko jako modyfikator, jeśli występuje bezpośrednio przed jednym ze słów kluczowych `class` `struct` lub `interface` w deklaracji typu lub przed typem `void` w deklaracji metody. W innych kontekstach można używać ich jako normalnego identyfikatora.
 
 Każda część deklaracji typu częściowego musi zawierać `partial` modyfikator. Musi mieć taką samą nazwę i być zadeklarowane w tej samej przestrzeni nazw lub deklaracji typu co pozostałe części. Modyfikator wskazuje, że dodatkowe części deklaracji typu mogą istnieć w innym miejscu, ale istnienie takich dodatkowych części nie jest wymaganiem; jest to prawidłowe dla typu z pojedynczą deklaracją, aby `partial` dołączyć modyfikator. `partial`
 
@@ -575,7 +575,7 @@ partial class X: IComparable
 }
 ```
 
-### <a name="members"></a>Elementy członkowskie
+### <a name="members"></a>Members
 
 Z wyjątkiem metod częściowych ([metod częściowych](classes.md#partial-methods)) zestaw elementów członkowskich typu zadeklarowanych w wielu częściach jest po prostu Unią zestawu elementów członkowskich zadeklarowanych w każdej części. Ciała wszystkich części deklaracji typu współdzielą ten sam obszar deklaracji ([deklaracje](basic-concepts.md#declarations)), a zakres każdego elementu członkowskiego ([zakresów](basic-concepts.md#scopes)) rozciąga się na treść wszystkich części. Domena dostępności dowolnego elementu członkowskiego zawsze zawiera wszystkie części typu otaczającego; `private` składowa zadeklarowana w jednej części jest swobodnie dostępna z innej części. Jest to błąd czasu kompilacji, który deklaruje ten sam element członkowski w więcej niż jednej części typu, chyba że ten element członkowski jest typem z `partial` modyfikatorem.
 
@@ -824,7 +824,7 @@ Typ elementu członkowskiego `a` w deklaracji `Gen` klasy generycznej to "Dwuwym
 
 W ramach składowych funkcji wystąpienia typ `this` jest typem wystąpienia ([Typ wystąpienia](classes.md#the-instance-type)) zawierającej deklaracji.
 
-Wszystkie elementy członkowskie klasy generycznej mogą używać parametrów typu z dowolnej klasy otaczającej, bezpośrednio lub jako część typu złożonego. Gdy określony zamknięty typ skonstruowany ([otwarty i zamknięty](types.md#open-and-closed-types)) jest używany w czasie wykonywania, każde użycie parametru typu jest zastępowane rzeczywistym argumentem typu dostarczonym do typu złożonego. Przykład:
+Wszystkie elementy członkowskie klasy generycznej mogą używać parametrów typu z dowolnej klasy otaczającej, bezpośrednio lub jako część typu złożonego. Gdy określony zamknięty typ skonstruowany ([otwarty i zamknięty](types.md#open-and-closed-types)) jest używany w czasie wykonywania, każde użycie parametru typu jest zastępowane rzeczywistym argumentem typu dostarczonym do typu złożonego. Na przykład:
 ```csharp
 class C<V>
 {
@@ -884,7 +884,7 @@ W powyższym przykładzie skonstruowany typ `D<int>` ma niedziedziczony element 
 
 ### <a name="access-modifiers"></a>Modyfikatory dostępu
 
-*Class_member_declaration* może mieć jeden z pięciu możliwych rodzajów zadeklarowanej dostępności ([zadeklarowany dostęp](basic-concepts.md#declared-accessibility)) `public`:, `protected internal`, `protected` `internal`, lub `private`. `protected internal` Oprócz kombinacji, jest to błąd czasu kompilacji, aby określić więcej niż jeden modyfikator dostępu. Gdy *class_member_declaration* nie zawiera żadnych modyfikatorów dostępu, `private` przyjmuje się.
+*Class_member_declaration* może mieć jeden z pięciu możliwych rodzajów zadeklarowanych dostępności ([deklarowane ułatwienia dostępu](basic-concepts.md#declared-accessibility)): `public`, `protected internal`, `protected`, `internal` lub `private`. `protected internal` Oprócz kombinacji, jest to błąd czasu kompilacji, aby określić więcej niż jeden modyfikator dostępu. Gdy *class_member_declaration* nie zawiera żadnych modyfikatorów dostępu, przyjmuje się `private`.
 
 ### <a name="constituent-types"></a>Typy składników
 
@@ -896,13 +896,13 @@ Elementy członkowskie klasy są ***statycznymi elementami członkowskimi*** lub
 
 Gdy deklaracja pola, metody, właściwości, zdarzenia, operatora lub konstruktora zawiera `static` modyfikator, deklaruje statyczny element członkowski. Ponadto deklaracja stałej lub typu niejawnie deklaruje statyczny element członkowski. Statyczne składowe mają następującą charakterystykę:
 
-*  Gdy statyczny element `M` członkowski jest przywoływany w *member_access* ([dostęp do elementu członkowskiego](expressions.md#member-access)) formularza `E.M`, `E` należy zwrócić uwagę `M`na typ zawierający. Jest to błąd czasu kompilowania w `E` celu określenia wystąpienia.
+*  Gdy statyczny element członkowski `M` jest przywoływany w *member_access* ([dostęp do elementu członkowskiego](expressions.md#member-access)) formularza `E.M`, `E` musi zwrócić uwagę na typ zawierający `M`. Jest to błąd czasu kompilowania w `E` celu określenia wystąpienia.
 *  Pole statyczne określa dokładnie jedną lokalizację magazynu, która ma być współużytkowana przez wszystkie wystąpienia danego typu zamkniętej klasy. Bez względu na to, ile wystąpień danego typu zamkniętej klasy są tworzone, istnieje tylko jedna kopia pola statycznego.
 *  Statyczny element członkowski funkcji (metoda, właściwość, zdarzenie, operator lub Konstruktor) nie działa w określonym wystąpieniu i jest to błąd czasu kompilacji, aby odwołać się do `this` tego elementu członkowskiego funkcji.
 
 Gdy deklaracja pola, metody, właściwości, zdarzenia, indeksatora, konstruktora lub destruktora nie zawiera `static` modyfikatora, deklaruje element członkowski wystąpienia. (Składowa wystąpienia jest czasami nazywana niestatyczną składową). Elementy członkowskie wystąpienia mają następującą charakterystykę:
 
-*  Gdy `M` element członkowski wystąpienia jest przywoływany *w member_access* ([dostęp do elementu członkowskiego](expressions.md#member-access)) formularza `E.M`, `E` należy zwrócić uwagę na wystąpienie typu zawierającego `M`. Jest to błąd `E` czasu powiązania, aby można było zwrócić uwagę na typ.
+*  Gdy element członkowski wystąpienia `M` jest przywoływany w *member_access* ([dostęp do elementu członkowskiego](expressions.md#member-access)) formularza `E.M`, `E` musi zwrócić uwagę na wystąpienie typu zawierającego `M`. Jest to błąd `E` czasu powiązania, aby można było zwrócić uwagę na typ.
 *  Każde wystąpienie klasy zawiera oddzielny zestaw wszystkich pól wystąpienia klasy.
 *  Element członkowski funkcji wystąpienia (metoda, właściwość, indeksator, Konstruktor wystąpienia lub destruktor) działa w danym wystąpieniu klasy i można uzyskać do niego dostęp jako `this` ([ten dostęp](expressions.md#this-access)).
 
@@ -933,7 +933,7 @@ class Test
 }
 ```
 
-Metoda pokazuje, że w elemencie członkowskim funkcji wystąpienia simple_name ([Simple Names](expressions.md#simple-names)) może być używana do uzyskiwania dostępu do elementów członkowskich wystąpienia i statycznych elementów członkowskich. `F` Metoda pokazuje, że w składowej funkcji statycznej jest to błąd czasu kompilacji, aby uzyskać dostęp do elementu członkowskiego wystąpienia za pomocą *simple_name.* `G` Metoda pokazuje, że w *member_access* ([dostęp do elementów członkowskich](expressions.md#member-access)), składowe wystąpienia muszą być dostępne za pomocą wystąpień, a statyczne elementy członkowskie muszą być dostępne za pomocą typów. `Main`
+Metoda `F` pokazuje, że w elemencie członkowskim funkcji wystąpienia *simple_name* ([Simple Names](expressions.md#simple-names)) może być używana do uzyskiwania dostępu do elementów członkowskich wystąpień i statycznych elementów członkowskich. Metoda `G` pokazuje, że w składowej funkcji statycznej jest to błąd czasu kompilacji, aby uzyskać dostęp do elementu członkowskiego wystąpienia za pomocą *simple_name*. Metoda `Main` wskazuje, że w *member_access* ([dostęp do elementów członkowskich](expressions.md#member-access)), należy uzyskać dostęp do składowych wystąpienia za pomocą wystąpień, a statyczne elementy członkowskie muszą być dostępne za pomocą typów.
 
 ### <a name="nested-types"></a>Typy zagnieżdżone
 
@@ -1220,7 +1220,7 @@ class Test
 }
 ```
 Klasa `A` definiuje Właściwość `P`tylko do odczytu, w ten sposób zachowując sygnatury `get_P` dla `set_P` metod i. Klasa `B` dziedziczy z `A` i ukrywa oba te podpisy zarezerwowane. Przykład generuje dane wyjściowe:
-```
+```console
 123
 123
 456
@@ -1279,11 +1279,11 @@ constant_declarator
     ;
 ```
 
-*Constant_declaration* może zawierać zestaw *atrybutów* ( `new` [atrybutów](attributes.md)), modyfikator ([nowy modyfikator](classes.md#the-new-modifier)) i prawidłową kombinację czterech modyfikatorów dostępu ([Modyfikatory dostępu](classes.md#access-modifiers)). Atrybuty i Modyfikatory mają zastosowanie do wszystkich elementów członkowskich zadeklarowanych przez *constant_declaration*. Mimo że stałe są uznawane za statyczne elementy członkowskie, *constant_declaration* nie wymaga ani `static` nie zezwala na modyfikator. Jest to błąd dla tego samego modyfikatora, który może występować wiele razy w deklaracji stałej.
+*Constant_declaration* może zawierać zestaw *atrybutów* ([atrybutów](attributes.md)), modyfikator `new` ([nowy modyfikator](classes.md#the-new-modifier)) i prawidłową kombinację czterech modyfikatorów dostępu ([Modyfikatory dostępu](classes.md#access-modifiers)). Atrybuty i Modyfikatory mają zastosowanie do wszystkich elementów członkowskich zadeklarowanych przez *constant_declaration*. Mimo że stałe są uznawane za statyczne elementy członkowskie, *constant_declaration* nie wymaga ani nie zezwala na modyfikator `static`. Jest to błąd dla tego samego modyfikatora, który może występować wiele razy w deklaracji stałej.
 
-*Typ* elementu *constant_declaration* określa typ elementów członkowskich wprowadzonych przez deklarację. Po tym typie następuje lista *constant_declarator*s, z których każdy wprowadza nowy element członkowski. *Constant_declarator* składa się z *identyfikatora* , który ma nazwę elementu członkowskiego, po`=`którym następuje token "", po którym następuje *constant_expression* ([wyrażenia stałe](expressions.md#constant-expressions)), które daje wartość elementu członkowskiego.
+*Typ* elementu *constant_declaration* określa typ elementów członkowskich wprowadzonych przez deklarację. Po tym typie następuje lista *constant_declarator*s, z których każdy wprowadza nowy element członkowski. *Constant_declarator* składa się z *identyfikatora* , który ma nazwę elementu członkowskiego, po którym następuje token "`=`", po którym następuje *constant_expression* ([wyrażenia stałe](expressions.md#constant-expressions)), które daje wartość elementu członkowskiego.
 
-*Typ* określony w `sbyte`deklaracji stałej musi mieć wartość `ushort` `short` `byte` ,`uint`, ,,`ulong`,, ,`float`,,, `long` `int` `char` `double`, `decimal`, ,,`bool` *enum_type*lub *reference_type*. `string` Każdy *constant_expression* musi zwracać wartość typu docelowego lub typu, który można przekonwertować na typ docelowy przez niejawną konwersję ([konwersje niejawne](conversions.md#implicit-conversions)).
+*Typ* określony w deklaracji stałej musi być `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `char`, 0, 1, @no__t  *Typ*. Każdy *constant_expression* musi zwracać wartość typu docelowego lub typu, który można przekonwertować na typ docelowy przez niejawną konwersję ([konwersje niejawne](conversions.md#implicit-conversions)).
 
 *Typ* stałej musi być co najmniej tak samo jak sam sam ([ograniczenia dostępności](basic-concepts.md#accessibility-constraints)).
 
@@ -1291,11 +1291,11 @@ Wartość stałej jest uzyskiwana w wyrażeniu przy użyciu *simple_name* ([pros
 
 Stała może same uczestniczyć w *constant_expression*. W tym celu można użyć stałej w dowolnej konstrukcji wymagającej *constant_expression*. Przykłady takich konstrukcji obejmują `case` etykiety, `goto case` instrukcje, `enum` deklaracje członków, atrybuty i inne deklaracje stałe.
 
-Zgodnie z opisem w [wyrażeniach stałych](expressions.md#constant-expressions) *constant_expression* jest wyrażeniem, które może być w pełni oceniane w czasie kompilacji. Ponieważ jedynym sposobem utworzenia wartości innej niż null *reference_type* inną `string` niż `new` jest stosowanie operatora i ponieważ `new` operator nie jest dozwolony w *constant_expression*, jedyną możliwą wartością dla stałe *reference_type*s inne niż `string` is. `null`
+Zgodnie z opisem w [wyrażeniach stałych](expressions.md#constant-expressions) *constant_expression* jest wyrażeniem, które może być w pełni oceniane w czasie kompilacji. Ponieważ jedynym sposobem utworzenia wartości innej niż null *reference_type* inną niż `string` jest zastosowanie operatora `new`, a ponieważ operator `new` nie jest dozwolony w *constant_expression*, jedyną możliwą wartością dla stałych  *reference_type*inne niż `string` to `null`.
 
-Gdy wymagana jest Nazwa symboliczna wartości stałej, ale jeśli typ tej wartości nie jest dozwolony w deklaracji stałej lub gdy wartość nie może być obliczana w czasie kompilacji przez *constant_expression*, `readonly` pole ([pola tylko do odczytu ](classes.md#readonly-fields)) mogą być używane zamiast.
+Gdy wymagana jest Nazwa symboliczna wartości stałej, ale jeśli typ tej wartości nie jest dozwolony w deklaracji stałej lub gdy wartość nie może zostać obliczona w czasie kompilacji przez *constant_expression*, pole `readonly` ([pola tylko do odczytu](classes.md#readonly-fields)) może Zamiast tego użyj.
 
-Deklaracja stałej, która deklaruje wiele stałych, jest równoważna z wieloma deklaracjami pojedynczych stałych z tymi samymi atrybutami, modyfikatorami i typem. Na przykład
+Deklaracja stałej, która deklaruje wiele stałych, jest równoważna z wieloma deklaracjami pojedynczych stałych z tymi samymi atrybutami, modyfikatorami i typem. Na przykład:
 ```csharp
 class A
 {
@@ -1362,15 +1362,15 @@ variable_initializer
     ;
 ```
 
-*Field_declaration* może zawierać zestaw *atrybutów* `new` ([atrybutów](attributes.md)), modyfikator ([nowy modyfikator](classes.md#the-new-modifier)), prawidłową kombinację czterech `static` modyfikatorów dostępu ([Modyfikatory dostępu](classes.md#access-modifiers)) i Modyfikator ([pola statyczne i wystąpienia](classes.md#static-and-instance-fields)). Ponadto *field_declaration* może zawierać `readonly` modyfikator ([pola](classes.md#readonly-fields) `volatile` tylko do odczytu) lub modyfikator ([pola nietrwałe](classes.md#volatile-fields)), ale nie oba jednocześnie. Atrybuty i Modyfikatory mają zastosowanie do wszystkich elementów członkowskich zadeklarowanych przez *field_declaration*. Jest to błąd dla tego samego modyfikatora, który może występować wiele razy w deklaracji pola.
+*Field_declaration* może zawierać zestaw *atrybutów* ([atrybutów](attributes.md)), modyfikator `new` ([nowy modyfikator](classes.md#the-new-modifier)), prawidłową kombinację czterech modyfikatorów dostępu ([Modyfikatory dostępu](classes.md#access-modifiers)) i modyfikator `static` ([ Pola statyczne i wystąpienia](classes.md#static-and-instance-fields)). Ponadto *field_declaration* może zawierać modyfikator `readonly` ([pola tylko do odczytu](classes.md#readonly-fields)) lub modyfikator `volatile` ([pola nietrwałe](classes.md#volatile-fields)), ale nie oba jednocześnie. Atrybuty i Modyfikatory mają zastosowanie do wszystkich elementów członkowskich zadeklarowanych przez *field_declaration*. Jest to błąd dla tego samego modyfikatora, który może występować wiele razy w deklaracji pola.
 
-*Typ* elementu *field_declaration* określa typ elementów członkowskich wprowadzonych przez deklarację. Po tym typie następuje lista *variable_declarator*s, z których każdy wprowadza nowy element członkowski. *Variable_declarator* składa się z *identyfikatora* , który jest nazwą tego elementu członkowskiego, opcjonalnie`=`następuje tokenu "" i *variable_initializer* ([zmienne inicjatory](classes.md#variable-initializers)), który daje początkową wartość tego elementu członkowskiego.
+*Typ* elementu *field_declaration* określa typ elementów członkowskich wprowadzonych przez deklarację. Po tym typie następuje lista *variable_declarator*s, z których każdy wprowadza nowy element członkowski. *Variable_declarator* składa się z *identyfikatora* , który jest nazwą tego elementu członkowskiego, opcjonalnie następuje token "`=`" i *variable_initializer* ([zmienne inicjatory](classes.md#variable-initializers)), który daje początkową wartość tego elementu członkowskiego.
 
 *Typ* pola musi być co najmniej tak samo jak w przypadku samego pola ([ograniczenia dostępności](basic-concepts.md#accessibility-constraints)).
 
 Wartość pola jest uzyskiwana w wyrażeniu przy użyciu *simple_name* ([prostych nazw](expressions.md#simple-names)) lub *member_access* ([dostęp do elementu członkowskiego](expressions.md#member-access)). Wartość pola, które nie jest tylko do odczytu, jest modyfikowana przy użyciu *przypisania* ([Operatory przypisania](expressions.md#assignment-operators)). Wartość pola, które nie jest tylko do odczytu, może być zarówno uzyskana, jak i modyfikowana przy użyciu przyrostkowych operatorów przyrostu i zmniejszania ([Operatory przyrostka i zmniejszenie](expressions.md#postfix-increment-and-decrement-operators)) oraz przyrostu i zmniejszania[prefiksu Operatory](expressions.md#prefix-increment-and-decrement-operators)).
 
-Deklaracja pola, która deklaruje wiele pól, jest równoważna z wieloma deklaracjami pojedynczych pól z tymi samymi atrybutami, modyfikatorami i typem. Na przykład
+Deklaracja pola, która deklaruje wiele pól, jest równoważna z wieloma deklaracjami pojedynczych pól z tymi samymi atrybutami, modyfikatorami i typem. Na przykład:
 ```csharp
 class A
 {
@@ -1393,7 +1393,7 @@ Gdy deklaracja pola zawiera `static` modyfikator, pola wprowadzane przez deklara
 
 Pole statyczne nie jest częścią określonego wystąpienia; Zamiast tego jest współużytkowany między wszystkimi wystąpieniami typu zamkniętego ([otwarte i zamknięte](types.md#open-and-closed-types)). Niezależnie od tego, ile wystąpień typu zamkniętej klasy są tworzone, istnieje tylko jedna kopia pola statycznego dla skojarzonej domeny aplikacji.
 
-Przykład:
+Na przykład:
 ```csharp
 class C<V>
 {
@@ -1425,13 +1425,13 @@ class Application
 
 Pole wystąpienia należy do wystąpienia. Każde wystąpienie klasy zawiera oddzielny zestaw wszystkich pól wystąpienia tej klasy.
 
-Gdy odwołanie do pola jest przywoływane w *member_access* ([dostęp do elementu członkowskiego](expressions.md#member-access) `E.M`) `M` formularza, jeśli jest polem `E` statycznym, należy zwrócić uwagę `M`na typ zawierający `M` , a jeśli jest polem wystąpienia, należy należy zwrócić uwagę na wystąpienie typu zawierającego `M`.
+Gdy odwołanie do pola jest przywoływane w *member_access* ([dostęp do elementu członkowskiego](expressions.md#member-access)) formularza `E.M`, jeśli `M` jest polem statycznym, `E` musi zwrócić uwagę na typ zawierający `M`, a jeśli `M` jest polem wystąpienia, E musi zwrócić uwagę na wystąpienie typu zawierającego `M`.
 
 Różnice między elementami statycznymi a składowymi wystąpienia są omówione bardziej szczegółowo w [elementach członkowskich static i instance](classes.md#static-and-instance-members).
 
 ### <a name="readonly-fields"></a>Pola tylko do odczytu
 
-Gdy *field_declaration* zawiera `readonly` modyfikator, pola wprowadzane przez deklarację są ***polami tylko do odczytu***. Bezpośrednie przypisania do pól tylko do odczytu mogą wystąpić tylko jako część tej deklaracji lub w konstruktorze wystąpienia lub w konstruktorze statycznym w tej samej klasie. (Pole tylko do odczytu można przypisać wiele razy w tych kontekstach). W przypadku bezpośrednich przypisań `readonly` do pola są dozwolone tylko w następujących kontekstach:
+Gdy *field_declaration* zawiera modyfikator `readonly`, pola wprowadzone przez deklarację to ***pola tylko do odczytu***. Bezpośrednie przypisania do pól tylko do odczytu mogą wystąpić tylko jako część tej deklaracji lub w konstruktorze wystąpienia lub w konstruktorze statycznym w tej samej klasie. (Pole tylko do odczytu można przypisać wiele razy w tych kontekstach). W przypadku bezpośrednich przypisań `readonly` do pola są dozwolone tylko w następujących kontekstach:
 
 *  W *variable_declarator* , który wprowadza pole (poprzez dołączenie *variable_initializer* w deklaracji).
 *  Dla pola wystąpienia w konstruktorach wystąpień klasy, która zawiera deklarację pola; dla pola statycznego w konstruktorze statycznym klasy, która zawiera deklarację pola. Są to również jedyne konteksty, w których prawidłowe jest przekazanie `readonly` pola `out` jako parametru lub `ref` .
@@ -1490,7 +1490,7 @@ Przestrzenie `Program2` nazw ioznaczajądwaprogramy,któresąkompilowaneosobno.`
 
 ### <a name="volatile-fields"></a>Pola nietrwałe
 
-Gdy *field_declaration* zawiera `volatile` modyfikator, pola wprowadzone przez tę deklarację są ***polami nietrwałymi***.
+Gdy *field_declaration* zawiera modyfikator `volatile`, pola wprowadzone przez tę deklarację są ***polami nietrwałymi***.
 
 W przypadku pól nietrwałych techniki optymalizacji, które zmieniają kolejność instrukcji, mogą prowadzić do nieoczekiwanych i nieprzewidzianych wyników w programach wielowątkowych, które uzyskują dostęp do pól bez synchronizacji, takich jak zapewniane przez *lock_statement* [( lock — Instrukcja](statements.md#the-lock-statement)). Optymalizacje mogą być wykonywane przez kompilator, przez system czasu wykonywania lub przez sprzęt. W przypadku pól nietrwałych takie zmiany kolejności są ograniczone:
 
@@ -1501,7 +1501,7 @@ Te ograniczenia zapewniają, że wszystkie wątki będą obserwować nietrwałe 
 
 *  *Reference_type*.
 *  `byte`Typ, ,`System.IntPtr`,,,,,, ,`System.UIntPtr`lub. `int` `short` `ushort` `sbyte` `uint` `char` `float` `bool`
-*  *Enum_type* `byte`ma typ podstawowy wyliczenia `short` `sbyte` ,,`ushort`,,lub .`uint` `int`
+*  *Enum_type* ma typ podstawowy wyliczenia `byte`, `sbyte`, `short`, `ushort`, `int` lub `uint`.
 
 Przykład
 ```csharp
@@ -1536,7 +1536,7 @@ class Test
 }
 ```
 tworzy dane wyjściowe:
-```
+```console
 result = 143
 ```
 
@@ -1560,7 +1560,7 @@ class Test
 }
 ```
 tworzy dane wyjściowe
-```
+```console
 b = False, i = 0
 ```
 Ponieważ `b` i`i` są one automatycznie inicjowane do wartości domyślnych.
@@ -1586,7 +1586,7 @@ class Test
 }
 ```
 tworzy dane wyjściowe
-```
+```console
 x = 1.4142135623731, i = 100, s = Hello
 ```
 Ponieważ przypisanie ma `x` miejsce, gdy inicjatory pola statycznego są wykonywane i przypisania `s` do `i` i występują po wykonaniu inicjatorów pola wystąpienia.
@@ -1608,7 +1608,7 @@ class Test
 }
 ```
 wykazuje takie zachowanie. Pomimo definicji cyklicznych a i b, program jest prawidłowy. Powoduje to wyjście
-```
+```console
 a = 1, b = 2
 ```
 ponieważ pola `a` statyczne i `b` są inicjowane do `0` (wartość domyślna dla `int`) przed wykonaniem inicjatorów. Gdy inicjator dla `a` uruchomienia, `b` wartość jest równa zero, a więc `a` jest inicjowana do `1`. Gdy inicjator `b` dla uruchomienia, `1` `a` wartość jest już, i dlatego `b` jest inicjowana do `2`.
@@ -1642,13 +1642,13 @@ class B
 }
 ```
 może generować dane wyjściowe:
-```
+```console
 Init A
 Init B
 1 1
 ```
 lub dane wyjściowe:
-```
+```console
 Init B
 Init A
 1 1
@@ -1684,7 +1684,7 @@ class B
 }
 ```
 dane wyjściowe muszą być następujące:
-```
+```console
 Init B
 Init A
 1 1
@@ -1695,7 +1695,7 @@ ponieważ reguły, które są wykonywane przez konstruktory statyczne (zgodnie z
 
 Inicjatory zmiennych pola wystąpienia klasy odpowiadają sekwencji przypisań, które są wykonywane natychmiast po wprowadzeniu do dowolnego jednego z konstruktorów wystąpień ([inicjatory konstruktorów](classes.md#constructor-initializers)) tej klasy. Inicjatory zmiennych są wykonywane w kolejności tekstowej, w której pojawiają się w deklaracji klasy. Proces tworzenia i inicjowania wystąpienia klasy został szczegółowo opisany w [konstruktorach wystąpień](classes.md#instance-constructors).
 
-Inicjator zmiennej dla pola wystąpienia nie może odwoływać się do tworzonego wystąpienia. W ten sposób jest to błąd czasu kompilacji do odwołania `this` w inicjatorze zmiennej, ponieważ jest to błąd czasu kompilacji dla inicjatora zmiennej odwołującego się do dowolnego elementu członkowskiego wystąpienia za pomocą *simple_name*. W przykładzie
+Inicjator zmiennej dla pola wystąpienia nie może odwoływać się do tworzonego wystąpienia. W ten sposób jest to błąd czasu kompilacji, aby odwołać się do `this` w inicjatorze zmiennej, ponieważ jest to błąd czasu kompilacji dla inicjatora zmiennej, który odwołuje się do dowolnego elementu członkowskiego wystąpienia za pomocą *simple_name*. W przykładzie
 ```csharp
 class A
 {
@@ -1752,7 +1752,7 @@ method_body
     ;
 ```
 
-*Method_declaration* może zawierać zestaw *atrybutów* ([atrybutów](attributes.md)) i prawidłową kombinację czterech modyfikatorów dostępu ([Modyfikatory](classes.md#access-modifiers) `new` dostępu), ([nowy modyfikator](classes.md#the-new-modifier)), `static` ([static i metody wystąpień](classes.md#static-and-instance-methods)), `virtual` ([metody wirtualne](classes.md#virtual-methods)), `override` (Metoda `abstract` [zastąpień](classes.md#override-methods)), `sealed` (metody[zapieczętowane](classes.md#sealed-methods)), ([metody abstrakcyjne](classes.md#abstract-methods)) i `extern`([Metody zewnętrzne](classes.md#external-methods)) modyfikatory.
+*Method_declaration* może zawierać zestaw *atrybutów* ([atrybutów](attributes.md)) i prawidłową kombinację czterech modyfikatorów dostępu ([Modyfikatory dostępu](classes.md#access-modifiers)), `new` ([modyfikator New](classes.md#the-new-modifier)), `static` ([statyczne i wystąpienie Metody](classes.md#static-and-instance-methods)), `virtual` ([metody wirtualne](classes.md#virtual-methods)), 0 (metody[zastępowania](classes.md#override-methods)), 2 ([zapieczętowane metody](classes.md#sealed-methods)), 4 ([metody abstrakcyjne](classes.md#abstract-methods)) i 6 ([metody zewnętrzne](classes.md#external-methods)).
 
 Deklaracja ma prawidłową kombinację modyfikatorów, jeśli spełnione są wszystkie następujące warunki:
 
@@ -1767,23 +1767,23 @@ Deklaracja ma prawidłową kombinację modyfikatorów, jeśli spełnione są wsz
 
 Metoda, która ma `async` modyfikator jest funkcją asynchroniczną i jest zgodna z regułami opisanymi w [funkcjach asynchronicznych](classes.md#async-functions).
 
-*Return_type* deklaracji metody Określa typ wartości obliczanej i zwracanej przez metodę. *Return_type* jest `void` , jeśli metoda nie zwraca wartości. Jeśli deklaracja zawiera `partial` modyfikator, zwracany typ musi być `void`.
+*Return_type* deklaracji metody Określa typ wartości obliczanej i zwracanej przez metodę. *Return_type* jest `void`, jeśli metoda nie zwraca wartości. Jeśli deklaracja zawiera `partial` modyfikator, zwracany typ musi być `void`.
 
-*MEMBER_NAME* określa nazwę metody. O ile Metoda nie jest jawną implementacją składowej interfejsu ([jawne implementacje elementu członkowskiego interfejsu](interfaces.md#explicit-interface-member-implementations)), *MEMBER_NAME* jest po prostu *identyfikatorem*. Dla jawnej implementacji elementu członkowskiego interfejsu *MEMBER_NAME* składa się z *INTERFACE_TYPE* , a następnie`.`"" i *identyfikatorem*.
+*MEMBER_NAME* określa nazwę metody. O ile Metoda nie jest jawną implementacją składowej interfejsu ([jawne implementacje elementu członkowskiego interfejsu](interfaces.md#explicit-interface-member-implementations)), *MEMBER_NAME* jest po prostu *identyfikatorem*. Dla jawnej implementacji elementu członkowskiego interfejsu *MEMBER_NAME* składa się z *INTERFACE_TYPE* , po którym następuje "`.`" i *Identyfikator*.
 
-Opcjonalne *type_parameter_list* określa parametry typu metody ([parametry typu](classes.md#type-parameters)). Jeśli *type_parameter_list* jest określony, metoda jest ***metodą rodzajową***. Jeśli metoda ma `extern` modyfikator, nie można określić elementu *type_parameter_list* .
+Opcjonalne *type_parameter_list* określa parametry typu metody ([parametry typu](classes.md#type-parameters)). Jeśli *type_parameter_list* jest określony, metoda jest ***metodą rodzajową***. Jeśli metoda ma modyfikator `extern`, nie można określić *type_parameter_list* .
 
 Opcjonalne *formal_parameter_list* określa parametry metody ([Parametry metody](classes.md#method-parameters)).
 
-Opcjonalne *type_parameter_constraints_clause*s określają ograniczenia dotyczące poszczególnych parametrów typu ([ograniczenia parametru typu](classes.md#type-parameter-constraints)) i można je określić tylko wtedy, gdy *type_parameter_list* jest również dostarczone, a metoda nie ma `override` modyfikator.
+Opcjonalne *type_parameter_constraints_clause*s określają ograniczenia dotyczące poszczególnych parametrów typu ([ograniczenia parametru typu](classes.md#type-parameter-constraints)) i można je określić tylko wtedy, gdy *type_parameter_list* jest również dostarczone, a metoda nie ma modyfikator `override`.
 
 *Return_type* i każdy z typów, do których odwołuje się *formal_parameter_list* metody, musi być co najmniej tak samo samo jak Metoda ([ograniczenia dostępności](basic-concepts.md#accessibility-constraints)).
 
 *Method_body* jest średnikiem, ***treścią instrukcji*** lub ***treścią wyrażenia***. Treść instrukcji składa się z *bloku*, który określa instrukcje do wykonania, gdy metoda jest wywoływana. Treść wyrażenia składa się `=>` z *wyrażenia* i średnika oraz oznacza pojedyncze wyrażenie do wykonania, gdy wywoływana jest metoda. 
 
-W `abstract` przypadku `extern` metod i *method_body* składa się po prostu z średnika. Dla `partial` metod *method_body* może składać się z średnika, treści bloku lub treści wyrażenia. Dla wszystkich innych metod *method_body* jest treścią bloku lub treścią wyrażenia.
+W przypadku metod `abstract` i `extern` *method_body* składa się tylko z średnika. W przypadku metod `partial` *method_body* może składać się z średnika, treści bloku lub treści wyrażenia. Dla wszystkich innych metod *method_body* jest treścią bloku lub treścią wyrażenia.
 
-Jeśli *method_body* składa się z średnika, to Deklaracja nie może zawierać `async` modyfikatora.
+Jeśli *method_body* składa się z średnika, to Deklaracja nie może zawierać modyfikatora `async`.
 
 Nazwa, lista parametrów typu i formalna lista parametrów metody definiują sygnaturę ([sygnatury i Przeciążenie](basic-concepts.md#signatures-and-overloading)) metody. W każdym przypadku podpis metody składa się z jej nazwy, liczby parametrów typu oraz liczby, modyfikatorów i typów jego parametrów formalnych. W tym celu wszelkie parametry typu metody, która występuje w typie parametru formalnego, nie są identyfikowane przez jego nazwę, ale według pozycji porządkowej na liście argumentów typu metody. Zwracany typ nie jest częścią podpisu metody ani nie są nazwami parametrów typu lub parametrów formalnych.
 
@@ -1829,7 +1829,7 @@ parameter_array
 
 Formalna lista parametrów składa się z jednego lub więcej parametrów oddzielonych przecinkami, których tylko ostatni może być *parameter_array*.
 
-*Fixed_parameter* składa się z opcjonalnego zestawu *atrybutów* ([atrybutów](attributes.md) `out` ), opcjonalnego `ref` `this` lub modyfikatora, *typu*, *identyfikatora* i opcjonalnego *default_ argument*. Każdy *fixed_parameter* deklaruje parametr danego typu o podaną nazwę. `this` Modyfikator wyznacza metodę jako metodę rozszerzającą i jest dozwolony tylko dla pierwszego parametru metody statycznej. Metody rozszerzające są dokładniej opisane w [metodach rozszerzających](classes.md#extension-methods).
+*Fixed_parameter* składa się z opcjonalnego zestawu *atrybutów* ([atrybutów](attributes.md)), opcjonalnego `ref`, `out` lub `this` modyfikatora, *typu*, *identyfikatora* i opcjonalnego *default_argument*. Każdy *fixed_parameter* deklaruje parametr danego typu o podaną nazwę. `this` Modyfikator wyznacza metodę jako metodę rozszerzającą i jest dozwolony tylko dla pierwszego parametru metody statycznej. Metody rozszerzające są dokładniej opisane w [metodach rozszerzających](classes.md#extension-methods).
 
 *Fixed_parameter* z *default_argument* jest znany jako ***opcjonalny parametr***, podczas gdy *fixed_parameter* bez *default_argument* jest ***wymaganym parametrem***. Wymagany parametr nie może występować po opcjonalnym parametrze w *formal_parameter_list*.
 
@@ -1843,7 +1843,7 @@ Parametr `ref` lub `out` nie może mieć *default_argument*. *Wyrażenie* w *def
 
 Jeśli parametry opcjonalne występują w deklaracji metody częściowej implementującej ([metody częściowe](classes.md#partial-methods)), Jawna implementacja składowej interfejsu ([jawne implementacje elementu członkowskiego interfejsu](interfaces.md#explicit-interface-member-implementations)) lub w deklaracji indeksatora jednego parametru ([ Indeksatory](classes.md#indexers)) kompilator powinien dać ostrzeżenie, ponieważ te elementy członkowskie nigdy nie mogą być wywoływane w sposób zezwalający na pominięcie argumentów.
 
-*Parameter_array* składa się z opcjonalnego zestawu *atrybutów* ([](attributes.md) `params` atrybutów), modyfikatoru, *array_type*i *identyfikatora*. Tablica parametrów deklaruje pojedynczy parametr danego typu tablicy o podaną nazwę. *Array_type* tablicy parametrów musi być typem tablicy jednowymiarowej ([typy tablicowe](arrays.md#array-types)). W wywołaniu metody, tablica parametrów zezwala na określenie pojedynczego argumentu danego typu tablicy lub dopuszcza zero lub więcej argumentów typu elementu tablicy, który ma zostać określony. Tablice parametrów są szczegółowo opisane w [tablicach parametrów](classes.md#parameter-arrays).
+*Parameter_array* składa się z opcjonalnego zestawu *atrybutów* ([atrybutów](attributes.md)), modyfikatora `params`, *array_type*i *identyfikatora*. Tablica parametrów deklaruje pojedynczy parametr danego typu tablicy o podaną nazwę. *Array_type* tablicy parametrów musi być typem tablicy jednowymiarowej ([typy tablicowe](arrays.md#array-types)). W wywołaniu metody, tablica parametrów zezwala na określenie pojedynczego argumentu danego typu tablicy lub dopuszcza zero lub więcej argumentów typu elementu tablicy, który ma zostać określony. Tablice parametrów są szczegółowo opisane w [tablicach parametrów](classes.md#parameter-arrays).
 
 *Parameter_array* może wystąpić po opcjonalnym parametrze, ale nie może mieć wartości domyślnej — pominięcie argumentów dla *parameter_array* zamiast tego spowoduje utworzenie pustej tablicy.
 
@@ -1861,7 +1861,7 @@ public void M(
 ) { }
 ```
 
-W *formal_parameter_list* dla `M`, `i` jest wymaganym parametrem `d` ref, jest wymaganym parametrem `o` `b` `s`wartości,, i `t` są opcjonalnymi parametrami wartości i `a` jest tablicą parametrów.
+W *formal_parameter_list* dla `M`, `i` jest wymaganym parametrem ref, `d` jest wymaganym parametrem wartości, `b`, `s`, `o` i `t` są opcjonalnymi parametrami wartości i `a` jest tablicą parametrów.
 
 Deklaracja metody tworzy oddzielne miejsce deklaracji dla parametrów, parametrów typu i zmiennych lokalnych. Nazwy są wprowadzane do tej przestrzeni deklaracji przez listę parametrów typu i formalną listę parametrów metody i według lokalnych deklaracji zmiennych w *bloku* metody. Występuje błąd dla dwóch elementów członkowskich przestrzeni deklaracji metody, które mają taką samą nazwę. Jest to błąd dla przestrzeni deklaracji metody i przestrzeni lokalnej deklaracji zmiennej obszaru zagnieżdżonej deklaracji, która zawiera elementy o tej samej nazwie.
 
@@ -1888,7 +1888,7 @@ Metoda może przypisywać nowe wartości do parametru value. Takie przypisania m
 
 Parametr zadeklarowany za pomocą `ref` modyfikatora jest parametrem referencyjnym. W przeciwieństwie do parametru wartości, parametr odwołania nie tworzy nowej lokalizacji magazynu. Zamiast tego parametr odwołania reprezentuje tę samą lokalizację magazynu, co zmienna określona jako argument w wywołaniu metody.
 
-Gdy parametr formalny jest parametrem referencyjnym, odpowiadający mu argument w wywołaniu metody musi zawierać słowo kluczowe `ref` , po którym następuje *variable_reference* ([precyzyjne reguły określania określonego przypisania](variables.md#precise-rules-for-determining-definite-assignment)) tego samego Wpisz jako parametr formalny. Zmienna musi być ostatecznie przypisana, zanim będzie mogła zostać przeniesiona jako parametr referencyjny.
+Gdy parametr formalny jest parametrem referencyjnym, odpowiadający mu argument w wywołaniu metody musi zawierać słowo kluczowe `ref`, po którym następuje *variable_reference* ([precyzyjne reguły określania określonego przypisania](variables.md#precise-rules-for-determining-definite-assignment)) tego samego typu co parametr formalny. Zmienna musi być ostatecznie przypisana, zanim będzie mogła zostać przeniesiona jako parametr referencyjny.
 
 W ramach metody parametr odwołania jest zawsze uznawany za ostatecznie przypisany.
 
@@ -1914,7 +1914,7 @@ class Test
 }
 ```
 tworzy dane wyjściowe
-```
+```console
 i = 2, j = 1
 ```
 
@@ -1943,7 +1943,7 @@ wywołanie `F` w programie `G` przekazuje odwołanie do `s` dla elementu `a` i `
 
 Parametr zadeklarowany za pomocą `out` modyfikatora jest parametrem wyjściowym. Podobnie jak w przypadku parametru Reference, parametr wyjściowy nie tworzy nowej lokalizacji magazynu. Zamiast tego parametr wyjściowy reprezentuje taką samą lokalizację przechowywania jak zmienna określona jako argument w wywołaniu metody.
 
-Gdy parametr formalny jest parametrem wyjściowym, odpowiadający mu argument w wywołaniu metody musi zawierać słowo kluczowe `out` , po którym następuje *variable_reference* ([precyzyjne reguły określania przypisania "przypisanie](variables.md#precise-rules-for-determining-definite-assignment)") tego samego Wpisz jako parametr formalny. Zmienna nie musi być ostatecznie przypisana, zanim będzie mogła zostać przeniesiona jako parametr wyjściowy, ale po wywołaniu, gdzie zmienna została przeniesiona jako parametr wyjściowy, zmienna jest uważana za ostatecznie przypisaną.
+Gdy parametr formalny jest parametrem wyjściowym, odpowiadający mu argument w wywołaniu metody musi zawierać słowo kluczowe `out`, po którym następuje *variable_reference* ([precyzyjne reguły określania określonego przypisania](variables.md#precise-rules-for-determining-definite-assignment)) tego samego typu co formalny parametr. Zmienna nie musi być ostatecznie przypisana, zanim będzie mogła zostać przeniesiona jako parametr wyjściowy, ale po wywołaniu, gdzie zmienna została przeniesiona jako parametr wyjściowy, zmienna jest uważana za ostatecznie przypisaną.
 
 W ramach metody, podobnie jak zmienna lokalna, parametr wyjściowy jest początkowo uznawany za nieprzypisany i musi być ostatecznie przypisany przed użyciem wartości.
 
@@ -1978,7 +1978,7 @@ class Test
 ```
 
 Przykład generuje dane wyjściowe:
-```
+```console
 c:\Windows\System\
 hello.txt
 ```
@@ -2018,7 +2018,7 @@ class Test
 }
 ```
 tworzy dane wyjściowe
-```
+```console
 Array contains 3 elements: 1 2 3
 Array contains 4 elements: 10 20 30 40
 Array contains 0 elements:
@@ -2060,7 +2060,7 @@ class Test
 }
 ```
 tworzy dane wyjściowe
-```
+```console
 F();
 F(object[]);
 F(object,object);
@@ -2097,7 +2097,7 @@ class Test
 }
 ```
 tworzy dane wyjściowe
-```
+```console
 System.Int32 System.String System.Double
 System.Object[]
 System.Object[]
@@ -2114,7 +2114,7 @@ Metoda statyczna nie działa w określonym wystąpieniu i jest błędem czasu ko
 
 Metoda wystąpienia działa w danym wystąpieniu klasy i można uzyskać do niego dostęp jako `this` ([ten dostęp](expressions.md#this-access)).
 
-Gdy metoda jest przywoływana w *member_access* ([dostęp do elementu członkowskiego](expressions.md#member-access)) `E.M`formularza, `M` jeśli jest metodą statyczną `E` , musi zwrócić uwagę na typ `M`zawierający, a `M` jeśli jest to metoda wystąpienia, należy zwrócić uwagę na wystąpienie typu zawierającego `M`. `E`
+Gdy metoda jest przywoływana w *member_access* ([dostęp do elementu członkowskiego](expressions.md#member-access)) formularza `E.M`, jeśli `M` jest metodą statyczną, `E` musi zwrócić uwagę na typ zawierający `M`, a jeśli `M` jest metodą wystąpienia, `E` musi zwrócić uwagę na wystąpienie typu zawierający `M`.
 
 Różnice między elementami statycznymi a składowymi wystąpienia są omówione bardziej szczegółowo w [elementach członkowskich static i instance](classes.md#static-and-instance-members).
 
@@ -2168,7 +2168,7 @@ class Test
 ```
 
 W przykładzie `A` wprowadzono metodę `F` niewirtualną i metodę `G`wirtualną. Klasa `B` wprowadza nową metodę `F`niewirtualną, ukrywając dziedziczone `F`, a także przesłania metodę `G`dziedziczenia. Przykład generuje dane wyjściowe:
-```
+```console
 A.F
 B.F
 B.G
@@ -2216,7 +2216,7 @@ class Test
 }
 ```
 klasy `C` i`D` zawierają dwie metody wirtualne o tej samej sygnaturze: Wprowadzona przez `A` i `C`wprowadzona przez. Metoda wprowadzona przez `C` ukrycie metody dziedziczonej z `A`. W związku z tym, deklaracja `D` przesłonięcia w zastępują metodę wprowadzoną przez `C`, i nie `D` jest możliwe, aby zastąpić metodę `A`wprowadzoną przez. Przykład generuje dane wyjściowe:
-```
+```console
 B.F
 B.F
 D.F
@@ -2522,7 +2522,7 @@ static class Program
 
 Gdy metoda ma `void` typ wynikowy i treści bloku, `return` instrukcje ([instrukcja return](statements.md#the-return-statement)) w bloku nie mogą określać wyrażenia. Jeśli wykonywanie bloku metody void kończy się normalnie (to oznacza, że sterowanie przepływem poza końcem treści metody), ta metoda po prostu wraca do bieżącego obiektu wywołującego.
     
-Gdy `void` Metoda ma wynik i treść wyrażenia, `E` wyrażenie musi być *statement_expression*, a treść jest dokładnie równoważna treści bloku formularza `{ E; }`.
+Gdy metoda ma wynik `void` i treść wyrażenia, wyrażenie `E` musi być *statement_expression*, a treść jest dokładnie równoważna treści bloku formularza `{ E; }`.
     
 Gdy metoda ma typ wyniku inny niż void i treści bloku, każda `return` instrukcja w bloku musi określać wyrażenie, które jest niejawnie konwertowane na typ wyniku. Punkt końcowy treści bloku metody zwracającej wartość nie może być osiągalny. Innymi słowy, w metodzie zwracającej wartość z treści bloku, sterowanie nie jest dozwolone do przepływu poza końcem treści metody.
     
@@ -2556,7 +2556,7 @@ Metoda zwracająca `F` wartość powoduje błąd czasu kompilacji, ponieważ kon
 
 Reguły rozpoznawania przeciążenia metody są opisane w [wnioskach o typie](expressions.md#type-inference).
 
-## <a name="properties"></a>Właściwości
+## <a name="properties"></a>properties
 
 ***Właściwość*** jest członkiem, który zapewnia dostęp do cech obiektu lub klasy. Przykłady właściwości obejmują długość ciągu znaków, rozmiar czcionki, podpis okna, nazwę klienta i tak dalej... Właściwości są naturalnym rozszerzeniem pól — obie są nazwanymi elementami członkowskimi ze skojarzonymi typami, a Składnia służąca do uzyskiwania dostępu do pól i właściwości jest taka sama. Jednak w przeciwieństwie do pól właściwości nie oznacza lokalizacji magazynu. Zamiast tego właściwości mają metody ***dostępu*** określające instrukcje, które mają być wykonywane, gdy ich wartości są odczytywane lub zapisywane. W ten sposób właściwości zapewniają mechanizm kojarzenia akcji z odczytem i pisaniem atrybutów obiektu; Ponadto umożliwiają one obliczenia takich atrybutów.
 
@@ -2592,15 +2592,15 @@ property_initializer
     ;
 ```
 
-*Property_declaration* może zawierać zestaw *atrybutów* ([atrybutów](attributes.md)) i prawidłową kombinację czterech modyfikatorów dostępu ([Modyfikatory](classes.md#access-modifiers) `new` dostępu), ([nowy modyfikator](classes.md#the-new-modifier)), `static` ([static i metody wystąpień](classes.md#static-and-instance-methods)), `virtual` ([metody wirtualne](classes.md#virtual-methods)), `override` (Metoda `abstract` [zastąpień](classes.md#override-methods)), `sealed` (metody[zapieczętowane](classes.md#sealed-methods)), ([metody abstrakcyjne](classes.md#abstract-methods)) i `extern`([Metody zewnętrzne](classes.md#external-methods)) modyfikatory.
+*Property_declaration* może zawierać zestaw *atrybutów* ([atrybutów](attributes.md)) i prawidłową kombinację czterech modyfikatorów dostępu ([Modyfikatory dostępu](classes.md#access-modifiers)), `new` ([modyfikator New](classes.md#the-new-modifier)), `static` ([statyczne i wystąpienie Metody](classes.md#static-and-instance-methods)), `virtual` ([metody wirtualne](classes.md#virtual-methods)), 0 (metody[zastępowania](classes.md#override-methods)), 2 ([zapieczętowane metody](classes.md#sealed-methods)), 4 ([metody abstrakcyjne](classes.md#abstract-methods)) i 6 ([metody zewnętrzne](classes.md#external-methods)).
 
 Deklaracje właściwości podlegają tym samym regułom, które są deklaracjami metod ([metodami](classes.md#methods)) w odniesieniu do prawidłowych kombinacji modyfikatorów.
 
-*Typ* deklaracji właściwości określa typ właściwości wprowadzonej przez deklarację, a *MEMBER_NAME* określa nazwę właściwości. Chyba że właściwość jest jawną implementacją składowej interfejsu, *MEMBER_NAME* jest po prostu *identyfikatorem*. Dla jawnej implementacji elementu członkowskiego interfejsu ([jawne implementacje elementu członkowskiego interfejsu](interfaces.md#explicit-interface-member-implementations)) *MEMBER_NAME* składa się z *INTERFACE_TYPE* , a następnie "`.`" i *identyfikatorem*.
+*Typ* deklaracji właściwości określa typ właściwości wprowadzonej przez deklarację, a *MEMBER_NAME* określa nazwę właściwości. Chyba że właściwość jest jawną implementacją składowej interfejsu, *MEMBER_NAME* jest po prostu *identyfikatorem*. W przypadku jawnej implementacji elementu członkowskiego interfejsu ([jawne implementacje elementu członkowskiego interfejsu](interfaces.md#explicit-interface-member-implementations)) *MEMBER_NAME* składa się z *INTERFACE_TYPE* , po którym następuje "`.`" i *Identyfikator*.
 
 *Typ* właściwości musi być co najmniej taki sam jak wartość właściwości ([ograniczenia dostępności](basic-concepts.md#accessibility-constraints)).
 
-*Property_body* może składać się z ***treści metody dostępu*** lub ***treści wyrażenia***. W treści metody dostępu *accessor_declarations*, która musi być ujęta w tokeny "`{`" i "`}`", zadeklaruj metody dostępu ([Akcesory](classes.md#accessors)) właściwości. Metody dostępu określają instrukcję wykonywalną skojarzoną z odczytem i zapisem właściwości.
+*Property_body* może składać się z ***treści metody dostępu*** lub ***treści wyrażenia***. W treści metody dostępu *accessor_declarations*, która musi być ujęta w tokenach "`{`" i "`}`", zadeklaruj metody dostępu ([Akcesory](classes.md#accessors)) właściwości. Metody dostępu określają instrukcję wykonywalną skojarzoną z odczytem i zapisem właściwości.
 
 Treść wyrażenia składająca się `=>` z po nim *wyrażenia* `E` i średnika jest dokładnie równoważna z treścią `{ get { return E; } }`instrukcji i dlatego może być używana tylko do określenia właściwości metody pobierającej, w której wynik Metoda pobierająca jest podawana przez pojedyncze wyrażenie.
 
@@ -2618,7 +2618,7 @@ Właściwość statyczna nie jest skojarzona z określonym wystąpieniem i jest 
 
 Właściwość instance jest skojarzona z danym wystąpieniem klasy i można uzyskać do niego dostęp jako `this` ([ten dostęp](expressions.md#this-access)) w obiektach dostępu tej właściwości.
 
-Gdy właściwość jest przywoływana w *member_access* ([dostęp do elementu członkowskiego](expressions.md#member-access)) `E.M`formularza, `M` jeśli jest właściwością statyczną, `E` musi zwrócić uwagę na `M`typ zawierający, `M` a jeśli jest wystąpieniem Właściwość E musi wskazywać wystąpienie typu zawierającego `M`.
+Gdy właściwość jest przywoływana w *member_access* ([dostęp do elementu członkowskiego](expressions.md#member-access)) formularza `E.M`, jeśli `M` jest właściwością statyczną, `E` musi zwrócić uwagę na typ zawierający `M`, a jeśli `M` jest właściwością wystąpienia, E musi zwrócić uwagę na wystąpienie typu zawierający `M`.
 
 Różnice między elementami statycznymi a składowymi wystąpienia są omówione bardziej szczegółowo w [elementach członkowskich static i instance](classes.md#static-and-instance-members).
 
@@ -2654,20 +2654,20 @@ accessor_body
     ;
 ```
 
-Deklaracje metody dostępu składają się z *get_accessor_declaration*, *set_accessor_declaration*lub obu. Każda deklaracja metody dostępu składa się `get` z `set` tokenu lub po nim opcjonalnej *accessor_modifier* i *accessor_body*.
+Deklaracje metody dostępu składają się z *get_accessor_declaration*, *set_accessor_declaration*lub obu. Każda deklaracja metody dostępu składa się z tokenu `get` lub `set`, po którym następuje opcjonalne *accessor_modifier* i *accessor_body*.
 
 Użycie *accessor_modifier*s podlega następującym ograniczeniom:
 
 *  Element *accessor_modifier* nie może być używany w interfejsie ani w jawnej implementacji elementu członkowskiego interfejsu.
-*  Dla właściwości lub `override` indeksatora, który nie ma modyfikatora, *accessor_modifier* jest dozwolony tylko wtedy, gdy właściwość lub indeksator ma `get` metodę dostępu i `set` , a następnie jest dozwolony tylko w jednym z tych metod dostępu.
-*  Dla właściwości lub indeksatora, który zawiera `override` modyfikator, metoda dostępu musi być zgodna z *accessor_modifier*, jeśli istnieje, do przesłaniania metody dostępu.
+*  Dla właściwości lub indeksatora, który nie ma modyfikatora `override`, *accessor_modifier* jest dozwolony tylko wtedy, gdy właściwość lub indeksator ma metodę dostępu `get` i `set`, a następnie jest dozwolony tylko w jednym z tych metod dostępu.
+*  Dla właściwości lub indeksatora, który zawiera modyfikator `override`, metoda dostępu musi być zgodna z *accessor_modifier*, jeśli istnieje, do zastąpienia metody dostępu.
 *  *Accessor_modifier* musi deklarować dostępność, która jest ściśle bardziej restrykcyjna niż zadeklarowana dostępność właściwości lub indeksatora. Aby precyzyjnie:
-   * Jeśli właściwość lub indeksator ma `public`zadeklarowaną dostępność elementu, *accessor_modifier* może mieć wartość `protected internal`, `internal`, `protected`, lub `private`.
-   * Jeśli właściwość lub indeksator ma `protected internal`zadeklarowaną dostępność elementu, *accessor_modifier* może mieć wartość `internal`, `protected`, lub `private`.
-   * Jeśli właściwość lub indeksator `internal` ma zadeklarowaną dostępność lub `protected`, accessor_modifier musi być. `private`
-   * Jeśli właściwość lub indeksator ma zadeklarowaną dostępność elementu `private`, nie można użyć *accessor_modifier* .
+   * Jeśli właściwość lub indeksator ma zadeklarowaną dostępność `public`, *accessor_modifier* może być albo `protected internal`, `internal`, `protected` lub `private`.
+   * Jeśli właściwość lub indeksator ma zadeklarowaną dostępność `protected internal`, *accessor_modifier* może być albo `internal`, `protected` lub `private`.
+   * Jeśli właściwość lub indeksator ma zadeklarowaną dostępność `internal` lub `protected`, *accessor_modifier* musi być `private`.
+   * Jeśli właściwość lub indeksator ma zadeklarowaną dostępność `private`, nie można użyć *accessor_modifier* .
 
-Dla `abstract` i`extern` właściwości, *accessor_body* dla każdego określonego akcesora jest po prostu średnikiem. Nieabstrakcyjna Właściwość niebędąca elementem zewnętrznym może mieć każdy *accessor_body* , w którym to przypadku jest ***automatycznie implementowaną właściwością*** ([automatycznie implementowane właściwości](classes.md#automatically-implemented-properties)). Automatycznie implementowana właściwość musi mieć co najmniej metodę dostępu get. W przypadku akcesorów dowolnej innej nieabstrakcyjnej właściwości nieextern *accessor_body* jest *blok* , który określa instrukcje, które mają zostać wykonane po wywołaniu odpowiedniej metody dostępu.
+W przypadku właściwości `abstract` i `extern` *accessor_body* dla każdego określonego akcesora jest po prostu średnikiem. Nieabstrakcyjna Właściwość niebędąca elementem zewnętrznym może mieć każdy *accessor_body* , w którym to przypadku jest ***automatycznie implementowaną właściwością*** ([automatycznie implementowane właściwości](classes.md#automatically-implemented-properties)). Automatycznie implementowana właściwość musi mieć co najmniej metodę dostępu get. W przypadku akcesorów dowolnej innej nieabstrakcyjnej właściwości nieextern *accessor_body* jest *blok* , który określa instrukcje, które mają zostać wykonane po wywołaniu odpowiedniej metody dostępu.
 
 Metoda `get` dostępu odpowiada metodzie bez parametrów z wartością zwracaną typu właściwości. Poza elementem docelowym przypisania, gdy właściwość jest przywoływana w wyrażeniu, `get` metoda dostępu do właściwości jest wywoływana, aby obliczyć wartość właściwości ([wartości wyrażeń](expressions.md#values-of-expressions)). Treść `get` akcesora musi być zgodna z regułami dotyczącymi metod zwracających wartość opisaną w [treści metody](classes.md#method-body). W szczególności wszystkie `return` instrukcje w treści `get` metody dostępu muszą określać wyrażenie, które jest niejawnie konwertowane na typ właściwości. Ponadto punkt końcowy `get` metody dostępu nie może być osiągalny.
 
@@ -3081,7 +3081,7 @@ public class D: B
 }
 ```
 
-## <a name="events"></a>Zdarzenia
+## <a name="events"></a>Events
 
 ***Zdarzenie*** jest członkiem, który umożliwia obiektowi lub klasy udostępnianie powiadomień. Klienci mogą dołączyć kod wykonywalny zdarzeń przez dostarczenie ***obsługi zdarzeń***.
 
@@ -3122,7 +3122,7 @@ remove_accessor_declaration
     ;
 ```
 
-*Event_declaration* może zawierać zestaw *atrybutów* ([atrybutów](attributes.md)) i prawidłową kombinację czterech modyfikatorów dostępu ([Modyfikatory](classes.md#access-modifiers) `new` dostępu), ([nowy modyfikator](classes.md#the-new-modifier)), `static` ([static i metody wystąpień](classes.md#static-and-instance-methods)), `virtual` ([metody wirtualne](classes.md#virtual-methods)), `override` (Metoda `abstract` [zastąpień](classes.md#override-methods)), `sealed` (metody[zapieczętowane](classes.md#sealed-methods)), ([metody abstrakcyjne](classes.md#abstract-methods)) i `extern`([Metody zewnętrzne](classes.md#external-methods)) modyfikatory.
+*Event_declaration* może zawierać zestaw *atrybutów* ([atrybutów](attributes.md)) i prawidłową kombinację czterech modyfikatorów dostępu ([Modyfikatory dostępu](classes.md#access-modifiers)), `new` ([modyfikator New](classes.md#the-new-modifier)), `static` ([statyczne i wystąpienie Metody](classes.md#static-and-instance-methods)), `virtual` ([metody wirtualne](classes.md#virtual-methods)), 0 (metody[zastępowania](classes.md#override-methods)), 2 ([zapieczętowane metody](classes.md#sealed-methods)), 4 ([metody abstrakcyjne](classes.md#abstract-methods)) i 6 ([metody zewnętrzne](classes.md#external-methods)).
 
 Deklaracje zdarzeń podlegają tym samym regułom, które są deklaracjami metod ([metodami](classes.md#methods)) w odniesieniu do prawidłowych kombinacji modyfikatorów.
 
@@ -3132,11 +3132,11 @@ Deklaracja zdarzenia może zawierać *event_accessor_declarations*. Jednakże je
 
 Deklaracja zdarzenia, która pomija *event_accessor_declarations* definiuje jedno lub więcej zdarzeń — jeden dla każdego *variable_declarator*s. Atrybuty i Modyfikatory mają zastosowanie do wszystkich elementów członkowskich zadeklarowanych przez takie *event_declaration*.
 
-Jest to błąd czasu kompilacji dla elementu *event_declaration* , który obejmuje zarówno `abstract` modyfikator, jak i nawiasy klamrowe rozdzielane *event_accessor_declarations*.
+Jest to błąd czasu kompilacji dla elementu *event_declaration* , w którym można uwzględnić zarówno modyfikator `abstract`, jak i rozdzieloną nawiasy klamrowe *event_accessor_declarations*.
 
-Gdy deklaracja zdarzenia zawiera `extern` modyfikator, zdarzenie jest określane jako ***zdarzenie zewnętrzne***. Ponieważ deklaracja zdarzenia zewnętrznego nie zapewnia żadnej rzeczywistej implementacji, jest to błąd, aby uwzględnić `extern` modyfikator i *event_accessor_declarations*.
+Gdy deklaracja zdarzenia zawiera `extern` modyfikator, zdarzenie jest określane jako ***zdarzenie zewnętrzne***. Ponieważ deklaracja zdarzenia zewnętrznego nie zapewnia żadnej rzeczywistej implementacji, jest to błąd, aby uwzględnić zarówno modyfikator `extern`, jak i *event_accessor_declarations*.
 
-Jest to błąd czasu kompilacji dla *variable_declarator* deklaracji zdarzenia z `abstract` modyfikatorem or `external` , aby dołączyć element *variable_initializer*.
+Jest to błąd czasu kompilacji dla *variable_declarator* deklaracji zdarzenia z modyfikatorem `abstract` lub `external`, aby uwzględnić *variable_initializer*.
 
 Zdarzenia można użyć jako argumentu operacji `+=` po lewej stronie operatora and `-=` ([przypisanie zdarzenia](expressions.md#event-assignment)). Te operatory służą odpowiednio do dołączania obsługi zdarzeń do lub usuwania programów obsługi zdarzeń ze zdarzenia, a także Modyfikatory dostępu dla zdarzenia kontrolują konteksty, w których takie operacje są dozwolone.
 
@@ -3179,7 +3179,7 @@ W tym miejscu Konstruktor `Button` `Click` wystąpienia tworzy dwa wystąpienia 
 
 ### <a name="field-like-events"></a>Zdarzenia podobne do pól
 
-W tekście programu klasy lub struktury, która zawiera deklarację zdarzenia, można użyć określonych zdarzeń, takich jak pola. Aby można było używać w ten sposób, zdarzenie nie może być `abstract` lub `extern`i nie może jawnie zawierać *event_accessor_declarations*. Takiego zdarzenia można użyć w dowolnym kontekście, który zezwala na pole. Pole zawiera delegata ([delegatów](delegates.md)), który odwołuje się do listy programów obsługi zdarzeń, które zostały dodane do zdarzenia. Jeśli nie dodano żadnych programów obsługi zdarzeń, pole zawiera `null`.
+W tekście programu klasy lub struktury, która zawiera deklarację zdarzenia, można użyć określonych zdarzeń, takich jak pola. Aby można było użyć w ten sposób zdarzenia nie może być `abstract` lub `extern` i nie może jawnie zawierać *event_accessor_declarations*. Takiego zdarzenia można użyć w dowolnym kontekście, który zezwala na pole. Pole zawiera delegata ([delegatów](delegates.md)), który odwołuje się do listy programów obsługi zdarzeń, które zostały dodane do zdarzenia. Jeśli nie dodano żadnych programów obsługi zdarzeń, pole zawiera `null`.
 
 W przykładzie
 ```csharp
@@ -3240,13 +3240,13 @@ W obrębie klasy `X`odwołania do `Ev` po lewej stronie `+=` operatorów i `-=` 
 
 ### <a name="event-accessors"></a>Metody dostępu zdarzeń
 
-Deklaracje zdarzeń zwykle pomijają *event_accessor_declarations*, jak `Button` w powyższym przykładzie. Jedną z sytuacji, w której należy to zrobić, jest sytuacja, w której koszt magazynowania jednego pola na zdarzenie nie jest akceptowalny. W takich przypadkach Klasa może zawierać *event_accessor_declarations* i używać mechanizmu prywatnego do przechowywania listy programów obsługi zdarzeń.
+Deklaracje zdarzeń zwykle pomijają *event_accessor_declarations*, tak jak w powyższym przykładzie `Button`. Jedną z sytuacji, w której należy to zrobić, jest sytuacja, w której koszt magazynowania jednego pola na zdarzenie nie jest akceptowalny. W takich przypadkach Klasa może zawierać *event_accessor_declarations* i używać mechanizmu prywatnego do przechowywania listy programów obsługi zdarzeń.
 
 *Event_accessor_declarations* zdarzenia określa instrukcje wykonywalne skojarzone z dodawaniem i usuwaniem obsługi zdarzeń.
 
 Deklaracje metody dostępu składają się z *add_accessor_declaration* i *remove_accessor_declaration*. Każda deklaracja metody dostępu składa się `add` z `remove` tokenu lub po nim *bloku*. *Blok* skojarzony z *add_accessor_declaration* określa instrukcje do wykonania po dodaniu programu obsługi zdarzeń, a *blok* skojarzony z *remove_accessor_declaration* określa instrukcje do wykonania Po usunięciu programu obsługi zdarzeń.
 
-Każdy *add_accessor_declaration* i *remove_accessor_declaration* odpowiada metody z parametrem pojedynczego wartości `void` typu zdarzenia i zwracanym typem. Niejawny parametr metody dostępu do zdarzenia ma `value`nazwę. Gdy zdarzenie jest używane w przypisaniu zdarzenia, zostanie użyta odpowiednia metoda dostępu do zdarzeń. W odróżnieniu od tego, `+=` czy operator przypisania jest, używana jest metoda Add, a jeśli operator `-=` przypisania jest, używana jest metoda usuwania. W obu przypadkach jest używany operand z prawej strony operatora przypisania jako argument metody dostępu do zdarzeń. Blok *add_accessor_declaration* lub *remove_accessor_declaration* musi być zgodny z regułami `void` metod opisanymi w [treści metody](classes.md#method-body). W szczególności `return` instrukcje w tym bloku nie mogą określać wyrażenia.
+Każdy *add_accessor_declaration* i *remove_accessor_declaration* odpowiada metody z parametrem jednowartościowym typu zdarzenia i typem zwracanym `void`. Niejawny parametr metody dostępu do zdarzenia ma `value`nazwę. Gdy zdarzenie jest używane w przypisaniu zdarzenia, zostanie użyta odpowiednia metoda dostępu do zdarzeń. W odróżnieniu od tego, `+=` czy operator przypisania jest, używana jest metoda Add, a jeśli operator `-=` przypisania jest, używana jest metoda usuwania. W obu przypadkach jest używany operand z prawej strony operatora przypisania jako argument metody dostępu do zdarzeń. Blok *add_accessor_declaration* lub *remove_accessor_declaration* musi być zgodny z regułami `void` metodami opisanymi w [treści metody](classes.md#method-body). W szczególności `return` instrukcje w tym bloku nie mogą określać wyrażenia.
 
 Ponieważ metoda dostępu do zdarzenia niejawnie ma parametr `value`o nazwie, jest to błąd czasu kompilacji dla zmiennej lokalnej lub stała zadeklarowana w metodzie dostępu do zdarzeń, która ma tę nazwę.
 
@@ -3298,7 +3298,7 @@ Zdarzenie statyczne nie jest skojarzone z określonym wystąpieniem i jest błę
 
 Zdarzenie wystąpienia jest skojarzone z danym wystąpieniem klasy i można uzyskać do niego dostęp jako `this` ([ten dostęp](expressions.md#this-access)) w odniesieniu do tego zdarzenia.
 
-Gdy zdarzenie jest przywoływane w *member_access* ([dostęp do elementu członkowskiego](expressions.md#member-access)) `E.M`formularza, `M` jeśli jest zdarzeniem statycznym, `E` należy zwrócić uwagę na `M`typ zawierający, `M` a jeśli jest zdarzenie wystąpienia, E musi należy zwrócić uwagę na wystąpienie typu zawierającego `M`.
+Gdy zdarzenie jest przywoływane w *member_access* ([dostęp do elementu członkowskiego](expressions.md#member-access)) formularza `E.M`, jeśli `M` jest zdarzeniem statycznym, `E` musi zwrócić uwagę na typ zawierający `M`, a jeśli `M` jest zdarzenie wystąpienia, E musi zwrócić uwagę na wystąpienie typu zawierającego `M`.
 
 Różnice między elementami statycznymi a składowymi wystąpienia są omówione bardziej szczegółowo w [elementach członkowskich static i instance](classes.md#static-and-instance-members).
 
@@ -3356,19 +3356,19 @@ indexer_body
     ;
 ```
 
-*Indexer_declaration* może zawierać zestaw *atrybutów* ([atrybutów](attributes.md)) i prawidłową kombinację czterech modyfikatorów dostępu ([Modyfikatory](classes.md#access-modifiers) `new` dostępu), ([nowy modyfikator](classes.md#the-new-modifier)), `virtual` ([ Metody wirtualne](classes.md#virtual-methods)) `override` , ([Metoda override](classes.md#override-methods)), `sealed` (metody[zapieczętowane](classes.md#sealed-methods) `abstract` ), ([metody abstrakcyjne](classes.md#abstract-methods)) i `extern` Modyfikatory ([metody zewnętrzne](classes.md#external-methods)).
+*Indexer_declaration* może zawierać zestaw *atrybutów* ([atrybutów](attributes.md)) i prawidłową kombinację czterech modyfikatorów dostępu ([Modyfikatory dostępu](classes.md#access-modifiers)), `new` ([modyfikator New](classes.md#the-new-modifier)), `virtual` ([metody wirtualne ](classes.md#virtual-methods)), `override` ([metody zastępowania](classes.md#override-methods)), 0 ([zapieczętowane metody](classes.md#sealed-methods)), 2 ([metody abstrakcyjne](classes.md#abstract-methods)) i 4 ([metody zewnętrzne](classes.md#external-methods)).
 
 Deklaracje indeksatora podlegają tym samym zasadom, które są deklaracjami metod ([metodami](classes.md#methods)) w odniesieniu do prawidłowych kombinacji modyfikatorów, z wyjątkiem tego, że modyfikator static nie jest dozwolony w deklaracji indeksatora.
 
 Modyfikatory `virtual`,, `override`i `abstract` wykluczają się wzajemnie, z wyjątkiem jednego przypadku. Modyfikatory `override` i mogą być używane razem, aby abstrakcyjny indeksator mógł zastąpić wirtualne. `abstract`
 
-*Typ* deklaracji indeksatora określa typ elementu indeksatora wprowadzonego przez deklarację. Jeśli indeksator nie jest jawną implementacją składowej interfejsu, następuje słowo kluczowe `this`Type. Dla jawnej implementacji elementu członkowskiego interfejsu, *po którym następuje* *INTERFACE_TYPE*, "`.`" i słowo kluczowe. `this` W przeciwieństwie do innych elementów członkowskich indeksatory nie mają nazw zdefiniowanych przez użytkownika.
+*Typ* deklaracji indeksatora określa typ elementu indeksatora wprowadzonego przez deklarację. Jeśli indeksator nie jest jawną implementacją składowej interfejsu, następuje słowo kluczowe `this`Type. W przypadku jawnej implementacji elementu członkowskiego interfejsu *Typ* następuje *interface_type*, "`.`" i słowa kluczowego `this`. W przeciwieństwie do innych elementów członkowskich indeksatory nie mają nazw zdefiniowanych przez użytkownika.
 
 *Formal_parameter_list* określa parametry indeksatora. Formalna lista parametrów indeksatora odpowiada metodzie metody ([parametrów metody](classes.md#method-parameters)), z tą różnicą, że musi być określony co najmniej jeden parametr, i że `ref` Modyfikatory parametrów i `out` są niedozwolone.
 
 *Typ* indeksatora i każdy z typów, do których odwołuje się *formal_parameter_list* , musi być co najmniej tak samo jak indeksator ([ograniczenia dostępności](basic-concepts.md#accessibility-constraints)).
 
-*Indexer_body* może składać się z ***treści metody dostępu*** lub ***treści wyrażenia***. W treści metody dostępu *accessor_declarations*, która musi być ujęta w tokeny "`{`" i "`}`", zadeklaruj metody dostępu ([Akcesory](classes.md#accessors)) właściwości. Metody dostępu określają instrukcję wykonywalną skojarzoną z odczytem i zapisem właściwości.
+*Indexer_body* może składać się z ***treści metody dostępu*** lub ***treści wyrażenia***. W treści metody dostępu *accessor_declarations*, która musi być ujęta w tokenach "`{`" i "`}`", zadeklaruj metody dostępu ([Akcesory](classes.md#accessors)) właściwości. Metody dostępu określają instrukcję wykonywalną skojarzoną z odczytem i zapisem właściwości.
 
 Treść wyrażenia składająca się z`=>`"", po którym `E` następuje wyrażenie i średnik, jest dokładnie odpowiednikiem treści `{ get { return E; } }`instrukcji i dlatego może być używana tylko do określenia indeksatorów tylko do odczytu, gdy wynikiem metody pobierającej jest podaną przez pojedyncze wyrażenie.
 
@@ -3559,7 +3559,7 @@ Istnieją trzy kategorie operatorów z możliwością przeciążenia: Operatory 
 
 *Operator_body* jest średnikiem, ***treścią instrukcji*** lub ***treścią wyrażenia***. Treść instrukcji składa się z *bloku*, który określa instrukcje do wykonania, gdy operator jest wywoływany. *Blok* musi być zgodny z regułami dotyczącymi metod zwracających wartość opisaną w [treści metody](classes.md#method-body). Treść wyrażenia składa się `=>` z wyrażenia i średnika oraz oznacza pojedyncze wyrażenie, które ma zostać wykonane po wywołaniu operatora.
 
-W `extern` przypadku operatorów *operator_body* składa się po prostu z średnika. Dla wszystkich innych operatorów *operator_body* jest treścią bloku lub treścią wyrażenia.
+Dla operatorów `extern` *operator_body* składa się tylko z średnika. Dla wszystkich innych operatorów *operator_body* jest treścią bloku lub treścią wyrażenia.
 
 Następujące reguły mają zastosowanie do wszystkich deklaracji operatora:
 
@@ -3650,7 +3650,7 @@ Dla danego typu `S` źródła i typu `T`docelowego, jeśli `S` lub `T` dopuszcza
 
 *  `S0`i `T0` są różnymi typami.
 *  `S0` Lub`T0` jest klasą lub typem struktury, w której odbywa się deklaracja operatora.
-*  Ani nie jest *INTERFACE_TYPE*. `T0` `S0`
+*  Ani `S0` ani `T0` jest *INTERFACE_TYPE*.
 *  Z wyjątkiem konwersji zdefiniowanych przez użytkownika, konwersja nie istnieje `S` z do `T` lub z `T` do `S`.
 
 Na potrzeby tych zasad wszystkie parametry typu skojarzone z `S` lub `T` są uznawane za unikatowe typy, które nie mają relacji dziedziczenia z innymi typami, i wszelkie ograniczenia dotyczące tych parametrów typu są ignorowane.
@@ -3775,7 +3775,7 @@ constructor_body
     ;
 ```
 
-*Constructor_declaration* może zawierać zestaw *atrybutów* ([atrybutów](attributes.md)), prawidłową kombinację czterech modyfikatorów dostępu `extern` ([Modyfikatory dostępu](classes.md#access-modifiers)) i modyfikator ([metody zewnętrzne](classes.md#external-methods)). Deklaracja konstruktora nie może zawierać tego samego modyfikatora wiele razy.
+*Constructor_declaration* może zawierać zestaw *atrybutów* ([atrybutów](attributes.md)), prawidłową kombinację czterech modyfikatorów dostępu ([Modyfikatory dostępu](classes.md#access-modifiers)) i modyfikator `extern` ([metody zewnętrzne](classes.md#external-methods)). Deklaracja konstruktora nie może zawierać tego samego modyfikatora wiele razy.
 
 *Identyfikator* *constructor_declarator* musi określać klasę, w której jest zadeklarowany Konstruktor wystąpień. Jeśli określona jest jakakolwiek inna nazwa, wystąpi błąd w czasie kompilacji.
 
@@ -3793,7 +3793,7 @@ Konstruktory wystąpień są wywoływane przez *object_creation_expression*s ([w
 
 ### <a name="constructor-initializers"></a>Inicjatory konstruktora
 
-Wszystkie konstruktory wystąpień (z wyjątkiem tych `object`dla klasy) niejawnie zawierają wywołanie innego konstruktora wystąpienia bezpośrednio przed *constructor_body*. Konstruktor niejawnie wywoływany jest określany przez *constructor_initializer*:
+Wszystkie konstruktory wystąpień (z wyjątkiem tych dla klasy `object`) niejawnie zawierają wywołanie innego konstruktora wystąpienia bezpośrednio przed *constructor_body*. Konstruktor niejawnie wywoływany jest określany przez *constructor_initializer*:
 
 *  Inicjator konstruktora wystąpień formularza `base(argument_list)` lub `base()` powoduje wywołanie konstruktora wystąpienia z bezpośredniej klasy podstawowej. Ten konstruktor jest wybierany przy użyciu *argument_list* , jeśli jest obecny, i [reguł rozpoznawania przeciążenia.](expressions.md#overload-resolution) Zestaw konstruktorów wystąpień kandydatów składa się ze wszystkich dostępnych konstruktorów wystąpień zawartych w bezpośredniej klasie podstawowej lub konstruktora domyślnego ([konstruktory domyślne](classes.md#default-constructors)), jeśli nie są zadeklarowane konstruktory wystąpień w bezpośredniej klasie podstawowej. Jeśli ten zestaw jest pusty lub nie można zidentyfikować jednego najlepszego konstruktora wystąpienia, wystąpi błąd w czasie kompilacji.
 *  Inicjator konstruktora wystąpień formularza `this(argument-list)` lub `this()` powoduje wywoływanie konstruktora wystąpienia z samej klasy. Konstruktor jest wybierany przy użyciu *argument_list* , jeśli jest obecny, i reguł [rozpoznawania przeciążenia.](expressions.md#overload-resolution) Zestaw konstruktorów wystąpień kandydatów składa się ze wszystkich dostępnych konstruktorów wystąpień zadeklarowanych w samej klasie. Jeśli ten zestaw jest pusty lub nie można zidentyfikować jednego najlepszego konstruktora wystąpienia, wystąpi błąd w czasie kompilacji. Jeśli deklaracja konstruktora wystąpienia zawiera inicjator konstruktora, który wywołuje samego konstruktora, wystąpi błąd czasu kompilacji.
@@ -3820,11 +3820,11 @@ class B: A
 }
 ```
 
-Inicjator konstruktora wystąpień nie może uzyskać dostępu do tworzonego wystąpienia. W związku z tym jest to błąd czasu kompilacji do `this` odwołania w wyrażeniu argumentu inicjatora konstruktora, jak jest to błąd czasu kompilacji dla wyrażenia argumentu, aby odwołać się do dowolnego elementu członkowskiego wystąpienia za pomocą *simple_name*.
+Inicjator konstruktora wystąpień nie może uzyskać dostępu do tworzonego wystąpienia. W związku z tym jest to błąd czasu kompilacji, aby odwołać się do `this` w wyrażeniu argumentu inicjatora konstruktora, podobnie jak w przypadku błędu czasu kompilacji dla wyrażenia argumentu, aby odwołać się do dowolnego elementu członkowskiego wystąpienia za pomocą *simple_name*.
 
 ### <a name="instance-variable-initializers"></a>Inicjatory zmiennych wystąpienia
 
-Gdy Konstruktor wystąpienia nie ma inicjatora konstruktora lub ma inicjatora konstruktora formularza `base(...)`, ten Konstruktor niejawnie wykonuje inicjalizacje określone przez *variable_initializer*s pól wystąpień zadeklarowane w swojej klasie. Odnosi się to do sekwencji przypisań, które są wykonywane natychmiast po wpisie do konstruktora i przed niejawnym wywołaniem konstruktora klasy bazowej bezpośredniego. Inicjatory zmiennych są wykonywane w kolejności tekstowej, w której pojawiają się w deklaracji klasy.
+Gdy Konstruktor wystąpienia nie ma inicjatora konstruktora lub ma inicjatora konstruktora formularza `base(...)`, ten Konstruktor niejawnie wykonuje inicjalizacje określone przez *variable_initializer*s pól wystąpienia zadeklarowanych w jej klasy. Odnosi się to do sekwencji przypisań, które są wykonywane natychmiast po wpisie do konstruktora i przed niejawnym wywołaniem konstruktora klasy bazowej bezpośredniego. Inicjatory zmiennych są wykonywane w kolejności tekstowej, w której pojawiają się w deklaracji klasy.
 
 ### <a name="constructor-execution"></a>Wykonanie konstruktora
 
@@ -3858,7 +3858,7 @@ class B: A
 }
 ```
 gdy `new B()` jest używany do tworzenia `B`wystąpienia, generowane są następujące dane wyjściowe:
-```
+```console
 x = 1, y = 0
 ```
 
@@ -3975,7 +3975,7 @@ class Message
 
 ### <a name="private-constructors"></a>Konstruktory prywatne
 
-Gdy Klasa `T` deklaruje tylko konstruktorów wystąpień prywatnych, nie jest możliwe dla klas poza `T` tekstem programu, aby dziedziczyć z `T` lub do bezpośredniego tworzenia wystąpień `T`. W takim przypadku, jeśli Klasa zawiera tylko statyczne elementy członkowskie i nie jest przeznaczona do wystąpienia, dodanie pustego konstruktora wystąpienia prywatnego uniemożliwi utworzenie wystąpienia. Przykład:
+Gdy Klasa `T` deklaruje tylko konstruktorów wystąpień prywatnych, nie jest możliwe dla klas poza `T` tekstem programu, aby dziedziczyć z `T` lub do bezpośredniego tworzenia wystąpień `T`. W takim przypadku, jeśli Klasa zawiera tylko statyczne elementy członkowskie i nie jest przeznaczona do wystąpienia, dodanie pustego konstruktora wystąpienia prywatnego uniemożliwi utworzenie wystąpienia. Na przykład:
 ```csharp
 public class Trig
 {
@@ -4034,11 +4034,11 @@ static_constructor_body
     ;
 ```
 
-*Static_constructor_declaration* może zawierać zestaw *atrybutów* ( `extern` [atrybutów](attributes.md)) i modyfikator ([metody zewnętrzne](classes.md#external-methods)).
+*Static_constructor_declaration* może zawierać zestaw *atrybutów* ([atrybutów](attributes.md)) i modyfikator `extern` ([metody zewnętrzne](classes.md#external-methods)).
 
 *Identyfikator* *static_constructor_declaration* musi mieć nazwę klasy, w której zadeklarowany jest Konstruktor statyczny. Jeśli określona jest jakakolwiek inna nazwa, wystąpi błąd w czasie kompilacji.
 
-Gdy deklaracja konstruktora statycznego zawiera `extern` modyfikator, Konstruktor statyczny jest uznawany za ***zewnętrzny Konstruktor statyczny***. Ponieważ deklaracja zewnętrznego konstruktora statycznego nie oferuje rzeczywistej implementacji, jej *static_constructor_body* składa się z średnika. Dla wszystkich innych deklaracji statycznego konstruktora *static_constructor_body* składa się z *bloku* , który określa instrukcje do wykonania w celu zainicjowania klasy. Odpowiada to dokładnie *method_body* statycznej metody z `void` typem zwracanym ([treść metody](classes.md#method-body)).
+Gdy deklaracja konstruktora statycznego zawiera `extern` modyfikator, Konstruktor statyczny jest uznawany za ***zewnętrzny Konstruktor statyczny***. Ponieważ deklaracja zewnętrznego konstruktora statycznego nie oferuje rzeczywistej implementacji, jej *static_constructor_body* składa się z średnika. Dla wszystkich innych deklaracji statycznego konstruktora *static_constructor_body* składa się z *bloku* , który określa instrukcje do wykonania w celu zainicjowania klasy. Odpowiada to dokładnie *method_body* statycznej metody z typem zwracanym `void` ([treść metody](classes.md#method-body)).
 
 Konstruktory statyczne nie są dziedziczone i nie mogą być wywoływane bezpośrednio.
 
@@ -4084,7 +4084,7 @@ class B
 }
 ```
 musi generować dane wyjściowe:
-```
+```console
 Init A
 A.F
 Init B
@@ -4119,7 +4119,7 @@ class B
 }
 ```
 tworzy dane wyjściowe
-```
+```console
 X = 1, Y = 2
 ```
 
@@ -4157,7 +4157,7 @@ destructor_body
 
 *Identyfikator* *destructor_declaration* musi mieć nazwę klasy, w której jest zadeklarowany destruktor. Jeśli określona jest jakakolwiek inna nazwa, wystąpi błąd w czasie kompilacji.
 
-Gdy deklaracja destruktora zawiera `extern` modyfikator, destruktor jest nazywany ***destruktorem zewnętrznym***. Ponieważ deklaracja zewnętrznego destruktora nie zapewnia rzeczywistej implementacji, jej *destructor_body* składa się z średnika. Dla wszystkich innych destruktorów *destructor_body* składa się z bloku, który określa instrukcje do wykonania w celu *zablokowania* wystąpienia klasy. *Destructor_body* odpowiada dokładnie *method_body* `void` metodzie wystąpienia z typem zwracanym ([treść metody](classes.md#method-body)).
+Gdy deklaracja destruktora zawiera `extern` modyfikator, destruktor jest nazywany ***destruktorem zewnętrznym***. Ponieważ deklaracja zewnętrznego destruktora nie zapewnia rzeczywistej implementacji, jej *destructor_body* składa się z średnika. Dla wszystkich innych destruktorów *destructor_body* składa się z bloku, który określa instrukcje do wykonania w celu *zablokowania* wystąpienia klasy. *Destructor_body* odpowiada dokładnie *method_body* metody wystąpienia z typem zwracanym `void` ([treść metody](classes.md#method-body)).
 
 Destruktory nie są dziedziczone. W ten sposób Klasa nie ma destruktorów innych niż ten, który może być zadeklarowany w tej klasie.
 
@@ -4723,7 +4723,7 @@ Metoda ([metody](classes.md#methods)) lub funkcja anonimowa ([wyrażenia funkcji
 
 Jest to błąd czasu kompilacji dla formalnej listy parametrów funkcji asynchronicznej, aby określić dowolne `ref` parametry lub. `out`
 
-*Return_type* metody asynchronicznej musi być albo `void` ***typem zadania***. Typy `System.Threading.Tasks.Task` zadań i typy zbudowane z `System.Threading.Tasks.Task<T>`. Ze względu na zwięzłości w tym rozdziale te typy są przywoływane `Task` odpowiednio `Task<T>`i. Metoda asynchroniczna zwracająca typ zadania jest określana jako zadanie zwracające zadania.
+*Return_type* metody asynchronicznej musi mieć wartość `void` lub ***Typ zadania***. Typy `System.Threading.Tasks.Task` zadań i typy zbudowane z `System.Threading.Tasks.Task<T>`. Ze względu na zwięzłości w tym rozdziale te typy są przywoływane `Task` odpowiednio `Task<T>`i. Metoda asynchroniczna zwracająca typ zadania jest określana jako zadanie zwracające zadania.
 
 Dokładna definicja typów zadań jest definiowana przez implementację, ale z punktu widzenia języka, typ zadania jest w jednym z Stanów nieukończonych, zakończonych powodzeniem lub błędem. Zadanie z błędami rejestruje odpowiedni wyjątek. Pomyślnie `Task<T>` rejestruje wynik typu `T`. Typy zadań są oczekiwane i dlatego mogą być operandami wyrażeń Await ([Expressions](expressions.md#await-expressions)).
 

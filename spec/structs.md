@@ -1,22 +1,22 @@
 ---
-ms.openlocfilehash: 72d17175dfb8ef284dce6cf7e5837420fa06f16a
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: 6dd1dde67597b2125de9a1aa2fab9144128d533f
+ms.sourcegitcommit: 892af9016b3317a8fae12d195014dc38ba51cf16
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64488879"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71704029"
 ---
 # <a name="structs"></a>Struktury
 
-Struktury są podobne do klasy, w tym, że reprezentują one struktur danych, które mogą zawierać elementy członkowskie danych i funkcji elementów członkowskich. W przeciwieństwie do klasy, struktury są typami wartości i nie wymagają alokacji sterty. Zmienną typu struktury bezpośrednio zawiera dane struktury, zmienna typu klasy zawiera odwołanie do danych, a ostatni znany jako obiekt.
+Struktury są podobne do klas, które reprezentują struktury danych, które mogą zawierać składowe danych i składowe funkcji. Jednak w przeciwieństwie do klas, struktury są typami wartości i nie wymagają przydziału sterty. Zmienna typu struktury bezpośrednio zawiera dane struktury, podczas gdy zmienna typu klasy zawiera odwołanie do danych, które są znane jako obiekt.
 
-Struktury są szczególnie przydatne w przypadku małych strukturach danych, które mają semantyki wartości. Liczby zespolone, punkty w układzie współrzędnych lub par klucz wartość ze słownika są dobrym przykładem struktury. Klucz do tych struktur danych jest kilka elementów członkowskich danych, że nie wymagają użycia dziedziczenie lub tożsamości referencyjnej i że można je łatwo implementować przy użyciu semantyki wartości lokalizacji przypisania kopiowania wartości zamiast odwołania.
+Struktury są szczególnie przydatne w przypadku małych struktur danych, które mają semantykę wartości. Liczby zespolone, punkty w układzie współrzędnych lub pary klucz-wartość w słowniku są wszystkimi dobrymi przykładami struktur. Klucz do tych struktur danych polega na tym, że mają niewiele składowych danych, że nie wymagają użycia dziedziczenia lub referencyjnego tożsamości oraz że można je wygodnie zaimplementować przy użyciu semantyki wartości, w której przypisanie kopiuje wartość zamiast odwołania.
 
-Zgodnie z opisem w [typów prostych](types.md#simple-types), typy proste dostarczana przez C#, takie jak `int`, `double`, i `bool`, są w rzeczywistości wszystkie typy struktury. Tak, jak te wstępnie zdefiniowanych typów są strukturami, użytkownik może również używać struktury i przeładowania operatora do wdrożenia nowych typów "pierwotne" w języku C#. Dwa przykłady takich typów znajdują się na końcu tego rozdziału ([przykłady struktury](structs.md#struct-examples)).
+Zgodnie z opisem w [typach prostych](types.md#simple-types), typy proste dostarczone przez C#, takie jak `int`, `double` i `bool`, są w rzeczywistości wszystkimi typami struktury. Tak jak te wstępnie zdefiniowane typy są strukturami, można również użyć struktur i przeciążania operatora w celu zaimplementowania nowych typów "pierwotnych" w C# języku. Dwa przykłady takich typów są podane na końcu tego rozdziału ([przykłady struktury](structs.md#struct-examples)).
 
 ## <a name="struct-declarations"></a>Deklaracje struktury
 
-A *struct_declaration* jest *type_declaration* ([wpisz deklaracje](namespaces.md#type-declarations)) określa nowa struktura:
+*Struct_declaration* to *type_declaration* ([deklaracje typu](namespaces.md#type-declarations)), które deklaruje nową strukturę:
 
 ```antlr
 struct_declaration
@@ -25,11 +25,11 @@ struct_declaration
     ;
 ```
 
-A *struct_declaration* zawiera opcjonalny zestaw *atrybuty* ([atrybuty](attributes.md)), a następnie opcjonalny zestaw *struct_modifier*s ([Modyfikatory struktury](structs.md#struct-modifiers)), a następnie opcjonalnie `partial` modyfikator, następuje słowa kluczowego `struct` i *identyfikator* nazwy, struktury, a następnie Opcjonalnie *type_parameter_list* specyfikacji ([parametry typu](classes.md#type-parameters)), a następnie opcjonalnie *struct_interfaces* specyfikacji ([Modyfikatora "partial"](structs.md#partial-modifier))), a następnie opcjonalnie *type_parameter_constraints_clause*specyfikacji s ([ograniczenia parametru typu](classes.md#type-parameter-constraints)), a następnie *struct_body* ([treści struktury](structs.md#struct-body)), opcjonalnie następuje średnik.
+*Struct_declaration* składa się z opcjonalnego zestawu *atrybutów* ([atrybutów](attributes.md)), po których następuje opcjonalny zestaw *struct_modifier*s ([Modyfikatory struktury](structs.md#struct-modifiers)), po którym następuje opcjonalny modyfikator `partial`, po którym następuje słowo kluczowe `struct` i *Identyfikator* , który nazywa strukturę, po którym następuje opcjonalna Specyfikacja *Type_parameter_list* ([parametry typu](classes.md#type-parameters)), a następnie opcjonalna Specyfikacja *struct_interfaces* ([częściowa modyfikator](structs.md#partial-modifier)), po którym następuje opcjonalna Specyfikacja *type_parameter_constraints_clause*s ([ograniczenia parametru typu](classes.md#type-parameter-constraints)), po której następuje *struct_body* ([treść struktury](structs.md#struct-body)), opcjonalnie po której następuje średnik.
 
-### <a name="struct-modifiers"></a>Modyfikatory — struktura
+### <a name="struct-modifiers"></a>Modyfikatory struktury
 
-A *struct_declaration* może opcjonalnie obejmować sekwencję Modyfikatory struktury:
+*Struct_declaration* może opcjonalnie zawierać sekwencję modyfikatorów struktury:
 
 ```antlr
 struct_modifier
@@ -42,17 +42,17 @@ struct_modifier
     ;
 ```
 
-Jest to błąd czasu kompilacji dla tego samego modyfikator pojawią się wiele razy w deklaracji struktury.
+Jest to błąd czasu kompilacji dla tego samego modyfikatora do wyświetlenia wiele razy w deklaracji struktury.
 
-Modyfikatory deklaracji struktury mają takie samo znaczenie jak deklaracji klasy ([klasy deklaracje](classes.md#class-declarations)).
+Modyfikatory deklaracji struktury mają takie samo znaczenie jak dla deklaracji klasy ([deklaracji klas](classes.md#class-declarations)).
 
-### <a name="partial-modifier"></a>Modyfikatora "Partial"
+### <a name="partial-modifier"></a>Modyfikator częściowy
 
-`partial` Modyfikator wskazuje, że to *struct_declaration* jest deklaracją typu częściowego. Wielu deklaracjach częściowej struktury o takiej samej nazwie w deklaracji otaczającego przestrzeń nazw lub typ są łączone w celu utworzenia jednej deklaracji struktury, zgodnie z regułami określone w [typów częściowych](classes.md#partial-types).
+Modyfikator `partial` wskazuje, że ta *struct_declaration* jest deklaracją typu częściowego. Wiele deklaracji częściowej struktury o tej samej nazwie w otaczającej przestrzeni nazw lub deklaracji typu Połącz, aby utworzyć jedną deklarację struktury, zgodnie z regułami określonymi w [typach częściowych](classes.md#partial-types).
 
-### <a name="struct-interfaces"></a>Interfejsy — struktura
+### <a name="struct-interfaces"></a>Interfejsy struktury
 
-Deklaracja struktury mogą obejmować *struct_interfaces* specyfikacji, w których przypadku struktury jest nazywany bezpośrednio zaimplementować typy danego interfejsu.
+Deklaracja struktury może zawierać specyfikację *struct_interfaces* , w takim przypadku struktura jest określana do bezpośredniego zaimplementowania danego typu interfejsu.
 
 ```antlr
 struct_interfaces
@@ -60,9 +60,9 @@ struct_interfaces
     ;
 ```
 
-Implementacje interfejsu są omówione w dalszych [implementacje interfejsu](interfaces.md#interface-implementations).
+Implementacje interfejsów omówiono dokładniej w [implementacjach interfejsu](interfaces.md#interface-implementations).
 
-### <a name="struct-body"></a>Treść — struktura
+### <a name="struct-body"></a>Treść struktury
 
 *Struct_body* struktury definiuje elementy członkowskie struktury.
 
@@ -72,9 +72,9 @@ struct_body
     ;
 ```
 
-## <a name="struct-members"></a>Składowe struktury
+## <a name="struct-members"></a>Elementy członkowskie struktury
 
-Elementy członkowskie struktury składają się z elementów członkowskich, wynikające z jego *struct_member_declaration*s i elementy członkowskie są dziedziczone z typu `System.ValueType`.
+Elementy członkowskie struktury składają się z elementów członkowskich wprowadzonych przez *struct_member_declaration*i członków dziedziczonych z typu `System.ValueType`.
 
 ```antlr
 struct_member_declaration
@@ -92,27 +92,27 @@ struct_member_declaration
     ;
 ```
 
-Z wyjątkiem różnic, o których wspomniano w [klasy i struktury różnice](structs.md#class-and-struct-differences), opisy elementów członkowskich klasy w [elementy członkowskie klasy](classes.md#class-members) za pośrednictwem [Iteratory](classes.md#iterators) dotyczą — struktura członków, a także.
+Z wyjątkiem różnic zanotowanych w [różnicach klas i struktur](structs.md#class-and-struct-differences), opisy elementów członkowskich klasy, które znajdują się w [składowych klasy](classes.md#class-members) za pomocą [iteratorów](classes.md#iterators) stosują się również do elementów członkowskich struktury.
 
-## <a name="class-and-struct-differences"></a>Klasy i struktury różnice
+## <a name="class-and-struct-differences"></a>Różnice klas i struktur
 
-Struktury różnią się od klas w kilka istotnych różnic:
+Struktury różnią się od klas na kilka ważnych sposobów:
 
-*  Struktury są typami wartości ([wartość semantyki](structs.md#value-semantics)).
-*  Wszystkie typy struktury niejawnie dziedziczą z klasy `System.ValueType` ([dziedziczenia](structs.md#inheritance)).
-*  Przypisanie do zmiennej typu struktury tworzona jest kopia wartości przypisywane ([przypisania](structs.md#assignment)).
-*  Wartość domyślna struktury to wartości generowane przez ustawienie dla wszystkich pola typu wartości przywrócić wartości domyślne i wszystkie odwołania pola typu do `null` ([wartości domyślne](structs.md#default-values)).
-*  Operacje pakowania, jak i rozpakowywanie są używane do konwersji między typem struktury i `object` ([pakowania i rozpakowywania](structs.md#boxing-and-unboxing)).
-*  Znaczenie `this` różni się dla struktur ([dostęp](expressions.md#this-access)).
-*  Deklaracje pola wystąpienia struktury nie mogą zawierać inicjatory zmiennej ([pola inicjatory](structs.md#field-initializers)).
-*  Struktura nie ma zezwolenia na Zadeklaruj Konstruktor wystąpienia bez parametrów ([konstruktory](structs.md#constructors)).
-*  Struktura nie jest dozwolone było zadeklarowanie destruktora ([destruktory](structs.md#destructors)).
+*  Struktury są typami wartości ([semantyką wartości](structs.md#value-semantics)).
+*  Wszystkie typy struktur niejawnie dziedziczą z klasy `System.ValueType` ([dziedziczenie](structs.md#inheritance)).
+*  Przypisanie do zmiennej typu struktury tworzy kopię przypisanej wartości ([przypisanie](structs.md#assignment)).
+*  Wartość domyślna struktury jest wartością wygenerowaną przez ustawienie wszystkich pól typu wartości na wartości domyślne i wszystkie pola typu odwołania do `null` ([wartości domyślne](structs.md#default-values)).
+*  Operacje pakowania i rozpakowywania są używane do konwersji między typem struktury a `object` ([opakowaniem i rozpakowywaniem](structs.md#boxing-and-unboxing)).
+*  Znaczenie `this` jest różne dla struktur ([ten dostęp](expressions.md#this-access)).
+*  Deklaracje pola wystąpienia dla struktury nie mogą zawierać inicjatorów zmiennych ([inicjatorów pól](structs.md#field-initializers)).
+*  Struktura nie może deklarować konstruktora wystąpień bez parametrów ([konstruktorów](structs.md#constructors)).
+*  Struktura nie może deklarować destruktora ([destruktory](structs.md#destructors)).
 
 ### <a name="value-semantics"></a>Semantyka wartości
 
-Struktury są typami wartości ([typy wartości](types.md#value-types)) i są określane jako ma wartość semantyki. Klasy, z drugiej strony, są typami odwołań ([typy odwołań](types.md#reference-types)) i jest nazywany ma semantyką odwołań.
+Struktury są typami wartości ([typami wartości](types.md#value-types)) i są określane jako semantyka wartości. Klasy, z drugiej strony, to typy odwołań ([typy odwołań](types.md#reference-types)) i są określane jako semantyka odwołania.
 
-Zmienną typu struktury bezpośrednio zawiera dane struktury, zmienna typu klasy zawiera odwołanie do danych, a ostatni znany jako obiekt. Gdy struktura `B` zawiera pole wystąpienia typu `A` i `A` jest typem struktury jest to błąd czasu kompilacji dla `A` zależą `B` lub typem skonstruowany na podstawie `B`. Struktura `X` ***zależy od bezpośrednio*** struktury `Y` Jeśli `X` zawiera pole wystąpienia typu `Y`. Biorąc pod uwagę tę definicję, kompletny zestaw struktury, od których zależy struktury jest przechodnia zamknięcia ***zależy od bezpośrednio*** relacji.  Na przykład
+Zmienna typu struktury bezpośrednio zawiera dane struktury, podczas gdy zmienna typu klasy zawiera odwołanie do danych, które są znane jako obiekt. Gdy struktura `B` zawiera pole wystąpienia typu `A`, a `A` jest typem struktury, jest to błąd czasu kompilacji dla `A`, który jest zależny od `B` lub typu złożonego z `B`. Struktura `X` ***bezpośrednio zależy*** od struktury `Y`, jeśli `X` zawiera pole wystąpienia typu `Y`. W związku z tą definicją kompletny zestaw struktur, od których zależy struktura, jest przechodnim zamykaniem ***bezpośrednio zależnym od*** relacji.  Na przykład:
 ```csharp
 struct Node
 {
@@ -120,7 +120,7 @@ struct Node
     Node next; // error, Node directly depends on itself
 }
 ```
-jest to błąd, ponieważ `Node` zawiera swój własny typ pola wystąpienia.  Inny przykład
+jest błędem, ponieważ `Node` zawiera pole wystąpienia własnego typu.  Inny przykład
 ```csharp
 struct A { B b; }
 
@@ -128,11 +128,11 @@ struct B { C c; }
 
 struct C { A a; }
 ```
-jest to błąd, ponieważ każdy z typów `A`, `B`, i `C` są zależne od siebie nawzajem.
+jest błędem, ponieważ każdy z typów `A`, `B` i `C` zależy od siebie.
 
-W przypadku klas jest możliwe w dwóch zmiennych odwoływać się do tego samego obiektu, a zatem możliwe dla operacji na jednej zmiennej miały wpływ na obiekt odwołuje się druga zmienna. Przy użyciu struktury, zmienne każdego mają własne kopii danych (z wyjątkiem w przypadku właściwości `ref` i `out` zmiennych parametrów), i nie jest możliwe dla operacji na jednym wpłynie na inne. Ponadto, ponieważ struktury nie są typami odwołań, nie jest możliwe w przypadku wartości typu struktury jako `null`.
+Klasy, istnieje możliwość, że dwie zmienne odwołują się do tego samego obiektu, i w tym przypadku operacje na jednej zmiennej mają wpływ na obiekt, do którego odwołuje się inna zmienna. W przypadku struktur każda z tych zmiennych ma własną kopię danych (z wyjątkiem `ref` i `out` zmiennych parametrów) i nie jest możliwe, aby operacje na nich miały wpływ na inne. Ponadto, ponieważ struktury nie są typami odwołań, nie jest możliwe, aby wartości typu struktury były `null`.
 
-Biorąc pod uwagę deklaracji
+Dana deklaracja
 ```csharp
 struct Point
 {
@@ -151,39 +151,39 @@ Point b = a;
 a.x = 100;
 System.Console.WriteLine(b.x);
 ```
-Wyświetla wartość `10`. Przypisywanie `a` do `b` tworzona jest kopia wartości, a `b` związku z tym jest niezależny od przypisania do `a.x`. Gdyby `Point` zamiast tego zostało zadeklarowane jako klasa, dane wyjściowe będą `100` ponieważ `a` i `b` będzie odwoływać się do tego samego obiektu.
+Wyświetla wartość `10`. Przypisanie `a` do `b` tworzy kopię wartości, a `b` nie ma wpływ na przypisanie do `a.x`. @No__t-0 zamiast zadeklarować jako Klasa, dane wyjściowe byłyby `100`, ponieważ `a` i `b` odwołują się do tego samego obiektu.
 
 ### <a name="inheritance"></a>Dziedziczenie
 
-Wszystkie typy struktury niejawnie dziedziczą z klasy `System.ValueType`, która z kolei dziedziczy z klasy `object`. Deklaracja struktura może określić listy implementowanych interfejsów, ale nie jest możliwe dla deklaracji struktury określić klasę bazową.
+Wszystkie typy struktur niejawnie dziedziczą z klasy `System.ValueType`, co z kolei dziedziczy z klasy `object`. Deklaracja struktury może określać listę zaimplementowanych interfejsów, ale nie jest możliwe, aby deklaracja struktury mogła określić klasę bazową.
 
-Typy struktury nigdy nie są abstrakcyjne i zawsze niejawnie są zamknięte. `abstract` i `sealed` Modyfikatory w związku z tym są niedozwolone w deklaracji struktury.
+Typy struktur nigdy nie są abstrakcyjne i zawsze są zapieczętowane niejawnie. Modyfikatory `abstract` i `sealed` nie są w związku z tym niedozwolone w deklaracji struktury.
 
-Ponieważ dziedziczenie nie jest obsługiwane w przypadku struktur, nie może być deklarowana dostępność metody składowej struktury `protected` lub `protected internal`.
+Ponieważ dziedziczenie nie jest obsługiwane dla struktur, zadeklarowana dostępność elementu członkowskiego struktury nie może być `protected` lub `protected internal`.
 
-Funkcji składowych w strukturze nie może być `abstract` lub `virtual`i `override` modyfikator jest dozwolony tylko po to, aby zastąpić metod odziedziczone `System.ValueType`.
+Składowe funkcji w strukturze nie mogą być `abstract` lub `virtual`, a modyfikator `override` jest dozwolony tylko w celu przesłonięcia metod dziedziczonych z `System.ValueType`.
 
 ### <a name="assignment"></a>Przypisanie
 
-Przypisanie do zmiennej typu struktury tworzona jest kopia wartości jest przypisane. To różni się od przypisania do zmiennej typu klasy, która kopiuje odwołania, ale nie identyfikowane przez odwołanie do obiektu.
+Przypisanie do zmiennej typu struktury tworzy kopię przypisanej wartości. Różni się to od przypisywania do zmiennej typu klasy, która kopiuje odwołanie, ale nie obiekt identyfikowany przez odwołanie.
 
-Podobnie jak przypisanie, gdy struktury jest przekazywany jako parametr wartość lub zwrócone w wyniku funkcji elementu członkowskiego, tworzona jest kopia struktury. Struktury mogą być przekazywane przez odwołanie do funkcji elementu członkowskiego, używając `ref` lub `out` parametru.
+Podobnie jak w przypadku przypisania, gdy struktura jest przekazana jako parametr wartości lub zwracana jako wynik elementu członkowskiego funkcji, tworzona jest kopia struktury. Struktura może być przenoszona przez odwołanie do składowej funkcji przy użyciu parametru `ref` lub `out`.
 
-Gdy właściwość lub indeksator struktury jest elementem docelowym przypisania, związane z dostępem do właściwości lub indeksatora wyrażenia do wystąpienia muszą być klasyfikowane jako zmienną. Jeśli wyrażenie wystąpienia jest klasyfikowana jako wartość, wystąpi błąd kompilacji. Jest to opisane w dalszej części [przypisanie proste](expressions.md#simple-assignment).
+Gdy właściwość lub indeksator struktury jest elementem docelowym przypisania, wyrażenie wystąpienia skojarzone z właściwością lub dostępem indeksatora musi być sklasyfikowane jako zmienna. Jeśli wyrażenie wystąpienia jest sklasyfikowane jako wartość, wystąpi błąd w czasie kompilacji. Opisano to szczegółowo w temacie [proste przypisanie](expressions.md#simple-assignment).
 
 ### <a name="default-values"></a>Wartości domyślne
 
-Zgodnie z opisem w [wartości domyślne](variables.md#default-values), kilka rodzajów zmienne są automatycznie inicjowane z wartością przywrócić wartości domyślne po ich utworzeniu. Dla zmiennych typu klasy i inne typy odwołań, ta wartość domyślna to `null`. Jednak ponieważ struktury są typami wartości, które nie może być `null`, wartością domyślną struktury jest wartością, generowane przez ustawienie dla wszystkich pola typu wartości przywrócić wartości domyślne i wszystkie odwołania pola typu do `null`.
+Zgodnie z opisem w [wartości domyślne](variables.md#default-values)kilka rodzajów zmiennych jest automatycznie inicjowanych do wartości domyślnej podczas ich tworzenia. Dla zmiennych typów klas i innych typów odwołań ta wartość domyślna to `null`. Jednak ponieważ struktury są typami wartości, które nie mogą być `null`, wartość domyślna struktury jest wartością wygenerowaną przez ustawienie wszystkich pól typu wartości na wartość domyślną i wszystkie pola typu odwołania do `null`.
 
-Odwołujące się do `Point` struktury zadeklarowane powyżej przykładzie
+Odwoływanie się do struktury `Point` zadeklarowanej powyżej, przykład
 ```csharp
 Point[] a = new Point[100];
 ```
-Inicjuje każdy `Point` w tablicy wartości generowane przez ustawienie `x` i `y` pola na wartość zero.
+Inicjuje każdy `Point` w tablicy do wartości wygenerowanej przez ustawienie pól `x` i `y` na zero.
 
-Wartość domyślna struktury odnosi się do wartości zwracanej przez domyślny konstruktor obiektu struktury ([domyślne konstruktory](types.md#default-constructors)). W odróżnieniu od klasy struktury nie jest dozwolone Zadeklaruj Konstruktor wystąpienia bez parametrów. Zamiast tego, co struktura niejawnie ma Konstruktor wystąpienia bez parametrów, która zawsze zwraca wartość, która wynika z ustawienia wszystkie pola typu wartości, aby przywrócić wartości domyślne i wszystkie odwołania pola typu do `null`.
+Wartość domyślna struktury odpowiada wartości zwracanej przez konstruktora domyślnego struktury ([konstruktorów domyślnych](types.md#default-constructors)). W przeciwieństwie do klasy, struktura nie może deklarować konstruktora wystąpienia bez parametrów. Zamiast tego każda struktura niejawnie ma Konstruktor wystąpienia bez parametrów, który zawsze zwraca wartość, która wynika z ustawienia wszystkich pól typu wartości na wartości domyślne i wszystkie pola typu odwołania do `null`.
 
-Struktury, powinny być zaprojektowane należy wziąć pod uwagę domyślny stan inicjowania nieprawidłowym stanie. W przykładzie
+Struktury powinny zostać zaprojektowane w celu uwzględnienia domyślnego stanu inicjalizacji. W przykładzie
 ```csharp
 using System;
 
@@ -199,15 +199,15 @@ struct KeyValuePair
     }
 }
 ```
-Konstruktor zdefiniowany przez użytkownika wystąpień chroni przed wartości null, tylko gdy jest jawnie wywoływana. W przypadkach, gdzie `KeyValuePair` zmiennej podlega inicjowania wartości domyślne, `key` i `value` pola będą miały wartość null, a struktura musi być przygotowana do obsługi tego stanu.
+zdefiniowany przez użytkownika Konstruktor wystąpień chroni przed wartościami null tylko wtedy, gdy jest on jawnie wywoływany. W przypadkach, gdy zmienna `KeyValuePair` podlega inicjacji wartości domyślnej, pola `key` i `value` będą mieć wartość null, a struktura musi być przygotowana do obsługi tego stanu.
 
-### <a name="boxing-and-unboxing"></a>Konwersja boxing i konwersja unboxing
+### <a name="boxing-and-unboxing"></a>Pakowanie i rozpakowywanie
 
-Wartość typu klasy może być konwertowany na typ `object` lub do typu interfejsu, który jest implementowany przez klasę, po prostu, traktując odwołanie jako inny typ w czasie kompilacji. Podobnie, wartość typu `object` lub wartość typu interfejsu można przekonwertować do typu klasy bez zmiany odwołania (ale oczywiście wyboru typu run-time jest wymagana w tym przypadku).
+Wartość typu klasy można przekonwertować na typ `object` lub do typu interfejsu, który jest implementowany przez klasę po prostu przez traktowanie odwołania jako innego typu w czasie kompilacji. Analogicznie, wartość typu `object` lub wartość typu interfejsu można przekonwertować z powrotem na typ klasy bez zmiany odwołania (ale oczywiście w tym przypadku jest wymagane sprawdzanie typu w czasie wykonywania).
 
-Ponieważ struktury nie są typami odwołań, te operacje są implementowane w inny sposób dla typów struktury. Gdy wartość typu struktury jest konwertowany na typ `object` lub do typu interfejsu, który jest implementowany przez strukturę, odbywa się operacją pakowania. Podobnie gdy wartość typu `object` lub wartości typu interfejsu, jest konwertowany do typu struktury, odbywa się operacja rozpakowania. Najważniejszą różnicą z tej samej operacji na typy klas jest, czy konwersja boxing i konwersja unboxing kopiuje wartość struktury z wystąpienia programu prostokątnych ani do. W związku z tym po operacji pakowania i rozpakowywanie zmiany wprowadzone do rozpakowanych struktury nie są odzwierciedlane w strukturze opakowanej.
+Ponieważ struktury nie są typami odwołań, operacje te są implementowane inaczej dla typów struktury. Gdy wartość typu struktury jest konwertowana na typ `object` lub do typu interfejsu, który jest implementowany przez strukturę, odbywa się operacja opakowywania. Podobnie, gdy wartość typu `object` lub wartość typu interfejsu jest konwertowana z powrotem na typ struktury, wykonywana jest operacja rozpakowywania. Kluczową różnicą między tymi samymi operacjami w typach klas jest to, że opakowanie i rozpakowywanie kopiuje wartość struktury do lub z wystąpienia zapakowanego. W tym celu po rozpakowywania lub rozpakowywania zmiany wprowadzone do struktury nieopakowanej nie są odzwierciedlone w strukturze opakowanej.
 
-Kiedy typ struktury zastępuje metody wirtualnej odziedziczone `System.Object` (takie jak `Equals`, `GetHashCode`, lub `ToString`), wywołanie metody wirtualnej za pomocą wystąpienia typu struktury nie powoduje pakowania wystąpić. Ta zasada obowiązuje, nawet wtedy, gdy struktury jest używany jako parametr typu i wywołania odbywa się przez wystąpienie typu typu parametru. Na przykład:
+Gdy typ struktury zastępuje metodę wirtualną dziedziczoną z `System.Object` (na przykład `Equals`, `GetHashCode` lub `ToString`), wywołanie metody wirtualnej za pośrednictwem wystąpienia typu struktury nie powoduje, że opakowanie nie występuje. Jest to prawdziwe nawet wtedy, gdy struktura jest używana jako parametr typu, a wywołanie odbywa się za pomocą wystąpienia typu parametru typu. Na przykład:
 ```csharp
 using System;
 
@@ -236,16 +236,16 @@ class Program
 }
 ```
 
-Dane wyjściowe programu są:
-```
+Dane wyjściowe programu są następujące:
+```console
 1
 2
 3
 ```
 
-Mimo że jest nieprawidłowy dla `ToString` ma skutki uboczne, w przykładzie pokazano, opakowywanie nie wystąpił trzech wywołań `x.ToString()`.
+Mimo że jest to zły styl dla `ToString`, aby mieć efekt uboczny, w przykładzie pokazano, że nie nastąpiły żadne opakowanie dla trzech wywołań `x.ToString()`.
 
-Podobnie pakowanie nigdy niejawnie występuje, gdy dostęp do składowej w parametrze typu ograniczone. Na przykład, załóżmy, że interfejs `ICounter` zawiera metodę `Increment` który może służyć do modyfikowania wartości. Jeśli `ICounter` jest używany jako ograniczenie, implementacja `Increment` metoda jest wywoływana z odwołaniem do zmiennej, `Increment` została wywołana na nigdy nie ramce kopii.
+Podobnie opakowanie nigdy nie występuje niejawnie podczas uzyskiwania dostępu do elementu członkowskiego w parametrze typu ograniczonego. Załóżmy na przykład, że interfejs `ICounter` zawiera metodę `Increment`, której można użyć do zmodyfikowania wartości. Jeśli `ICounter` jest używany jako ograniczenie, implementacja metody `Increment` jest wywoływana z odwołaniem do zmiennej, która `Increment` została wywołana w, nigdy nie jako kopia w ramce.
 
 ```csharp
 using System;
@@ -285,24 +285,24 @@ class Program
 }
 ```
 
-Pierwsze wywołanie `Increment` Modyfikuje wartość w zmiennej `x`. Nie jest to równoważne drugie wywołanie `Increment`, który modyfikuje wartości w ramce kopię `x`. W związku z tym dane wyjściowe programu jest:
-```
+Pierwsze wywołanie `Increment` modyfikuje wartość w zmiennej `x`. Nie jest to równoznaczne z drugim wywołaniem `Increment`, które modyfikuje wartość w opakowanej kopii `x`. W rezultacie dane wyjściowe programu są następujące:
+```console
 0
 1
 1
 ```
 
-Aby uzyskać dodatkowe szczegóły dotyczące pakowania i rozpakowywania, zobacz [pakowania i rozpakowywania](types.md#boxing-and-unboxing).
+Aby uzyskać więcej informacji na temat pakowania i rozpakowywania, zobacz [opakowanie i rozpakowywanie](types.md#boxing-and-unboxing).
 
 ### <a name="meaning-of-this"></a>Znaczenie tego
 
-W ramach konstruktora wystąpienia lub funkcja składowa klasy `this` zostanie sklasyfikowany jako wartość. W związku z tym, podczas gdy `this` może służyć do odwoływania się do wystąpienia dla którego funkcja elementu członkowskiego wywołano, nie jest możliwe do przypisania do `this` w funkcji składowej klasy.
+W ramach konstruktora wystąpienia lub składowej funkcji wystąpienia klasy `this` jest sklasyfikowana jako wartość. W tym przypadku `this` może służyć do odwoływania się do wystąpienia, dla którego wywołano element członkowski funkcji, nie można przypisać do `this` w składowej funkcji klasy.
 
-W konstruktorze wystąpienia struktury `this` odpowiada `out` parametr typu struktury, a także wewnątrz funkcji składowej wystąpienia struktury, `this` odpowiada `ref` parametr typu struktury. W obu przypadkach `this` zostanie sklasyfikowany jako zmienną, i można modyfikować na całej strukturze, dla której wywołano element członkowski funkcji przez przypisywanie `this` lub przez przekazanie jako `ref` lub `out` parametru.
+W konstruktorze wystąpienia struktury, `this` odpowiada parametrowi `out` typu struct i w elemencie członkowskim funkcji instancji struktury `this` odpowiada parametrowi `ref` typu struktury. W obu przypadkach `this` jest klasyfikowane jako zmienna i istnieje możliwość zmodyfikowania całej struktury, dla której element członkowski funkcji został wywołany przez przypisanie do `this` lub przez przekazanie go jako parametru `ref` lub `out`.
 
 ### <a name="field-initializers"></a>Inicjatory pola
 
-Zgodnie z opisem w [wartości domyślne](structs.md#default-values), wartością domyślną struktury składa się z wartość, która wynika z ustawienia wszystkie pola typu wartości, aby przywrócić wartości domyślne i wszystkie odwołania pola typu do `null`. Z tego powodu struktury nie zezwala na wystąpienia deklaracji pól, aby uwzględnić zmienną inicjatory. To ograniczenie dotyczy tylko pola wystąpień. Pola statyczne struktury mogą zawierać inicjatory zmiennej.
+Zgodnie z opisem w [wartości domyślne](structs.md#default-values), wartość domyślna struktury składa się z wartości, która wynika z ustawiania wszystkich pól typu wartości na wartości domyślne i wszystkie pola typu odwołania do `null`. Z tego powodu struktura nie zezwala na deklaracje pól wystąpienia, aby uwzględnić inicjatory zmiennych. To ograniczenie dotyczy tylko pól wystąpień. Pola statyczne struktury mogą zawierać inicjatory zmiennych.
 
 Przykład
 ```csharp
@@ -312,11 +312,11 @@ struct Point
     public int y = 1;  // Error, initializer not permitted
 }
 ```
-jest w wyniku błędu, ponieważ deklaracji pól wystąpienia zawierać inicjatory zmiennej.
+Wystąpił błąd, ponieważ deklaracje pola wystąpienia obejmują inicjatory zmiennych.
 
 ### <a name="constructors"></a>Konstruktorów
 
-W odróżnieniu od klasy struktury nie jest dozwolone Zadeklaruj Konstruktor wystąpienia bez parametrów. Zamiast tego, co struktura niejawnie ma Konstruktor wystąpienia bez parametrów, która zawsze zwraca wartość, która wynika z ustawienia wszystkie pola typu wartości, aby przywrócić wartości domyślne i wszystkie odwołania pola typu do wartości null ([domyślne konstruktory](types.md#default-constructors)). Struktury można zadeklarować konstruktorów wystąpienia o parametry. Na przykład
+W przeciwieństwie do klasy, struktura nie może deklarować konstruktora wystąpienia bez parametrów. Zamiast tego każda struktura niejawnie ma Konstruktor wystąpienia bez parametrów, który zawsze zwraca wartość, która wynika z ustawienia wszystkich pól typu wartości na wartości domyślne i wszystkie pola typu odwołania do wartości null ([konstruktory domyślne](types.md#default-constructors)). Struktura może deklarować konstruktory wystąpień z parametrami. Na przykład:
 ```csharp
 struct Point
 {
@@ -329,16 +329,16 @@ struct Point
 }
 ```
 
-Podane powyżej deklaracji, instrukcje
+W przypadku powyższej deklaracji instrukcje
 ```csharp
 Point p1 = new Point();
 Point p2 = new Point(0, 0);
 ```
-Obie umożliwiają tworzenie `Point` z `x` i `y` inicjowane od zera.
+Oba te elementy tworzą `Point` z `x` i `y` inicjowane na zero.
 
-Konstruktora wystąpienia struktury nie może zawierać inicjatora konstruktora formularza `base(...)`.
+Konstruktor wystąpienia struktury nie może zawierać inicjatora konstruktora w postaci `base(...)`.
 
-Jeśli konstruktora wystąpienia struktury nie określono inicjatora konstruktora `this` odnosi się zmienna `out` parametr typu struktury i podobnie jak `out` parametru `this` musi zostać zdecydowanie przypisany ( [Asercję określonego przypisania](variables.md#definite-assignment)) w każdej lokalizacji, gdzie Konstruktor zwraca. Jeśli Konstruktor wystąpienia struktury określa inicjatora konstruktora `this` odpowiada zmiennej `ref` parametr typu struktury i podobnie jak `ref` parametru `this` jest uznawany za zdecydowanie przypisany na wpis w treści konstruktora. Należy wziąć pod uwagę implementacji konstruktora wystąpienia poniżej:
+Jeśli Konstruktor wystąpienia struktury nie określa inicjatora konstruktora, zmienna `this` odpowiada parametrowi `out` typu struktury i podobnej do parametru `out`, a `this` musi być ostatecznie przypisana ([przypisanie określone ](variables.md#definite-assignment)) w każdej lokalizacji, w której Konstruktor zwraca. Jeśli Konstruktor wystąpienia struktury określa inicjator konstruktora, zmienna `this` odpowiada parametrowi `ref` typu struktury i podobnej do parametru `ref`, `this` jest uważana za ostatecznie przypisaną do treści konstruktora. . Rozważmy implementację konstruktora wystąpień poniżej:
 ```csharp
 struct Point
 {
@@ -359,7 +359,7 @@ struct Point
 }
 ```
 
-Nie funkcję składową wystąpienia (łącznie z metody dostępu set dla właściwości `X` i `Y`) może być wywoływany, dopóki wszystkie pola struktury budowany został zdecydowanie przypisany. Jedynym wyjątkiem obejmuje automatycznie implementowanych właściwości ([automatycznie implementowane właściwości](classes.md#automatically-implemented-properties)). Reguły asercję określonego przypisania ([przypisanie proste wyrażenia](variables.md#simple-assignment-expressions)) specjalnie wykluczone przypisania do właściwości automatycznej typu struktury w konstruktorze wystąpienia tego typu struktury: takie przypisanie jest uznawany za określony Przypisanie do pola pomocniczego ukryte właściwości auto. W związku z tym że jest dozwolone:
+Żadna funkcja członkowska wystąpienia (w tym zestaw metod dostępu dla właściwości `X` i `Y`) może zostać wywołana, dopóki wszystkie pola w strukturze nie zostały ostatecznie przypisane. Jedyny wyjątek obejmuje automatycznie zaimplementowane właściwości ([automatycznie implementowane właściwości](classes.md#automatically-implemented-properties)). Określone reguły przypisywania ([proste wyrażenia przypisania](variables.md#simple-assignment-expressions)), które wykluczają przypisanie do właściwości automatycznego typu struktury w konstruktorze wystąpienia tego typu struktury: takie przypisanie jest uznawane za określone przypisanie ukrytego pole zapasowe właściwości autoproperty. W ten sposób można wykonać następujące czynności:
 
 ```csharp
 struct Point
@@ -375,24 +375,24 @@ struct Point
 
 ### <a name="destructors"></a>Destruktory
 
-Struktura nie jest dozwolona było zadeklarowanie destruktora.
+Struktura nie może deklarować destruktora.
 
 ### <a name="static-constructors"></a>Konstruktory statyczne
 
-Większość tych samych zasad, jak w przypadku klasy konstruktorów statycznych dla struktury, postępuj zgodnie z. Wykonanie Konstruktor statyczny dla elementu typ struktury jest wyzwalany przez pierwszy z następujących zdarzeń w domenie aplikacji:
+Konstruktory statyczne dla struktur są zgodne z większością reguł dla klas. Wykonanie statycznego konstruktora dla typu struktury jest wyzwalane przez pierwsze z następujących zdarzeń, które mają wystąpić w domenie aplikacji:
 
-*  Odwołuje się do statycznego elementu członkowskiego typu struktury.
-*  Zadeklarowany w sposób jawny Konstruktor typu struktury jest wywoływany.
+*  Istnieje odwołanie do statycznego elementu członkowskiego typu struktury.
+*  Wywoływany jest jawnie zadeklarowany Konstruktor typu struktury.
 
-Tworzenie wartości domyślne ([wartości domyślne](structs.md#default-values)) struktury typów nie będzie wyzwalać Konstruktor statyczny. (Na przykład jest początkowa wartość elementów w tablicy).
+Tworzenie wartości domyślnych ([wartości domyślne](structs.md#default-values)) typów struktur nie wyzwala statycznego konstruktora. (Przykładem jest początkowa wartość elementów w tablicy).
 
-## <a name="struct-examples"></a>Przykłady — struktura
+## <a name="struct-examples"></a>Przykłady struktury
 
-Poniżej pokazano dwa przykłady istotne przy użyciu `struct` typy, aby utworzyć typy, które może służyć podobnie do wstępnie zdefiniowanych typów języka, ale z semantyką zmodyfikowane.
+Poniżej przedstawiono dwa znaczące przykłady użycia typów `struct` do tworzenia typów, które mogą być używane podobnie do wstępnie zdefiniowanych typów języka, ale ze zmodyfikowaną semantyką.
 
 ### <a name="database-integer-type"></a>Typ liczby całkowitej bazy danych
 
-`DBInt` Poniżej struktura implementuje typ całkowitoliczbowy, który może reprezentować pełnego zestawu wartości `int` typu oraz dodatkowy stan, który wskazuje nieznanej wartości. Typ z następującą charakterystyką jest często używany w bazach danych.
+W poniższej strukturze `DBInt` jest implementowany typ Integer, który może reprezentować pełny zestaw wartości typu `int` oraz dodatkowy stan, który wskazuje nieznaną wartość. Typ z tymi cechami jest często używany w bazach danych.
 
 ```csharp
 using System;
@@ -510,7 +510,7 @@ public struct DBInt
 
 ### <a name="database-boolean-type"></a>Typ wartości logicznej bazy danych
 
-`DBBool` Poniżej struktura implementuje przechowywanymi w trzech typu logicznego. Możliwe wartości tego typu są `DBBool.True`, `DBBool.False`, i `DBBool.Null`, gdzie `Null` elementu członkowskiego określa nieznaną wartość. Takie przechowywanymi na trzy typy logiczne są często używane w bazach danych.
+Struktura `DBBool` jest implementowana przy użyciu trzech wartości typu logicznego. Możliwe wartości tego typu to `DBBool.True`, `DBBool.False` i `DBBool.Null`, gdzie członek `Null` wskazuje nieznaną wartość. Takie trzy typy logiczne są często używane w bazach danych.
 
 ```csharp
 using System;

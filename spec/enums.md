@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: c3b716e6eb331be2ee33fffeb42c1e2406cd3a5c
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: 3b142d7dbda8a94a4cf2c973a2e380065dcbf5ee
+ms.sourcegitcommit: 892af9016b3317a8fae12d195014dc38ba51cf16
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64488755"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703967"
 ---
 # <a name="enums"></a>Wyliczenia
 
-***Typu wyliczeniowego*** jest typem wartości odrębne ([typy wartości](types.md#value-types)) oświadcza, że zestaw nazwanych stałych.
+***Typ wyliczeniowy*** jest odrębnym typem wartości ([typy wartości](types.md#value-types)), który deklaruje zestaw nazwanych stałych.
 
 Przykład
 
@@ -21,11 +21,11 @@ enum Color
 }
 ```
 
-deklaruje typ wyliczeniowy o nazwie `Color` z elementami członkowskimi `Red`, `Green`, i `Blue`.
+deklaruje typ wyliczeniowy o nazwie `Color` z członkami `Red`, `Green` i `Blue`.
 
-## <a name="enum-declarations"></a>Deklaracje wyliczeń
+## <a name="enum-declarations"></a>Deklaracje wyliczenia
 
-Deklaracja wyliczenia deklaruje nowy typ wyliczenia. Deklaracja wyliczenia zaczyna się od słowa kluczowego `enum`i określa nazwę, ułatwień dostępu, typ podstawowy i elementów członkowskich wyliczenia.
+Deklaracja wyliczenia deklaruje nowy typ wyliczeniowy. Deklaracja wyliczenia rozpoczyna się od słowa kluczowego `enum` i definiuje nazwę, ułatwienia dostępu, typ podstawowy i elementy członkowskie wyliczenia.
 
 ```antlr
 enum_declaration
@@ -42,7 +42,7 @@ enum_body
     ;
 ```
 
-Każdy typ wyliczenia ma odpowiedni typ całkowity, o nazwie ***typ bazowy*** typu wyliczeniowego. Ten typ podstawowy musi umożliwiać do reprezentowania wartości modułu wyliczającego zdefiniowane w wyliczeniu. Deklaracja wyliczenia mogą jawnie deklarować podstawowym typem `byte`, `sbyte`, `short`, `ushort`, `int`, `uint`, `long` lub `ulong`. Należy pamiętać, że `char` nie można używać jako typu podstawowego. Deklaracja wyliczenia, które jawnie deklaruj typu podstawowego jest podstawowym typem `int`.
+Każdy typ wyliczeniowy ma odpowiedni typ całkowity nazywany ***typem podstawowym*** typu wyliczeniowego. Ten typ podstawowy musi być w stanie reprezentować wszystkie wartości modułu wyliczającego zdefiniowane w wyliczeniu. Deklaracja wyliczenia może jawnie zadeklarować typ podstawowy `byte`, `sbyte`, `short`, `ushort`, `int`, `uint`, `long` lub `ulong`. Należy zauważyć, że `char` nie może być używany jako typ podstawowy. Deklaracja wyliczenia, która nie deklaruje jawnie typu podstawowego, ma typ podstawowy `int`.
 
 Przykład
 
@@ -55,11 +55,11 @@ enum Color: long
 }
 ```
 
-deklaruje wyliczenie z podstawowym typem `long`. Deweloper wybrać korzystanie z podstawowym typem `long`, jak w przykładzie, aby umożliwić korzystanie z wartości, które znajdują się w zakresie `long` , ale nie w zakresie `int`, lub zachować tę opcję, aby w przyszłości.
+deklaruje Wyliczenie z typem podstawowym `long`. Deweloper może zdecydować się na użycie bazowego typu `long`, jak w przykładzie, aby umożliwić użycie wartości, które znajdują się w zakresie `long`, ale nie w zakresie `int`, lub w celu zachowania tej opcji w przyszłości.
 
 ## <a name="enum-modifiers"></a>Modyfikatory wyliczenia
 
-*Enum_declaration* może opcjonalnie obejmować sekwencję Modyfikatory wyliczenia:
+*Enum_declaration* może opcjonalnie zawierać sekwencję modyfikatorów wyliczenia:
 
 ```antlr
 enum_modifier
@@ -71,13 +71,13 @@ enum_modifier
     ;
 ```
 
-Jest to błąd czasu kompilacji dla tego samego modyfikator pojawią się wiele razy w deklaracji wyliczenia.
+Jest to błąd czasu kompilacji dla tego samego modyfikatora do wyświetlenia wiele razy w deklaracji wyliczenia.
 
-Modyfikatorów deklaracji wyliczenia mają takie samo znaczenie jak deklaracji klasy ([klasy Modyfikatory](classes.md#class-modifiers)). Zauważ, że `abstract` i `sealed` modyfikatorów nie są dozwolone w deklaracji wyliczenia. Wyliczenia nie może być abstrakcyjny i nie pozwalają na tworzenie wartości pochodnych.
+Modyfikatory deklaracji wyliczenia mają takie samo znaczenie jak dla deklaracji klasy ([Modyfikatory klas](classes.md#class-modifiers)). Należy jednak zauważyć, że Modyfikatory `abstract` i `sealed` nie są dozwolone w deklaracji wyliczenia. Wyliczenia nie mogą być abstrakcyjne i nie zezwalają na wyprowadzanie.
 
 ## <a name="enum-members"></a>Elementy członkowskie wyliczenia
 
-Treść deklaracji typu wyliczenia definiuje zero lub więcej członków typu wyliczeniowego, które są nazwane stałe typu wyliczeniowego. Nie dwa elementy członkowskie wyliczenia może mieć takiej samej nazwie.
+Treść deklaracji typu wyliczeniowego definiuje zero lub więcej elementów członkowskich wyliczenia, które są nazwanymi stałymi typu wyliczeniowego. Żadne dwa elementy członkowskie wyliczenia nie mogą mieć takiej samej nazwy.
 
 ```antlr
 enum_member_declarations
@@ -89,7 +89,7 @@ enum_member_declaration
     ;
 ```
 
-Każdy element członkowski wyliczenia ma skojarzoną wartość stałą. Typ tej wartości jest podstawowym typem wyliczenia zawierającego. Stała wartość dla każdego elementu członkowskiego wyliczenia musi być z zakresu od typu podstawowego dla wyliczenia. Przykład
+Każdy element członkowski wyliczenia ma skojarzoną wartość stałą. Typ tej wartości jest typem podstawowym dla zawierającego Wyliczenie. Wartość stała dla każdego elementu członkowskiego wyliczenia musi znajdować się w zakresie typu podstawowego dla wyliczenia. Przykład
 
 ```csharp
 enum Color: uint
@@ -100,9 +100,9 @@ enum Color: uint
 }
 ```
 
-powoduje błąd w czasie kompilacji, ponieważ wartości stałych `-1`, `-2`, i `-3` nie znajdują się w zakresie bazowego typu całkowitego `uint`.
+powoduje błąd czasu kompilacji, ponieważ wartości stałych `-1`, `-2` i `-3` nie należą do zakresu podstawowego typu całkowitego `uint`.
 
-Wiele elementów członkowskich wyliczenia mogą mieć taką samą wartość skojarzona. Przykład
+Wiele elementów członkowskich wyliczenia może korzystać z tej samej skojarzonej wartości. Przykład
 
 ```csharp
 enum Color 
@@ -115,12 +115,12 @@ enum Color
 }
 ```
 
-zawiera wyliczenie, w której dwa elementy członkowskie wyliczenia — `Blue` i `Max` — są takie same skojarzone wartości.
+pokazuje Wyliczenie, w którym dwa elementy członkowskie wyliczenia--`Blue` i `Max`--mają tę samą skojarzoną wartość.
 
-Skojarzona wartość elementu członkowskiego wyliczenia przypisano jawnie lub niejawnie. Jeśli deklaracja składowej wyliczenia ma *constant_expression* inicjator, wartość tego wyrażenie stałe niejawnie konwertowane na podstawowym typem wyliczenia, jest skojarzona wartość składowej wyliczenia. Jeśli deklaracja składowej wyliczenia nie ma inicjatora, jej powiązaną wartość ustawiono niejawnie, wykonując następujące czynności:
+Skojarzona wartość elementu członkowskiego wyliczenia jest przypisywana niejawnie lub jawnie. Jeśli deklaracja elementu członkowskiego wyliczenia ma inicjator *constant_expression* , wartość tego wyrażenia stałej, niejawnie przekonwertowana na typ podstawowy wyliczenia, jest skojarzoną wartością elementu członkowskiego wyliczenia. Jeśli deklaracja elementu członkowskiego wyliczenia nie ma inicjatora, jego skojarzona wartość jest ustawiana niejawnie w następujący sposób:
 
-*  Jeśli element członkowski wyliczenia jest zadeklarowana w typie wyliczeniowym pierwszego elementu członkowskiego wyliczenia, jej powiązaną wartość wynosi zero.
-*  W przeciwnym razie skojarzona wartość składowej wyliczenia są uzyskiwane przez zwiększenie skojarzona wartość w formie tekstu poprzedniego elementu członkowskiego wyliczenia o jeden. Ta zwiększona wartość musi należeć do zakresu wartości, które mogą być reprezentowane przez typ podstawowy, w przeciwnym razie wystąpi błąd kompilacji.
+*  Jeśli składowa wyliczenia jest pierwszym elementem członkowskim wyliczenia zadeklarowanym w typie wyliczeniowym, jego skojarzona wartość jest równa zero.
+*  W przeciwnym razie skojarzona wartość elementu członkowskiego wyliczenia jest uzyskiwana przez zwiększenie skojarzonej wartości składowej po raz ostatni przez jeden. Ta zwiększona wartość musi znajdować się w zakresie wartości, które mogą być reprezentowane przez typ podstawowy, w przeciwnym razie wystąpi błąd w czasie kompilacji.
 
 Przykład
 
@@ -160,9 +160,9 @@ class Test
 }
 ```
 
-Wyświetla nazwy elementów członkowskich wyliczenia i ich skojarzone wartości. Dane wyjściowe to:
+drukuje nazwy elementów członkowskich wyliczenia i skojarzonych z nimi wartości. Dane wyjściowe:
 
-```
+```console
 Red = 0
 Green = 10
 Blue = 11
@@ -170,11 +170,11 @@ Blue = 11
 
 z następujących powodów:
 
-*  element członkowski wyliczenia `Red` jest automatycznie przypisywana wartość zero (ponieważ nie ma inicjatora i jest pierwszy element członkowski wyliczenia).
-*  element członkowski wyliczenia `Green` jest jawnie podana wartość `10`;
-*  i elementów członkowskich wyliczenia `Blue` jest automatycznie przypisywana wartość większa o jeden od elementu członkowskiego, przechwyceniem formie tekstu.
+*  element członkowski wyliczenia `Red` jest automatycznie przypisywany wartość zero (ponieważ nie ma inicjatora i jest pierwszym elementem członkowskim wyliczenia);
+*  element członkowski wyliczenia `Green` ma jawnie określoną wartość `10`;
+*  a element członkowski wyliczenia `Blue` jest automatycznie przypisywany do wartości, która jest większa od elementu członkowskiego, który jest poprzedzony znakiem.
 
-Skojarzona wartość elementu członkowskiego wyliczenia nie mogą bezpośrednio lub pośrednio, należy użyć wartości członków skojarzonych wyliczenia. Inne niż to ograniczenie zależność cykliczną inicjatorów składowych typu wyliczeniowego swobodnie mogą odwoływać się do innych inicjatorów składowych typu wyliczeniowego, niezależnie od ich pozycji tekstową. W obrębie inicjatora składowej wyliczenia wartości innych elementów członkowskich wyliczenia są zawsze traktowane jako mające typ ich typu podstawowego, aby rzutowania są niezbędne, przy odwoływaniu się do innych elementów członkowskich wyliczenia.
+Skojarzona wartość elementu członkowskiego wyliczenia może nie, bezpośrednio lub pośrednio, używać wartości własnego skojarzonego elementu członkowskiego wyliczenia. Oprócz tego ograniczenia cykliczności inicjatory składowych enum mogą swobodnie odwoływać się do innych inicjatorów składowych wyliczenia, niezależnie od ich pozycji tekstowych. W obrębie inicjatora elementu członkowskiego wyliczenia wartości innych elementów członkowskich wyliczenia są zawsze traktowane jako mają typ ich typ podstawowy, więc rzutowania nie są konieczne w przypadku odwoływania się do innych elementów członkowskich wyliczenia.
 
 Przykład
 
@@ -186,22 +186,22 @@ enum Circular
 }
 ```
 
-powoduje błąd w czasie kompilacji, ponieważ deklaracje `A` i `B` są cykliczne. `A` zależy od `B` jawnie, i `B` zależy od `A` niejawnie.
+powoduje błąd czasu kompilacji, ponieważ deklaracje `A` i `B` są cykliczne. `A` zależy jawnie od `B`, a `B` zależy od `A` niejawnie.
 
-Elementy członkowskie wyliczenia są o nazwie i o określonym zakresie w sposób dokładnie analogiczny do pól w klasach. Zakres elementu członkowskiego wyliczenia jest zbiorem jej typ zawierający wyliczenia. W tym zakresie typu wyliczeniowego może odnosić się według nazwy proste. Od innego kodu nazwa elementu członkowskiego wyliczenia musi być kwalifikowana nazwą typu wyliczenia. Elementy członkowskie wyliczenia nie mają żadnych deklarowana dostępność metody — element członkowski wyliczenia jest dostępny, jeśli jego zawierający typ wyliczenia jest dostępny.
+Elementy członkowskie wyliczenia są nazwane i w zakresie dokładnie analogiczne do pól w klasach. Zakres elementu członkowskiego wyliczenia jest treścią zawierającego typ wyliczeniowy. W tym zakresie elementy członkowskie wyliczenia mogą być określane przez ich prostą nazwę. Ze wszystkich innych kodów nazwa elementu członkowskiego wyliczenia musi być kwalifikowana nazwą jego typu wyliczeniowego. Elementy członkowskie wyliczenia nie mają zadeklarowanych dostępności — element członkowski wyliczenia jest dostępny, jeśli jego typ wyliczeniowy jest dostępny.
 
-## <a name="the-systemenum-type"></a>Typ System.Enum
+## <a name="the-systemenum-type"></a>Typ System. Enum
 
-Typ `System.Enum` jest abstrakcyjna klasa bazowa wszystkich typów wyliczenia (jest to odrębne i różni się od typ podstawowy elementu typu wyliczeniowego) i elementy członkowskie są dziedziczone z `System.Enum` są dostępne w żadnych typu wyliczeniowego. Konwersja boxing ([konwersje Boxing](types.md#boxing-conversions)) istnieje z dowolnego typu enum do `System.Enum`i konwersji rozpakowującej ([konwersje rozpakowywania](types.md#unboxing-conversions)) istnieje z `System.Enum` do dowolnego typu wyliczenia.
+Typ `System.Enum` jest abstrakcyjną klasą bazową wszystkich typów wyliczeniowych (jest to różne i inne niż typ podstawowy typu wyliczeniowego), a elementy członkowskie dziedziczone z `System.Enum` są dostępne w dowolnym typie wyliczeniowym. Konwersja z opakowania ([konwersje z opakowania](types.md#boxing-conversions)) istnieje z dowolnego typu wyliczeniowego do `System.Enum`, a konwersja rozpakowywania ([konwersje rozpakowywanie](types.md#unboxing-conversions)) istnieje z `System.Enum` do dowolnego typu wyliczeniowego.
 
-Należy pamiętać, że `System.Enum` sama nie jest *enum_type*. Jest to raczej *class_type* z wszystkie *enum_type*pochodzą s. Typ `System.Enum` dziedziczy z typu `System.ValueType` ([typu System.ValueType](types.md#the-systemvaluetype-type)), która z kolei dziedziczy z typu `object`. W czasie wykonywania, wartości typu `System.Enum` może być `null` lub odwołanie do wartości spakowanej dowolnego typu wyliczeniowego.
+Należy zauważyć, że `System.Enum` nie należy do *enum_type*. Zamiast tego jest to *class_type* , z którego pochodzą wszystkie *enum_type*s. Typ `System.Enum` dziedziczy z typu `System.ValueType` ([Typ System. ValueType](types.md#the-systemvaluetype-type)), który z kolei dziedziczy po typie `object`. W czasie wykonywania wartość typu `System.Enum` może być `null` lub odwołaniem do opakowanej wartości dowolnego typu wyliczeniowego.
 
-## <a name="enum-values-and-operations"></a>Wartości wyliczenia i operacje
+## <a name="enum-values-and-operations"></a>Wartości wyliczeniowe i operacje
 
-Każdy typ wyliczenia definiuje typ samodzielny; Konwersja jawna wyliczenia ([Konwersje jawne wyliczenie](conversions.md#explicit-enumeration-conversions)) jest wymagana do konwertowania z zakresu od typu wyliczeniowego do typu całkowitego lub między dwoma typami wyliczenia. Zbiór wartości, które mogą przejąć typ wyliczeniowy nie jest ograniczona przez jej elementów członkowskich wyliczenia. W szczególności dowolną wartość w podstawowym typem wyliczenia mogą być rzutowane na typ wyliczeniowy i jest różne prawidłową wartością tego typu wyliczeniowego.
+Każdy typ wyliczeniowy definiuje odrębny typ; jawna konwersja wyliczenia ([jawne konwersje wyliczenia](conversions.md#explicit-enumeration-conversions)) jest wymagana do konwersji między typem wyliczenia a typem całkowitym lub między dwoma typami wyliczeniowymi. Zbiór wartości, dla których można zastosować typ wyliczeniowy, nie jest ograniczony przez elementy członkowskie wyliczenia. W szczególności każda wartość typu podstawowego wyliczenia może być rzutowana na typ wyliczeniowy i jest odrębną prawidłową wartością tego typu wyliczeniowego.
 
-Elementy członkowskie wyliczenia mają typ ich typem zawierającym wyliczenia (z wyjątkiem w ramach innych inicjatorów składowych typu wyliczeniowego: zobacz [typu wyliczeniowego](enums.md#enum-members)). Wartość elementu członkowskiego wyliczenia zostało zadeklarowane w typie wyliczenia `E` o wartość skojarzonego `v` jest `(E)v`.
+Elementy członkowskie wyliczenia mają typ zawierający typ wyliczeniowy (z wyjątkiem innych inicjatorów elementów członkowskich wyliczenia: zobacz [elementy członkowskie wyliczenia](enums.md#enum-members)). Wartość elementu członkowskiego wyliczenia zadeklarowana w typie wyliczeniowy `E` ze skojarzoną wartością `v` jest `(E)v`.
 
-Można używać następujących operatorów na wartości typu wyliczenia: `==`, `!=`, `<`, `>`, `<=`, `>=`  ([operatory porównania wyliczenie](expressions.md#enumeration-comparison-operators)) , binarne `+`  ([operator dodawania](expressions.md#addition-operator)), binarny `-`  ([operator odejmowania](expressions.md#subtraction-operator)), `^`, `&` , `|`  ([Operatorów logicznych wyliczenie](expressions.md#enumeration-logical-operators)), `~`  ([operator dopełnienia bitowego](expressions.md#bitwise-complement-operator)), `++` i `--`  ([Przyrostka inkrementacji i dekrementacji operatory](expressions.md#postfix-increment-and-decrement-operators) i [przedrostkowe i operatory dekrementacji](expressions.md#prefix-increment-and-decrement-operators)).
+Następujące operatory mogą być używane dla wartości typów wyliczeniowych: `==`, `!=`, `<`, `>`, `<=`, `>=` @ no__t-6 ([Operatory porównania wyliczenia](expressions.md#enumeration-comparison-operators)), Binary `+` @ no__t-9 ([dodanie operatora](expressions.md#addition-operator)), Binary 1 @ no__ t-12 ([operator odejmowania](expressions.md#subtraction-operator)), 4, 5, 6 @ no__t-17 ([Wyliczenie operatorów logicznych](expressions.md#enumeration-logical-operators)), 9 @ no__t-20 ([operator](expressions.md#bitwise-complement-operator)dopełnienia bitowego), 2 i 3 @ no__t-24 ([przyrost Przyrostkowy i zmniejsz operatory](expressions.md#postfix-increment-and-decrement-operators) oraz [przyrostowe operatory i zmniejszanie prefiksu](expressions.md#prefix-increment-and-decrement-operators)).
 
-Każdy typ wyliczenia automatycznie dziedziczy z klasy `System.Enum` (który z kolei pochodzi od klasy `System.ValueType` i `object`). W efekcie dziedziczonej metody i właściwości tej klasy można na wartościach typu wyliczeniowego.
+Każdy typ wyliczeniowy jest automatycznie pochodzący z klasy `System.Enum` (które z kolei wynikają z `System.ValueType` i `object`). W ten sposób dziedziczone metody i właściwości tej klasy mogą być używane dla wartości typu wyliczeniowego.

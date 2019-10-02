@@ -1,28 +1,28 @@
 ---
-ms.openlocfilehash: 8bc4bf6310fb8a8457beee167f18d30aaca10a8e
-ms.sourcegitcommit: 7f7fc6e9e195e51b7ff8229aeaa70aa9fbbb63cb
+ms.openlocfilehash: 300d5fc2a2fadd98472d73c122226146605b01dd
+ms.sourcegitcommit: 892af9016b3317a8fae12d195014dc38ba51cf16
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70876903"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703998"
 ---
 # <a name="introduction"></a>Wprowadzenie
 
-C# (wymowa: „si szarp”) to prosty, nowoczesny, zorientowany obiektowo i bezpieczny język programowania. C#ma swoje elementy główne w rodzinie C i będzie od razu znane programistom języków C, C++i Java. C#jest ustandaryzowany przez ECMA International jako standard ***ECMA-334*** i ISO/IEC jako standard ***iso/IEC 23270*** . C# Kompilator firmy Microsoft dla .NET Framework jest zgodny z implementacją obu tych standardów.
+C#(wymawiane "Zobacz Sharp") to prosty, nowoczesny, zorientowany obiektowo i bezpieczny dla typu język programowania. C#ma swoje elementy główne w rodzinie C i będzie od razu znane programistom języków C, C++i Java. C#jest ustandaryzowany przez ECMA International jako standard ***ECMA-334*** i ISO/IEC jako standard ***iso/IEC 23270*** . C# Kompilator firmy Microsoft dla .NET Framework jest zgodny z implementacją obu tych standardów.
 
-C# to język zorientowany obiektowo, ale obsługuje również programowanie ***zorientowane na składniki***. Tworzone dziś oprogramowanie w coraz większym stopniu opiera się na składnikach mających formę niezależnych i samoopisujących się pakietów funkcji. Kluczem są tutaj właściwości, metody i zdarzenia dostarczanie przez składniki. Składniki mają swoje atrybuty, które zapewniają informacje deklaratywne, a także obejmują dokumentację. C#Program udostępnia konstrukcje językowe umożliwiające bezpośrednie wsparcie tych koncepcji, C# co sprawia, że jest to bardzo naturalny język, w którym można tworzyć i używać składników oprogramowania.
+C#jest językiem zorientowanym na obiekt, ale C# dodatkowo obsługuje programowanie ***zorientowane na składniki*** . Współczesny projekt oprogramowania jest coraz bardziej oparty na składnikach oprogramowania w postaci samodzielnych i samodzielnych pakietów funkcji. Klucz do takich składników polega na tym, że stanowią one model programowania z właściwościami, metodami i zdarzeniami; mają one atrybuty, które dostarczają deklaracyjne informacje o składniku; i zawierają własną dokumentację. C#Program udostępnia konstrukcje językowe umożliwiające bezpośrednie wsparcie tych koncepcji, C# co sprawia, że jest to bardzo naturalny język, w którym można tworzyć i używać składników oprogramowania.
 
-C# ma również bardzo pomocne funkcje do tworzenia niezawodnych i trwałych aplikacji. ***Wyrzucanie elementów bezużytecznych*** automatycznie odzyskuje pamięć zajmowaną przez nieużywane obiekty; ***Obsługa wyjątków*** zapewnia strukturalne i rozszerzalne podejście do wykrywania błędów i odzyskiwania. a ***bezpieczny typ*** projektu języka sprawia, że nie można odczytać z niezainicjowanych zmiennych, indeksować tablice poza granicami lub wykonywać rzutowania typu unchecked.
+Niektóre C# funkcje ułatwiają tworzenie niezawodnych i trwałych aplikacji: ***Wyrzucanie elementów bezużytecznych*** automatycznie odzyskuje pamięć zajmowaną przez nieużywane obiekty; ***Obsługa wyjątków*** zapewnia strukturalne i rozszerzalne podejście do wykrywania błędów i odzyskiwania. a ***bezpieczny typ*** projektu języka sprawia, że nie można odczytać z niezainicjowanych zmiennych, indeksować tablice poza granicami lub wykonywać rzutowania typu unchecked.
 
-C# korzysta z ***ujednoliconego systemu typów***. Wszystkie typy w tym języku, w tym typy podstawowe takie jak `int` czy `double`, dziedziczą z jednego typu głównego typu `object`. W rezultacie wszystkie typy dzielą między sobą ten sam zestaw metod, a wartości dowolnego typu można zapisywać, przesyłać i wykorzystywać w jednolity sposób. C# obsługuje też typy odwołań i wartości zdefiniowanych przez użytkownika, co pozwala na dynamiczną alokację obiektów, a także na wbudowane przechowywanie uproszczonych struktur.
+C#ma ***ujednolicony system typów***. Wszystkie C# typy, w tym typy pierwotne `int` , `double`takie jak i, dziedziczą `object` z jednego typu głównego. W związku z tym wszystkie typy używają zestawu typowych operacji, a wartości dowolnego typu mogą być przechowywane, transportowane i obsługiwane w spójny sposób. Ponadto C# obsługuje zarówno typy odwołań zdefiniowane przez użytkownika, jak i typy wartości, co umożliwia dynamiczne przydzielanie obiektów oraz przechowywanie w wierszu lekkich struktur.
 
 Aby upewnić C# się, że programy i biblioteki mogą się rozwijać w czasie w zgodnym zakresie, przeznaczenie ma duże znaczenie C#w projekcie ***wersji*** . W wielu językach programowania jest mało uwagi na ten problem, a w efekcie programy w tych językach są częściej częściej niż to konieczne, gdy są wprowadzane nowsze wersje bibliotek zależnych. C#Zagadnienia dotyczące projektu, które miały bezpośredni wpływ na wersje, obejmują oddzielność `virtual` i `override` modyfikatory, reguły rozpoznawania przeciążania metod oraz obsługę jawnych deklaracji elementów członkowskich interfejsu.
 
 Pozostała część tego rozdziału zawiera opis najważniejszych funkcji C# języka. Chociaż dalsze rozdziały opisują reguły i wyjątki w szczegółowo zorientowanym i niekiedy w sposób matematyczny, ten rozdział dąży do przejrzystości i zwięzłości na koszt kompletności. Celem jest zapewnienie czytelnikowi wprowadzenia do języka, który ułatwia pisanie wczesnych programów i odczytywanie dalszych rozdziałów.
 
-## <a name="hello-world"></a>Hello, World
+## <a name="hello-world"></a>Hello world
 
-„Hello, World” to program używany tradycyjnie jako wprowadzenie do języka programowania. Poniżej przedstawiono jego wersję w C#:
+Program "Hello, World" jest tradycyjnie używany do wprowadzania języka programowania. W tym miejscu znajduje C#się w:
 
 ```csharp
 using System;
@@ -35,20 +35,20 @@ class Hello
 }
 ```
 
-Pliki źródłowe C# zazwyczaj mają rozszerzenie `.cs`. Przy założeniu, że program "Hello, World" jest przechowywany w `hello.cs`pliku, program można skompilować za pomocą kompilatora firmy C# Microsoft przy użyciu wiersza polecenia
-```
+C#pliki źródłowe mają zwykle rozszerzenie `.cs`pliku. Przy założeniu, że program "Hello, World" jest przechowywany w `hello.cs`pliku, program można skompilować za pomocą kompilatora firmy C# Microsoft przy użyciu wiersza polecenia
+```console
 csc hello.cs
 ```
 tworzy zestaw wykonywalny o nazwie `hello.exe`. Dane wyjściowe generowane przez tę aplikację po jej uruchomieniu to
-```
+```console
 Hello, World
 ```
 
-Program „Hello, World” rozpoczyna się od dyrektywy `using`, która odwołuje się do przestrzeni nazw `System`. Przestrzenie nazw zapewniają hierarchiczny sposób organizowania programów i bibliotek C#. Zawierają one typy i inne przestrzenie nazw — np. przestrzeń nazw `System` zawiera wiele typów (takich jak klasa `Console`, do której odwołuje się program) i wiele innych przestrzeni nazw, takich jak `IO` czy `Collections`. Dyrektywa `using` odwołująca się do danej przestrzeni nazw umożliwia niekwalifikowane korzystanie z typów, które są składowymi tej przestrzeni nazw. Dzięki skorzystaniu z dyrektywy `using` program może użyć polecenia `Console.WriteLine` jako skrótu dla `System.Console.WriteLine`.
+Program "Hello, World" rozpoczyna się `using` od dyrektywy, która odwołuje się do `System` przestrzeni nazw. Przestrzenie nazw zapewniają hierarchiczną metodę C# organizowania programów i bibliotek. Przestrzenie nazw zawierają typy i inne przestrzenie nazw — `System` na przykład przestrzeń nazw zawiera wiele typów, takich `Console` jak Klasa, do której odwołuje się program, oraz liczba innych przestrzeni nazw, `IO` takich `Collections`jak i. `using` Dyrektywa odwołująca się do danej przestrzeni nazw umożliwia niekwalifikowane użycie typów, które są elementami członkowskimi tej przestrzeni nazw. Ze względu `using` na dyrektywę program może użyć `Console.WriteLine` jako skrótu dla elementu `System.Console.WriteLine`.
 
-Klasa `Hello` zadeklarowa przez program „Hello, World” zawiera jedną składową, którą jest metoda o nazwie `Main`. Metoda jest zadeklarowana `static` z modyfikatorem. `Main` Podczas gdy metody wystąpień mogą odwoływać się do konkretnego wystąpienia obiektu otaczającego przy użyciu słowa kluczowego `this`, metody statyczne działają bez odwoływania się do konkretnego obiektu. Zgodnie z konwencją, metoda statyczna o nazwie `Main` służy jako punkt wejścia programu.
+Klasa zadeklarowana przez program "Hello, World" ma jeden element członkowski, Metoda o nazwie `Main`. `Hello` Metoda jest zadeklarowana `static` z modyfikatorem. `Main` Chociaż metody wystąpień mogą odwoływać się do określonego wystąpienia obiektu otaczającego za `this`pomocą słowa kluczowego, metody statyczne działają bez odwołania do określonego obiektu. Zgodnie z Konwencją metoda statyczna `Main` o nazwie służy jako punkt wejścia programu.
 
-Dane wyjściowe programu są generowane przez metodę `WriteLine` klasy `Console` w przestrzeni nazw `System`. Ta klasa jest dostarczana przez .NET Framework biblioteki klas, które domyślnie są przywoływane przez kompilator firmy Microsoft C# . Należy zauważyć C# , że sama nie ma oddzielnej biblioteki środowiska uruchomieniowego. Zamiast tego .NET Framework jest biblioteką środowiska uruchomieniowego C#programu.
+Dane wyjściowe programu są tworzone przez `WriteLine` metodę `Console` klasy w `System` przestrzeni nazw. Ta klasa jest dostarczana przez .NET Framework biblioteki klas, które domyślnie są przywoływane przez kompilator firmy Microsoft C# . Należy zauważyć C# , że sama nie ma oddzielnej biblioteki środowiska uruchomieniowego. Zamiast tego .NET Framework jest biblioteką środowiska uruchomieniowego C#programu.
 
 ## <a name="program-structure"></a>Struktura programu
 
@@ -91,7 +91,7 @@ namespace Acme.Collections
 ```
 deklaruje klasę o `Stack` nazwie w przestrzeni nazw `Acme.Collections`o nazwie. W pełni kwalifikowana nazwa tej klasy `Acme.Collections.Stack`to. Klasa zawiera kilka elementów członkowskich: pole o nazwie `top`, dwie metody o `Push` nazwie `Pop`i i zagnieżdżoną klasę o `Entry`nazwie. Klasa dodatkowo zawiera trzy elementy członkowskie: pole o nazwie `next`, pole o nazwie `data`i Konstruktor. `Entry` Przy założeniu, że kod źródłowy przykładu jest przechowywany w pliku `acme.cs`, wiersz polecenia
 
-```
+```console
 csc /t:library acme.cs
 ```
 kompiluje przykład jako bibliotekę (kod bez `Main` punktu wejścia) i tworzy zestaw o nazwie. `acme.dll`
@@ -119,12 +119,12 @@ class Test
 ```
 Jeśli program jest `test.cs`przechowywany w pliku, po `test.cs` skompilowaniu `acme.dll` `/r` zestawu można odwoływać się za pomocą opcji kompilatora:
 
-```
+```console
 csc /r:acme.dll test.cs
 ```
 Spowoduje to utworzenie zestawu wykonywalnego `test.exe`o nazwie, który w przypadku uruchamiania generuje dane wyjściowe:
 
-```
+```console
 100
 10
 1
@@ -182,7 +182,7 @@ Poniższa tabela zawiera podsumowanie C#typów liczbowych.
 |                   | 64       | `ulong`   | 0... 18, 446, 744, 073, 709, 551, 615 |
 | Liczba zmiennoprzecinkowa    | 32       | `float`   | 1,5 × 10 ^ − 45 do 3,4 × 10 ^ 38, 7-cyfrowa precyzja |
 |                   | 64       | `double`  | 5,0 × 10 ^ − 324 do 1,7 × 10 ^ 308, 15-cyfrowa precyzja |
-| Wartość dziesiętna           | 128      | `decimal` | 1,0 × 10 ^ − 28 do 7,9 × 10 ^ 28, 28-cyfrowa precyzja |
+| Decimal           | 128      | `decimal` | 1,0 × 10 ^ − 28 do 7,9 × 10 ^ 28, 28-cyfrowa precyzja |
 
 C#programy używają ***deklaracji typu*** do tworzenia nowych typów. Deklaracja typu określa nazwę i składowe nowego typu. C#Pięć kategorii typów są definiowane przez użytkownika: typy klas, typy struktur, typy interfejsów, typy wyliczeniowe i typy delegatów.
 
@@ -595,7 +595,7 @@ Point p2 = new Point(10, 20);
 ```
 Pamięć zajęta przez obiekt jest automatycznie odzyskiwana, gdy obiekt nie jest już używany. Nie jest to konieczne ani możliwe, aby jawnie cofnąć alokację obiektów w programie C#.
 
-### <a name="members"></a>Elementy członkowskie
+### <a name="members"></a>Members
 
 Elementy członkowskie klasy są ***statycznymi elementami członkowskimi*** lub ***wystąpieniami***. Statyczne składowe należą do klas, a elementy członkowskie wystąpienia należą do obiektów (wystąpień klas).
 
@@ -607,9 +607,9 @@ Poniższa tabela zawiera omówienie rodzajów elementów członkowskich, które 
 | Stałe    | Wartości stałe skojarzone z klasą |
 | Pola       | Zmienne klasy |
 | Metody      | Obliczenia i akcje, które mogą być wykonywane przez klasę |
-| Właściwości   | Akcje skojarzone z odczytem i pisaniem nazwanych właściwości klasy |
+| properties   | Akcje skojarzone z odczytem i pisaniem nazwanych właściwości klasy |
 | Indeksatory     | Akcje skojarzone z wystąpieniami indeksowania klasy, takimi jak tablica |
-| Zdarzenia       | Powiadomienia, które mogą zostać wygenerowane przez klasę |
+| Events       | Powiadomienia, które mogą zostać wygenerowane przez klasę |
 | Operatory    | Konwersje i operatory wyrażeń obsługiwane przez klasę |
 | Konstruktorów | Akcje wymagane do zainicjowania wystąpień klasy lub samej klasy |
 | Destruktory  | Akcje do wykonania przed trwałe odrzuceniem wystąpień klasy |
@@ -1138,7 +1138,7 @@ List<string> list2 = new List<string>(10);
 ```
 W przeciwieństwie do innych elementów członkowskich, konstruktory wystąpień nie są dziedziczone, a Klasa nie ma konstruktorów wystąpień innych niż zadeklarowane w klasie. Jeśli nie podano konstruktora wystąpienia dla klasy, zostanie automatycznie podana pusta wartość bez parametrów.
 
-#### <a name="properties"></a>Właściwości
+#### <a name="properties"></a>properties
 
 ***Właściwości*** są naturalnym rozszerzeniem pól. Oba są nazwanymi członkami ze skojarzonymi typami, a składnia dostępu do pól i właściwości jest taka sama. Jednak w przeciwieństwie do pól właściwości nie oznacza lokalizacji magazynu. Zamiast tego właściwości mają metody ***dostępu*** określające instrukcje, które mają być wykonywane, gdy ich wartości są odczytywane lub zapisywane.
 
@@ -1164,7 +1164,7 @@ Metody dostępu właściwości mogą być wirtualne. Gdy Deklaracja właściwoś
 
 ***Indeksator*** jest członkiem, który umożliwia indeksowanie obiektów w taki sam sposób jak w przypadku tablicy. Indeksator jest zadeklarowany jak właściwość, z tą różnicą, że `this` po nazwie składowej następuje lista parametrów zapisywana między `[` ogranicznikami i `]`. Parametry są dostępne w metodach dostępu indeksatora. Podobnie jak w przypadku właściwości, indeksatory mogą być tylko do odczytu i zapisu, tylko do odczytu i do zapisu, a Akcesory dla indeksatora mogą być wirtualne.
 
-Klasa deklaruje pojedynczy indeksator do odczytu i zapisu, który `int` pobiera parametr. `List` Indeksator umożliwia indeksowanie `List` wystąpień z `int` wartościami. Na przykład
+Klasa deklaruje pojedynczy indeksator do odczytu i zapisu, który `int` pobiera parametr. `List` Indeksator umożliwia indeksowanie `List` wystąpień z `int` wartościami. Na przykład:
 
 ```csharp
 List<string> names = new List<string>();
@@ -1178,7 +1178,7 @@ for (int i = 0; i < names.Count; i++) {
 ```
 Indeksatory mogą być przeciążone, co oznacza, że Klasa może deklarować wiele indeksatorów, o ile liczba lub typy ich parametrów różnią się.
 
-#### <a name="events"></a>Zdarzenia
+#### <a name="events"></a>Events
 
 ***Zdarzenie*** jest członkiem, który umożliwia klasy lub obiektowi dostarczanie powiadomień. Zdarzenie jest zadeklarowane jak pole, z tą różnicą, że `event` deklaracja zawiera słowo kluczowe i typ musi być typem delegata.
 
@@ -1400,7 +1400,7 @@ public class EditBox: IControl, IDataBound
     public void Bind(Binder b) {...}
 }
 ```
-Gdy Klasa lub struktura implementuje określony interfejs, wystąpienia tej klasy lub struktury mogą być niejawnie konwertowane na typ tego interfejsu. Na przykład
+Gdy Klasa lub struktura implementuje określony interfejs, wystąpienia tej klasy lub struktury mogą być niejawnie konwertowane na typ tego interfejsu. Na przykład:
 
 ```csharp
 EditBox editBox = new EditBox();
@@ -1486,7 +1486,7 @@ enum Alignment: sbyte
 ```
 Jak pokazano w poprzednim przykładzie, Deklaracja elementu członkowskiego wyliczenia może zawierać wyrażenie stałe, które określa wartość elementu członkowskiego. Wartość stała dla każdego elementu członkowskiego wyliczenia musi znajdować się w zakresie bazowego typu wyliczenia. Jeśli deklaracja elementu członkowskiego wyliczenia nie określa jawnie wartości, element członkowski otrzymuje wartość zero (jeśli jest to pierwszy element członkowski typu enum) lub wartość w postaci jednokrotnie poprzedzającej składową wyliczenia plus jeden.
 
-Wartości wyliczeniowe mogą być konwertowane na wartości całkowite i odwrotnie przy użyciu rzutowania typu. Na przykład
+Wartości wyliczeniowe mogą być konwertowane na wartości całkowite i odwrotnie przy użyciu rzutowania typu. Na przykład:
 
 ```csharp
 int i = (int)Color.Blue;        // int i = 2;

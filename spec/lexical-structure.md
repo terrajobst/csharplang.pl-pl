@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 5fbe0267b5b33b1a24dbdca493d118c576092573
-ms.sourcegitcommit: 7f7fc6e9e195e51b7ff8229aeaa70aa9fbbb63cb
+ms.openlocfilehash: 4676bcd3f0a92260b4e5e20a0aa5b5ec00bf204e
+ms.sourcegitcommit: 892af9016b3317a8fae12d195014dc38ba51cf16
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70876913"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71704069"
 ---
 # <a name="lexical-structure"></a>Struktura leksykalna
 
@@ -382,7 +382,7 @@ boolean_literal
     ;
 ```
 
-Typem elementu *boolean_literal* jest `bool`.
+Typ elementu *boolean_literal* to `bool`.
 
 #### <a name="integer-literals"></a>Literały całkowite
 
@@ -429,8 +429,8 @@ Ze względu na styl`L`zaleca się użycie "" zamiast "`l`" podczas pisania liter
 
 Aby zezwolić na zapisanie `int` najmniejszych możliwych i `long` wartości w postaci dziesiętnych literałów liczb całkowitych, istnieją następujące dwie reguły:
 
-* Gdy *decimal_integer_literal* o wartości 2147483648 (2 ^ 31) i bez *integer_type_suffix* pojawia się jako token bezpośrednio po jednoargumentowym tokenie operatora minus ([jednoargumentowy operator minus](expressions.md#unary-minus-operator)), wynik jest stałą typu `int`wartość-2147483648 (-2 ^ 31). We wszystkich innych sytuacjach takie *decimal_integer_literal* jest typu `uint`.
-* Gdy *decimal_integer_literal* o wartości zakresu od (2 ^ 63) i bez *integer_type_suffix* lub *integer_type_suffix* `L` lub `l` pojawia się jako token bezpośrednio po jednoargumentowym znaku minus token operatora ([jednoargumentowy operator minus](expressions.md#unary-minus-operator)), wynik jest stałą typu `long` z wartością-zakresu od (-2 ^ 63). We wszystkich innych sytuacjach takie *decimal_integer_literal* jest typu `ulong`.
+* Gdy *decimal_integer_literal* o wartości 2147483648 (2 ^ 31) i bez *integer_type_suffix* pojawia się jako token bezpośrednio po jednoargumentowym tokenie operatora minus ([jednoargumentowy operator minus](expressions.md#unary-minus-operator)), wynik jest stałą typu `int` wartość-2147483648 (-2 ^ 31). We wszystkich innych sytuacjach takie *decimal_integer_literal* jest typu `uint`.
+* Gdy element *decimal_integer_literal* o wartości zakresu od (2 ^ 63) i bez *integer_type_suffix* lub *integer_type_suffix* `L` lub `l` jest wyświetlany jako token bezpośrednio po jednoargumentowym tokenie operatora minus ([ Jednoargumentowy operator minus](expressions.md#unary-minus-operator)), wynikiem jest stała typu `long` z wartością-zakresu od (-2 ^ 63). We wszystkich innych sytuacjach takie *decimal_integer_literal* jest typu `ulong`.
 
 #### <a name="real-literals"></a>Literały prawdziwe
 
@@ -516,7 +516,7 @@ Prosta sekwencja ucieczki reprezentuje kodowanie znaków Unicode, zgodnie z opis
 |---------------------|--------------------|----------------------|
 | `\'`                | Pojedynczy cytat       | `0x0027`             | 
 | `\"`                | Podwójny cudzysłów       | `0x0022`             | 
-| `\\`| Ukośnik odwrotny |`0x005C`             | 
+| `\\`                | Ukośnik odwrotny          | `0x005C`             | 
 | `\0`                | Null               | `0x0000`             | 
 | `\a`                | Alerty              | `0x0007`             | 
 | `\b`                | Backspace          | `0x0008`             | 
@@ -526,7 +526,7 @@ Prosta sekwencja ucieczki reprezentuje kodowanie znaków Unicode, zgodnie z opis
 | `\t`                | Tabulator poziomy     | `0x0009`             | 
 | `\v`                | Tabulator pionowy       | `0x000B`             | 
 
-Typem elementu *character_literal* jest `char`.
+Typ elementu *character_literal* to `char`.
 
 #### <a name="string-literals"></a>Literały ciągu
 
@@ -575,7 +575,7 @@ quote_escape_sequence
     ;
 ```
 
-Znak, który następuje po ukośniku odwrotnym`\`() w *regular_string_literal_character* , musi mieć jeden z następujących znaków `0`: `'`, `"`, `\` `a`,,, `b` , `f`, `n`, `r`, `t`, `u`, `U`, `x`, `v`. W przeciwnym razie wystąpi błąd w czasie kompilacji.
+Znak, który następuje po znaku ukośnika odwrotnego (`\`) w *regular_string_literal_character* musi mieć jeden z następujących znaków: `'`, `"`, `\`, `0`, `a`, `b`, `f`, `n`, 0, 1, @no__ t-12, 3, 4, 5. W przeciwnym razie wystąpi błąd w czasie kompilacji.
 
 Przykład
 ```csharp
@@ -600,7 +600,7 @@ pokazuje różne literały ciągu. Ostatni literał ciągu, `j`, jest Verbatim l
 
 Ponieważ szesnastkowa sekwencja ucieczki może mieć zmienną liczbę cyfr szesnastkowych, literał `"\x123"` ciągu zawiera pojedynczy znak z wartością szesnastkową 123. Aby utworzyć ciąg zawierający znak o wartości szesnastkowej 12, po którym następuje znak 3, jeden może napisać `"\x00123"` lub `"\x12" + "3"` zamiast tego.
 
-Typem elementu *string_literaL* jest `string`.
+Typ elementu *string_literaL* to `string`.
 
 Każdy literał ciągu nie musi powodować wystąpienia nowego ciągu. Gdy co najmniej dwa literały ciągu, które są równoważne względem operatora równości ciągów ([Operatory równości ciągów](expressions.md#string-equality-operators)) pojawiają się w tym samym programie, te literały ciągu odwołują się do tego samego wystąpienia ciągu. Na przykład dane wyjściowe generowane przez
 ```csharp
@@ -782,7 +782,7 @@ single_verbatim_balanced_text_character
 
 Token *interpolated_string_literal* jest ponownie interpretowany jako wiele tokenów i innych elementów wejściowych w następujący sposób w kolejności wystąpienia w *interpolated_string_literal*:
 
-* Wystąpienia następujących elementów są interpretowane jako oddzielne pojedyncze tokeny: znak wiodący `$` , *interpolated_regular_string_whole*, *interpolated_regular_string_start*, *interpolated_regular_string_mid*, *interpolated_regular_string_end*, *interpolated_verbatim_string_whole*, *interpolated_verbatim_string_start*, *interpolated_verbatim_string_mid* i *interpolated_verbatim_string_end*.
+* Wystąpienia następujących elementów są interpretowane jako oddzielne pojedyncze tokeny: wiodący znak `$`, *interpolated_regular_string_whole*, *interpolated_regular_string_start*, *interpolated_regular_string_mid*,  *interpolated_regular_string_end*, *interpolated_verbatim_string_whole*, *interpolated_verbatim_string_start*, *interpolated_verbatim_string_mid* i *interpolated_verbatim_string_end*.
 * Wystąpienia *regular_balanced_text* i *verbatim_balanced_text* między tymi elementami są ponownie przetwarzane jako *input_section* ([Analiza leksykalna](lexical-structure.md#lexical-analysis)) i są ponownie interpretowane jako wyniki sekwencji elementów wejściowych. Mogą one z kolei obejmować interpolowane tokeny literałów ciągów do reinterpretacji.
 
 Analiza składni spowoduje ponowne połączenie tokenów z *interpolated_string_expression* ([ciągami interpolowanymi](expressions.md#interpolated-strings)).
@@ -1054,13 +1054,13 @@ Jak wskazano w składni, dyrektywy kompilacji warunkowej muszą być zapisywane 
 
 *Pp_conditional* wybiera co najwyżej jeden z zawartych *conditional_section*s do normalnego przetwarzania leksykalnego:
 
-*  *Pp_expression* `#if` s dyrektyw i `#elif` są `true`oceniane w kolejności do momentu 1. Jeśli wynikiem jest wyrażenie `true`, *conditional_section* odpowiedniej dyrektywy jest zaznaczone.
-*  Jeśli wszystkie *pp_expression*s `false` `#else` , a jeśli `#else` jest obecna dyrektywa, zostanie wybrana *conditional_section* dyrektywy.
+*  *Pp_expression*s dyrektyw `#if` i `#elif` są oceniane w kolejności do momentu `true`. Jeśli wyrażenie daje `true`, zostanie wybrana *conditional_section* odpowiedniej dyrektywy.
+*  Jeśli wszystkie *pp_expression*s Yield `false` i jeśli obecna jest dyrektywa `#else`, zostanie wybrana *conditional_section* dyrektywy `#else`.
 *  W przeciwnym razie nie jest zaznaczona żadna *conditional_section* .
 
 Wybrany *conditional_section*(jeśli istnieje) jest przetwarzany jako normalny *input_section*: kod źródłowy zawarty w sekcji musi być zgodny z gramatyką leksykalną; tokeny są generowane na podstawie kodu źródłowego w sekcji; i dyrektywy wstępnego przetwarzania w sekcji mają określone efekty.
 
-Pozostałe *conditional_section*s, jeśli istnieją, są przetwarzane jako *skipped_section*s: z wyjątkiem dyrektyw poprzedzających przetwarzanie, kod źródłowy w sekcji nie musi być zgodny z gramatyką leksykalną; nie Wygenerowano żadnych tokenów z kodu źródłowego w sekcji; i dyrektywy wstępnego przetwarzania w sekcji muszą być poprawiane w sposób leksykalny, ale nie są przetwarzane w inny sposób. W *conditional_section* , który jest przetwarzany jako *skipped_section*, wszystkie zagnieżdżone *conditional_section*s (zawarte w zagnieżdżonych `#if`... `#endif` i`#region`... Konstrukcje) są również przetwarzane jako *skipped_section s.* `#endregion`
+Pozostałe *conditional_section*s, jeśli istnieją, są przetwarzane jako *skipped_section*s: z wyjątkiem dyrektyw poprzedzających przetwarzanie, kod źródłowy w sekcji nie musi być zgodny z gramatyką leksykalną; nie Wygenerowano żadnych tokenów z kodu źródłowego w sekcji; i dyrektywy wstępnego przetwarzania w sekcji muszą być poprawiane w sposób leksykalny, ale nie są przetwarzane w inny sposób. W *conditional_section* , który jest przetwarzany jako *skipped_section*, wszelkie zagnieżdżone *conditional_section*s (zawarte w zagnieżdżonych `#if`... `#endif` i `#region`... `#endregion` konstrukcje) są również przetwarzane jako *skipped_ Sekcja*s.
 
 Poniższy przykład ilustruje, jak można zagnieżdżać dyrektywy kompilacji warunkowej:
 ```csharp
@@ -1115,7 +1115,7 @@ class Hello
 }
 ```
 wyniki w danych wyjściowych:
-```
+```console
 hello,
 #if Debug
         world
@@ -1160,7 +1160,7 @@ Przykład:
 
 class Test {...}
 ```
-zawsze generuje ostrzeżenie ("Przegląd kodu wymagany przed zaewidencjonowaniem") i generuje błąd czasu kompilacji ("kompilacja nie może jednocześnie debugować i detalicznych"), jeśli symbole `Debug` warunkowe i `Retail` zostały zdefiniowane. Należy pamiętać, że element *pp_message* może zawierać dowolny tekst; w przeciwnym razie nie musi zawierać poprawnie sformułowanych tokenów, jak pokazano w pojedynczym cudzysłowie w `can't`wyrazie.
+zawsze generuje ostrzeżenie ("Przegląd kodu wymagany przed zaewidencjonowaniem") i generuje błąd czasu kompilacji ("kompilacja nie może jednocześnie debugować i detalicznych"), jeśli symbole `Debug` warunkowe i `Retail` zostały zdefiniowane. Należy pamiętać, że element *pp_message* może zawierać dowolny tekst; w przeciwnym razie nie musi zawierać poprawnie sformułowanych tokenów, jak pokazano w pojedynczym cudzysłowie w wyrazie `can't`.
 
 ### <a name="region-directives"></a>Dyrektywy regionów
 
@@ -1180,7 +1180,7 @@ pp_end_region
     ;
 ```
 
-Do regionu nie dołączono znaczenia semantycznego; regiony są przeznaczone do użytku przez programistę lub przez zautomatyzowane narzędzia do oznaczania sekcji kodu źródłowego. Komunikat określony w `#region` dyrektywie lub `#endregion` również nie ma znaczenia semantycznego, a jedynie służy do identyfikowania regionu. `#region` Dopasowywanie `#endregion` i dyrektywy mogą mieć różne *pp_message*s.
+Do regionu nie dołączono znaczenia semantycznego; regiony są przeznaczone do użytku przez programistę lub przez zautomatyzowane narzędzia do oznaczania sekcji kodu źródłowego. Komunikat określony w `#region` dyrektywie lub `#endregion` również nie ma znaczenia semantycznego, a jedynie służy do identyfikowania regionu. Zgodne `#region` i `#endregion` dyrektywy mogą mieć różne *pp_message*s.
 
 Przetwarzanie leksykalne regionu:
 ```csharp
@@ -1222,13 +1222,13 @@ file_name_character
     ;
 ```
 
-Gdy żadne `#line` dyrektywy nie są obecne, kompilator zgłasza w danych wyjściowych prawdziwe numery wierszy i nazwy plików źródłowych. Podczas przetwarzania `#line` dyrektywy, która zawiera *line_indicator* , która nie `default`jest, kompilator traktuje wiersz po dyrektywie jako mający podany numer wiersza (i nazwę pliku, jeśli jest określony).
+Gdy żadne `#line` dyrektywy nie są obecne, kompilator zgłasza w danych wyjściowych prawdziwe numery wierszy i nazwy plików źródłowych. Podczas przetwarzania dyrektywy `#line`, która zawiera *line_indicator* , która nie jest `default`, kompilator traktuje wiersz po dyrektywie jako mający podany numer wiersza (i nazwę pliku, jeśli jest określony).
 
 `#line default` Dyrektywa Odwraca efekt wszystkich poprzednich dyrektyw #line. Kompilator raportuje prawdziwe informacje o wierszu dla kolejnych wierszy, dokładnie tak, `#line` jakby nie zostały przetworzone dyrektywy.
 
 `#line hidden` Dyrektywa nie ma wpływu na numery plików i wierszy raportowane w komunikatach o błędach, ale wpływa na Debugowanie na poziomie źródła. Podczas debugowania wszystkie wiersze między `#line hidden` dyrektywą a kolejną `#line` dyrektywą (nie `#line hidden`) nie zawierają informacji o numerze wiersza. Podczas przechodzenia przez kod w debugerze te wiersze zostaną całkowicie pominięte.
 
-Należy zauważyć, że *nazwa_pliku* różni się od zwykłego literału ciągu w tym znaku ucieczki nie są przetwarzane; znak "`\`" oznacza po prostu zwykły ukośnik odwrotny w ciągu *nazwa_pliku*.
+Należy zauważyć, że *nazwa_pliku* różni się od zwykłego literału ciągu w tym znaku ucieczki nie są przetwarzane; znak "`\`" po prostu wyznaczy zwykły znak ukośnika odwrotnego w obrębie elementu *nazwa_pliku*.
 
 ### <a name="pragma-directives"></a>Dyrektywy pragma
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 94346034a667ad4af26796c0c4bbc96d6ed79aba
-ms.sourcegitcommit: 7f7fc6e9e195e51b7ff8229aeaa70aa9fbbb63cb
+ms.openlocfilehash: 7248a91976c479dc1b6b64b799639635617a7bec
+ms.sourcegitcommit: 892af9016b3317a8fae12d195014dc38ba51cf16
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70876837"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71704045"
 ---
 # <a name="statements"></a>Instrukcje
 
@@ -41,7 +41,7 @@ void F(bool b) {
         int i = 44;
 }
 ```
-wynikiem jest błąd czasu kompilacji, ponieważ `if` instrukcja wymaga elementu *embedded_statement* , a nie *instrukcji* dla jego gałęzi IF. Jeśli ten kod był dozwolony, zmienna `i` zostałaby zadeklarowana, ale nigdy nie można jej użyć. Należy jednak pamiętać, że przez umieszczenie `i`deklaracji w bloku, przykład jest prawidłowy.
+wynikiem jest błąd czasu kompilacji, ponieważ instrukcja `if` wymaga *embedded_statement* , a nie *instrukcji* dla jego gałęzi IF. Jeśli ten kod był dozwolony, zmienna `i` zostałaby zadeklarowana, ale nigdy nie można jej użyć. Należy jednak pamiętać, że przez umieszczenie `i`deklaracji w bloku, przykład jest prawidłowy.
 
 ## <a name="end-points-and-reachability"></a>Punkty końcowe i osiągalność
 
@@ -254,9 +254,9 @@ local_variable_initializer
     ;
 ```
 
-*Local_variable_type* *local_variable_declaration* bezpośrednio określa typ zmiennych wprowadzonych przez deklarację lub wskazuje identyfikator `var` , który powinien zostać wywnioskowany na podstawie skład. Po tym typie następuje lista *local_variable_declarator*s, z których każdy wprowadza nową zmienną. *Local_variable_declarator* składa się z *identyfikatora* , który nazywa zmienną, opcjonalnie po której następuje token`=`"" i *local_variable_initializer* , który daje początkową wartość zmiennej.
+*Local_variable_type* *local_variable_declaration* bezpośrednio określa typ zmiennych wprowadzonych przez deklarację lub wskazuje identyfikator `var`, że typ powinien być wywnioskowany na podstawie inicjatora. Po tym typie następuje lista *local_variable_declarator*s, z których każdy wprowadza nową zmienną. *Local_variable_declarator* składa się z *identyfikatora* , który nazywa zmienną, opcjonalnie po której następuje token "`=`" i *local_variable_initializer* , który daje początkową wartość zmiennej.
 
-W kontekście deklaracji zmiennej lokalnej, identyfikator var działa jako kontekstowe słowo kluczowe ([słowa kluczowe](lexical-structure.md#keywords)). Gdy *local_variable_type* jest określony jako `var` , `var` a typ nie jest w zakresie, deklaracja jest ***niejawnie wpisaną deklaracją zmiennej lokalnej***, której typ jest wywnioskowany na podstawie typu skojarzonego inicjatora wyrażenia. Niejawnie wpisane deklaracje zmiennych lokalnych podlegają następującym ograniczeniom:
+W kontekście deklaracji zmiennej lokalnej, identyfikator var działa jako kontekstowe słowo kluczowe ([słowa kluczowe](lexical-structure.md#keywords)). Jeśli *local_variable_type* jest określony jako `var` i żaden typ o nazwie `var` znajduje się w zakresie, deklaracja jest ***niejawnie wpisaną deklaracją zmiennej lokalnej***, której typ jest wywnioskowany na podstawie typu skojarzonego wyrażenia inicjatora. Niejawnie wpisane deklaracje zmiennych lokalnych podlegają następującym ograniczeniom:
 
 *  *Local_variable_declaration* nie może zawierać wielu *local_variable_declarator*s.
 *  *Local_variable_declarator* musi zawierać element *local_variable_initializer*.
@@ -331,7 +331,7 @@ constant_declarator
     ;
 ```
 
-*Typ* *local_constant_declaration* określa typ stałych wprowadzonych przez deklarację. Po tym typie następuje lista *constant_declarator*s, z których każdy wprowadza nową stałą. *Constant_declarator* składa się z *identyfikatora* , który nazywa stałą, po którym następuje token`=`"", po którym następuje *constant_expression* ([wyrażenia stałe](expressions.md#constant-expressions)), które dają wartość stałej.
+*Typ* *local_constant_declaration* określa typ stałych wprowadzonych przez deklarację. Po tym typie następuje lista *constant_declarator*s, z których każdy wprowadza nową stałą. *Constant_declarator* składa się z *identyfikatora* , który nadaje nazwę stałemu, po którym następuje token "`=`", po którym następuje *constant_expression* ([wyrażenia stałe](expressions.md#constant-expressions)), które dają wartość stałej.
 
 *Typ* i *constant_expression* deklaracji stałej lokalnej muszą być zgodne z tymi samymi regułami, co w przypadku deklaracji stałego elementu członkowskiego ([stałe](classes.md#constants)).
 
@@ -441,11 +441,11 @@ switch_label
     ;
 ```
 
-*Switch_statement* składa się ze słowa `switch`kluczowego, po którym następuje wyrażenie ujęte w nawiasy (zwane wyrażeniem Switch), a następnie *switch_block*. *Switch_block* składa się z zera lub więcej *switch_section*s ujętych w nawiasy klamrowe. Każdy *switch_section* składa się z jednego lub więcej *switch_label*s, po których następuje *statement_list* ([Lista instrukcji](statements.md#statement-lists)).
+*Switch_statement* składa się ze słowa kluczowego `switch`, a następnie wyrażenia ujętego w nawiasy (nazywanego wyrażeniem Switch), po którym następuje *switch_block*. *Switch_block* składa się z zera lub więcej *switch_section*s ujętych w nawiasy klamrowe. Każdy *switch_section* składa się z jednego lub więcej *switch_label*s, po których następuje *statement_list* ([Lista instrukcji](statements.md#statement-lists)).
 
 Typ`switch` ***rządzący*** instrukcji jest ustalany przez wyrażenie Switch.
 
-*  `sbyte`Jeśli typ wyrażenia Switch to, ,`uint` `byte` `ushort` ,,`string`,,,, `short` ,,`int`lub `long` `ulong` `bool` `char`  *enum_type*, lub jeśli jest typem dopuszczającym wartość null odpowiadającym jednemu z tych typów, to jest to typ, `switch` który jest typem instrukcji.
+*  Jeśli typ wyrażenia Switch to `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `bool`, `char`, 0 *lub typu*dopuszczającego wartość null odpowiadającego jednemu z tych typów , a następnie jest to typ rządzący instrukcji 2.
 *  W przeciwnym razie dokładnie jedna zdefiniowana przez użytkownika konwersja niejawna ([konwersje zdefiniowane przez użytkownika](conversions.md#user-defined-conversions)) musi istnieć z typu wyrażenia przełącznika do jednego z następujących możliwych rodzajów typów: `sbyte`, `byte`, `short`, `ushort` , `int` `uint`, ,,`string`,, lub, typu dopuszczającego wartość null odpowiadającego jednemu z tych typów. `long` `ulong` `char`
 *  W przeciwnym razie, jeśli taka niejawna konwersja nie istnieje lub jeśli istnieje więcej niż jedna taka niejawna konwersja, wystąpi błąd w czasie kompilacji.
 
@@ -544,7 +544,7 @@ case 2:
 }
 ```
 
-Typ `switch` decydujący instrukcji może być typem `string`. Przykład:
+Typ `switch` decydujący instrukcji może być typem `string`. Na przykład:
 ```csharp
 void DoCommand(string command) {
     switch (command.ToLower()) {
@@ -634,7 +634,7 @@ do_statement
 `do` Instrukcja jest wykonywana w następujący sposób:
 
 *  Kontrolka jest przenoszona do osadzonej instrukcji.
-*  Gdy i jeśli formant osiągnie punkt końcowy osadzonej instrukcji (prawdopodobnie z wykonania `continue` instrukcji), jest oceniane *Boolean_expression* ([wyrażenia logiczne](expressions.md#boolean-expressions)). Jeśli wyrażenie logiczne daje `true`, sterowanie jest przekazywane na początek `do` instrukcji. W przeciwnym razie kontrola jest przekazywana do punktu `do` końcowego instrukcji.
+*  Gdy i Jeśli kontrolka osiągnie punkt końcowy osadzonej instrukcji (prawdopodobnie z wykonywania instrukcji `continue`), *Boolean_expression* ([wyrażenie logiczne](expressions.md#boolean-expressions)) jest oceniane. Jeśli wyrażenie logiczne daje `true`, sterowanie jest przekazywane na początek `do` instrukcji. W przeciwnym razie kontrola jest przekazywana do punktu `do` końcowego instrukcji.
 
 W osadzonej instrukcji `do` instrukcji `break` instrukcja ([instrukcja break](statements.md#the-break-statement)) może być używana do transferowania `do` kontroli do punktu końcowego instrukcji (w związku z tym kończącej iterację osadzonej instrukcji) i `continue` instrukcja ([Instrukcja continue](statements.md#the-continue-statement)) może służyć do transferowania kontroli do punktu końcowego osadzonej instrukcji.
 
@@ -682,20 +682,20 @@ Instrukcja for jest wykonywana w następujący sposób:
 
 *  Jeśli *for_initializer* jest obecny, inicjatory zmiennych lub wyrażenia instrukcji są wykonywane w kolejności, w jakiej zostały wpisane. Ten krok jest wykonywany tylko raz.
 *  Jeśli *for_condition* jest obecny, zostanie ona oceniona.
-*  Jeśli *for_condition* nie istnieje lub w przypadku oceny `true`, kontrola jest przekazywana do osadzonej instrukcji. Gdy i Jeśli kontrolka osiągnie punkt końcowy osadzonej instrukcji (prawdopodobnie z wykonania `continue` instrukcji), wyrażenia *for_iterator*(jeśli istnieją) są oceniane w sekwencji, a następnie wykonywana jest inna iteracja, rozpoczynając od Obliczanie *for_condition* w powyższym kroku.
-*  Jeśli *for_condition* jest obecny i oceny `false`, kontrola jest przekazywana do punktu `for` końcowego instrukcji.
+*  Jeśli *for_condition* nie istnieje lub w przypadku oszacowania `true`, kontrola jest przekazywana do osadzonej instrukcji. Gdy i Jeśli kontrolka osiągnie punkt końcowy osadzonej instrukcji (prawdopodobnie z wykonywania instrukcji `continue`), wyrażenia *for_iterator*(jeśli istnieją) są oceniane w sekwencji, a następnie wykonywana jest inna iteracja, rozpoczynając od Obliczanie *for_condition* w powyższym kroku.
+*  Jeśli *for_condition* jest obecny i Ocena `false`, kontrola jest przekazywana do punktu końcowego instrukcji `for`.
 
-W osadzonej instrukcji `for` instrukcji `break` instrukcja ([instrukcja break](statements.md#the-break-statement)) może być używana do transferowania `for` kontroli do punktu końcowego instrukcji (w związku z tym kończącej iterację osadzonej instrukcji) i `continue` instrukcja ([Instrukcja continue](statements.md#the-continue-statement)) może służyć do transferowania kontroli do punktu końcowego osadzonej instrukcji (w związku z tym wykonywania *for_iterator* i `for` wykonywania innej iteracji instrukcji, zaczynając od *for_condition*).
+W osadzonym zestawie instrukcji `for` instrukcja `break` ([instrukcja break](statements.md#the-break-statement)) może być używana do transferowania kontroli do punktu końcowego instrukcji `for` (w związku z tym kończącej iterację osadzonej instrukcji) i instrukcji `continue` ([ Instrukcja continue](statements.md#the-continue-statement)) może służyć do transferowania kontroli do punktu końcowego osadzonej instrukcji (w związku z tym wykonywania *for_iterator* i wykonywania innej iteracji instrukcji `for`, rozpoczynając od *for_condition*).
 
 Osadzona instrukcja `for` instrukcji jest osiągalna, jeśli jedno z następujących warunków jest prawdziwe:
 
-*  Instrukcja jest osiągalna i nie ma *for_condition.* `for`
-*  Instrukcja jest osiągalna, a *for_condition* jest obecny i nie ma stałej wartości `false`. `for`
+*  Instrukcja `for` jest dostępna i nie ma *for_condition* .
+*  Instrukcja `for` jest osiągalna, a *for_condition* jest obecna i nie ma stałej wartości `false`.
 
 Punkt `for` końcowy instrukcji jest dostępny, jeśli co najmniej jeden z następujących warunków jest spełniony:
 
 *  Instrukcja zawiera `break` osiągalną`for` instrukcję, która kończy wykonywanie instrukcji. `for`
-*  Instrukcja jest osiągalna, a *for_condition* jest obecny i nie ma stałej wartości `true`. `for`
+*  Instrukcja `for` jest osiągalna, a *for_condition* jest obecna i nie ma stałej wartości `true`.
 
 ### <a name="the-foreach-statement"></a>Instrukcja foreach
 
@@ -707,14 +707,14 @@ foreach_statement
     ;
 ```
 
-*Typ* i *Identyfikator* `foreach` instrukcji deklaruje ***zmienną iteracji*** instrukcji. Jeśli identyfikator jest określony jako *local_variable_type*, a typ o nazwie `var` nie należy do zakresu, Zmienna iteracji jest określana jako ***Zmienna iteracji niejawnie wpisanej***, a jej typ jest traktowany jako typ elementu `var` `foreach` instrukcja, jak określono poniżej. Zmienna iteracji odnosi się do zmiennej lokalnej tylko do odczytu z zakresem, który wykracza poza osadzoną instrukcję. Podczas wykonywania `foreach` instrukcji Zmienna iteracji reprezentuje element kolekcji, dla którego obecnie trwa wykonywanie iteracji. Błąd czasu kompilacji występuje, `++` Jeśli osadzona instrukcja próbuje zmodyfikować zmienną iteracji (poprzez przypisanie lub operatory i `--` ) albo przekazać zmienną iteracji jako `ref` parametr lub `out` .
+*Typ* i *Identyfikator* `foreach` instrukcji deklaruje ***zmienną iteracji*** instrukcji. Jeśli identyfikator `var` jest określony jako *local_variable_type*, a typ o nazwie `var` nie należy do zakresu, Zmienna iteracji jest określana jako ***Zmienna iteracji niejawnie wpisanej***, a jej typ jest traktowany jako typ elementu `foreach` Instrukcja, jak określono poniżej. Zmienna iteracji odnosi się do zmiennej lokalnej tylko do odczytu z zakresem, który wykracza poza osadzoną instrukcję. Podczas wykonywania `foreach` instrukcji Zmienna iteracji reprezentuje element kolekcji, dla którego obecnie trwa wykonywanie iteracji. Błąd czasu kompilacji występuje, `++` Jeśli osadzona instrukcja próbuje zmodyfikować zmienną iteracji (poprzez przypisanie lub operatory i `--` ) albo przekazać zmienną iteracji jako `ref` parametr lub `out` .
 
 W następujących przypadkach dla zwięzłości, `IEnumerable` `IEnumerable<T>` , `IEnumerator`i `IEnumerator<T>` zapoznaj się z odpowiednimi typami w przestrzeniach nazw `System.Collections` i `System.Collections.Generic`.
 
 Przetwarzanie instrukcji foreach w czasie kompilacji najpierw określa ***Typ kolekcji***, ***Typ modułu wyliczającego*** i ***Typ elementu*** wyrażenia. To obliczanie jest przeprowadzane w następujący sposób:
 
 *  Jeśli `X` typ *wyrażenia* jest typem tablicy, istnieje niejawna `X` `IEnumerable` konwersja odwołania z do interfejsu (ponieważ `System.Array` implementuje ten interfejs). ***Typem kolekcji*** jest `IEnumerable` interfejs, ***typem modułu wyliczającego*** jest `IEnumerator` interfejs, a ***Typ*** `X`elementu jest typem elementu typu tablicy.
-*  `X` Jeśli typem *wyrażenia* jest `dynamic` ,istniejeniejawnakonwersjazwyrażeniadointerfejsu(niejawnekonwersjedynamiczne).`IEnumerable` [](conversions.md#implicit-dynamic-conversions) ***Typ kolekcji*** jest `IEnumerable` interfejsem, a ***typem modułu wyliczającego*** jest `IEnumerator` interfejs. `dynamic` `object` Jeśli identyfikator jest określony jako local_variable_type, typ elementu to, w przeciwnym razie. `var`
+*  `X` Jeśli typem *wyrażenia* jest `dynamic` ,istniejeniejawnakonwersjazwyrażeniadointerfejsu(niejawnekonwersjedynamiczne).`IEnumerable` [](conversions.md#implicit-dynamic-conversions) ***Typ kolekcji*** jest `IEnumerable` interfejsem, a ***typem modułu wyliczającego*** jest `IEnumerator` interfejs. Jeśli identyfikator `var` jest określony jako *local_variable_type* , ***typ elementu*** to `dynamic`, w przeciwnym razie jest `object`.
 *  W przeciwnym razie Ustal, czy `X` typ ma odpowiednią `GetEnumerator` metodę:
    * Wykonaj wyszukiwanie elementów członkowskich w typie `X` z identyfikatorem `GetEnumerator` i bez argumentów typu. Jeśli wyszukiwanie elementu członkowskiego nie produkuje dopasowania lub tworzy niejednoznaczność lub tworzy dopasowanie, które nie jest grupą metod, należy sprawdzić, czy wyliczalny interfejs został opisany poniżej. Zaleca się, aby ostrzeżenie było wydawane, gdy wyszukiwanie elementów członkowskich produkuje wszystkie elementy poza grupą metod lub nie odpowiada.
    * Wykonaj rozwiązanie przeciążenia przy użyciu grupy metod i pustej listy argumentów. Jeśli rozwiązanie przeciążenia skutkuje brakiem odpowiednich metod, wyniki są niejednoznaczne lub mają jedną najlepszą metodę, ale ta metoda jest statyczna lub nie jest publiczna, Wyszukaj wyliczalny interfejs zgodnie z poniższym opisem. Zaleca się, aby ostrzeżenie było wydawane, jeśli rozwiązanie przeciążania produkuje wszystko, z wyjątkiem jednoznacznej metody wystąpienia publicznego lub nie ma zastosowania do odpowiednich metod.
@@ -754,9 +754,9 @@ Zmienna `e` nie jest widoczna lub dostępna dla wyrażenia `x` lub osadzonej ins
 
 Implementacja może zaimplementować daną instrukcję foreach inaczej, np. ze względu na wydajność, o ile zachowanie jest spójne z powyższym rozszerzeniem.
 
-Umieszczanie `v` wewnątrz pętli while jest ważne dla sposobu, w jaki są przechwytywane przez jakąkolwiek anonimową funkcję występującą w *embedded_statement*.
+Rozmieszczenie `v` wewnątrz pętli while jest ważne dla sposobu przechwytywania przez jakąkolwiek anonimową funkcję występującą w *embedded_statement*.
 
-Przykład:
+Na przykład:
 ```csharp
 int[] values = { 7, 9, 13 };
 Action f = null;
@@ -831,7 +831,7 @@ class Test
 }
 ```
 Utworzone dane wyjściowe są następujące:
-```csharp
+```console
 1.2 2.3 3.4 4.5 5.6 6.7 7.8 8.9
 ```
 
@@ -890,7 +890,7 @@ class Test
 bloki skojarzone z dwiema `try` instrukcjami są wykonywane przed przekazaniem kontroli do elementu docelowego instrukcji skoku. `finally`
 
 Utworzone dane wyjściowe są następujące:
-```
+```console
 Before break
 Innermost finally block
 Outermost finally block
@@ -984,7 +984,7 @@ class Test
 ```
 `goto` instrukcja jest używana do transferowania kontroli poza zagnieżdżony zakres.
 
-Obiektem docelowym `goto case` instrukcji jest lista instrukcji w bezpośrednio `switch` otaczającej instrukcji ( `case` [instrukcji switch](statements.md#the-switch-statement)), która zawiera etykietę o danej wartości stałej. `switch` `switch` [](conversions.md#implicit-conversions)Jeśli instrukcja nie jest ujęta w instrukcję, jeśli constant_expression nie jest zamiennie niejawnie (konwersje niejawne) do typu, najbliższej instrukcji otaczającej lub jeśli `goto case` Najbliższa otaczająca `switch` instrukcja nie `case` zawiera etykiety zawierającej daną wartość stałą, wystąpi błąd w czasie kompilacji.
+Obiektem docelowym `goto case` instrukcji jest lista instrukcji w bezpośrednio `switch` otaczającej instrukcji ( `case` [instrukcji switch](statements.md#the-switch-statement)), która zawiera etykietę o danej wartości stałej. Jeśli instrukcja `goto case` nie jest ujęta w instrukcji `switch`, jeśli *constant_expression* nie jest niejawnie konwertowane ([niejawne konwersje](conversions.md#implicit-conversions)) do typu, najbliższej instrukcji `switch` lub najbliższej otaczającej Instrukcja `switch` nie zawiera etykiety `case` z podaną wartością stałą, wystąpi błąd podczas kompilacji.
 
 Obiektem docelowym `goto default` instrukcji jest lista instrukcji w bezpośrednio `switch` otaczającej instrukcji ( `default` [instrukcji switch](statements.md#the-switch-statement)), która zawiera etykietę. Jeśli instrukcja nie jest ujęta `switch` w instrukcję lub `switch` Jeśli Najbliższa otaczająca instrukcja nie zawiera `default` etykiety, wystąpi błąd w czasie kompilacji. `goto default`
 
@@ -1092,13 +1092,13 @@ Istnieją trzy możliwe formy `try` instrukcji:
 *  Blok, po którym następuje `finally` blok. `try`
 *  Blok, po którym następuje jeden lub `catch` więcej bloków, po `finally` którym następuje blok. `try`
 
-`System.Exception` `System.Exception` `System.Exception`Gdy klauzula określa exception_specifier, typ musi być typem, który pochodzi z lub typu parametru typu, który ma (lub podklasę tej klasy) jako obowiązującą klasę bazową. `catch`
+Gdy klauzula `catch` Określa *exception_specifier*, typem musi być `System.Exception`, typ, który pochodzi od `System.Exception` lub typu parametru typu, który ma `System.Exception` (lub podklasę tej klasy) jako obowiązującą jako skuteczną klasę bazową.
 
-Gdy klauzula określa zarówno *exception_specifier* z *identyfikatorem*, ***zmienna wyjątku*** o podanej nazwie i typie jest zadeklarowana. `catch` Zmienna wyjątku odpowiada zmiennej lokalnej z zakresem, który wykracza `catch` poza klauzulę. Podczas wykonywania *exception_filter* i *bloku*zmienna wyjątku reprezentuje aktualnie obsługiwany wyjątek. W celach o określonym zapisywaniu zmienna wyjątku jest uznawana za ostatecznie przypisaną w całym zakresie.
+Gdy klauzula `catch` określa zarówno *exception_specifier* z *identyfikatorem*, ***zmienna wyjątku*** o podanej nazwie i typie jest zadeklarowana. Zmienna wyjątku odpowiada zmiennej lokalnej z zakresem, który wykracza `catch` poza klauzulę. Podczas wykonywania *exception_filter* i *bloku*zmienna wyjątku reprezentuje aktualnie obsługiwany wyjątek. W celach o określonym zapisywaniu zmienna wyjątku jest uznawana za ostatecznie przypisaną w całym zakresie.
 
 O ile `catch` klauzula nie zawiera nazwy zmiennej wyjątku, nie można uzyskać dostępu do obiektu Exception w filtrze i bloku. `catch`
 
-Klauzula, która nie określa elementu *exception_specifier* , jest nazywana klauzulą generalną `catch`. `catch`
+Klauzula `catch`, która nie określa *exception_specifier* jest nazywana klauzulą General `catch`.
 
 Niektóre języki programowania mogą obsługiwać wyjątki, które nie są reprezentowane jako obiekt pochodny `System.Exception`, chociaż takie wyjątki nigdy nie mogą być generowane C# przez kod. Klauzula General `catch` może służyć do przechwytywania takich wyjątków. W rezultacie Klauzula ogólna `catch` jest semantycznie różna od jednej, która określa typ `System.Exception`, w tym, że dawny może również przechwytywać wyjątki z innych języków.
 
@@ -1138,13 +1138,13 @@ class Test
 }
 ```
 Metoda `F` przechwytuje wyjątek, zapisuje niektóre informacje diagnostyczne do konsoli, modyfikuje zmienną wyjątku i ponowne zgłasza wyjątek. Wyjątek, który jest ponownie zgłaszany, to oryginalny wyjątek, dlatego utworzony wynik to:
-```
+```console
 Exception in F: G
 Exception in Main: G
 ```
 
 Jeśli pierwszy blok catch został zgłoszony `e` zamiast ponownego zgłoszenia bieżącego wyjątku, utworzone dane wyjściowe byłyby następujące:
-```
+```console
 Exception in F: G
 Exception in Main: F
 ```
@@ -1218,7 +1218,7 @@ lock_statement
     ;
 ```
 
-Wyrażenie `lock` instrukcji musi wskazywać wartość typu znanego jako *reference_type*. Żadna niejawna konwersja opakowania ([konwersje](conversions.md#boxing-conversions)napakowywania) nie jest kiedykolwiek wykonywana dla `lock` wyrażenia instrukcji, w rezultacie jest to błąd czasu kompilacji dla wyrażenia, aby zauważyć wartość *value_type*.
+Wyrażenie `lock` musi wskazywać wartość typu znanego jako *reference_type*. Żadna niejawna konwersja opakowania ([konwersje opakowania](conversions.md#boxing-conversions)) nie jest kiedykolwiek wykonywana dla wyrażenia `lock` instrukcji, w rezultacie jest to błąd czasu kompilacji dla wyrażenia, aby zauważyć wartość *value_type*.
 
 `lock` Instrukcja formularza
 ```csharp
@@ -1276,7 +1276,7 @@ resource_acquisition
 
 ***Zasób*** jest klasą lub strukturą, która `System.IDisposable`implementuje, która zawiera pojedynczą metodę bez parametrów `Dispose`o nazwie. Kod używający zasobu może wywoływać `Dispose` , aby wskazać, że zasób nie jest już wymagany. Jeśli `Dispose` nie jest wywoływana, automatyczne usuwanie następuje ostatecznie w wyniku wyrzucania elementów bezużytecznych.
 
-Jeśli forma *resource_acquisition* jest *local_variable_declaration* , typem *local_variable_declaration* musi być albo `dynamic` lub typu, który może być niejawnie konwertowany na. `System.IDisposable` Jeśli forma *resource_acquisition* jest *wyrażeniem* , to wyrażenie musi być niejawnie konwertowane na `System.IDisposable`.
+Jeśli forma *resource_acquisition* jest *local_variable_declaration* , typ *local_variable_declaration* musi mieć wartość `dynamic` lub typ, który można niejawnie przekonwertować na `System.IDisposable`. Jeśli forma *resource_acquisition* jest *wyrażeniem* , to wyrażenie musi być niejawnie konwertowane na `System.IDisposable`.
 
 Zmienne lokalne zadeklarowane w *resource_acquisition* są tylko do odczytu i muszą zawierać inicjator. Błąd czasu kompilacji występuje, `++` Jeśli osadzona instrukcja próbuje zmodyfikować te zmienne lokalne (poprzez przypisanie lub operatory i `--` ), pobrać ich adresy lub przekazać je jako `ref` lub `out` parametry.
 
@@ -1390,7 +1390,7 @@ yield_statement
 
 Istnieje kilka ograniczeń w miejscu, w `yield` którym instrukcja może zostać wyświetlona, zgodnie z opisem w poniższej tabeli.
 
-*  Jest to `yield` błąd czasu kompilacji dla instrukcji (jednej z formularzy), która ma być wyświetlana poza *method_body*, *operator_body* lub *accessor_body*
+*  Jest to błąd czasu kompilacji dla instrukcji `yield` (z jednej z formularzy), która ma być wyświetlana poza *method_body*, *operator_body* lub *accessor_body*
 *  Jest to błąd czasu kompilacji dla `yield` instrukcji (każdej z formularzy), która ma być wyświetlana wewnątrz funkcji anonimowej.
 *  Jest to błąd czasu kompilacji dla `yield` instrukcji (każdej z formularzy) do wyświetlenia `finally` w klauzuli `try` instrukcji.
 *  Jest to błąd czasu kompilacji dla `yield return` instrukcji pojawia się gdziekolwiek `try` w instrukcji, która zawiera `catch` klauzule.

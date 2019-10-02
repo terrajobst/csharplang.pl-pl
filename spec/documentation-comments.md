@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: adf81842e3c763c7bbdd3f10bb884dc1207b9099
-ms.sourcegitcommit: 0489cb64b7dfb328813d757f4d447a15b85a5851
+ms.openlocfilehash: 2026fc1bf9d3576b967cbc2e9a670aa44b7eab3a
+ms.sourcegitcommit: 892af9016b3317a8fae12d195014dc38ba51cf16
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70912435"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71704022"
 ---
 # <a name="documentation-comments"></a>Komentarze dokumentacji
 
@@ -28,7 +28,7 @@ delimited_doc_comment
     ;
 ```
 
-W *single_line_doc_comment*, jeśli `///` występuje znak *odstępu* , po znakach na każdym *single_line_doc_comment*s przylegającym do bieżącej single_line_doc_comment, to  *znak odstępu* nie jest uwzględniony w danych wyjściowych XML.
+W *single_line_doc_comment*, jeśli występuje znak *odstępu* po znaku `///` na każdym *single_line_doc_comment*s przylegającym do bieżącej *single_line_doc_comment*, wówczas ten *odstęp* znak nie jest uwzględniony w danych wyjściowych XML.
 
 W komentarzu rozdzielanym doc, jeśli pierwszy znak, który nie jest odstępem w drugim wierszu, jest gwiazdką i ten sam wzorzec opcjonalnych znaków odstępu i znak gwiazdki jest powtarzany na początku każdego wiersza w komentarzu rozdzielanym doc. znaki Powtórzonego wzorca nie są uwzględniane w danych wyjściowych XML. Wzorzec może zawierać znaki odstępu po, jak również przed znakiem gwiazdki.
 
@@ -186,7 +186,7 @@ Ten tag umożliwia dołączenie informacji z dokumentu XML, który jest zewnętr
 
 __Obowiązuje__
 
-```
+```xml
 <include file="filename" path="xpath" />
 ```
 
@@ -594,10 +594,10 @@ Generator dokumentacji obserwuje następujące reguły podczas generowania ciąg
 
    | __Opis__ | __Opis__                                             |
    |---------------|-------------------------------------------------------------|
-   | E             | Zdarzenie                                                       |
+   | E             | Wydarzenie                                                       |
    | F             | Pole                                                       |
    | M             | Metoda (w tym konstruktory, destruktory i operatory) |
-   | N             | Przestrzeń nazw                                                   |
+   | Nie             | Przestrzeń nazw                                                   |
    | P             | Właściwość (w tym indeksatory)                               |
    | T             | Typ (taki jak Klasa, delegat, enum, Interface i struct) |
    | !             | Ciąg błędu; pozostała część ciągu zawiera informacje o błędzie. Na przykład generator dokumentacji generuje informacje o błędach dla łączy, których nie można rozpoznać. |
