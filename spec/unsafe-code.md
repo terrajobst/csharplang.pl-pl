@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: 4faef9a12bdff54fa59a55a0206fa72bda4ea585
-ms.sourcegitcommit: 892af9016b3317a8fae12d195014dc38ba51cf16
+ms.openlocfilehash: dbea611280a644adc25247b9887986e129c59b68
+ms.sourcegitcommit: a5e393b018b04dfa55aae0000290ca087b508495
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71704063"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72310361"
 ---
-# <a name="unsafe-code"></a>Niebezpieczny kod
+# <a name="unsafe-code"></a>Kod niebezpieczny
 
 Język podstawowy C# , zgodnie z definicją w poprzednich działach, różni się w szczególności od C++ C i w jego pominięciu jako typu danych. Zamiast tego C# zawiera odwołania i możliwość tworzenia obiektów zarządzanych przez moduł wyrzucania elementów bezużytecznych. Ten projekt, w połączeniu z innymi funkcjami, sprawia C# , że jest to bardzo bezpieczniejszy język C++niż C lub. W języku podstawowym C# po prostu nie jest możliwe posiadanie niezainicjowanej zmiennej, wskaźnika "zawieszonego" lub wyrażenia, które indeksuje tablicę poza jej granicami. Całe kategorie błędów, które rutynowo Plague C i C++ programy są w ten sposób eliminowane.
 
@@ -205,7 +205,7 @@ Niektóre przykłady typów wskaźników są podane w poniższej tabeli:
 
 Dla danej implementacji wszystkie typy wskaźnika muszą mieć taki sam rozmiar i reprezentację.
 
-W przeciwieństwie do C++języka C i, gdy wiele wskaźników jest zadeklarowanych w tej C# samej deklaracji, w `*` jest zapisywana tylko z typem podstawowym, a nie jako prefiks punctuator na każdej nazwie wskaźnika. Na przykład:
+W przeciwieństwie do C++języka C i, gdy wiele wskaźników jest zadeklarowanych w tej C# samej deklaracji, w `*` jest zapisywana tylko z typem podstawowym, a nie jako prefiks punctuator na każdej nazwie wskaźnika. Na przykład
 
 ```csharp
 int* pi, pj;    // NOT as int *pi, *pj;
@@ -284,7 +284,7 @@ W niebezpiecznym kontekście kilka konstrukcji jest dostępnych do obsługi wska
 
 ## <a name="fixed-and-moveable-variables"></a>Zmienne stałe i ruchome
 
-Operator address-of ([operator adresu](unsafe-code.md#the-address-of-operator)) i instrukcja `fixed` ([stała instrukcja](unsafe-code.md#the-fixed-statement)) dzielą zmienne na dwie kategorie: ***Stałe zmienne*** i ***ruchome zmienne***.
+Operator address-of ([operator adresu](unsafe-code.md#the-address-of-operator)) i instrukcja `fixed` ([stała instrukcja](unsafe-code.md#the-fixed-statement)) dzielą zmienne na dwie kategorie: ***stałe zmienne*** i ***ruchome zmienne***.
 
 Stałe zmienne znajdują się w lokalizacjach magazynu, które nie mają wpływ na działanie modułu wyrzucania elementów bezużytecznych. (Przykładowe zmienne stałe obejmują zmienne lokalne, parametry wartości i zmienne utworzone przez wyłuskanie wskaźników). Z drugiej strony, ruchome zmienne znajdują się w lokalizacjach przechowywania, które podlegają relokacji lub usuwaniu przez moduł wyrzucania elementów bezużytecznych. (Przykłady ruchomych zmiennych zawierają pola w obiektach i elementy tablic).
 
@@ -385,7 +385,7 @@ Jeśli typ `x` jest typem tablicy formularza `T[,,...,]`, `N` to liczba wymiaró
 }
 ```
 
-Zmienne `a`, `i0`, `i1`,..., `iN` nie są widoczne dla `x` lub *embedded_statement* ani żadnego innego kodu źródłowego programu. Zmienna `v` jest tylko do odczytu w osadzonej instrukcji. Jeśli nie istnieje jawna konwersja ([Konwersje wskaźników](unsafe-code.md#pointer-conversions)) z `T` (typ elementu) do `V`, zostanie wygenerowany błąd i nie są podejmowane żadne dalsze kroki. Jeśli `x` ma wartość `null`, `System.NullReferenceException` jest zgłaszany w czasie wykonywania.
+Zmienne `a`, `i0`, `i1`,..., `iN` nie są widoczne dla `x` lub *embedded_statement* ani żadnego innego kodu źródłowego programu. Zmienna `v` jest tylko do odczytu w osadzonej instrukcji. Jeśli nie istnieje jawna konwersja ([Konwersje wskaźników](unsafe-code.md#pointer-conversions)) z `T` (typ elementu) do `V`, zostanie wygenerowany błąd i nie są podejmowane żadne dalsze kroki. Jeśli `x` ma wartość `null`, `System.NullReferenceException` jest generowany w czasie wykonywania.
 
 ## <a name="pointers-in-expressions"></a>Wskaźniki w wyrażeniach
 
@@ -579,7 +579,7 @@ Operatory te same wyniki, co `x + 1` i `x - 1` ([arytmetyka wskaźnika](unsafe-c
 
 Jeśli operacja zwiększania lub zmniejszania wskaźnika przepełnił domenę typu wskaźnika, wynik jest zdefiniowany przez implementację, ale nie są generowane żadne wyjątki.
 
-### <a name="pointer-arithmetic"></a>Arytmetyczny wskaźnik
+### <a name="pointer-arithmetic"></a>Arytmetyka wskaźnika
 
 W niebezpiecznym kontekście operatory "`+` i `-`" (operator[dodawania](expressions.md#addition-operator) i [operator odejmowania](expressions.md#subtraction-operator)) mogą być stosowane do wartości wszystkich typów wskaźnika, z wyjątkiem `void*`. W tym celu dla każdego typu wskaźnika `T*` następujące operatory są niejawnie zdefiniowane:
 
@@ -662,7 +662,7 @@ sizeof_expression
 Wynik operatora `sizeof` jest wartością typu `int`. W przypadku niektórych wstępnie zdefiniowanych typów operator `sizeof` zwraca wartość stałą, jak pokazano w poniższej tabeli.
 
 
-| __Expression__   | __wynik__ |
+| __Wyrażenia__   | __Wynika__ |
 |------------------|------------|
 | `sizeof(sbyte)`  | `1`        |
 | `sizeof(byte)`   | `1`        |
@@ -916,7 +916,7 @@ Po typie elementu buforu następuje lista buforów o ustalonym rozmiarze deklara
 
 Elementy buforu o ustalonym rozmiarze są gwarantowane w kolejności sekwencyjnej w pamięci.
 
-Deklaracja buforu o ustalonym rozmiarze, która deklaruje wiele buforów o ustalonym rozmiarze, jest równoważna z wieloma deklaracjami o pojedynczej deklaracji buforu o ustalonym rozmiarze z tymi samymi atrybutami i typami elementów. Na przykład:
+Deklaracja buforu o ustalonym rozmiarze, która deklaruje wiele buforów o ustalonym rozmiarze, jest równoważna z wieloma deklaracjami o pojedynczej deklaracji buforu o ustalonym rozmiarze z tymi samymi atrybutami i typami elementów. Na przykład
 
 ```csharp
 unsafe struct A
@@ -925,7 +925,7 @@ unsafe struct A
 }
 ```
 
-odpowiada wyrażeniu
+jest równoważne
 
 ```csharp
 unsafe struct A
@@ -1048,75 +1048,79 @@ Z wyjątkiem `stackalloc`, C# nie zawiera wstępnie zdefiniowanych konstrukcji d
 using System;
 using System.Runtime.InteropServices;
 
-public unsafe class Memory
+public static unsafe class Memory
 {
     // Handle for the process heap. This handle is used in all calls to the
     // HeapXXX APIs in the methods below.
-    static int ph = GetProcessHeap();
-
-    // Private instance constructor to prevent instantiation.
-    private Memory() {}
+    private static readonly IntPtr s_heap = GetProcessHeap();
 
     // Allocates a memory block of the given size. The allocated memory is
     // automatically initialized to zero.
-    public static void* Alloc(int size) {
-        void* result = HeapAlloc(ph, HEAP_ZERO_MEMORY, size);
+    public static void* Alloc(int size)
+    {
+        void* result = HeapAlloc(s_heap, HEAP_ZERO_MEMORY, (UIntPtr)size);
         if (result == null) throw new OutOfMemoryException();
         return result;
     }
 
     // Copies count bytes from src to dst. The source and destination
     // blocks are permitted to overlap.
-    public static void Copy(void* src, void* dst, int count) {
+    public static void Copy(void* src, void* dst, int count)
+    {
         byte* ps = (byte*)src;
         byte* pd = (byte*)dst;
-        if (ps > pd) {
+        if (ps > pd)
+        {
             for (; count != 0; count--) *pd++ = *ps++;
         }
-        else if (ps < pd) {
+        else if (ps < pd)
+        {
             for (ps += count, pd += count; count != 0; count--) *--pd = *--ps;
         }
     }
 
     // Frees a memory block.
-    public static void Free(void* block) {
-        if (!HeapFree(ph, 0, block)) throw new InvalidOperationException();
+    public static void Free(void* block)
+    {
+        if (!HeapFree(s_heap, 0, block)) throw new InvalidOperationException();
     }
 
     // Re-allocates a memory block. If the reallocation request is for a
     // larger size, the additional region of memory is automatically
     // initialized to zero.
-    public static void* ReAlloc(void* block, int size) {
-        void* result = HeapReAlloc(ph, HEAP_ZERO_MEMORY, block, size);
+    public static void* ReAlloc(void* block, int size)
+    {
+        void* result = HeapReAlloc(s_heap, HEAP_ZERO_MEMORY, block, (UIntPtr)size);
         if (result == null) throw new OutOfMemoryException();
         return result;
     }
 
     // Returns the size of a memory block.
-    public static int SizeOf(void* block) {
-        int result = HeapSize(ph, 0, block);
+    public static int SizeOf(void* block)
+    {
+        int result = (int)HeapSize(s_heap, 0, block);
         if (result == -1) throw new InvalidOperationException();
         return result;
     }
 
     // Heap API flags
-    const int HEAP_ZERO_MEMORY = 0x00000008;
+    private const int HEAP_ZERO_MEMORY = 0x00000008;
 
     // Heap API functions
     [DllImport("kernel32")]
-    static extern int GetProcessHeap();
+    private static extern IntPtr GetProcessHeap();
 
     [DllImport("kernel32")]
-    static extern void* HeapAlloc(int hHeap, int flags, int size);
+    private static extern void* HeapAlloc(IntPtr hHeap, int flags, UIntPtr size);
 
     [DllImport("kernel32")]
-    static extern bool HeapFree(int hHeap, int flags, void* block);
+    private static extern bool HeapFree(IntPtr hHeap, int flags, void* block);
 
     [DllImport("kernel32")]
-    static extern void* HeapReAlloc(int hHeap, int flags, void* block, int size);
+    private static extern void* HeapReAlloc(IntPtr hHeap, int flags, void* block, UIntPtr size);
 
     [DllImport("kernel32")]
-    static extern int HeapSize(int hHeap, int flags, void* block);
+    private static extern UIntPtr HeapSize(IntPtr hHeap, int flags, void* block);
 }
 ```
 
@@ -1125,18 +1129,21 @@ Przykład korzystający z klasy `Memory` jest przedstawiony poniżej:
 ```csharp
 class Test
 {
-    static void Main() {
-        unsafe {
-            byte* buffer = (byte*)Memory.Alloc(256);
-            try {
-                for (int i = 0; i < 256; i++) buffer[i] = (byte)i;
-                byte[] array = new byte[256];
-                fixed (byte* p = array) Memory.Copy(buffer, p, 256); 
-            }
-            finally {
-                Memory.Free(buffer);
-            }
-            for (int i = 0; i < 256; i++) Console.WriteLine(array[i]);
+    static unsafe void Main()
+    {
+        byte* buffer = null;
+        try
+        {
+            const int Size = 256;
+            buffer = (byte*)Memory.Alloc(Size);
+            for (int i = 0; i < Size; i++) buffer[i] = (byte)i;
+            byte[] array = new byte[Size];
+            fixed (byte* p = array) Memory.Copy(buffer, p, Size);
+            for (int i = 0; i < Size; i++) Console.WriteLine(array[i]);
+        }
+        finally
+        {
+            if (buffer != null) Memory.Free(buffer);
         }
     }
 }
