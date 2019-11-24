@@ -21,11 +21,11 @@ enum Color
 }
 ```
 
-deklaruje typ wyliczeniowy o nazwie `Color` z członkami `Red`, `Green` i `Blue`.
+deklaruje typ wyliczeniowy o nazwie `Color` z członkami `Red`, `Green`i `Blue`.
 
 ## <a name="enum-declarations"></a>Deklaracje wyliczenia
 
-Deklaracja wyliczenia deklaruje nowy typ wyliczeniowy. Deklaracja wyliczenia rozpoczyna się od słowa kluczowego `enum` i definiuje nazwę, ułatwienia dostępu, typ podstawowy i elementy członkowskie wyliczenia.
+Deklaracja wyliczenia deklaruje nowy typ wyliczeniowy. Deklaracja wyliczenia rozpoczyna się od słowa kluczowego `enum`i definiuje nazwę, ułatwienia dostępu, typ podstawowy i elementy członkowskie wyliczenia.
 
 ```antlr
 enum_declaration
@@ -55,7 +55,7 @@ enum Color: long
 }
 ```
 
-deklaruje Wyliczenie z typem podstawowym `long`. Deweloper może zdecydować się na użycie bazowego typu `long`, jak w przykładzie, aby umożliwić użycie wartości, które znajdują się w zakresie `long`, ale nie w zakresie `int`, lub w celu zachowania tej opcji w przyszłości.
+deklaruje Wyliczenie z typem podstawowym `long`. Deweloper może zdecydować się na użycie podstawowego typu `long`, tak jak w przykładzie, aby umożliwić użycie wartości, które znajdują się w zakresie `long`, ale nie w zakresie `int`lub aby zachować tę opcję w przyszłości.
 
 ## <a name="enum-modifiers"></a>Modyfikatory wyliczenia
 
@@ -73,7 +73,7 @@ enum_modifier
 
 Jest to błąd czasu kompilacji dla tego samego modyfikatora do wyświetlenia wiele razy w deklaracji wyliczenia.
 
-Modyfikatory deklaracji wyliczenia mają takie samo znaczenie jak dla deklaracji klasy ([Modyfikatory klas](classes.md#class-modifiers)). Należy jednak zauważyć, że Modyfikatory `abstract` i `sealed` nie są dozwolone w deklaracji wyliczenia. Wyliczenia nie mogą być abstrakcyjne i nie zezwalają na wyprowadzanie.
+Modyfikatory deklaracji wyliczenia mają takie samo znaczenie jak dla deklaracji klasy ([Modyfikatory klas](classes.md#class-modifiers)). Należy jednak zauważyć, że Modyfikatory `abstract` i `sealed` są niedozwolone w deklaracji wyliczenia. Wyliczenia nie mogą być abstrakcyjne i nie zezwalają na wyprowadzanie.
 
 ## <a name="enum-members"></a>Elementy członkowskie wyliczenia
 
@@ -100,7 +100,7 @@ enum Color: uint
 }
 ```
 
-powoduje błąd czasu kompilacji, ponieważ wartości stałych `-1`, `-2` i `-3` nie należą do zakresu podstawowego typu całkowitego `uint`.
+powoduje błąd czasu kompilacji, ponieważ wartości stałe `-1`, `-2`i `-3` nie należą do zakresu podstawowej `uint`typu całkowitego.
 
 Wiele elementów członkowskich wyliczenia może korzystać z tej samej skojarzonej wartości. Przykład
 
@@ -115,7 +115,7 @@ enum Color
 }
 ```
 
-pokazuje Wyliczenie, w którym dwa elementy członkowskie wyliczenia--`Blue` i `Max`--mają tę samą skojarzoną wartość.
+pokazuje Wyliczenie, w którym znajdują się dwa elementy członkowskie wyliczenia--`Blue` i `Max`--mają tę samą skojarzoną wartość.
 
 Skojarzona wartość elementu członkowskiego wyliczenia jest przypisywana niejawnie lub jawnie. Jeśli deklaracja elementu członkowskiego wyliczenia ma inicjator *constant_expression* , wartość tego wyrażenia stałej, niejawnie przekonwertowana na typ podstawowy wyliczenia, jest skojarzoną wartością elementu członkowskiego wyliczenia. Jeśli deklaracja elementu członkowskiego wyliczenia nie ma inicjatora, jego skojarzona wartość jest ustawiana niejawnie w następujący sposób:
 
@@ -170,9 +170,9 @@ Blue = 11
 
 z następujących powodów:
 
-*  element członkowski wyliczenia `Red` jest automatycznie przypisywany wartość zero (ponieważ nie ma inicjatora i jest pierwszym elementem członkowskim wyliczenia);
-*  element członkowski wyliczenia `Green` ma jawnie określoną wartość `10`;
-*  a element członkowski wyliczenia `Blue` jest automatycznie przypisywany do wartości, która jest większa od elementu członkowskiego, który jest poprzedzony znakiem.
+*  `Red` elementu członkowskiego wyliczenia jest automatycznie przypisana wartość zero (ponieważ nie ma inicjatora i jest pierwszym elementem członkowskim wyliczenia);
+*  `Green` elementu członkowskiego wyliczenia jawnie podano wartość `10`;
+*  a `Blue` elementu członkowskiego wyliczenia jest automatycznie przypisywana wartość, która jest większa od elementu członkowskiego, który jest poprzedzony znakiem.
 
 Skojarzona wartość elementu członkowskiego wyliczenia może nie, bezpośrednio lub pośrednio, używać wartości własnego skojarzonego elementu członkowskiego wyliczenia. Oprócz tego ograniczenia cykliczności inicjatory składowych enum mogą swobodnie odwoływać się do innych inicjatorów składowych wyliczenia, niezależnie od ich pozycji tekstowych. W obrębie inicjatora elementu członkowskiego wyliczenia wartości innych elementów członkowskich wyliczenia są zawsze traktowane jako mają typ ich typ podstawowy, więc rzutowania nie są konieczne w przypadku odwoływania się do innych elementów członkowskich wyliczenia.
 
@@ -186,15 +186,15 @@ enum Circular
 }
 ```
 
-powoduje błąd czasu kompilacji, ponieważ deklaracje `A` i `B` są cykliczne. `A` zależy jawnie od `B`, a `B` zależy od `A` niejawnie.
+powoduje błąd czasu kompilacji, ponieważ deklaracje `A` i `B` są cykliczne. `A` zależy od `B` jawnie, a `B` zależy od niejawnego `A`.
 
 Elementy członkowskie wyliczenia są nazwane i w zakresie dokładnie analogiczne do pól w klasach. Zakres elementu członkowskiego wyliczenia jest treścią zawierającego typ wyliczeniowy. W tym zakresie elementy członkowskie wyliczenia mogą być określane przez ich prostą nazwę. Ze wszystkich innych kodów nazwa elementu członkowskiego wyliczenia musi być kwalifikowana nazwą jego typu wyliczeniowego. Elementy członkowskie wyliczenia nie mają zadeklarowanych dostępności — element członkowski wyliczenia jest dostępny, jeśli jego typ wyliczeniowy jest dostępny.
 
 ## <a name="the-systemenum-type"></a>Typ System. Enum
 
-Typ `System.Enum` jest abstrakcyjną klasą bazową wszystkich typów wyliczeniowych (jest to różne i inne niż typ podstawowy typu wyliczeniowego), a elementy członkowskie dziedziczone z `System.Enum` są dostępne w dowolnym typie wyliczeniowym. Konwersja z opakowania ([konwersje z opakowania](types.md#boxing-conversions)) istnieje z dowolnego typu wyliczeniowego do `System.Enum`, a konwersja rozpakowywania ([konwersje rozpakowywanie](types.md#unboxing-conversions)) istnieje z `System.Enum` do dowolnego typu wyliczeniowego.
+Typ `System.Enum` jest abstrakcyjną klasą bazową wszystkich typów wyliczeniowych (jest to różne i inne niż typ podstawowy typu wyliczeniowego), a elementy członkowskie dziedziczone z `System.Enum` są dostępne w dowolnym typie wyliczeniowym. Konwersja z opakowania ([konwersje pakujące](types.md#boxing-conversions)) istnieje z dowolnego typu wyliczeniowego do `System.Enum`, a konwersja rozpakowywania ([konwersje rozpakowywanie](types.md#unboxing-conversions)) istnieje z `System.Enum` do dowolnego typu wyliczeniowego.
 
-Należy zauważyć, że `System.Enum` nie należy do *enum_type*. Zamiast tego jest to *class_type* , z którego pochodzą wszystkie *enum_type*s. Typ `System.Enum` dziedziczy z typu `System.ValueType` ([Typ System. ValueType](types.md#the-systemvaluetype-type)), który z kolei dziedziczy po typie `object`. W czasie wykonywania wartość typu `System.Enum` może być `null` lub odwołaniem do opakowanej wartości dowolnego typu wyliczeniowego.
+Należy pamiętać, że `System.Enum` nie należy do *enum_type*. Nie jest to *class_type* , z której pochodzą wszystkie *enum_type*s. Typ `System.Enum` dziedziczy z typu `System.ValueType` ([Typ System. ValueType](types.md#the-systemvaluetype-type)), który z kolei dziedziczy po typie `object`. W czasie wykonywania, wartość typu `System.Enum` może być `null` lub odwołanie do wartości opakowanej dowolnego typu wyliczeniowego.
 
 ## <a name="enum-values-and-operations"></a>Wartości wyliczeniowe i operacje
 
@@ -202,6 +202,6 @@ Każdy typ wyliczeniowy definiuje odrębny typ; jawna konwersja wyliczenia ([jaw
 
 Elementy członkowskie wyliczenia mają typ zawierający typ wyliczeniowy (z wyjątkiem innych inicjatorów elementów członkowskich wyliczenia: zobacz [elementy członkowskie wyliczenia](enums.md#enum-members)). Wartość elementu członkowskiego wyliczenia zadeklarowana w typie wyliczeniowy `E` ze skojarzoną wartością `v` jest `(E)v`.
 
-Następujące operatory mogą być używane dla wartości typów wyliczeniowych: `==`, `!=`, `<`, `>`, `<=`, `>=` @ no__t-6 ([Operatory porównania wyliczenia](expressions.md#enumeration-comparison-operators)), Binary `+` @ no__t-9 ([dodanie operatora](expressions.md#addition-operator)), Binary 1 @ no__ t-12 ([operator odejmowania](expressions.md#subtraction-operator)), 4, 5, 6 @ no__t-17 ([Wyliczenie operatorów logicznych](expressions.md#enumeration-logical-operators)), 9 @ no__t-20 ([operator](expressions.md#bitwise-complement-operator)dopełnienia bitowego), 2 i 3 @ no__t-24 ([przyrost Przyrostkowy i zmniejsz operatory](expressions.md#postfix-increment-and-decrement-operators) oraz [przyrostowe operatory i zmniejszanie prefiksu](expressions.md#prefix-increment-and-decrement-operators)).
+Następujące operatory mogą być używane na wartości typów wyliczeniowych: `==`, `!=`, `<`, `>`, `<=`, `>=` ([Operatory porównania wyliczenia](expressions.md#enumeration-comparison-operators)), binarne `+` ([operator dodawania](expressions.md#addition-operator)), Binary `-` ([operator odejmowania](expressions.md#subtraction-operator)), `^`, `&`, `|` ([Wyliczenie operatory logiczne](expressions.md#enumeration-logical-operators)), `~` ([operator](expressions.md#bitwise-complement-operator)dopełnienia bitowego), `++` i `--` ( [Operatory przyrostka zwiększania i zmniejszania](expressions.md#postfix-increment-and-decrement-operators) oraz [Operatory przyrostu i zmniejszania prefiksu](expressions.md#prefix-increment-and-decrement-operators).
 
-Każdy typ wyliczeniowy jest automatycznie pochodzący z klasy `System.Enum` (które z kolei wynikają z `System.ValueType` i `object`). W ten sposób dziedziczone metody i właściwości tej klasy mogą być używane dla wartości typu wyliczeniowego.
+Każdy typ wyliczeniowy jest automatycznie pochodzący z klasy `System.Enum` (co z kolei pochodzi od `System.ValueType` i `object`). W ten sposób dziedziczone metody i właściwości tej klasy mogą być używane dla wartości typu wyliczeniowego.

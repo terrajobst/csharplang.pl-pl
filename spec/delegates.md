@@ -16,7 +16,7 @@ Interesująca i przydatna właściwość wystąpienia delegata polega na tym, ż
 
 ## <a name="delegate-declarations"></a>Deklaracje delegatów
 
-*Delegate_declaration* to *type_declaration* ([deklaracje typu](namespaces.md#type-declarations)), które deklaruje nowy typ delegata.
+*Delegate_declaration* jest *type_declaration* ([deklaracje typu](namespaces.md#type-declarations)), które deklaruje nowy typ delegata.
 
 ```antlr
 delegate_declaration
@@ -37,19 +37,19 @@ delegate_modifier
 
 Jest to błąd czasu kompilacji dla tego samego modyfikatora do wyświetlenia wiele razy w deklaracji delegata.
 
-Modyfikator `new` jest dozwolony tylko w delegatach zadeklarowanych w innym typie. w takim przypadku określa, że taki delegat ukrywa dziedziczonego elementu członkowskiego o tej samej nazwie, zgodnie z opisem w [nowym modyfikatorze](classes.md#the-new-modifier).
+Modyfikator `new` jest dozwolony tylko w delegatach zadeklarowanych w innym typie. w takim przypadku określa, że taki delegat ukrywa Dziedziczony element członkowski o tej samej nazwie, zgodnie z opisem w [nowym modyfikatorze](classes.md#the-new-modifier).
 
-Modyfikatory `public`, `protected`, `internal` i `private` kontrolują dostępność typu delegata. W zależności od kontekstu, w którym występuje deklaracja delegata, niektóre z tych modyfikatorów mogą nie być dozwolone ([zadeklarowane ułatwienia dostępu](basic-concepts.md#declared-accessibility)).
+Modyfikatory `public`, `protected`, `internal`i `private` kontrolują dostępność typu delegata. W zależności od kontekstu, w którym występuje deklaracja delegata, niektóre z tych modyfikatorów mogą nie być dozwolone ([zadeklarowane ułatwienia dostępu](basic-concepts.md#declared-accessibility)).
 
 Nazwa typu delegata to *Identyfikator*.
 
 Opcjonalne *formal_parameter_list* określa parametry delegata, a *return_type* wskazuje zwracany typ delegata.
 
-Opcjonalne *variant_type_parameter_list* ([listy parametrów typu Variant](interfaces.md#variant-type-parameter-lists)) określa parametry typu dla samego delegata.
+Opcjonalne *variant_type_parameter_list* ([listy parametrów typu Variant](interfaces.md#variant-type-parameter-lists)) określają parametry typu dla samego delegata.
 
-Typem zwracanym typu delegata musi być `void` lub Output-Safe ([bezpieczeństwo wariancji](interfaces.md#variance-safety)).
+Typem zwracanym typu delegata musi być `void`lub danych wyjściowych ([odchylenie zabezpieczeń](interfaces.md#variance-safety)).
 
-Wszystkie typy parametrów formalnych typu delegata muszą być bezpieczne dla danych wejściowych. Ponadto wszystkie typy parametrów `out` lub `ref` muszą być również bezpieczne dla danych wyjściowych. Należy zauważyć, że nawet `out` parametry muszą być bezpieczne dla danych wejściowych z powodu ograniczenia podstawowej platformy wykonywania.
+Wszystkie typy parametrów formalnych typu delegata muszą być bezpieczne dla danych wejściowych. Ponadto wszystkie typy parametrów `out` i `ref` muszą być również bezpieczne w danych wyjściowych. Należy zauważyć, że nawet `out` parametry muszą być bezpieczne dla danych wejściowych z powodu ograniczenia podstawowej platformy wykonywania.
 
 Typy delegatów C# w programie są odpowiednikami nazw, a nie są odpowiednikami strukturalnymi. W każdym przypadku dwa różne typy delegatów, które mają te same listy parametrów i typ zwracany, są traktowane jako różne typy delegatów. Jednak wystąpienia dwóch różnych, ale strukturalnie równoważnych typów delegatów mogą być porównywane jako równe ([delegatów równości](expressions.md#delegate-equality-operators)).
 
@@ -73,7 +73,7 @@ class B
 }
 ```
 
-Metody `A.M1` i `B.M1` są zgodne z typami delegatów `D1` i `D2`, ponieważ mają ten sam typ zwracany i listę parametrów; Jednak te typy delegatów są dwa różne typy, więc nie są zamienne. Metody `B.M2`, `B.M3` i `B.M4` są niezgodne z typami delegatów `D1` i `D2`, ponieważ mają różne typy zwracane lub listy parametrów.
+Metody `A.M1` i `B.M1` są zgodne z typami delegatów `D1` i `D2`, ponieważ mają ten sam typ zwracany i listę parametrów; Jednak te typy delegatów są dwa różne typy, więc nie są zamienne. Metody `B.M2`, `B.M3`i `B.M4` są niezgodne z typami delegatów `D1` i `D2`, ponieważ mają różne typy zwracane lub listy parametrów.
 
 Podobnie jak w przypadku innych deklaracji typu ogólnego, należy pomieścić argumenty typu, aby utworzyć skonstruowany typ delegata. Typy parametrów i typ zwracany skonstruowanego typu delegata są tworzone przez podstawianie, dla każdego parametru typu w deklaracji delegata, odpowiadającego mu argumentu typu złożonego typu delegata. Wynikowy typ zwracany i typy parametrów są używane w celu określenia, jakie metody są zgodne ze skonstruowanym typem delegata. Na przykład:
 
@@ -87,15 +87,15 @@ class X
 }
 ```
 
-Metoda `X.F` jest zgodna z typem delegata `Predicate<int>` i metodą `X.G` jest zgodna z typem delegata `Predicate<string>`.
+Metoda `X.F` jest zgodna z typem delegata `Predicate<int>`, a metoda `X.G` jest zgodna z typem delegata `Predicate<string>`.
 
-Jedynym sposobem deklarowania typu delegata jest za pośrednictwem *delegate_declaration*. Typ delegata jest typem klasy, który jest pochodną `System.Delegate`. Typy delegatów są niejawnie `sealed`, więc nie jest dozwolone wyprowadzanie dowolnego typu z typu delegata. Nie jest również dozwolone uzyskanie typu klasy niedelegowanej z `System.Delegate`. Należy zauważyć, że `System.Delegate` nie należy do typu delegata; jest to typ klasy, z której są wyprowadzane wszystkie typy delegatów.
+Jedynym sposobem deklarowania typu delegata jest za pośrednictwem *delegate_declaration*. Typ delegata jest typem klasy, który jest pochodną `System.Delegate`. Typy delegatów są niejawnie `sealed`, więc nie jest dozwolone, aby dziedziczyć dowolny typ z typu delegata. Nie jest również dozwolone uzyskanie typu klasy niedelegowanej z `System.Delegate`. Należy zauważyć, że `System.Delegate` nie należy do typu delegata; jest to typ klasy, z której są wyprowadzane wszystkie typy delegatów.
 
-C#zawiera specjalną składnię dla tworzenia wystąpień delegata i wywołania. Oprócz tworzenia wystąpienia, każda operacja, którą można zastosować do klasy lub wystąpienia klasy, można również zastosować odpowiednio do klasy lub wystąpienia obiektu delegowanego. W szczególności możliwe jest uzyskanie dostępu do elementów członkowskich typu `System.Delegate` za pośrednictwem standardowej składni dostępu do składowej.
+C#zawiera specjalną składnię dla tworzenia wystąpień delegata i wywołania. Oprócz tworzenia wystąpienia, każda operacja, którą można zastosować do klasy lub wystąpienia klasy, można również zastosować odpowiednio do klasy lub wystąpienia obiektu delegowanego. W szczególności możliwe jest uzyskanie dostępu do elementów członkowskich typu `System.Delegate` za pośrednictwem standardowej składni dostępu do elementu członkowskiego.
 
 Zestaw metod, które są hermetyzowane przez wystąpienie delegata, nazywa się listą wywołania. Po utworzeniu wystąpienia delegata ([delegowanie zgodności](delegates.md#delegate-compatibility)) z pojedynczej metody hermetyzuje tę metodę, a jej Lista wywołań zawiera tylko jeden wpis. Jednak gdy dwa wystąpienia delegatów o wartości innej niż null są łączone, ich listy wywołań są łączone — w pozostałym operandzie Order Right a prawy operand — aby utworzyć nową listę wywołań, która zawiera co najmniej dwa wpisy.
 
-Delegaty są łączone za pomocą @no__t binarnych-0 ([operator dodawania](expressions.md#addition-operator)) i operatory `+=` ([przypisanie złożone](expressions.md#compound-assignment)). Delegat może zostać usunięty z kombinacji delegatów, przy użyciu binarnego `-` ([operator odejmowania](expressions.md#subtraction-operator)) i operatory `-=` ([przypisanie złożone](expressions.md#compound-assignment)). Delegatów można porównywać pod kątem równości ([delegatów kryterium równości](expressions.md#delegate-equality-operators)).
+Delegaty są łączone za pomocą `+` binarnych ([operator dodawania](expressions.md#addition-operator)) i operatory `+=` ([przypisanie złożone](expressions.md#compound-assignment)). Delegat może zostać usunięty z kombinacji delegatów, przy użyciu `-` binarny ([operator odejmowania](expressions.md#subtraction-operator)) i operatory `-=` ([przypisanie złożone](expressions.md#compound-assignment)). Delegatów można porównywać pod kątem równości ([delegatów kryterium równości](expressions.md#delegate-equality-operators)).
 
 Poniższy przykład pokazuje wystąpienie liczby delegatów i odpowiadające im listy wywołań:
 
@@ -122,23 +122,23 @@ class Test
 }
 ```
 
-Gdy jest tworzone wystąpienie `cd1` i `cd2`, każdy hermetyzuje jedną metodę. Gdy zostanie utworzone wystąpienie `cd3`, zawiera on listę wywołań dwóch metod, `M1` i `M2` w tej kolejności. Lista wywołań `cd4` zawiera `M1`, `M2` i `M1` w tej kolejności. Na koniec Lista wywołań `cd5` zawiera `M1`, `M2`, `M1`, `M1` i `M2` w tej kolejności. Aby uzyskać więcej przykładów łączenia (jak również usuwania) delegatów, zobacz [delegating wywołania](delegates.md#delegate-invocation).
+Po utworzeniu wystąpienia `cd1` i `cd2` są one hermetyzowane jedną metodą. Gdy `cd3` jest tworzone wystąpienie, zawiera listę wywołań dwóch metod, `M1` i `M2`w tej kolejności. Lista wywołań `cd4`zawiera `M1`, `M2`i `M1`w tej kolejności. Na końcu Lista wywołań `cd5`zawiera `M1`, `M2`, `M1`, `M1`i `M2`w tej kolejności. Aby uzyskać więcej przykładów łączenia (jak również usuwania) delegatów, zobacz [delegating wywołania](delegates.md#delegate-invocation).
 
 ## <a name="delegate-compatibility"></a>Delegowanie zgodności
 
-Metoda lub delegat `M` jest ***zgodny*** z typem delegata `D`, jeśli spełnione są wszystkie następujące warunki:
+Metoda lub delegat `M` jest ***zgodny*** z typem delegata `D` jeśli spełnione są wszystkie następujące warunki:
 
-*  `D` i `M` mają tę samą liczbę parametrów, a każdy parametr w `D` ma te same Modyfikatory `ref` lub `out` jako odpowiedni parametr w `M`.
-*  Dla każdego parametru wartości (parametru bez modyfikatora `ref` lub `out`), konwersja tożsamości ([konwersja tożsamości](conversions.md#identity-conversion)) lub niejawna konwersja odwołania ([niejawne konwersje odwołań](conversions.md#implicit-reference-conversions)) istnieje z typu parametru w `D` do odpowiedni typ parametru w `M`.
-*  Dla każdego parametru `ref` lub `out` typ parametru w `D` jest taki sam jak typ parametru w `M`.
-*  Dla zwracanego typu `D` @no__t istnieje konwersja niejawnego odwołania.
+*  `D` i `M` mają tę samą liczbę parametrów, a każdy parametr w `D` ma takie same Modyfikatory `ref` lub `out`, jak odpowiedni parametr w `M`.
+*  Dla każdego parametru wartości (parametru bez modyfikatora `ref` lub `out`), konwersja tożsamości ([konwersja tożsamości](conversions.md#identity-conversion)) lub niejawna konwersja odwołania ([niejawne konwersje odwołań](conversions.md#implicit-reference-conversions)) istnieje z typu parametru w `D` do odpowiedniego typu parametru w `M`.
+*  Dla każdego `ref` lub `out` parametru typ parametru w `D` jest taki sam jak typ parametru w `M`.
+*  Dla zwracanego typu `D``M` istnieje konwersja niejawnego odwołania.
 
 ## <a name="delegate-instantiation"></a>Tworzenie wystąpienia delegata
 
-Wystąpienie delegata jest tworzone przez *delegate_creation_expression* ([wyrażenia tworzenia delegatów](expressions.md#delegate-creation-expressions)) lub konwersję do typu delegata. Nowo utworzone wystąpienie delegata odnosi się do:
+Wystąpienie delegata jest tworzone przez *delegate_creation_expression* (autorzy[tworzenia delegatów](expressions.md#delegate-creation-expressions)) lub konwersję do typu delegata. Nowo utworzone wystąpienie delegata odnosi się do:
 
-*  Metoda statyczna, do której odwołuje się *delegate_creation_expression*lub
-*  Obiekt docelowy (który nie może być `null`) i metoda wystąpienia, do której odwołuje się *delegate_creation_expression*, lub
+*  Metoda statyczna, do której odwołuje się *delegate_creation_expression*, lub
+*  Obiekt docelowy (którego nie można `null`) i metoda wystąpienia, do której odwołuje się *delegate_creation_expression*lub
 *  Inny delegat.
 
 Na przykład:
@@ -167,7 +167,7 @@ Po utworzeniu wystąpienia obiekty delegatów zawsze odwołują się do tego sam
 
 ## <a name="delegate-invocation"></a>Delegowanie wywołania
 
-C#zawiera specjalną składnię do wywoływania delegata. Gdy wystąpienie delegata o wartości innej niż null, którego lista wywołań zawiera jeden wpis, wywołuje jedną metodę z tymi samymi argumentami i zwraca tę samą wartość, co odwołanie do metody. (Zobacz [delegowanie wywołań](expressions.md#delegate-invocations) , aby uzyskać szczegółowe informacje na temat delegowania wywołania.) Jeśli wystąpi wyjątek w trakcie wywołania tego delegata, a ten wyjątek nie jest przechwytywany w metodzie, która została wywołana, wyszukiwanie w klauzuli catch wyjątku kontynuuje się w metodzie, która wywołała delegata, tak jakby ta metoda była bezpośrednio wywołana Metoda, do której odwołuje się ten delegat.
+C#zawiera specjalną składnię do wywoływania delegata. Gdy wystąpienie delegata o wartości innej niż null, którego lista wywołań zawiera jeden wpis, wywołuje jedną metodę z tymi samymi argumentami i zwraca tę samą wartość, co odwołanie do metody. (Zobacz [delegowanie wywołań](expressions.md#delegate-invocations) , aby uzyskać szczegółowe informacje na temat delegowania wywołania.) Jeśli wystąpi wyjątek w trakcie wywołania tego delegata, a ten wyjątek nie jest przechwytywany w metodzie, która została wywołana, wyszukiwanie w klauzuli catch wyjątku kontynuuje się w metodzie, która wywołała delegata, tak jakby ta metoda miała bezpośrednio nazwę metody, do której odwołuje się ten delegat.
 
 Wywołanie wystąpienia delegata, którego lista wywołania zawiera wiele wpisów, jest realizowane przez wywołanie każdej metody z listy wywołań synchronicznie, w kolejności. Każda metoda wywołana jest przenoszona do tego samego zestawu argumentów, co zostało przekazane do wystąpienia delegata. Jeśli takie wywołanie delegata zawiera parametry odwołania ([parametry odwołania](classes.md#reference-parameters)), każde wywołanie metody zostanie wykonane z odwołaniem do tej samej zmiennej; zmiany tej zmiennej według jednej metody na liście wywołań będą widoczne dla metod w dalszej postaci listy wywołań. Jeśli delegat delegowany zawiera parametry wyjściowe lub wartość zwracaną, ich końcowa wartość będzie pochodzić z wywołania ostatniego delegata na liście.
 
@@ -240,7 +240,7 @@ class Test
 
 Jak pokazano w instrukcji `cd3 += cd1;`, delegat może być obecny na liście wywołań wiele razy. W tym przypadku jest to po prostu wywoływana raz na wystąpienie. Na liście wywołań, takiej jak w przypadku usunięcia tego delegata, ostatnie wystąpienie na liście wywołań jest aktualnie usunięte.
 
-Bezpośrednio przed wykonaniem ostatecznej instrukcji `cd3 -= cd1;`, delegat `cd3` odwołuje się do pustej listy wywołań. Próba usunięcia delegata z pustej listy (lub usunięcia nieistniejącej delegata z listy niepustej) nie jest błędem.
+Bezpośrednio przed wykonaniem ostatecznej instrukcji `cd3 -= cd1;`delegat `cd3` odnosi się do pustej listy wywołań. Próba usunięcia delegata z pustej listy (lub usunięcia nieistniejącej delegata z listy niepustej) nie jest błędem.
 
 Tworzone dane wyjściowe to:
 

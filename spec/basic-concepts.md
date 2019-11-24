@@ -14,7 +14,7 @@ Zestaw, który ma ***punkt wejścia*** , nosi nazwę ***aplikacji***. Po uruchom
 
 Domena aplikacji umożliwia izolację aplikacji, działając jako kontener dla stanu aplikacji. Domena aplikacji pełni rolę kontenera i granicy dla typów zdefiniowanych w aplikacji i używanych przez niego bibliotek klas. Typy ładowane do jednej domeny aplikacji różnią się od tego samego typu, który został załadowany do innej domeny aplikacji, a wystąpienia obiektów nie są bezpośrednio udostępniane między domenami aplikacji. Na przykład Każda domena aplikacji ma własną kopię zmiennych statycznych dla tych typów, a Konstruktor statyczny dla typu jest uruchamiany maksymalnie raz dla każdej domeny aplikacji. Implementacje mogą być bezpłatne, aby zapewnić zasady i mechanizmy specyficzne dla implementacji dotyczące tworzenia i niszczenia domen aplikacji.
 
-***Uruchamianie aplikacji*** występuje, gdy środowisko wykonawcze wywołuje wydaną metodę, która jest określana jako punkt wejścia aplikacji. Ta metoda punktu wejścia ma zawsze nazwę `Main` i może mieć jeden z następujących podpisów:
+***Uruchamianie aplikacji*** występuje, gdy środowisko wykonawcze wywołuje wydaną metodę, która jest określana jako punkt wejścia aplikacji. Ta metoda punktu wejścia ma zawsze nazwę `Main`i może mieć jeden z następujących sygnatur:
 
 ```csharp
 static void Main() {...}
@@ -30,9 +30,9 @@ Jak pokazano, punkt wejścia może opcjonalnie zwrócić wartość `int`. Ta war
 
 Punkt wejścia może opcjonalnie mieć jeden parametr formalny. Parametr może mieć dowolną nazwę, ale typem parametru musi być `string[]`. Jeśli parametr formalny jest obecny, środowisko wykonawcze tworzy i przekazuje argument `string[]` zawierający argumenty wiersza polecenia, które zostały określone podczas uruchamiania aplikacji. Argument `string[]` nigdy nie ma wartości null, ale może mieć długość zero, jeśli nie określono żadnych argumentów wiersza polecenia.
 
-Ponieważ C# obsługuje Przeciążenie metod, Klasa lub struktura może zawierać wiele definicji niektórych metod, pod warunkiem, że każda z nich ma inną sygnaturę. Jednak w ramach jednego programu żadna Klasa lub struktura nie może zawierać więcej niż jednej metody o nazwie `Main`, której definicja kwalifikuje się do użycia jako punkt wejścia aplikacji. Inne przeciążone wersje `Main` są dozwolone, jednak pod warunkiem, że mają więcej niż jeden parametr lub ich parametr jest inny niż typ `string[]`.
+Ponieważ C# obsługuje Przeciążenie metod, Klasa lub struktura może zawierać wiele definicji niektórych metod, pod warunkiem, że każda z nich ma inną sygnaturę. Jednak w ramach jednego programu żadna Klasa lub struktura nie może zawierać więcej niż jednej metody o nazwie `Main` której definicja kwalifikuje się do użycia jako punkt wejścia aplikacji. Inne przeciążone wersje `Main` są dozwolone, jednak pod warunkiem, że mają więcej niż jeden parametr, lub tylko ich parametr jest inny niż typ `string[]`.
 
-Aplikacja może składać się z wielu klas lub struktur. Istnieje możliwość, aby więcej niż jedna z tych klas lub struktur zawierała metodę o nazwie `Main`, której definicja kwalifikuje się do użycia jako punkt wejścia aplikacji. W takich przypadkach mechanizm zewnętrzny (na przykład opcja kompilatora wiersza polecenia) musi zostać użyty do wybrania jednej z tych metod `Main` jako punktu wejścia.
+Aplikacja może składać się z wielu klas lub struktur. Istnieje możliwość, że więcej niż jedna z tych klas lub struktur będzie zawierać metodę o nazwie `Main` której definicja kwalifikuje się do użycia jako punkt wejścia aplikacji. W takich przypadkach mechanizm zewnętrzny (na przykład opcja kompilatora wiersza polecenia) musi zostać użyty do wybrania jednej z tych `Main` metod jako punktu wejścia.
 
 W C#programie każda metoda musi być zdefiniowana jako element członkowski klasy lub struktury. Zwykle zadeklarowana dostępność ([zadeklarowana dostępność](basic-concepts.md#declared-accessibility)) metody jest określana przez Modyfikatory dostępu ([Modyfikatory dostępu](classes.md#access-modifiers)) określone w swojej deklaracji, a podobnie zadeklarowana dostępność typu jest określana przez Modyfikatory dostępu określone w jego deklaracji. Aby można było wywołać daną metodę danego typu, zarówno typ, jak i element członkowski muszą być dostępne. Jednak punkt wejścia aplikacji jest szczególnym przypadkiem. W szczególności środowisko wykonawcze może uzyskać dostęp do punktu wejścia aplikacji niezależnie od jego zadeklarowanej dostępności i bez względu na zadeklarowaną dostępność jego deklaracji typu.
 
@@ -44,22 +44,22 @@ We wszystkich innych aspektach metody punktu wejścia zachowują się jak te, kt
 
 ***Zakończenie aplikacji*** zwraca kontrolę do środowiska wykonawczego.
 
-Jeśli zwracanym typem metody ***punktu wejścia*** aplikacji jest `int`, zwracana wartość służy jako ***kod stanu zakończenia***aplikacji. Celem tego kodu jest umożliwienie komunikacji sukcesu lub niepowodzenia środowiska wykonawczego.
+Jeśli zwracany typ metody ***punktu wejścia*** aplikacji jest `int`, zwracana wartość służy jako ***kod stanu zakończenia***aplikacji. Celem tego kodu jest umożliwienie komunikacji sukcesu lub niepowodzenia środowiska wykonawczego.
 
-Jeśli zwracanym typem metody punktu wejścia jest `void`, osiąganie prawego nawiasu klamrowego (`}`), który kończy tę metodę, lub wykonywanie instrukcji `return`, która nie zawiera wyrażenia, powoduje kod stanu zakończenia `0`.
+Jeśli zwracanym typem metody punktu wejścia jest `void`, osiągnięcie prawego nawiasu klamrowego (`}`), który kończy tę metodę, lub wykonywanie instrukcji `return`, która nie ma wyrażenia, powoduje kod stanu zakończenia `0`.
 
-Przed zakończeniem działania aplikacji są wywoływane destruktory dla wszystkich obiektów, które nie zostały jeszcze odebrane w pamięci podręcznej, chyba że takie oczyszczanie zostało pominięte (przez wywołanie metody biblioteki `GC.SuppressFinalize`, na przykład).
+Przed zakończeniem działania aplikacji są wywoływane destruktory dla wszystkich obiektów, które nie zostały jeszcze pobrane jako elementy bezużyteczne, chyba że takie oczyszczanie zostało pominięte (przez wywołanie metody biblioteki `GC.SuppressFinalize`, na przykład).
 
 ## <a name="declarations"></a>Deklaracje
 
-Deklaracje w C# programie definiują elementy składowe programu. C#programy są zorganizowane przy użyciu przestrzeni nazw ([przestrzenie nazw](namespaces.md)), które mogą zawierać deklaracje typów i zagnieżdżone deklaracje przestrzeni nazw. Deklaracje typów ([deklaracje typów](namespaces.md#type-declarations)) służą do definiowania klas ([klas](classes.md)), struktur ([struktur](structs.md)), interfejsów ([interfejsów](interfaces.md)), wyliczeniowych ([wyliczeniowych](enums.md)) i delegatów ([delegatów](delegates.md)). Rodzaje elementów członkowskich dozwolone w deklaracji typu zależą od formy deklaracji typu. Na przykład deklaracje klasy mogą zawierać deklaracje dla stałych ([stałych](classes.md#constants)), pól ([pól](classes.md#fields)), metod ([metod](classes.md#methods)), właściwości ([Właściwości](classes.md#properties)), zdarzeń ([zdarzeń](classes.md#events)), indeksatorów ([indeksatorów](classes.md#indexers)), Operatory ([Operatory](classes.md#operators)), konstruktory wystąpień ([konstruktory wystąpień](classes.md#instance-constructors)), konstruktory statyczne ([konstruktory statyczne](classes.md#static-constructors)), destruktory ([destruktory](classes.md#destructors)) i zagnieżdżone typy ([typy zagnieżdżone](classes.md#nested-types)).
+Deklaracje w C# programie definiują elementy składowe programu. C#programy są zorganizowane przy użyciu przestrzeni nazw ([przestrzenie nazw](namespaces.md)), które mogą zawierać deklaracje typów i zagnieżdżone deklaracje przestrzeni nazw. Deklaracje typów ([deklaracje typów](namespaces.md#type-declarations)) służą do definiowania klas ([klas](classes.md)), struktur ([struktur](structs.md)), interfejsów ([interfejsów](interfaces.md)), wyliczeniowych ([wyliczeniowych](enums.md)) i delegatów ([delegatów](delegates.md)). Rodzaje elementów członkowskich dozwolone w deklaracji typu zależą od formy deklaracji typu. Na przykład deklaracji klasy mogą zawierać deklaracje dla stałych ([stałych](classes.md#constants)), pól ([pól](classes.md#fields)), metod ([metod](classes.md#methods)), właściwości ([Właściwości](classes.md#properties)), zdarzeń ([zdarzeń](classes.md#events)), indeksatorów ([indeksatorów](classes.md#indexers)), operatorów ([operatorów](classes.md#operators)), konstruktorów wystąpień ([konstruktorów wystąpień](classes.md#instance-constructors)), konstruktorów statycznych ([konstruktorów statycznych](classes.md#static-constructors)), destruktorów ([destruktorów](classes.md#destructors)) i typów zagnieżdżonych ([typy zagnieżdżone](classes.md#nested-types)).
 
 Deklaracja definiuje nazwę w ***obszarze deklaracji*** , do którego należy deklaracja. Z wyjątkiem przeciążonych elementów członkowskich ([sygnatur i Przeciążenie](basic-concepts.md#signatures-and-overloading)), jest to błąd czasu kompilacji, który ma dwie lub więcej deklaracji, które wprowadzają elementy członkowskie o tej samej nazwie w obszarze deklaracji. Nie jest możliwe, aby miejsce deklaracji zawierało różne rodzaje składowych o tej samej nazwie. Na przykład obszar deklaracji nigdy nie może zawierać pola i metody o tej samej nazwie.
 
 Istnieje kilka różnych typów obszarów deklaracji, zgodnie z opisem w poniższej tabeli.
 
-*  We wszystkich plikach źródłowych programu *namespace_member_declaration*s bez otaczających *namespace_declaration* są członkami pojedynczego, połączonego obszaru deklaracji nazywanego ***przestrzenią globalną deklaracji***.
-*  We wszystkich plikach źródłowych programu *namespace_member_declaration*s w *namespace_declaration*s, które mają taką samą w pełni kwalifikowaną nazwę przestrzeni nazw, są członkami pojedynczej połączonej deklaracji.
+*  W ramach wszystkich plików źródłowych programu *namespace_member_declaration*s bez otaczających *namespace_declaration* są członkami pojedynczej, połączonej przestrzeni deklaracji nazywanej ***przestrzenią globalną deklaracji***.
+*  W ramach wszystkich plików źródłowych programu *namespace_member_declaration*s w *namespace_declaration*s, które mają taką samą w pełni kwalifikowaną nazwę przestrzeni nazw, są członkami pojedynczej złożonej deklaracji.
 *  Każda klasa, struktura lub Deklaracja interfejsu tworzy nową przestrzeń deklaracji. Nazwy są wprowadzane do tego obszaru deklaracji za poorednictwem *class_member_declaration*s, *struct_member_declaration*s, *interface_member_declaration*s lub *type_parameter*s. Z wyjątkiem deklaracji konstruktora wystąpień przeciążonych i deklaracji konstruktora statycznego Klasa lub struktura nie może zawierać deklaracji składowej o takiej samej nazwie jak Klasa lub struktura. Klasa, struktura lub interfejs umożliwia deklarację przeciążonych metod i indeksatorów. Ponadto Klasa lub struktura zezwala na deklarację konstruktorów przeciążonych wystąpień i operatorów. Na przykład Klasa, struktura lub interfejs może zawierać wiele deklaracji metody o tej samej nazwie, pod warunkiem, że te deklaracje metod różnią się w sygnaturze ([sygnatur i Przeciążenie](basic-concepts.md#signatures-and-overloading)). Należy zauważyć, że klasy bazowe nie przyczyniają się do przestrzeni deklaracji klasy, a interfejsy podstawowe nie przyczyniają się do obszaru deklaracji interfejsu. W ten sposób Klasa pochodna lub interfejs może zadeklarować element członkowski o takiej samej nazwie jak Dziedziczony element członkowski. Członek ten jest wymieniony do ***ukrycia*** dziedziczonego elementu członkowskiego.
 *  Każda deklaracja delegata tworzy nową przestrzeń deklaracji. Nazwy są wprowadzane do tego obszaru deklaracji za poorednictwem parametrów formalnych (*fixed_parameter*s i *parameter_array*s) i *type_parameter*s.
 *  Każda deklaracja wyliczenia tworzy nową przestrzeń deklaracji. Nazwy są wprowadzane do tego obszaru deklaracji za poorednictwem *enum_member_declarations*.
@@ -92,9 +92,9 @@ namespace Megacorp.Data
 }
 ```
 
-Powyższe dwie deklaracje przestrzeni nazw przyczyniają się do tego samego obszaru deklaracji, w tym przypadku deklarując dwie klasy z w pełni kwalifikowanymi nazwami `Megacorp.Data.Customer` i `Megacorp.Data.Order`. Ponieważ dwie deklaracje przyczyniają się do tego samego obszaru deklaracji, powodowały to błąd czasu kompilacji, jeśli każda z nich zawiera deklarację klasy o tej samej nazwie.
+Powyższe dwie deklaracje przestrzeni nazw składają się na ten sam obszar deklaracji, w tym przypadku deklarując dwie klasy z w pełni kwalifikowanymi nazwami `Megacorp.Data.Customer` i `Megacorp.Data.Order`. Ponieważ dwie deklaracje przyczyniają się do tego samego obszaru deklaracji, powodowały to błąd czasu kompilacji, jeśli każda z nich zawiera deklarację klasy o tej samej nazwie.
 
-Jak określono powyżej, obszar deklaracji bloku zawiera wszystkie zagnieżdżone bloki. W związku z tym w poniższym przykładzie metody `F` i `G` powodują błąd czasu kompilacji, ponieważ nazwa `i` jest zadeklarowana w bloku zewnętrznym i nie można jej ponownie zadeklarować w bloku wewnętrznym. Jednakże metody `H` i `I` są prawidłowe, ponieważ dwa `i` są zadeklarowane w oddzielnych blokach niezagnieżdżonych.
+Jak określono powyżej, obszar deklaracji bloku zawiera wszystkie zagnieżdżone bloki. W związku z tym w poniższym przykładzie metody `F` i `G` powodują błąd czasu kompilacji, ponieważ nazwa `i` jest zadeklarowana w bloku zewnętrznym i nie może być ponownie zadeklarowana w bloku wewnętrznym. Jednakże metody `H` i `I` są prawidłowe, ponieważ dwa `i`są zadeklarowane w oddzielnych blokach niezagnieżdżonych.
 
 ```csharp
 class A
@@ -147,27 +147,27 @@ Przestrzenie nazw nie mają ograniczeń dostępu. Nie można zadeklarować prywa
 
 ### <a name="struct-members"></a>Elementy członkowskie struktury
 
-Elementy członkowskie struktury są składowymi zadeklarowanymi w strukturze i składowymi dziedziczonymi z bezpośredniej klasy podstawowej struktury `System.ValueType` i pośrednią klasę bazową `object`.
+Elementy członkowskie struktury to elementy członkowskie zadeklarowane w strukturze i składowe dziedziczone z bezpośredniej klasy podstawowej struktury `System.ValueType` i pośredniej klasy bazowej `object`.
 
 Elementy członkowskie typu prostego odpowiadają bezpośrednio elementom członkowskim typu struct, które są aliase według typu prostego:
 
-*  Elementy członkowskie `sbyte` są członkami struktury `System.SByte`.
-*  Elementy członkowskie `byte` są członkami struktury `System.Byte`.
-*  Elementy członkowskie `short` są członkami struktury `System.Int16`.
-*  Elementy członkowskie `ushort` są członkami struktury `System.UInt16`.
-*  Elementy członkowskie `int` są członkami struktury `System.Int32`.
-*  Elementy członkowskie `uint` są członkami struktury `System.UInt32`.
-*  Elementy członkowskie `long` są członkami struktury `System.Int64`.
-*  Elementy członkowskie `ulong` są członkami struktury `System.UInt64`.
-*  Elementy członkowskie `char` są członkami struktury `System.Char`.
-*  Elementy członkowskie `float` są członkami struktury `System.Single`.
-*  Elementy członkowskie `double` są członkami struktury `System.Double`.
-*  Elementy członkowskie `decimal` są członkami struktury `System.Decimal`.
-*  Elementy członkowskie `bool` są członkami struktury `System.Boolean`.
+*  Członkowie `sbyte` są członkami struktury `System.SByte`.
+*  Członkowie `byte` są członkami struktury `System.Byte`.
+*  Członkowie `short` są członkami struktury `System.Int16`.
+*  Członkowie `ushort` są członkami struktury `System.UInt16`.
+*  Członkowie `int` są członkami struktury `System.Int32`.
+*  Członkowie `uint` są członkami struktury `System.UInt32`.
+*  Członkowie `long` są członkami struktury `System.Int64`.
+*  Członkowie `ulong` są członkami struktury `System.UInt64`.
+*  Członkowie `char` są członkami struktury `System.Char`.
+*  Członkowie `float` są członkami struktury `System.Single`.
+*  Członkowie `double` są członkami struktury `System.Double`.
+*  Członkowie `decimal` są członkami struktury `System.Decimal`.
+*  Członkowie `bool` są członkami struktury `System.Boolean`.
 
 ### <a name="enumeration-members"></a>Elementy członkowskie wyliczenia
 
-Elementy członkowskie wyliczenia to stałe zadeklarowane w wyliczeniu i składowe dziedziczone z bezpośredniej klasy podstawowej wyliczenia `System.Enum` i pośrednich klas podstawowych `System.ValueType` i `object`.
+Elementy członkowskie wyliczenia to stałe zadeklarowane w wyliczeniu i składowe dziedziczone z bezpośredniej klasy podstawowej wyliczenia `System.Enum` i pośrednich klas bazowych `System.ValueType` i `object`.
 
 ### <a name="class-members"></a>Elementy członkowskie klasy
 
@@ -177,12 +177,12 @@ Deklaracja klasy może zawierać deklaracje stałych, pól, metod, właściwośc
 
 Elementy członkowskie `object` i `string` odpowiadają bezpośrednio członkom typów klas, których aliasy:
 
-*  Elementy członkowskie `object` są członkami klasy `System.Object`.
-*  Elementy członkowskie `string` są członkami klasy `System.String`.
+*  Członkowie `object` są członkami klasy `System.Object`.
+*  Członkowie `string` są członkami klasy `System.String`.
 
 ### <a name="interface-members"></a>Elementy członkowskie interfejsu
 
-Elementy członkowskie interfejsu są elementami zadeklarowanymi w interfejsie i we wszystkich interfejsach podstawowych interfejsu. Elementy członkowskie klasy `object` nie są, ściśle mówiące, członkami dowolnego interfejsu ([elementy członkowskie interfejsu](interfaces.md#interface-members)). Jednakże elementy członkowskie klasy `object` są dostępne za pośrednictwem wyszukiwania elementów członkowskich w dowolnym typie interfejsu ([wyszukiwanie elementu członkowskiego](expressions.md#member-lookup)).
+Elementy członkowskie interfejsu są elementami zadeklarowanymi w interfejsie i we wszystkich interfejsach podstawowych interfejsu. Elementy członkowskie w klasie `object` nie są, ściśle mówiące, członkami dowolnego interfejsu ([elementy członkowskie interfejsu](interfaces.md#interface-members)). Jednakże elementy członkowskie klasy `object` są dostępne za pośrednictwem wyszukiwania elementów członkowskich w dowolnym typie interfejsu ([wyszukiwanie elementu członkowskiego](expressions.md#member-lookup)).
 
 ### <a name="array-members"></a>Elementy członkowskie tablicy
 
@@ -202,28 +202,28 @@ Gdy dostęp do określonego elementu członkowskiego jest dozwolony, członek je
 
 ***Zadeklarowana dostępność*** elementu członkowskiego może być jedną z następujących czynności:
 
-*  Public, który jest wybierany przez dołączenie modyfikatora `public` w deklaracji elementu członkowskiego. Intuicyjne znaczenie `public` to "dostęp bez ograniczeń".
-*  Chroniony, który jest wybierany przez dołączenie modyfikatora `protected` w deklaracji elementu członkowskiego. Intuicyjne znaczenie `protected` to "dostęp ograniczony do klasy zawierającej lub typów pochodzących od klasy zawierającej".
-*  Wewnętrzna, która jest wybierana przez dołączenie modyfikatora `internal` w deklaracji elementu członkowskiego. Intuicyjne znaczenie `internal` to "dostęp ograniczony do tego programu".
-*  Chroniona wewnętrznie (czyli chroniona lub wewnętrzna), która jest wybierana przez dołączenie do `protected` i modyfikatora `internal` w deklaracji elementu członkowskiego. Intuicyjne znaczenie `protected internal` to "dostęp ograniczony do tego programu lub typów pochodzących od klasy zawierającej".
-*  Prywatny, który jest wybierany przez dołączenie modyfikatora `private` w deklaracji elementu członkowskiego. Intuicyjne znaczenie `private` to "dostęp ograniczony do typu zawierającego".
+*  Public, który jest wybierany przez dołączenie modyfikatora `public` w deklaracji elementu członkowskiego. Intuicyjne znaczenie `public` ma wartość "dostęp nieograniczony".
+*  Chroniony, który jest wybierany przez dołączenie modyfikatora `protected` w deklaracji elementu członkowskiego. Intuicyjne znaczenie `protected` jest "dostęp ograniczony do klasy zawierającej lub typów pochodzących od klasy zawierającej".
+*  Wewnętrzna, która jest wybierana przez dołączenie modyfikatora `internal` w deklaracji elementu członkowskiego. Intuicyjne znaczenie `internal` jest "dostęp ograniczony do tego programu".
+*  Chroniona wewnętrznie (czyli chroniona lub wewnętrzna), która jest wybierana przez uwzględnienie zarówno `protected`, jak i modyfikatora `internal` w deklaracji elementu członkowskiego. Intuicyjne znaczenie `protected internal` jest "dostęp ograniczony do tego programu lub typów pochodzących od klasy zawierającej".
+*  Prywatny, który jest wybierany przez dołączenie modyfikatora `private` w deklaracji elementu członkowskiego. Intuicyjne znaczenie `private` jest "dostęp ograniczony do typu zawierającego".
 
 W zależności od kontekstu, w którym jest realizowana Deklaracja elementu członkowskiego, dozwolone są tylko niektóre typy zadeklarowanych ułatwień dostępu. Ponadto, gdy Deklaracja elementu członkowskiego nie zawiera żadnych modyfikatorów dostępu, kontekst, w którym odbywa się deklaracja, określa domyślny dostępną dostępność.
 
-*  Przestrzenie nazw niejawnie mają zadeklarowaną dostępność `public`. W deklaracjach przestrzeni nazw nie są dozwolone Modyfikatory dostępu.
-*  Typy zadeklarowane w jednostkach kompilacji lub przestrzeniach nazw mogą mieć `public` lub `internal` zadeklarowane ułatwienia dostępu i domyślne dla `internal` zadeklarowane ułatwienia dostępu.
-*  Elementy członkowskie klasy mogą mieć jeden z pięciu rodzajów zadeklarowanych ułatwień dostępu i domyślne do `private` zadeklarowane ułatwienia dostępu. (Należy zauważyć, że typ zadeklarowany jako składowa klasy może mieć którykolwiek z pięciu rodzajów zadeklarowanej dostępności, podczas gdy typ zadeklarowany jako element członkowski przestrzeni nazw może mieć tylko `public` lub `internal` zadeklarowany dostęp.)
-*  Elementy członkowskie struktury mogą mieć `public`, `internal` lub `private` zadeklarowane ułatwienia dostępu i domyślne dla `private` zadeklarowane ułatwienia dostępu, ponieważ struktury są niejawnie zapieczętowane. Elementy członkowskie struktury wprowadzone w strukturze (która nie jest dziedziczona przez tę strukturę) nie mogą mieć zadeklarowanej dostępności `protected` ani `protected internal`. (Należy zauważyć, że typ zadeklarowany jako element członkowski struktury może mieć `public`, `internal` lub `private` zadeklarowane ułatwienia dostępu, podczas gdy typ zadeklarowany jako składowa przestrzeni nazw może mieć tylko `public` lub `internal` zadeklarowane ułatwienia dostępu.)
-*  Elementy członkowskie interfejsu niejawnie mają zadeklarowaną dostępność `public`. W deklaracjach składowych interfejsu nie można używać modyfikatorów dostępu.
-*  Elementy członkowskie wyliczenia niejawnie mają zadeklarowaną dostępność `public`. Modyfikatory dostępu są niedozwolone w deklaracjach składowych wyliczenia.
+*  Przestrzenie nazw niejawnie mają `public` zadeklarowane ułatwienia dostępu. W deklaracjach przestrzeni nazw nie są dozwolone Modyfikatory dostępu.
+*  Typy zadeklarowane w jednostkach kompilacji lub przestrzeniach nazw mogą mieć `public` lub `internal` zadeklarowane ułatwienia dostępu i domyślne do `internal` zadeklarowanej dostępności.
+*  Elementy członkowskie klasy mogą mieć dowolne pięć rodzajów zadeklarowanych ułatwień dostępu i wartości domyślnych, aby `private` zadeklarowane ułatwienia dostępu. (Należy zauważyć, że typ zadeklarowany jako element członkowski klasy może mieć którykolwiek z pięciu rodzajów zadeklarowanej dostępności, podczas gdy typ zadeklarowany jako składowa przestrzeni nazw może mieć tylko `public` lub `internal` zadeklarowane ułatwienia dostępu).
+*  Elementy członkowskie struktury mogą mieć `public`, `internal`lub `private` zadeklarowane ułatwienia dostępu i domyślne do `private` zadeklarowanej dostępności, ponieważ struktury są niejawnie zapieczętowane. Elementy członkowskie struktury wprowadzone w strukturze (która nie jest dziedziczona przez tę strukturę) nie mogą mieć `protected` ani `protected internal` zadeklarowanej dostępności. (Należy zauważyć, że typ zadeklarowany jako element członkowski struktury może mieć `public`, `internal`lub `private` zadeklarowanej dostępności, podczas gdy typ zadeklarowany jako składowa przestrzeni nazw może mieć tylko `public` lub `internal` zadeklarowane ułatwienia dostępu.)
+*  Elementy członkowskie interfejsu niejawnie mają `public` zadeklarowane ułatwienia dostępu. W deklaracjach składowych interfejsu nie można używać modyfikatorów dostępu.
+*  Elementy członkowskie wyliczenia niejawnie mają `public` zadeklarowane ułatwienia dostępu. Modyfikatory dostępu są niedozwolone w deklaracjach składowych wyliczenia.
 
 ### <a name="accessibility-domains"></a>Domeny ułatwień dostępu
 
-***Domena dostępności*** elementu członkowskiego składa się z sekcji (ewentualnie rozłączonych) tekstu programu, w którym dozwolony jest dostęp do elementu członkowskiego. Aby można było zdefiniować domenę dostępności elementu członkowskiego, członek jest nazywany ***najwyższego poziomu*** , jeśli nie jest zadeklarowany w obrębie typu, a element członkowski jest określany jako ***zagnieżdżony*** , jeśli jest zadeklarowany w innym typie. Ponadto ***tekst programu*** w programie jest zdefiniowany jako cały tekst programu zawarty we wszystkich plikach źródłowych programu, a tekst programu typu jest zdefiniowany jako cały tekst programu zawarty w *type_declaration*s tego typu (w tym, możliwe typy, które są zagnieżdżone w typie).
+***Domena dostępności*** elementu członkowskiego składa się z sekcji (ewentualnie rozłączonych) tekstu programu, w którym dozwolony jest dostęp do elementu członkowskiego. Aby można było zdefiniować domenę dostępności elementu członkowskiego, członek jest nazywany ***najwyższego poziomu*** , jeśli nie jest zadeklarowany w obrębie typu, a element członkowski jest określany jako ***zagnieżdżony*** , jeśli jest zadeklarowany w innym typie. Ponadto ***tekst programu*** w programie jest zdefiniowany jako cały tekst programu zawarty we wszystkich plikach źródłowych programu, a tekst programu typu jest zdefiniowany jako cały tekst programu zawarty w *type_declaration*s tego typu (w tym, ewentualnie, typy, które są zagnieżdżone w typie).
 
-Domena dostępności wstępnie zdefiniowanego typu (na przykład `object`, `int` lub `double`) jest nieograniczona.
+Domena dostępności wstępnie zdefiniowanego typu (na przykład `object`, `int`lub `double`) jest nieograniczona.
 
-Domena dostępności niepowiązanego typu najwyższego poziomu `T` ([powiązane i niepowiązane typy](types.md#bound-and-unbound-types)) zadeklarowane w programie `P` zdefiniowane w następujący sposób:
+Domena dostępności niepowiązanego typu najwyższego poziomu `T` ([powiązane i niepowiązane typy](types.md#bound-and-unbound-types)) zadeklarowane w programie `P` definiuje się w następujący sposób:
 
 *  Jeśli deklarowana dostępność `T` jest `public`, domena dostępności `T` jest tekstem programu `P` i dowolnym programem, który odwołuje się do `P`.
 *  Jeśli deklarowana dostępność `T` jest `internal`, domena dostępności `T` jest tekstem programu `P`.
@@ -232,27 +232,27 @@ Z tych definicji wynika, że domena dostępności niepowiązanego typu najwyższ
 
 Domena dostępności dla konstruowanego typu `T<A1, ..., An>` jest częścią wspólną domeny dostępności niepowiązanego typu ogólnego `T` i domen dostępności argumentów typu `A1, ..., An`.
 
-Domena dostępności zagnieżdżonej składowej `M` zadeklarowana w typie `T` w programie `P` jest zdefiniowana w następujący sposób (zwracając uwagę, że `M` może być typem):
+Domena dostępności zagnieżdżonego elementu członkowskiego `M` zadeklarowana w typie `T` w ramach programu `P` jest zdefiniowana w następujący sposób (zwracając uwagę, że `M` może być typem):
 
 *  Jeśli deklarowana dostępność `M` jest `public`, domena dostępności `M` jest domeną dostępności `T`.
-*  Jeśli deklarowana dostępność `M` jest `protected internal`, niech `D` to Unia programu tekstowego `P` i tekst programu dowolnego typu pochodzącego od `T`, który jest zadeklarowany poza `P`. Domena dostępności `M` to część wspólna domeny dostępności `T` z `D`.
-*  Jeśli deklarowana dostępność `M` jest `protected`, niech `D` będzie złożeniem tekstu programu `T` i tekstu programu dowolnego typu pochodzącego z `T`. Domena dostępności `M` to część wspólna domeny dostępności `T` z `D`.
+*  Jeśli deklarowana dostępność `M` jest `protected internal`, niech `D` być złożeniem tekstu programu `P` i tekstu programu dowolnego typu pochodzącego od `T`, który jest zadeklarowany poza `P`. Domena dostępności `M` jest częścią wspólną domeny dostępności `T` z `D`.
+*  Jeśli deklarowana dostępność `M` jest `protected`, niech `D` być złożeniem tekstu programu `T` i tekstu programu dowolnego typu pochodzącego od `T`. Domena dostępności `M` jest częścią wspólną domeny dostępności `T` z `D`.
 *  Jeśli deklarowana dostępność `M` jest `internal`, domena dostępności `M` jest częścią wspólną domeny dostępności `T` z tekstem programu `P`.
 *  Jeśli deklarowana dostępność `M` jest `private`, domena dostępności `M` jest tekstem programu `T`.
 
 Z tych definicji następuje, że domena dostępności zagnieżdżonego elementu członkowskiego jest zawsze co najmniej tekstem programu typu, w którym jest zadeklarowany element członkowski. Ponadto, gdy domena dostępności elementu członkowskiego nigdy nie jest większa niż domena dostępności typu, w którym jest zadeklarowany element członkowski.
 
-W intuicyjnych warunkach podczas uzyskiwania dostępu do typu lub elementu członkowskiego `M` są oceniane następujące kroki, aby upewnić się, że dostęp jest dozwolony:
+W intuicyjnych terminach podczas uzyskiwania dostępu do typu lub elementu członkowskiego `M` są oceniane następujące kroki, aby upewnić się, że dostęp jest dozwolony:
 
-*  Po pierwsze, jeśli `M` jest zadeklarowany w obrębie typu (w przeciwieństwie do jednostki kompilacji lub przestrzeni nazw), błąd czasu kompilacji występuje, jeśli ten typ nie jest dostępny.
+*  Po pierwsze, jeśli `M` jest zadeklarowany w obrębie typu (w przeciwieństwie do jednostki kompilacji lub przestrzeni nazw), wystąpi błąd w czasie kompilacji, jeśli ten typ nie jest dostępny.
 *  Następnie Jeśli `M` jest `public`, dostęp jest dozwolony.
-*  W przeciwnym razie, jeśli wartość `M` jest `protected internal`, dostęp jest dozwolony, jeśli wystąpi w programie, w którym jest zadeklarowany `M` lub jeśli występuje w klasie pochodnej klasy, w której jest zadeklarowana `M` i odbywa się za pośrednictwem typu klasy pochodnej ([chronione dostęp do elementów członkowskich wystąpienia](basic-concepts.md#protected-access-for-instance-members)).
-*  W przeciwnym razie, jeśli `M` jest `protected`, dostęp jest dozwolony, jeśli występuje w klasie, w której jest zadeklarowany `M` lub jeśli występuje w klasie pochodzącej od klasy, w której jest zadeklarowany `M` i odbywa się za pośrednictwem typu klasy pochodnej ([chronione dostęp do elementów członkowskich wystąpienia](basic-concepts.md#protected-access-for-instance-members)).
-*  W przeciwnym razie, jeśli `M` jest `internal`, dostęp jest dozwolony, jeśli występuje w programie, w którym zadeklarowano `M`.
-*  W przeciwnym razie, jeśli `M` jest `private`, dostęp jest dozwolony, jeśli występuje w ramach typu, w którym zadeklarowano `M`.
+*  W przeciwnym razie, jeśli `M` jest `protected internal`, dostęp jest dozwolony, jeśli występuje w ramach programu, w którym `M` jest zadeklarowana, lub jeśli występuje w klasie pochodzącej od klasy, w której `M` jest zadeklarowana, i odbywa się za pośrednictwem typu klasy pochodnej ([chroniony dostęp dla członków wystąpienia](basic-concepts.md#protected-access-for-instance-members)).
+*  W przeciwnym razie, jeśli `M` jest `protected`, dostęp jest dozwolony, jeśli występuje w klasie, w której `M` jest zadeklarowana, lub jeśli występuje w klasie pochodzącej od klasy, w której `M` jest zadeklarowana, i odbywa się za pośrednictwem typu klasy pochodnej ([chroniony dostęp dla członków wystąpienia](basic-concepts.md#protected-access-for-instance-members)).
+*  W przeciwnym razie, jeśli `M` jest `internal`, dostęp jest dozwolony, jeśli występuje w ramach programu, w którym `M` jest zadeklarowana.
+*  W przeciwnym razie, jeśli `M` jest `private`, dostęp jest dozwolony, jeśli występuje w ramach typu, w którym `M` jest zadeklarowana.
 *  W przeciwnym razie typ lub element członkowski jest niedostępny i wystąpi błąd kompilacji.
 
-W przykładzie
+w przykładzie
 ```csharp
 public class A
 {
@@ -285,16 +285,16 @@ internal class B
 klasy i składowe mają następujące domeny ułatwień dostępu:
 
 *  Domena dostępności `A` i `A.X` jest nieograniczona.
-*  Domena dostępności `A.Y`, `B`, `B.X`, `B.Y`, `B.C`, `B.C.X` i `B.C.Y` jest tekstem programu zawierającego program.
+*  Domena dostępności `A.Y`, `B`, `B.X`, `B.Y`, `B.C`, `B.C.X`i `B.C.Y` to tekst programu zawierającego program zawierający.
 *  Domena dostępności `A.Z` jest tekstem programu `A`.
 *  Domena dostępności `B.Z` i `B.D` to tekst programu `B`, w tym tekst programu `B.C` i `B.D`.
 *  Domena dostępności `B.C.Z` jest tekstem programu `B.C`.
 *  Domena dostępności `B.D.X` i `B.D.Y` to tekst programu `B`, w tym tekst programu `B.C` i `B.D`.
 *  Domena dostępności `B.D.Z` jest tekstem programu `B.D`.
 
-Jak pokazano na przykładzie, domena dostępności elementu członkowskiego nigdy nie jest większa niż typ zawierającego. Na przykład mimo że wszyscy członkowie `X` mają publicznie zadeklarowane ułatwienia dostępu, a `A.X` mają domeny dostępności, które są ograniczone przez typ zawierający.
+Jak pokazano na przykładzie, domena dostępności elementu członkowskiego nigdy nie jest większa niż typ zawierającego. Na przykład mimo że wszyscy członkowie `X` mają publicznie zadeklarowane ułatwienia dostępu, a wszystkie `A.X` mają domeny dostępności, które są ograniczone przez typ zawierający.
 
-Zgodnie z opisem w części [Członkowie](basic-concepts.md#members), wszyscy członkowie klasy podstawowej, z wyjątkiem konstruktorów wystąpień, destruktory i konstruktory statyczne są dziedziczone przez typy pochodne. Obejmuje to nawet prywatne elementy członkowskie klasy bazowej. Jednak domena dostępności prywatnego elementu członkowskiego zawiera tylko tekst programu typu, w którym jest zadeklarowany element członkowski. W przykładzie
+Zgodnie z opisem w części [Członkowie](basic-concepts.md#members), wszyscy członkowie klasy podstawowej, z wyjątkiem konstruktorów wystąpień, destruktory i konstruktory statyczne są dziedziczone przez typy pochodne. Obejmuje to nawet prywatne elementy członkowskie klasy bazowej. Jednak domena dostępności prywatnego elementu członkowskiego zawiera tylko tekst programu typu, w którym jest zadeklarowany element członkowski. w przykładzie
 ```csharp
 class A
 {
@@ -312,21 +312,21 @@ class B: A
     }
 }
 ```
-Klasa `B` dziedziczy prywatną składową `x` z klasy `A`. Ponieważ element członkowski jest prywatny, jest dostępny tylko w *class_body* `A`. W ten sposób dostęp do `b.x` powiedzie się w metodzie `A.F`, ale w metodzie `B.F` kończy się niepowodzeniem.
+Klasa `B` dziedziczy prywatny element członkowski `x` z klasy `A`. Ponieważ element członkowski jest prywatny, jest dostępny tylko w *class_body* `A`. W ten sposób dostęp do `b.x` powiedzie się w metodzie `A.F`, ale w metodzie `B.F` nie powiedzie się.
 
 ### <a name="protected-access-for-instance-members"></a>Chroniony dostęp dla członków wystąpienia
 
-Gdy dostęp do elementu członkowskiego wystąpienia `protected` jest uzyskiwany poza tekstem programu klasy, w którym jest zadeklarowany, a w przypadku uzyskania dostępu do składowej wystąpienia `protected internal` poza tekstem programu, w którym jest zadeklarowany, dostęp musi odbywać się w obrębie klasy Deklaracja, która pochodzi od klasy, w której jest zadeklarowana. Ponadto dostęp musi odbywać się za pośrednictwem wystąpienia tego typu klasy pochodnej lub klasy z tego typu. To ograniczenie uniemożliwia jednej klasie pochodnej dostęp do chronionych elementów członkowskich innych klas pochodnych, nawet gdy elementy członkowskie są dziedziczone z tej samej klasy bazowej.
+Gdy jest uzyskiwany dostęp do elementu członkowskiego wystąpienia `protected` poza tekstem programu klasy, w którym jest zadeklarowany, a gdy członek wystąpienia `protected internal` jest dostępny poza tekstem programu w programie, w którym jest zadeklarowany, dostęp musi odbywać się w deklaracji klasy, która pochodzi od klasy, w której jest zadeklarowana. Ponadto dostęp musi odbywać się za pośrednictwem wystąpienia tego typu klasy pochodnej lub klasy z tego typu. To ograniczenie uniemożliwia jednej klasie pochodnej dostęp do chronionych elementów członkowskich innych klas pochodnych, nawet gdy elementy członkowskie są dziedziczone z tej samej klasy bazowej.
 
-Zezwól `B` będzie klasą bazową, która deklaruje element członkowski chronionego wystąpienia `M` i pozwól `D` będzie klasą pochodzącą z `B`. W *class_body* `D` dostęp do `M` może mieć jedną z następujących form:
+Niech `B` być klasą bazową, która deklaruje element członkowski chronionego wystąpienia `M`i niech `D` być klasą pochodzącą z `B`. W *class_body* `D`dostęp do `M` może mieć jedną z następujących form:
 
 *  Niekwalifikowana *TYPE_NAME* lub *primary_expression* formularza `M`.
-*  *Primary_expression* formularza `E.M`, pod warunkiem, że typ `E` jest `T` lub klasy pochodnej od `T`, gdzie `T` jest typem klasy `D` lub typem klasy skonstruowanym z `D`
-*  *Primary_expression* formularza `base.M`.
+*  *Primary_expression* formularza `E.M`, pod warunkiem, że typ `E` jest `T` lub Klasa pochodna z `T`, gdzie `T` jest typem klasy `D`lub typ klasy zbudowany z `D`
+*  *Primary_expression* `base.M`formularza.
 
 Oprócz tych formularzy dostępu Klasa pochodna może uzyskać dostęp do konstruktora chronionych wystąpień klasy bazowej w *constructor_initializer* ([inicjatory konstruktora](classes.md#constructor-initializers)).
 
-W przykładzie
+w przykładzie
 ```csharp
 public class A
 {
@@ -346,9 +346,9 @@ public class B: A
     }
 }
 ```
-w `A` możliwe jest uzyskanie dostępu do `x` przez wystąpienia obu `A` i `B`, ponieważ w obu przypadkach dostęp odbywa się za pośrednictwem wystąpienia `A` lub klasy pochodzącej z `A`. Jednak w `B` nie jest możliwe uzyskanie dostępu do `x` za pośrednictwem wystąpienia `A`, ponieważ `A` nie pochodzi od `B`.
+w `A`można uzyskać dostęp do `x` przez wystąpienia obu `A` i `B`, ponieważ w obu przypadkach dostęp odbywa się za pośrednictwem wystąpienia `A` lub klasy pochodnej z `A`. Jednak w `B`nie jest możliwe uzyskanie dostępu do `x` za pośrednictwem wystąpienia `A`, ponieważ `A` nie pochodzi od `B`.
 
-W przykładzie
+w przykładzie
 ```csharp
 class C<T>
 {
@@ -371,7 +371,7 @@ trzy przypisania do `x` są dozwolone, ponieważ są one wykonywane za pośredni
 
 ### <a name="accessibility-constraints"></a>Ograniczenia dotyczące ułatwień dostępu
 
-Kilka konstrukcji w C# języku wymaga, aby typ był ***co najmniej*** taki sam jak element członkowski lub inny typ. Typ `T` jest uznawany za co najmniej jako element członkowski lub typ `M`, jeśli domena dostępności `T` jest nadzbiorem domeny dostępności `M`. Innymi słowy, `T` jest co najmniej tak samo dostępne, jak `M`, jeśli `T` jest dostępny we wszystkich kontekstach, w których jest dostępny `M`.
+Kilka konstrukcji w C# języku wymaga, aby typ był ***co najmniej*** taki sam jak element członkowski lub inny typ. Typ `T` jest uznawany za co najmniej jako element członkowski lub typ `M`, jeśli domena dostępności `T` jest nadzbiorem domeny dostępności `M`. Innymi słowy, `T` jest co najmniej tak samo, jak `M`, jeśli `T` jest dostępny we wszystkich kontekstach, w których `M` jest dostępny.
 
 Istnieją następujące ograniczenia dotyczące ułatwień dostępu:
 
@@ -387,7 +387,7 @@ Istnieją następujące ograniczenia dotyczące ułatwień dostępu:
 *  Typ zwracany i typy parametrów operatora muszą być co najmniej takie same jak dla samego operatora.
 *  Typy parametrów konstruktora wystąpienia muszą być co najmniej tak samo samo jak Konstruktor wystąpień.
 
-W przykładzie
+w przykładzie
 ```csharp
 class A {...}
 
@@ -408,15 +408,15 @@ public class B
     public A H() {...}
 }
 ```
-Metoda `H` w `B` powoduje błąd kompilacji, ponieważ typ zwracany `A` nie jest co najmniej taki sam jak metoda.
+Metoda `H` w `B` powoduje błąd czasu kompilacji, ponieważ typ zwracany `A` nie jest co najmniej taki sam jak metoda.
 
 ## <a name="signatures-and-overloading"></a>Sygnatury i Przeciążenie
 
 Metody, konstruktory wystąpień, indeksatory i operatory są scharakteryzowane przez ich ***sygnatury***:
 
-*  Podpis metody składa się z nazwy metody, liczby parametrów typu i typu i rodzaju (wartości, odwołania lub danych wyjściowych) każdego z parametrów formalnych, które są uwzględniane w kolejności od lewej do prawej. W tym celu wszelkie parametry typu metody, która występuje w typie parametru formalnego, nie są identyfikowane przez jego nazwę, ale według pozycji porządkowej na liście argumentów typu metody. Sygnatura metody w szczególności nie zawiera typu zwracanego, modyfikatora `params`, który może być określony dla tego samego parametru lub dla ograniczeń parametru typu opcjonalnego.
+*  Podpis metody składa się z nazwy metody, liczby parametrów typu i typu i rodzaju (wartości, odwołania lub danych wyjściowych) każdego z parametrów formalnych, które są uwzględniane w kolejności od lewej do prawej. W tym celu wszelkie parametry typu metody, która występuje w typie parametru formalnego, nie są identyfikowane przez jego nazwę, ale według pozycji porządkowej na liście argumentów typu metody. Sygnatura metody w szczególności nie obejmuje typu zwracanego, modyfikatora `params`, który może być określony dla najwyższego parametru lub opcjonalnych ograniczeń parametrów typu.
 *  Sygnatura konstruktora wystąpienia składa się z typu i rodzaju (wartości, odwołania lub danych wyjściowych) każdego z jego parametrów formalnych, w kolejności od lewej do prawej. Podpis konstruktora wystąpienia w szczególności nie zawiera modyfikatora `params`, który może być określony dla każdego parametru z prawej strony.
-*  Podpis indeksatora składa się z typu każdego z parametrów formalnych, który jest traktowany w kolejności od lewej do prawej. Podpis indeksatora w szczególności nie zawiera typu elementu ani nie zawiera modyfikatora `params`, który może być określony dla najwyższego parametru.
+*  Podpis indeksatora składa się z typu każdego z parametrów formalnych, który jest traktowany w kolejności od lewej do prawej. Podpis indeksatora w szczególności nie zawiera typu elementu ani nie zawiera modyfikatora `params`, który może być określony dla tego parametru.
 *  Podpis operatora składa się z nazwy operatora i typu każdego z jego parametrów formalnych, w kolejności od lewej do prawej. Podpis operatora jawnie nie zawiera typu wyniku.
 
 Sygnatury są mechanizmem włączania do ***przeciążenia*** elementów członkowskich w klasach, strukturach i interfejsach:
@@ -426,7 +426,7 @@ Sygnatury są mechanizmem włączania do ***przeciążenia*** elementów członk
 *  Przeciążanie indeksatorów umożliwia klasy, struktury lub interfejsu zadeklarować wiele indeksatorów, pod warunkiem, że ich sygnatury są unikatowe w ramach tej klasy, struktury lub interfejsu.
 *  Przeciążanie operatorów pozwala klasie lub strukturze zadeklarować wiele operatorów o tej samej nazwie, pod warunkiem, że ich sygnatury są unikatowe w tej klasie lub strukturze.
 
-Chociaż Modyfikatory parametrów `out` i `ref` są uważane za część podpisu, składowe zadeklarowane w pojedynczym typie nie mogą różnić się w podpisie wyłącznie przez `ref` i `out`. Błąd czasu kompilacji występuje, jeśli dwa składowe są zadeklarowane w tym samym typie z podpisami, które byłyby takie same, jeśli wszystkie parametry w obu metodach z modyfikatorami `out` zostały zmienione na Modyfikatory `ref`. Do innych celów dopasowywania podpisów (np. ukrycia lub przesłaniania) `ref` i `out` są uważane za część podpisu i nie pasują do siebie nawzajem. (To ograniczenie umożliwia łatwe tłumaczenie C# programów na Common Language Infrastructure (CLI), które nie udostępniają sposobu definiowania metod, które różnią się wyłącznie w `ref` i `out`).
+Mimo że Modyfikatory parametrów `out` i `ref` są uważane za część podpisu, składowe zadeklarowane w pojedynczym typie nie mogą różnić się w podpisie wyłącznie przez `ref` i `out`. Błąd czasu kompilacji występuje, jeśli dwa składowe są zadeklarowane w tym samym typie z podpisami, które byłyby takie same, jeśli wszystkie parametry w obu metodach z modyfikatorami `out` zostały zmienione na `ref` modyfikatory. Do innych celów dopasowywania podpisów (np. ukrycia lub przesłaniania) `ref` i `out` są uważane za część podpisu i nie pasują do siebie nawzajem. (To ograniczenie umożliwia łatwe tłumaczenie C# programów na Common Language Infrastructure (CLI), które nie udostępniają sposobu definiowania metod, które różnią się wyłącznie w `ref` i `out`.)
 
 Na potrzeby podpisów typy `object` i `dynamic` są uważane za takie same. Elementy członkowskie zadeklarowane w pojedynczym typie mogą nie różnić się w podpisie wyłącznie przez `object` i `dynamic`.
 
@@ -454,35 +454,35 @@ interface ITest
 }
 ```
 
-Należy zauważyć, że Modyfikatory parametrów `ref` i `out` ([Parametry metody](classes.md#method-parameters)) są częścią sygnatury. W ten sposób `F(int)` i `F(ref int)` są unikatowymi sygnaturami. Nie można jednak zadeklarować `F(ref int)` i `F(out int)` w tym samym interfejsie, ponieważ ich sygnatury różnią się wyłącznie `ref` i `out`. Należy również zauważyć, że typ zwracany i modyfikator `params` nie są częścią podpisu, więc nie jest możliwe przeciążanie wyłącznie na podstawie zwracanego typu lub przy włączaniu lub wykluczeniu modyfikatora `params`. W związku z tym deklaracje metod `F(int)` i `F(params string[])` zidentyfikowane powyżej powodują błąd w czasie kompilacji.
+Należy zauważyć, że wszystkie `ref` i `out` Modyfikatory parametrów ([Parametry metody](classes.md#method-parameters)) są częścią sygnatury. W ten sposób `F(int)` i `F(ref int)` są unikatowymi sygnaturami. Nie można jednak zadeklarować `F(ref int)` i `F(out int)` w tym samym interfejsie, ponieważ ich podpisy różnią się wyłącznie `ref` i `out`. Należy również zauważyć, że typ zwracany i modyfikator `params` nie są częścią podpisu, więc nie jest możliwe przeciążanie wyłącznie na podstawie typu zwracanego lub przy włączaniu lub wykluczeniu modyfikatora `params`. W związku z tym deklaracje metod `F(int)` i `F(params string[])` zidentyfikowane powyżej powodują błąd w czasie kompilacji.
 
 ## <a name="scopes"></a>Zakresy
 
-***Zakres*** nazwy jest regionem tekstu programu, w którym można odwołać się do jednostki zadeklarowanej przez nazwę bez kwalifikacji nazwy. Zakresy mogą być ***zagnieżdżane***, a zakres wewnętrzny może redeklarować znaczenie nazwy z zewnętrznego zakresu (nie jest to jednak konieczne usunięcie ograniczenia wynikającego z [deklaracji](basic-concepts.md#declarations) , które w bloku zagnieżdżonym nie można zadeklarować zmiennej lokalnej przy użyciu taka sama nazwa jak zmienna lokalna w otaczającym bloku. Nazwa z zewnętrznego zakresu jest następnie określana jako ***Ukryta*** w regionie tekstu programu objętego zakresem wewnętrznym, a dostęp do nazwy zewnętrznej jest możliwy tylko przez zakwalifikowanie nazwy.
+***Zakres*** nazwy jest regionem tekstu programu, w którym można odwołać się do jednostki zadeklarowanej przez nazwę bez kwalifikacji nazwy. Zakresy mogą być ***zagnieżdżane***, a zakres wewnętrzny może redeklarować znaczenie nazwy z zewnętrznego zakresu (nie jest to jednak konieczne usunięcie ograniczenia wynikającego z [deklaracji](basic-concepts.md#declarations) , które w bloku zagnieżdżonym nie można zadeklarować zmiennej lokalnej o takiej samej nazwie jak zmienna lokalna w otaczającym bloku). Nazwa z zewnętrznego zakresu jest następnie określana jako ***Ukryta*** w regionie tekstu programu objętego zakresem wewnętrznym, a dostęp do nazwy zewnętrznej jest możliwy tylko przez zakwalifikowanie nazwy.
 
-*  Zakresem elementu członkowskiego przestrzeni nazw zadeklarowanego przez *namespace_member_declaration* ([elementy członkowskie obszaru nazw](namespaces.md#namespace-members)) bez otaczającego *namespace_declaration* jest cały tekst programu.
-*  Zakres elementu członkowskiego przestrzeni nazw zadeklarowany przez element *namespace_member_declaration* w *namespace_declaration* , którego w pełni kwalifikowana nazwa jest `N` to *namespace_body* wszystkich *namespace_declaration* , których pełna kwalifikowana nazwa jest `N` lub rozpoczyna się od `N`, po którym następuje kropka.
-*  Zakres nazwy zdefiniowany przez *extern_alias_directive* jest rozszerzany na *using_directive*s, *global_attributes* i *namespace_member_declaration*s z jego jednostki kompilacji lub treści przestrzeni nazw. *Extern_alias_directive* nie współtworzy żadnych nowych członków do źródłowej przestrzeni deklaracji. Innymi słowy, *extern_alias_directive* nie jest przechodni, ale raczej wpływa tylko na jednostkę kompilacji lub treść przestrzeni nazw, w której występuje.
-*  Zakres nazwy zdefiniowany lub zaimportowany przez *using_directive* ([dyrektywy using](namespaces.md#using-directives)) rozciąga się na *namespace_member_declaration*s *compilation_unit* lub *namespace_body* , w którym *using_directive* występuje. *Using_directive* może wprowadzać zero lub większą liczbę nazw, typów lub elementów członkowskich, które są dostępne w ramach określonego *compilation_unit* lub *namespace_body*, ale nie współtworzy żadnych nowych członków do źródłowej przestrzeni deklaracji. Innymi słowy, *using_directive* nie jest przechodni, ale ma wpływ tylko na *compilation_unit* lub *namespace_body* , w których występuje.
-*  Zakres parametru typu zadeklarowanego przez *type_parameter_list* w *class_declaration* ([deklaracji klasy](classes.md#class-declarations)) to *class_base*, *type_parameter_constraints_clause*i *class_body* tego *elementu class_declaration*.
-*  Zakres parametru typu zadeklarowany przez *type_parameter_list* w *struct_declaration* ([deklaracji struktury](structs.md#struct-declarations)) to *struct_interfaces*, *type_parameter_constraints_clause*i *struct_body* *struct_declaration*.
-*  Zakres parametru typu zadeklarowany przez *type_parameter_list* w *interface_declaration* ([deklaracji interfejsu](interfaces.md#interface-declarations)) to *interface_base*, *type_parameter_constraints_clause*s i *interface_body* tego *interface_declaration*.
-*  Zakres parametru typu zadeklarowany przez *type_parameter_list* w *delegate_declaration* ([deklaracje delegatów](delegates.md#delegate-declarations)) to *return_type*, *formal_parameter_list*i *type_parameter_constraints_clause* s tej *delegate_declaration*.
+*  Zakres elementu członkowskiego przestrzeni nazw zadeklarowany przez *namespace_member_declaration* ([elementy członkowskie obszaru nazw](namespaces.md#namespace-members)) bez otaczającego *namespace_declaration* jest całym tekstem programu.
+*  Zakres elementu członkowskiego przestrzeni nazw zadeklarowany przez *namespace_member_declaration* w *namespace_declaration* , którego w pełni kwalifikowana nazwa jest `N` jest *namespace_body* każdego *namespace_declaration* , którego w pełni kwalifikowana nazwa jest `N` lub rozpoczyna się od `N`, po którym następuje kropka.
+*  Zakres nazwy zdefiniowany przez *extern_alias_directive* rozciąga się na *using_directive*s, *global_attributes* i *namespace_member_declaration*s jego bezpośrednio zawierający jednostkę kompilacji lub treść przestrzeni nazw. *Extern_alias_directive* nie współtworzy żadnych nowych członków do bazowego obszaru deklaracji. Inaczej mówiąc, *extern_alias_directive* nie jest przechodnia, ale ma wpływ tylko na jednostkę kompilacji lub treść przestrzeni nazw, w której występuje.
+*  Zakres nazwy zdefiniowany lub zaimportowany przez *using_directive* ([dyrektywy using](namespaces.md#using-directives)) rozciąga się na *namespace_member_declaration*s *compilation_unit* lub *namespace_body* , w których występuje *using_directive* . *Using_directive* może wprowadzać zero lub większą liczbę nazw, typów lub elementów członkowskich, które są dostępne w ramach określonego *compilation_unit* lub *namespace_body*, ale nie współtworzy żadnych nowych członków do źródłowej przestrzeni deklaracji. Innymi słowy *using_directive* nie jest przechodnia, ale ma wpływ tylko na *compilation_unit* lub *namespace_body* , w których występuje.
+*  Zakres parametru typu zadeklarowanego przez *type_parameter_list* na *class_declaration* ([deklaracji klas](classes.md#class-declarations)) to *class_base*, *type_parameter_constraints_clause*s i *class_body* tego *class_declaration*.
+*  Zakres parametru typu zadeklarowany przez *type_parameter_list* na *struct_declaration* ([deklaracje struktury](structs.md#struct-declarations)) to *struct_interfaces*, *type_parameter_constraints_clause*s i *struct_body* tego *struct_declaration*.
+*  Zakres parametru typu zadeklarowanego przez *type_parameter_list* na *interface_declaration* ([deklaracji interfejsu](interfaces.md#interface-declarations)) to *interface_base*, *type_parameter_constraints_clause*s i *interface_body* tego *interface_declaration*.
+*  Zakres parametru typu zadeklarowany przez *type_parameter_list* na *delegate_declaration* ([deklaracje delegatów](delegates.md#delegate-declarations)) to *return_type*, *formal_parameter_list*i *type_parameter_constraints_clause*s tego *delegate_declaration*.
 *  Zakres składowej zadeklarowanej przez *class_member_declaration* ([Treść klasy](classes.md#class-body)) to *class_body* , w której występuje deklaracja. Ponadto zakres elementu członkowskiego klasy rozciąga się na *class_body* tych klas pochodnych, które znajdują się w domenie dostępności ([domeny ułatwień dostępu](basic-concepts.md#accessibility-domains)) elementu członkowskiego.
-*  Zakres elementu członkowskiego zadeklarowany przez *struct_member_declaration* ([elementy członkowskie struktury](structs.md#struct-members)) jest *struct_body* , w którym występuje deklaracja.
-*  Zakres elementu członkowskiego zadeklarowany przez *enum_member_declaration* ([elementy członkowskie wyliczenia](enums.md#enum-members)) to *enum_body* , w której występuje deklaracja.
-*  Zakres parametru zadeklarowany w *method_declaration* ([metody](classes.md#methods)) to *method_body* *method_declaration*.
+*  Zakres elementu członkowskiego zadeklarowany przez *struct_member_declaration* ([elementy członkowskie struktury](structs.md#struct-members)) to *struct_body* , w którym występuje deklaracja.
+*  Zakres elementu członkowskiego zadeklarowany przez *enum_member_declaration* ([elementy członkowskie wyliczenia](enums.md#enum-members)) to *enum_body* , w którym występuje deklaracja.
+*  Zakres parametru zadeklarowany w *method_declaration* ([metody](classes.md#methods)) to *method_body* tego *method_declaration*.
 *  Zakres parametru zadeklarowany w *indexer_declaration* ([indeksatory](classes.md#indexers)) to *accessor_declarations* tego *indexer_declaration*.
 *  Zakres parametru zadeklarowany w *operator_declaration* ([Operatory](classes.md#operators)) jest *blokiem* tego *operator_declaration*.
-*  Zakres parametru zadeklarowany w *constructor_declaration* ([Konstruktor wystąpień](classes.md#instance-constructors)) to *constructor_initializer* i *blok* *constructor_declaration*.
-*  Zakres parametru zadeklarowany w elemencie *lambda_expression* ([anonimowe wyrażenia funkcji](expressions.md#anonymous-function-expressions)) to *anonymous_function_body* *lambda_expression*
+*  Zakres parametru zadeklarowany w *constructor_declaration* ([konstruktory wystąpień](classes.md#instance-constructors)) to *constructor_initializer* i *blok* tego *constructor_declaration*.
+*  Zakres parametru zadeklarowany w *lambda_expression* ([wyrażenia funkcji anonimowej](expressions.md#anonymous-function-expressions)) to *anonymous_function_body* *lambda_expression*
 *  Zakres parametru zadeklarowany w *anonymous_method_expression* ([wyrażenia funkcji anonimowej](expressions.md#anonymous-function-expressions)) jest *blokiem* tego *anonymous_method_expression*.
 *  Zakres etykiety zadeklarowanej w *labeled_statement* ([instrukcje z etykietą](statements.md#labeled-statements)) to *blok* , w którym występuje deklaracja.
 *  Zakres zmiennej lokalnej zadeklarowanej w *local_variable_declaration* ([lokalna deklaracja zmiennej](statements.md#local-variable-declarations)) to blok, w którym występuje deklaracja.
-*  Zakres zmiennej lokalnej zadeklarowanej w *switch_block* instrukcji `switch` ([instrukcja SWITCH](statements.md#the-switch-statement)) to *switch_block*.
-*  Zakres zmiennej lokalnej zadeklarowanej w *for_initializer* instrukcji `for` ([instrukcja for](statements.md#the-for-statement)) to *for_initializer*, *for_condition*, *for_iterator*i zawartej *instrukcji* Instrukcja `for`.
+*  Zakres zmiennej lokalnej zadeklarowanej w *switch_block* instrukcji `switch` ([instrukcja switch](statements.md#the-switch-statement)) to *switch_block*.
+*  Zakres zmiennej lokalnej zadeklarowanej w *for_initializer* instrukcji `for` ([instrukcja for](statements.md#the-for-statement)) to *for_initializer*, *for_condition*, *for_iterator*i zawartej *instrukcji* instrukcji `for`.
 *  Zakres stałej lokalnej zadeklarowanej w *local_constant_declaration* ([lokalna deklaracja stała](statements.md#local-constant-declarations)) to blok, w którym występuje deklaracja. Jest to błąd czasu kompilacji, który odwołuje się do lokalnej stałej w pozycji tekstowej, która poprzedza jej *constant_declarator*.
-*  Zakres zmiennej zadeklarowanej jako część elementu *foreach_statement*, *using_statement*, *lock_statement* lub *query_expression* jest określany przez rozszerzenie danej konstrukcji.
+*  Zakres zmiennej zadeklarowanej jako część *foreach_statement*, *using_statement*, *lock_statement* lub *query_expression* jest określany przez rozszerzenie danej konstrukcji.
 
 W zakresie przestrzeni nazw, klasy, struktury lub składowej wyliczenia można odwołać się do elementu członkowskiego w pozycji tekstowej, która poprzedza deklarację elementu członkowskiego. Na przykład:
 ```csharp
@@ -495,7 +495,7 @@ class A
     int i = 0;
 }
 ```
-W tym miejscu jest prawidłowy dla `F`, aby odwołać się do `i` przed zadeklarowaniem.
+W tym miejscu jest ważne, aby `F` odwoływać się do `i` przed zadeklarowaniem.
 
 W zakresie zmiennej lokalnej jest to błąd czasu kompilacji, który odwołuje się do zmiennej lokalnej w pozycji tekstowej, która poprzedza *local_variable_declarator* zmiennej lokalnej. Na przykład:
 ```csharp
@@ -519,11 +519,11 @@ class A
 }
 ```
 
-W powyższej metodzie `F` pierwsze przypisanie do `i` nie odwołuje się do pola zadeklarowanego w zewnętrznym zakresie. Nie odnosi się do zmiennej lokalnej i powoduje błąd czasu kompilacji, ponieważ jest ona poprzedzona znakiem deklaracji zmiennej. W metodzie `G` użycie `j` w inicjatorze dla deklaracji `j` jest prawidłowe, ponieważ użycie nie poprzedza *local_variable_declarator*. W metodzie `H` kolejne *local_variable_declarator* prawidłowo odwołują się do zmiennej lokalnej zadeklarowanej we wcześniejszej *local_variable_declarator* w tym samym *local_variable_declaration*.
+W powyższej metodzie `F` pierwsze przypisanie do `i` szczególne nie odwołuje się do pola zadeklarowanego w zewnętrznym zakresie. Nie odnosi się do zmiennej lokalnej i powoduje błąd czasu kompilacji, ponieważ jest ona poprzedzona znakiem deklaracji zmiennej. W metodzie `G` użycie `j` w inicjatorze dla deklaracji `j` jest prawidłowe, ponieważ użycie nie poprzedza *local_variable_declarator*. W metodzie `H` kolejne *local_variable_declarator* prawidłowo odwołują się do zmiennej lokalnej zadeklarowanej we wcześniejszym *local_variable_declarator* w ramach tego samego *local_variable_declarationu*.
 
 Reguły określania zakresu dla zmiennych lokalnych są zaprojektowane w celu zagwarantowania, że znaczenie nazwy używanej w kontekście wyrażenia jest zawsze takie samo w bloku. Jeśli zakres zmiennej lokalnej miał zostać rozbudowany tylko od jej deklaracji do końca bloku, wówczas w powyższym przykładzie pierwsze przypisanie zostanie przypisane do zmiennej wystąpienia, a drugie przypisanie zostanie przypisane do zmiennej lokalnej, co może prowadzić do Błędy czasu kompilacji, jeśli instrukcje bloku były później zmieniane.
 
-Znaczenie nazwy w bloku może się różnić w zależności od kontekstu, w którym jest używana nazwa. W przykładzie
+Znaczenie nazwy w bloku może się różnić w zależności od kontekstu, w którym jest używana nazwa. w przykładzie
 ```csharp
 using System;
 
@@ -542,7 +542,7 @@ class Test
     }
 }
 ```
-Nazwa `A` jest używana w kontekście wyrażenia w celu odwoływania się do zmiennej lokalnej `A` i w kontekście typu, aby odwołać się do klasy `A`.
+Nazwa `A` jest używana w kontekście wyrażenia do odwoływania się do zmiennej lokalnej `A` i w kontekście typu, aby odwołać się do klasy `A`.
 
 ### <a name="name-hiding"></a>Ukrywanie nazwy
 
@@ -554,7 +554,7 @@ Ukrywanie nazw występuje, gdy zakresy nakładają się na zagnieżdżenie i gdy
 
 Nazwa ukrywająca przy użyciu zagnieżdżenia może wystąpić w wyniku zagnieżdżania przestrzeni nazw lub typów w przestrzeni nazw, w wyniku zagnieżdżania typów w obrębie klas lub struktur, a także jako wynik deklaracji parametrów i zmiennych lokalnych.
 
-W przykładzie
+w przykładzie
 ```csharp
 class A
 {
@@ -571,7 +571,7 @@ class A
 ```
 w metodzie `F` zmienna wystąpienia `i` jest ukryta przez zmienną lokalną `i`, ale w ramach metody `G`, `i` nadal odwołuje się do zmiennej wystąpienia.
 
-Gdy nazwa w zakresie wewnętrznym ukrywa nazwę w zewnętrznym zakresie, ukrywa wszystkie załadowane wystąpienia tej nazwy. W przykładzie
+Gdy nazwa w zakresie wewnętrznym ukrywa nazwę w zewnętrznym zakresie, ukrywa wszystkie załadowane wystąpienia tej nazwy. w przykładzie
 ```csharp
 class Outer
 {
@@ -590,7 +590,7 @@ class Outer
     }
 }
 ```
-Wywołanie `F(1)` wywołuje `F` zadeklarowane w `Inner`, ponieważ wszystkie zewnętrzne wystąpienia `F` są ukrywane przez wewnętrzną deklarację. Z tego samego powodu wywołanie `F("Hello")` powoduje błąd w czasie kompilacji.
+Wywołanie `F(1)` wywołuje `F` zadeklarowane w `Inner`, ponieważ wszystkie zewnętrzne wystąpienia `F` są ukryte przez wewnętrzną deklarację. Z tego samego powodu wywołanie `F("Hello")` powoduje błąd w czasie kompilacji.
 
 #### <a name="hiding-through-inheritance"></a>Ukrywanie poprzez dziedziczenie
 
@@ -602,7 +602,7 @@ Nazwa ukrywając przy użyciu dziedziczenia występuje, gdy klasy lub struktury 
 
 Reguły dotyczące deklaracji operatora ([Operatory](classes.md#operators)) sprawiają, że Klasa pochodna nie może deklarować operatora z tym samym podpisem jako operatora w klasie bazowej. W tym celu operatory nigdy nie są ukrywane.
 
-W przeciwieństwie do ukrywania nazwy z zewnętrznego zakresu ukrycie dostępnej nazwy z dziedziczonego zakresu powoduje ostrzeżenie o zgłoszeniu. W przykładzie
+W przeciwieństwie do ukrywania nazwy z zewnętrznego zakresu ukrycie dostępnej nazwy z dziedziczonego zakresu powoduje ostrzeżenie o zgłoszeniu. w przykładzie
 ```csharp
 class Base
 {
@@ -614,7 +614,7 @@ class Derived: Base
     public void F() {}        // Warning, hiding an inherited name
 }
 ```
-Deklaracja `F` w `Derived` powoduje, że ostrzeżenie zostanie zgłoszone. Ukrycie dziedziczonej nazwy nie jest jawnie błędem, ponieważ spowodowałoby to wykluczenie oddzielnego ewolucji klas bazowych. Na przykład Powyższa sytuacja może być spowodowana tym, że w nowszej wersji `Base` wprowadzono metodę `F`, która nie jest obecna we wcześniejszej wersji klasy. W przypadku powyższej sytuacji Wystąpił błąd, a następnie wszelkie zmiany wprowadzone do klasy podstawowej w bibliotece klas z odrębną wersją mogą potencjalnie spowodować, że klasy pochodne staną się nieprawidłowe.
+Deklaracja `F` w `Derived` powoduje zgłoszenie ostrzeżenia. Ukrycie dziedziczonej nazwy nie jest jawnie błędem, ponieważ spowodowałoby to wykluczenie oddzielnego ewolucji klas bazowych. Na przykład Powyższa sytuacja może być spowodowana tym, że w nowszej wersji `Base` wprowadzono metodę `F`, która nie jest obecna we wcześniejszej wersji klasy. W przypadku powyższej sytuacji Wystąpił błąd, a następnie wszelkie zmiany wprowadzone do klasy podstawowej w bibliotece klas z odrębną wersją mogą potencjalnie spowodować, że klasy pochodne staną się nieprawidłowe.
 
 Ostrzeżenie spowodowane ukrywaniem dziedziczonej nazwy można wyeliminować za pomocą modyfikatora `new`:
 ```csharp
@@ -629,7 +629,7 @@ class Derived: Base
 }
 ```
 
-Modyfikator `new` wskazuje, że `F` w `Derived` ma wartość "New" i że jest rzeczywiście przeznaczony do ukrycia dziedziczonego elementu członkowskiego.
+Modyfikator `new` wskazuje, że `F` w `Derived` jest "New" i że rzeczywiście jest przeznaczony do ukrycia dziedziczonego elementu członkowskiego.
 
 Deklaracja nowego elementu członkowskiego powoduje ukrycie dziedziczonego elementu członkowskiego tylko w zakresie nowego elementu członkowskiego.
 
@@ -650,7 +650,7 @@ class MoreDerived: Derived
 }
 ```
 
-W powyższym przykładzie deklaracja `F` w `Derived` powoduje ukrycie `F`, który został odziedziczony z `Base`, ale ponieważ nowy `F` w `Derived` ma dostęp prywatny, jego zakres nie obejmuje `MoreDerived`. W ten sposób wywołanie `F()` w `MoreDerived.G` jest prawidłowe i wywoła `Base.F`.
+W powyższym przykładzie deklaracja `F` w `Derived` powoduje ukrycie `F`, która była dziedziczona z `Base`, ale ponieważ nowy `F` w `Derived` ma dostęp prywatny, jego zakres nie obejmuje `MoreDerived`. W tym celu `F()` wywołań w `MoreDerived.G` jest prawidłowy i wywoła `Base.F`.
 
 ## <a name="namespace-and-type-names"></a>Nazwa przestrzeni nazw i typów
 
@@ -672,7 +672,7 @@ namespace_or_type_name
     ;
 ```
 
-*Namespace_name* jest *namespace_or_type_name* , który odwołuje się do przestrzeni nazw. Poniższe rozwiązanie, jak opisano poniżej, *namespace_or_type_name* *namespace_name* musi odwoływać się do przestrzeni nazw lub w przeciwnym razie wystąpi błąd w czasie kompilacji. Żadne argumenty typu ([argumenty typu](types.md#type-arguments)) nie mogą być obecne w *namespace_name* (tylko typy mogą mieć argumenty typu).
+*Namespace_name* jest *namespace_or_type_name* , który odwołuje się do przestrzeni nazw. Poniższe rozwiązanie, jak opisano poniżej, *namespace_or_type_name* *namespace_name* musi odwoływać się do przestrzeni nazw lub w przeciwnym razie wystąpi błąd w czasie kompilacji. Brak argumentów typu ([argumenty typu](types.md#type-arguments)) w *namespace_name* (tylko typy mogą mieć argumenty typu).
 
 *TYPE_NAME* jest *namespace_or_type_name* , który odwołuje się do typu. Poniższe rozwiązanie, jak opisano poniżej, *namespace_or_type_name* *TYPE_NAME* musi odwoływać się do typu lub w przeciwnym razie wystąpi błąd w czasie kompilacji.
 
@@ -683,44 +683,44 @@ Jeśli *namespace_or_type_name* jest aliasem kwalifikowanym, jego znaczenie jest
 *  `N.I`
 *  `N.I<A1, ..., Ak>`
 
-gdzie `I` jest pojedynczym identyfikatorem, `N` jest *namespace_or_type_name* i `<A1, ..., Ak>` jest opcjonalnym *type_argument_listem*. Gdy nie określono *type_argument_list* , należy wziąć pod uwagę, że `k` ma wartość zero.
+gdzie `I` jest pojedynczym identyfikatorem, `N` jest *namespace_or_type_name* , a `<A1, ..., Ak>` jest opcjonalną *type_argument_list*. Gdy nie określono *type_argument_list* , należy wziąć pod uwagę `k` wartość zero.
 
-Znaczenie *namespace_or_type_name* jest określone w następujący sposób:
+Znaczenie *namespace_or_type_name* jest określane w następujący sposób:
 
 *   Jeśli *namespace_or_type_name* ma postać `I` lub formularza `I<A1, ..., Ak>`:
-    * Jeśli `K` wynosi zero, a *namespace_or_type_name* pojawia się w deklaracji metody ogólnej ([metod](classes.md#methods)) i jeśli ta deklaracja zawiera parametr typu ([parametry typu](classes.md#type-parameters)) o nazwie @ no__t-4, a następnie *namespace_or_type_ Nazwa* odwołuje się do tego parametru typu.
-    * W przeciwnym razie, jeśli *namespace_or_type_name* pojawia się w deklaracji typu, a następnie dla każdego typu wystąpienia @ no__t-1 ([Typ wystąpienia](classes.md#the-instance-type)), rozpoczynając od typu wystąpienia tego typu deklaracji i kontynuując typ wystąpienia każdego zawrzeć deklarację klasy lub struktury (jeśli istnieje):
-        * Jeśli `K` ma wartość zero, a deklaracja `T` zawiera parametr typu o nazwie @ no__t-2, wówczas *namespace_or_type_name* odwołuje się do tego parametru typu.
-        * W przeciwnym razie, jeśli *namespace_or_type_name* pojawia się w treści deklaracji typu, a `T` lub dowolny z jej typów podstawowych zawiera zagnieżdżony dostępny typ o nazwie @ no__t-2 i `K` @ no__t-4type, a następnie *namespace_or_type _name* odwołuje się do tego typu skonstruowanego za pomocą podanych argumentów typu. Jeśli jest więcej niż jeden taki typ, zostanie wybrany typ zadeklarowany w ramach bardziej pochodnego typu. Należy zauważyć, że elementy członkowskie inne niż typy (stałe, pola, metody, właściwości, indeksatory, operatory, konstruktory wystąpień, destruktory i konstruktory statyczne) i składowe typu z inną liczbą parametrów typu są ignorowane podczas określania znaczenia *namespace_or_type_name*.
-    * Jeśli poprzednie kroki nie powiodły się, dla każdej przestrzeni nazw @ no__t-0, rozpoczynając od przestrzeni nazw, w której występuje *namespace_or_type_name* , kontynuując z każdą otaczającą przestrzeń nazw (jeśli istnieje) i kończącą się globalną przestrzenią nazw, wykonaj następujące czynności: kroki są oceniane do momentu zlokalizowania jednostki:
-        * Jeśli `K` to zero i `I` to nazwa przestrzeni nazw w @ no__t-2, a następnie:
-            * Jeśli lokalizacja, w której występuje *namespace_or_type_name* , jest ujęta w deklarację przestrzeni nazw dla `N`, a Deklaracja przestrzeni nazw zawiera *extern_alias_directive* lub *using_alias_directive* , które kojarzą nazwę @ No __t-4 z przestrzenią nazw lub typem, a następnie *namespace_or_type_name* jest niejednoznaczny i występuje błąd kompilacji.
+    * Jeśli `K` ma wartość zero, a *namespace_or_type_name* pojawia się w deklaracji metody ogólnej ([metody](classes.md#methods)), a jeśli ta deklaracja zawiera parametr typu ([parametry typu](classes.md#type-parameters)) o nazwie `I`, *namespace_or_type_name* odwołuje się do tego parametru typu.
+    * W przeciwnym razie, jeśli *namespace_or_type_name* pojawia się w deklaracji typu, wówczas dla każdego typu wystąpienia `T` ([Typ wystąpienia](classes.md#the-instance-type)), rozpoczynając od typu wystąpienia tego typu deklaracji i kontynuując typ wystąpienia każdej klasy lub deklaracji struktury (jeśli istnieje):
+        * Jeśli `K` ma wartość zero, a deklaracja `T` zawiera parametr typu o nazwie `I`, wówczas *namespace_or_type_name* odwołuje się do tego parametru typu.
+        * W przeciwnym razie, jeśli *namespace_or_type_name* pojawia się w treści deklaracji typu, a `T` lub dowolny z jej typów podstawowych zawiera zagnieżdżony dostępny typ o nazwie `I` i `K` parametry typu, wówczas *namespace_or_type_name* odwołuje się do tego typu skonstruowanego za pomocą podanych argumentów typu. Jeśli jest więcej niż jeden taki typ, zostanie wybrany typ zadeklarowany w ramach bardziej pochodnego typu. Należy zauważyć, że elementy członkowskie inne niż typy (stałe, pola, metody, właściwości, indeksatory, operatory, konstruktory wystąpień, destruktory i konstruktory statyczne) i elementy członkowskie typu z inną liczbą parametrów typu są ignorowane podczas określania znaczenia *namespace_or_type_name*.
+    * Jeśli poprzednie kroki nie powiodły się, dla każdej przestrzeni nazw `N`, rozpoczynając od przestrzeni nazw, w której występuje *namespace_or_type_name* , kontynuując z każdą otaczającą przestrzeń nazw (jeśli istnieje) i kończąc z globalną przestrzenią nazw, następujące kroki są oceniane do momentu zlokalizowania jednostki:
+        * Jeśli `K` ma wartość zero, a `I` to nazwa przestrzeni nazw w `N`, wówczas:
+            * Jeśli lokalizacja, w której występuje *namespace_or_type_name* , jest ujęta w deklarację przestrzeni nazw dla `N`, a Deklaracja przestrzeni nazw zawiera *extern_alias_directive* lub *using_alias_directive* , która kojarzy nazwę `I` z przestrzenią nazw lub typem, wówczas *namespace_or_type_name* jest niejednoznaczna i wystąpi błąd w czasie kompilacji.
             * W przeciwnym razie *namespace_or_type_name* odwołuje się do przestrzeni nazw o nazwie `I` w `N`.
-        * W przeciwnym razie, jeśli `N` zawiera dostępny typ o nazwie @ no__t-1 i `K` @ no__t-3type parametry, wówczas:
-            * Jeśli wartość `K` wynosi zero, a lokalizacja, w której występuje *namespace_or_type_name* , jest ujęta w deklarację przestrzeni nazw dla `N`, a Deklaracja przestrzeni nazw zawiera *extern_alias_directive* lub *using_alias_directive* , które kojarzy nazwę @ no__t-5 z przestrzenią nazw lub typem, a następnie *namespace_or_type_name* jest niejednoznaczna i wystąpi błąd w czasie kompilacji.
+        * W przeciwnym razie, jeśli `N` zawiera dostępny typ o nazwie `I` i `K`parametrów typu  , wówczas:
+            * Jeśli `K` ma wartość zero, a lokalizacja, w której występuje *namespace_or_type_name* , jest ujęta w deklarację przestrzeni nazw dla `N` a Deklaracja przestrzeni nazw zawiera *extern_alias_directive* lub *using_alias_directive* , który kojarzy nazwę `I` z przestrzenią nazw lub typem, wówczas *namespace_or_type_name* jest niejednoznaczna i wystąpi błąd kompilacji.
             * W przeciwnym razie *namespace_or_type_name* odwołuje się do typu złożonego za pomocą podanych argumentów typu.
         * W przeciwnym razie, jeśli lokalizacja, w której występuje *namespace_or_type_name* , jest ujęta w deklarację przestrzeni nazw dla `N`:
-            * Jeśli `K` to zero, a Deklaracja przestrzeni nazw zawiera *extern_alias_directive* lub *using_alias_directive* , która kojarzy nazwę @ no__t-3 z zaimportowaną przestrzenią nazw lub typem, *namespace_or_type_name* odwołuje się do tego Przestrzeń nazw lub typ.
-            * W przeciwnym razie, jeśli przestrzenie nazw i deklaracje typów zaimportowane przez *using_namespace_directive*s i *using_alias_directive*z deklaracji przestrzeni nazw zawierają dokładnie jeden dostępny typ o nazwie @ no__t-2 i `K` @ no__t-4type parametry, a następnie *namespace_or_type_name* odwołuje się do tego typu skonstruowanego za pomocą podanych argumentów typu.
-            * W przeciwnym razie, jeśli przestrzenie nazw i deklaracje typów zaimportowane przez *using_namespace_directive*s i *using_alias_directive*z deklaracji przestrzeni nazw zawierają więcej niż jeden dostępny typ o nazwie @ no__t-2 i `K` @ no__t-4type parametry, a następnie *namespace_or_type_name* jest niejednoznaczny i wystąpi błąd.
-    * W przeciwnym razie *namespace_or_type_name* jest niezdefiniowany i wystąpi błąd w czasie kompilacji.
-*  W przeciwnym razie *namespace_or_type_name* ma postać `N.I` lub formularza `N.I<A1, ..., Ak>`. `N` jest najpierw rozpoznawana jako *namespace_or_type_name*. Jeśli rozwiązanie `N` nie powiedzie się, wystąpi błąd w czasie kompilacji. W przeciwnym razie `N.I` lub `N.I<A1, ..., Ak>` są rozwiązywane w następujący sposób:
-    * Jeśli `K` wynosi zero, a `N` odwołuje się do przestrzeni nazw, a `N` zawiera zagnieżdżoną przestrzeń nazw o nazwie `I`, a następnie *namespace_or_type_name* odwołuje się do tej zagnieżdżonej przestrzeni nazw.
-    * W przeciwnym razie, jeśli `N` odwołuje się do przestrzeni nazw, a `N` zawiera dostępny typ o nazwie @ no__t-2 i `K` @ no__t-4type parametry, a następnie *namespace_or_type_name* odwołuje się do tego typu skonstruowanego za pomocą podanych argumentów typu.
-    * W przeciwnym razie, jeśli `N` odwołuje się do klasy lub typu struktury, a `N` lub dowolnej z jej klas podstawowych zawiera zagnieżdżony dostępny typ o nazwie @ no__t-2 i `K` @ no__t-4type parametry, a następnie *namespace_or_type_name* odwołuje się do Ten typ skonstruowany przy użyciu podanych argumentów typu. Jeśli jest więcej niż jeden taki typ, zostanie wybrany typ zadeklarowany w ramach bardziej pochodnego typu. Należy pamiętać, że jeśli znaczenie `N.I` jest określane jako część rozpoznawania specyfikacji klasy bazowej `N`, to bezpośrednia klasa bazowa `N` jest uznawana za obiekt ([klasy bazowe](classes.md#base-classes)).
+            * Jeśli `K` ma wartość zero, a Deklaracja przestrzeni nazw zawiera *extern_alias_directive* lub *using_alias_directive* , które kojarzą nazwę `I` z zaimportowaną przestrzenią nazw lub typem, wówczas *namespace_or_type_name* odwołuje się do tej przestrzeni nazw lub typu.
+            * W przeciwnym razie, jeśli przestrzenie nazw i deklaracje typów zaimportowane przez *using_namespace_directive*s i *using_alias_directive*s deklaracji przestrzeni nazw zawierają dokładnie jeden dostępny typ o nazwie `I` i `K` parametry typu, a następnie *namespace_or_type_name* odwołuje się do tego typu skonstruowanego za pomocą podanych argumentów typu.
+            * W przeciwnym razie, jeśli przestrzenie nazw i deklaracje typów zaimportowane przez *using_namespace_directive*s i *using_alias_directive*s deklaracji przestrzeni nazw zawierają więcej niż jeden dostępny typ o nazwie `I` i `K` parametry typu, wówczas *namespace_or_type_name* jest niejednoznaczny i wystąpi błąd.
+    * W przeciwnym razie *namespace_or_type_name* jest niezdefiniowana i wystąpi błąd w czasie kompilacji.
+*  W przeciwnym razie *namespace_or_type_name* ma postać `N.I` lub `N.I<A1, ..., Ak>`. `N` został najpierw rozpoznany jako *namespace_or_type_name*. Jeśli rozwiązanie `N` nie powiedzie się, wystąpi błąd w czasie kompilacji. W przeciwnym razie `N.I` lub `N.I<A1, ..., Ak>` są rozwiązywane w następujący sposób:
+    * Jeśli `K` ma wartość zero i `N` odwołuje się do przestrzeni nazw, a `N` zawiera zagnieżdżoną przestrzeń nazw o nazwie `I`, wówczas *namespace_or_type_name* odwołuje się do tej zagnieżdżonej przestrzeni nazw.
+    * W przeciwnym razie, jeśli `N` odwołuje się do przestrzeni nazw, a `N` zawiera dostępny typ o nazwie `I` i `K` parametry typu, wówczas *namespace_or_type_name* odwołuje się do tego typu skonstruowanego za pomocą podanych argumentów typu.
+    * W przeciwnym razie, jeśli `N` odwołuje się do klasy lub typu struktury, a `N` lub dowolna z jej klas podstawowych zawiera zagnieżdżony dostępny typ o nazwie `I` i `K` parametry typu, a następnie *namespace_or_type_name* odwołuje się do tego typu skonstruowanego za pomocą podanych argumentów typu. Jeśli jest więcej niż jeden taki typ, zostanie wybrany typ zadeklarowany w ramach bardziej pochodnego typu. Należy pamiętać, że jeśli znaczenie `N.I` jest określane jako część rozpoznawania specyfikacji klasy bazowej `N`, bezpośrednia klasa bazowa `N` jest uznawana za obiekt ([klasy bazowe](classes.md#base-classes)).
     * W przeciwnym razie `N.I` jest nieprawidłowym *namespace_or_type_name*i wystąpi błąd w czasie kompilacji.
 
-*Namespace_or_type_name* może odwoływać się do klasy statycznej ([klasy static](classes.md#static-classes)) tylko wtedy, gdy
+*Namespace_or_type_name* może odwoływać się do klasy statycznej ([klasy statyczne](classes.md#static-classes)) tylko wtedy, gdy
 
-*  *Namespace_or_type_name* jest `T` w *namespace_or_type_name* formularza `T.I`, lub
-*  *Namespace_or_type_name* jest `T` w *typeof_expression* ([Argument List](expressions.md#argument-lists)1) formularza `typeof(T)`.
+*  *Namespace_or_type_name* jest `T` w *namespace_or_type_name* `T.I`formularz, lub
+*  *Namespace_or_type_name* jest `T` w *typeof_expression* ([Argument Lists](expressions.md#argument-lists)1) `typeof(T)`formularza.
 
 ### <a name="fully-qualified-names"></a>W pełni kwalifikowane nazwy
 
 Każda przestrzeń nazw i typ mają w ***pełni kwalifikowaną nazwę***, która jednoznacznie identyfikuje przestrzeń nazw lub typ między wszystkimi innymi. W pełni kwalifikowana nazwa przestrzeni nazw lub typu `N` jest określana w następujący sposób:
 
-*  Jeśli `N` należy do globalnej przestrzeni nazw, jego w pełni kwalifikowana nazwa jest `N`.
-*  W przeciwnym razie jego w pełni kwalifikowana nazwa jest `S.N`, gdzie `S` to w pełni kwalifikowana nazwa przestrzeni nazw lub typu, w którym zadeklarowano `N`.
+*  Jeśli `N` jest członkiem globalnej przestrzeni nazw, jego w pełni kwalifikowana nazwa jest `N`.
+*  W przeciwnym razie jego w pełni kwalifikowana nazwa jest `S.N`, gdzie `S` to w pełni kwalifikowana nazwa przestrzeni nazw lub typu, w którym `N` jest zadeklarowana.
 
 Innymi słowy, w pełni kwalifikowana nazwa `N` jest pełną ścieżką hierarchiczną identyfikatorów, które prowadzą do `N`, rozpoczynając od globalnej przestrzeni nazw. Ponieważ każdy element członkowski przestrzeni nazw lub typu musi mieć unikatową nazwę, następuje, że w pełni kwalifikowana nazwa przestrzeni nazw lub typu jest zawsze unikatowa.
 
@@ -761,7 +761,7 @@ Moduł wyrzucania elementów bezużytecznych przechowuje informacje o użyciu ob
 
 Podobnie jak w przypadku innych języków, które zakładają istnienie C# wyrzucania elementów bezużytecznych, zaprojektowano tak, aby moduł zbierający elementy bezużyteczne mógł zaimplementować szeroką gamę zasad zarządzania pamięcią Na przykład program C# nie wymaga uruchomienia destruktorów lub obiektów, które są zbierane zaraz po ich zakwalifikowaniu lub że destruktory są uruchamiane w określonej kolejności lub w dowolnym wątku.
 
-Zachowanie modułu wyrzucania elementów bezużytecznych może być kontrolowane w pewnym stopniu za pomocą metod statycznych klasy `System.GC`. Ta klasa może służyć do żądania kolekcji, destruktorów, które mają być uruchamiane (lub nie są uruchamiane) i tak dalej.
+Zachowanie modułu wyrzucania elementów bezużytecznych może być kontrolowane w pewnym stopniu za pomocą metod statycznych w klasie `System.GC`. Ta klasa może służyć do żądania kolekcji, destruktorów, które mają być uruchamiane (lub nie są uruchamiane) i tak dalej.
 
 Ponieważ moduł wyrzucania elementów bezużytecznych jest dozwolony szerokiej szerokości geograficznej podczas wybierania obiektów i destruktorów, implementacja zgodna może generować dane wyjściowe, które różnią się od pokazanego w poniższym kodzie. Program
 ```csharp
@@ -797,7 +797,7 @@ class Test
     }
 }
 ```
-tworzy wystąpienie klasy `A` i wystąpienie klasy `B`. Obiekty te stają się kwalifikować do wyrzucania elementów bezużytecznych, gdy zmienna `b` ma przypisaną wartość `null`, ponieważ po tym czasie nie jest możliwe uzyskanie dostępu do nich przez każdy kod pisany przez użytkownika. Dane wyjściowe mogą być albo
+tworzy wystąpienie klasy `A` i wystąpienie klasy `B`. Te obiekty stają się kwalifikować do wyrzucania elementów bezużytecznych, gdy zmienna `b` ma przypisaną wartość `null`, ponieważ po tym czasie nie jest możliwe uzyskanie dostępu do nich przez każdy kod pisany przez użytkownika. Dane wyjściowe mogą być albo
 
 ```console
 Destruct instance of A
@@ -867,15 +867,15 @@ A.F
 RefA is not null
 ```
 
-Należy zauważyć, że chociaż wystąpienie `A` nie jest używane i destruktor `A` było uruchomione, nadal jest możliwe dla metod `A` (w tym przypadku `F`), które mają być wywoływane z innego destruktora. Należy również pamiętać, że uruchomienie destruktora może spowodować, że obiekt będzie można użyć ponownie z programu linii głównej. W takim przypadku uruchomienie destruktora `B` spowodowało wystąpienie `A`, które wcześniej nie było używane do uzyskania dostępu z odwołania na żywo `Test.RefA`. Po wywołaniu `WaitForPendingFinalizers` wystąpienie `B` kwalifikuje się do kolekcji, ale wystąpienie `A` nie jest z powodu odwołania `Test.RefA`.
+Należy zauważyć, że chociaż wystąpienie `A` było nieużywane i nie uruchomiono destruktora `A`, nadal jest możliwe Metoda `A` (w tym przypadku `F`) do wywołania z innego destruktora. Należy również pamiętać, że uruchomienie destruktora może spowodować, że obiekt będzie można użyć ponownie z programu linii głównej. W takim przypadku uruchomienie destruktora `B`spowodowało wystąpienie `A`, które wcześniej nie było używane do uzyskania dostępu z `Test.RefA`na żywo odwołania. Po wywołaniu `WaitForPendingFinalizers`wystąpienie `B` jest uprawnione do kolekcji, ale wystąpienie `A` nie jest, ze względu na `Test.RefA`odwołania.
 
 Aby uniknąć nieporozumień i nieoczekiwanego zachowania, zwykle dobrym pomysłem jest, aby destruktory wykonywały tylko oczyszczanie danych przechowywanych w własnych polach obiektu, a nie do wykonywania żadnych akcji na obiektach, do których istnieją odwołania lub pola statyczne.
 
-Alternatywą dla korzystania z destruktorów jest umożliwienie klasy implementacji interfejsu `System.IDisposable`. Umożliwia to klientowi obiektu określenie czasu zwolnienia zasobów obiektu, zazwyczaj przez uzyskanie dostępu do obiektu jako zasobu w instrukcji `using` ([instrukcja using](statements.md#the-using-statement)).
+Alternatywą dla korzystania z destruktorów jest umożliwienie klasy implementującej interfejs `System.IDisposable`. Umożliwia to klientowi obiektu określenie czasu zwolnienia zasobów obiektu, zazwyczaj przez uzyskanie dostępu do obiektu jako zasobu w instrukcji `using` ([instrukcja using](statements.md#the-using-statement)).
 
 ## <a name="execution-order"></a>Kolejność wykonywania
 
-Wykonanie C# programu jest wykonywane w taki sposób, że efekty uboczne każdego wątku wykonywanego są zachowywane w kluczowych punktach wykonania. ***Efekt uboczny*** jest definiowany jako Odczyt lub zapis pola nietrwałego, zapis do zmiennej nietrwałej, zapis do zasobu zewnętrznego i wyrzucanie wyjątku. Krytyczne punkty wykonywania, w których kolejność tych efektów ubocznych należy zachować, są odwołaniami do pól nietrwałych ([nietrwałe pola](classes.md#volatile-fields)), `lock` instrukcji ([instrukcja Lock](statements.md#the-lock-statement)) oraz tworzenia i kończenia wątku. Środowisko wykonawcze jest bezpłatne, aby zmienić kolejność wykonywania C# programu, zgodnie z następującymi ograniczeniami:
+Wykonanie C# programu jest wykonywane w taki sposób, że efekty uboczne każdego wątku wykonywanego są zachowywane w kluczowych punktach wykonania. ***Efekt uboczny*** jest definiowany jako Odczyt lub zapis pola nietrwałego, zapis do zmiennej nietrwałej, zapis do zasobu zewnętrznego i wyrzucanie wyjątku. Krytyczne punkty wykonywania, w których kolejność tych efektów ubocznych muszą być zachowywane, są odwołaniami do pól nietrwałych ([pól nietrwałych](classes.md#volatile-fields)), instrukcji `lock` ([instrukcja Lock](statements.md#the-lock-statement)) oraz tworzenia i kończenia wątku. Środowisko wykonawcze jest bezpłatne, aby zmienić kolejność wykonywania C# programu, zgodnie z następującymi ograniczeniami:
 
 *  Zależność danych jest zachowywana w wątku wykonywania. Oznacza to, że wartość każdej zmiennej jest obliczana tak, jakby wszystkie instrukcje w wątku były wykonywane w oryginalnej kolejności programu.
 *  Reguły porządkowania inicjalizacji są zachowywane ([Inicjalizacja pola](classes.md#field-initialization) i [inicjatory zmiennych](classes.md#variable-initializers)).
