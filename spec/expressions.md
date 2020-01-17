@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: f61039abd6bd557ac0ea625e6aac1c8bafa57b02
-ms.sourcegitcommit: 892af9016b3317a8fae12d195014dc38ba51cf16
+ms.sourcegitcommit: e134bb7058e9848120b93b345f96d6ac0cb8c815
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2019
+ms.lasthandoff: 01/17/2020
 ms.locfileid: "71704085"
 ---
 # <a name="expressions"></a>{1&gt;Wyrażenia&lt;1}
@@ -24,7 +24,7 @@ Wyrażenie jest klasyfikowane jako jedno z następujących:
 *  Dostęp do właściwości. Każdy dostęp do właściwości ma skojarzony typ, a nie typ właściwości. Ponadto dostęp do właściwości może mieć skojarzone wyrażenie wystąpienia. Gdy wywoływana jest metoda dostępu (`get` lub `set` bloku) właściwości wystąpienia, wynik oceny wyrażenia wystąpienia zostaje przywoływany przez `this` ([dostęp](expressions.md#this-access)).
 *  Dostęp do zdarzenia. Każdy dostęp do zdarzenia ma skojarzony typ, a nie typ zdarzenia. Ponadto dostęp do zdarzeń może mieć skojarzone wyrażenie wystąpienia. Dostęp do zdarzenia może być wyświetlany jako lewy argument operacji dla operatorów `+=` i `-=` ([przypisanie zdarzenia](expressions.md#event-assignment)). W każdym innym kontekście wyrażenie sklasyfikowane jako dostęp do zdarzenia powoduje błąd w czasie kompilacji.
 *  Dostęp indeksatora. Każdy dostęp indeksatora ma skojarzony typ, a mianowicie typ elementu indeksatora. Ponadto dostęp indeksatora ma skojarzone wyrażenie wystąpienia i skojarzoną listę argumentów. Gdy wywoływana jest metoda dostępu (`get` lub `set` bloku), wynik oceny wyrażenia wystąpienia zmieni się na wystąpienie reprezentowane przez `this` ([ten dostęp](expressions.md#this-access)), a wynik oceny listy argumentów jest listą parametrów wywołania ().
-*  Wartość. Dzieje się tak, gdy wyrażenie jest wywołaniem metody z typem zwracanym `void`. Wyrażenie sklasyfikowane jako Nothing jest prawidłowe tylko w kontekście *statement_expression* ([instrukcji wyrażeń](statements.md#expression-statements)).
+*  Nic nie robić Dzieje się tak, gdy wyrażenie jest wywołaniem metody z typem zwracanym `void`. Wyrażenie sklasyfikowane jako Nothing jest prawidłowe tylko w kontekście *statement_expression* ([instrukcji wyrażeń](statements.md#expression-statements)).
 
 Końcowy wynik wyrażenia nigdy nie jest obszarem nazw, typem, grupą metod lub dostępem do zdarzeń. Zamiast tego, jak wspomniano powyżej, te kategorie wyrażeń są konstrukcjami pośrednimi, które są dozwolone tylko w określonych kontekstach.
 
@@ -80,7 +80,7 @@ Pierwsze dwa wywołania są statycznie powiązane: Przeciążenie `Console.Write
 
 Trzecie wywołanie jest powiązane dynamicznie: Przeciążenie `Console.WriteLine` jest wybierane na podstawie typu czasu wykonywania tego argumentu. Dzieje się tak, ponieważ argument jest wyrażeniem dynamicznym — typem czasu kompilacji jest `dynamic`. W rezultacie czas powiązania dla trzeciego wywołania to czas wykonywania.
 
-### <a name="dynamic-binding"></a>Powiązanie dynamiczne
+### <a name="dynamic-binding"></a>Wiązanie dynamiczne
 
 Celem powiązania dynamicznego jest umożliwienie C# programom współdziałania z ***obiektami dynamicznymi***, np. obiektów, które nie są zgodne z normalnymi C# regułami typu System. Obiekty dynamiczne mogą być obiektami z innych języków programowania z różnymi typami systemów lub mogą być obiektami, które są programowo instalatorem do implementowania własnej semantyki powiązań dla różnych operacji.
 
@@ -122,21 +122,21 @@ Gdy wyrażenie zawiera wiele operatorów ***pierwszeństwo*** operatorów okreś
 
 Poniższa tabela podsumowuje wszystkie operatory w kolejności od najwyższego do najniższego:
 
-| __Paragraf__                                                                                   | __Kategoria__                | __Operatory__ | 
+| __Sekcja__                                                                                   | __Kategoria__                | __Operatory__ | 
 |-----------------------------------------------------------------------------------------------|-----------------------------|---------------|
 | [Wyrażenia podstawowe](expressions.md#primary-expressions)                                     | Podstawowa                     | `x.y`  `f(x)`  `a[x]`  `x++`  `x--`  `new`  `typeof`  `default`  `checked`  `unchecked`  `delegate` | 
-| [Operatory jednoargumentowe](expressions.md#unary-operators)                                             | Jednostk                       | `+`  `-`  `!`  `~`  `++x`  `--x`  `(T)x` | 
+| [Operatory jednoargumentowe](expressions.md#unary-operators)                                             | Jednoargumentowy                       | `+`  `-`  `!`  `~`  `++x`  `--x`  `(T)x` | 
 | [Operatory arytmetyczne](expressions.md#arithmetic-operators)                                   | Mnożeniowy              | `*`  `/`  `%` | 
 | [Operatory arytmetyczne](expressions.md#arithmetic-operators)                                   | Dana                    | `+`  `-`      | 
 | [Operatory przesunięcia](expressions.md#shift-operators)                                             | Shift                       | `<<`  `>>`    | 
 | [Operatory relacyjne i testowe typu](expressions.md#relational-and-type-testing-operators) | Testowanie relacyjne i typu | `<`  `>`  `<=`  `>=`  `is`  `as` | 
-| [Operatory relacyjne i testowe typu](expressions.md#relational-and-type-testing-operators) | Równości                    | `==`  `!=`    | 
-| [Operatory logiczne](expressions.md#logical-operators)                                         | Logicznego AND                 | `&`           | 
-| [Operatory logiczne](expressions.md#logical-operators)                                         | Logicznego XOR                 | `^`           | 
-| [Operatory logiczne](expressions.md#logical-operators)                                         | Logicznego OR                  | <code>&#124;</code>           |
-| [Warunkowe operatory logiczne](expressions.md#conditional-logical-operators)                 | Warunkowego AND             | `&&`          | 
-| [Warunkowe operatory logiczne](expressions.md#conditional-logical-operators)                 | Warunkowego OR              | <code>&#124;&#124;</code>          | 
-| [Operator łączenia wartości null](expressions.md#the-null-coalescing-operator)                   | Łączenia wartości null             | `??`          | 
+| [Operatory relacyjne i testowe typu](expressions.md#relational-and-type-testing-operators) | Równość                    | `==`  `!=`    | 
+| [Operatory logiczne](expressions.md#logical-operators)                                         | AND logiczne                 | `&`           | 
+| [Operatory logiczne](expressions.md#logical-operators)                                         | XOR logiczne                 | `^`           | 
+| [Operatory logiczne](expressions.md#logical-operators)                                         | OR logiczne                  | <code>&#124;</code>           |
+| [Warunkowe operatory logiczne](expressions.md#conditional-logical-operators)                 | AND warunkowe             | `&&`          | 
+| [Warunkowe operatory logiczne](expressions.md#conditional-logical-operators)                 | OR warunkowe              | <code>&#124;&#124;</code>          | 
+| [Operator łączenia wartości null](expressions.md#the-null-coalescing-operator)                   | Łączenie wartości null             | `??`          | 
 | [Operator warunkowy](expressions.md#conditional-operator)                                   | Warunkowy                 | `?:`          | 
 | [Operatory przypisania](expressions.md#assignment-operators), [wyrażenia funkcji anonimowych](expressions.md#anonymous-function-expressions)  | Przypisanie i wyrażenie lambda | `=`  `*=`  `/=`  `%=`  `+=`  `-=`  `<<=`  `>>=`  `&=`  `^=`  <code>&#124;=</code>  `=>` | 
 
@@ -254,7 +254,7 @@ Należy również zauważyć, że nie jest możliwe, aby operand był typu `ulon
 
 W obu powyższych przypadkach wyrażenie cast może służyć do jawnej konwersji jednego operandu na typ, który jest zgodny z drugim operandem.
 
-w przykładzie
+W przykładzie
 ```csharp
 decimal AddPercent(decimal x, double percent) {
     return x * (1.0 + percent / 100.0);
@@ -492,7 +492,7 @@ x = 0, y = 1, z = 2
 x = 4, y = -1, z = 3
 ```
 
-Reguły współwariancji tablicy ([Kowariancja tablicowa](arrays.md#array-covariance)) zezwalają na wartość typu tablicy `A[]` być odwołaniem do wystąpienia typu tablicy `B[]`, pod warunkiem, że istnieje niejawna konwersja odwołań z `B` do `A`. Ze względu na te reguły, gdy element tablicy *reference_type* jest przenoszona jako parametr Reference lub Output, wymagane jest sprawdzenie w czasie wykonywania, aby upewnić się, że rzeczywisty typ elementu tablicy jest identyczny z parametrem. w przykładzie
+Reguły współwariancji tablicy ([Kowariancja tablicowa](arrays.md#array-covariance)) zezwalają na wartość typu tablicy `A[]` być odwołaniem do wystąpienia typu tablicy `B[]`, pod warunkiem, że istnieje niejawna konwersja odwołań z `B` do `A`. Ze względu na te reguły, gdy element tablicy *reference_type* jest przenoszona jako parametr Reference lub Output, wymagane jest sprawdzenie w czasie wykonywania, aby upewnić się, że rzeczywisty typ elementu tablicy jest identyczny z parametrem. W przykładzie
 ```csharp
 class Test
 {
@@ -592,7 +592,7 @@ Druga faza przebiega w następujący sposób:
 
 Jeśli `E` jest grupą metod lub niejawnie wpisaną funkcją anonimową, a `T` jest typem delegata lub typem drzewa wyrażenia, wszystkie typy parametrów `T` są *typami wejściowymi* `E` *z typem* `T`.
 
-####  <a name="output-types"></a>Typy wyjściowe
+####  <a name="output-types"></a>Typy danych wyjściowych
 
 Jeśli `E` jest grupą metod lub funkcją anonimową, a `T` jest typem delegata lub typem drzewa wyrażenia, zwracany typ `T` jest *typem danych wyjściowych* `E` *z typem* `T`.
 
@@ -641,7 +641,7 @@ Jeśli `E` jest grupą metod lub funkcją anonimową, a `T` jest typem delegata 
 *  W przeciwnym razie, jeśli `V` jest typem `V1?`, a `U` jest typem `U1?` następnie przeprowadzono dolną granicę od `U1` do `V1`.
 *  W przeciwnym razie zestawy `U1...Uk` i `V1...Vk` są określane przez sprawdzenie, czy którykolwiek z następujących przypadków ma zastosowanie:
    *  `V` jest typem tablicy `V1[...]`, a `U` jest typem tablicy `U1[...]` (lub parametrem typu, którego efektywny typ podstawowy to `U1[...]`) o tej samej rangi
-   *  `V` jest jedną z `IEnumerable<V1>`, `ICollection<V1>` lub `IList<V1>` i `U` jest typem tablicy jednowymiarowej `U1[]`(lub parametrem typu, którego obowiązuje typ podstawowy)`U1[]`
+   *  `V` jest jedną z `IEnumerable<V1>`, `ICollection<V1>` lub `IList<V1>` i `U` jest typem tablicy jednowymiarowej `U1[]`(lub parametrem typu, którego obowiązuje typ podstawowy)
    *  `V` jest klasą konstruowaną, strukturą, interfejsem lub typem delegata `C<V1...Vk>` i istnieje unikatowy typ `C<U1...Uk>` taki, że `U` (lub, jeśli `U` jest parametrem typu, jego skuteczna Klasa bazowa lub którykolwiek element członkowski jego efektywnego zestawu interfejsów) jest taka sama jak, dziedziczy po (bezpośrednio lub pośrednio), lub implementuje (bezpośrednio lub pośrednio) `C<U1...Uk>`.
 
       (Ograniczenie "unikatowość" oznacza, że w interfejsie Case `C<T> {} class U: C<X>, C<Y> {}`nie są wykonywane żadne wnioskowanie podczas wnioskowania od `U` do `C<T>`, ponieważ `U1` może być `X` lub `Y`).
@@ -868,7 +868,7 @@ Podano dwa różne typy `T1` i `T2`, `T1` jest lepszym celem konwersji niż `T2`
    * `D2` jest zwracana wartość void
    * `D2` ma `S2`typu zwracanego, a `S1` jest lepszą konwersją docelową niż `S2`
 *  `T1` jest `Task<S1>`, `T2` jest `Task<S2>`, a `S1` jest lepszym celem konwersji niż `S2`
-*  `T1` jest `S1` lub `S1?` gdzie `S1` jest podpisanym typem całkowitym, a `T2` jest `S2` lub `S2?`, gdzie `S2` jest typem całkowitym bez znaku. Opracowany
+*  `T1` jest `S1` lub `S1?` gdzie `S1` jest podpisanym typem całkowitym, a `T2` jest `S2` lub `S2?`, gdzie `S2` jest typem całkowitym bez znaku. W szczególności:
    * `S1` jest `sbyte` i `S2` jest `byte`, `ushort`, `uint`lub `ulong`
    * `S1` jest `short` i `S2` jest `ushort`, `uint`lub `ulong`
    * `S1` jest `int` i `S2` `uint`lub `ulong`
@@ -1967,7 +1967,7 @@ Lista wywołań delegata jest określana podczas tworzenia wystąpienia delegata
 
 Nie można utworzyć delegata, który odwołuje się do właściwości, indeksatora, zdefiniowanego przez użytkownika operatora, konstruktora wystąpienia, destruktora lub konstruktora statycznego.
 
-Jak opisano powyżej, gdy delegat jest tworzony na podstawie grupy metod, formalna lista parametrów i zwracany typ delegata określają, które z przeciążonych metod wybrać. w przykładzie
+Jak opisano powyżej, gdy delegat jest tworzony na podstawie grupy metod, formalna lista parametrów i zwracany typ delegata określają, które z przeciążonych metod wybrać. W przykładzie
 ```csharp
 delegate double DoubleFunc(double x);
 
@@ -2048,7 +2048,7 @@ Nazwy typu anonimowego i parametru do jego metody `Equals` są generowane automa
 
 W ramach tego samego programu dwa anonimowe Inicjatory obiektów, które określają sekwencję właściwości tych samych nazw i typów czasu kompilacji w tej samej kolejności, spowodują wystąpienie tego samego typu anonimowego.
 
-w przykładzie
+W przykładzie
 ```csharp
 var p1 = new { Name = "Lawnmower", Price = 495.00 };
 var p2 = new { Name = "Shovel", Price = 26.95 };
@@ -2195,7 +2195,7 @@ W przypadku wyrażeń stałych (wyrażenia, które mogą być w pełni oceniane 
 
 Nie ma to wpływ na treść funkcji anonimowej `checked` ani kontekstów `unchecked`, w których występuje funkcja anonimowa.
 
-w przykładzie
+W przykładzie
 ```csharp
 class Test
 {
@@ -2217,7 +2217,7 @@ class Test
 ```
 nie zgłoszono błędów czasu kompilacji, ponieważ żadne wyrażenia nie mogą być oceniane w czasie kompilacji. W czasie wykonywania Metoda `F` zgłasza `System.OverflowException`, a metoda `G` zwraca-727379968 (Dolna część 32 bitów wyniku spoza zakresu). Zachowanie metody `H` zależy od domyślnego kontekstu sprawdzania przepełnienia dla kompilacji, ale jest taka sama jak `F` lub taka sama jak `G`.
 
-w przykładzie
+W przykładzie
 ```csharp
 class Test
 {
@@ -2239,7 +2239,7 @@ class Test
 ```
 przepełnienia występujące podczas oceny wyrażeń stałych w `F` i `H` powodują zgłoszenie błędów w czasie kompilacji, ponieważ wyrażenia są oceniane w kontekście `checked`. Przepełnienie ma również miejsce podczas oceniania wyrażenia stałego w `G`, ale ponieważ Ocena odbywa się w kontekście `unchecked`, przepełnienie nie zostanie zgłoszone.
 
-Operatory `checked` i `unchecked` mają wpływ tylko na kontekst sprawdzania przepełnienia dla tych operacji, które są umieszczone w formie tekstowej w tokenach "`(`" i "`)`". Operatory nie mają wpływu na składowe funkcji, które są wywoływane w wyniku obliczania zawartego wyrażenia. w przykładzie
+Operatory `checked` i `unchecked` mają wpływ tylko na kontekst sprawdzania przepełnienia dla tych operacji, które są umieszczone w formie tekstowej w tokenach "`(`" i "`)`". Operatory nie mają wpływu na składowe funkcji, które są wywoływane w wyniku obliczania zawartego wyrażenia. W przykładzie
 ```csharp
 class Test
 {
@@ -2434,7 +2434,7 @@ przy założeniu, że typ końcowego wywołania nie jest typem wartości niedopu
 ```csharp
 var x = (a.b == null) ? null : (a.b[0] == null) ? null : a.b[0].c();
 ```
-Z tą różnicą, że `a.b` i `a.b[0]` są oceniane tylko raz.
+z tą różnicą, że `a.b` i `a.b[0]` są oceniane tylko raz.
 
 #### <a name="null-conditional-expressions-as-projection-initializers"></a>Wyrażenia warunkowe o wartości null jako inicjatory projekcji
 
@@ -2708,14 +2708,14 @@ Poniżej przedstawiono wstępnie zdefiniowane operatory mnożenia. Operator All 
 
    |      |      |      |     |     |      |      |     |
    |:----:|-----:|:----:|:---:|:---:|:----:|:----:|:----|
-   |      | \+ y   | -y   | +0  | -0  | \+ plik inf | -inf | NaN | 
-   | +x   | +z   | -z   | +0  | -0  | \+ plik inf | -inf | NaN | 
-   | {1&gt;-&lt;1}x   | -z   | +z   | -0  | +0  | -inf | \+ plik inf | NaN | 
-   | +0   | +0   | -0   | +0  | -0  | NaN  | NaN  | NaN | 
-   | -0   | -0   | +0   | -0  | +0  | NaN  | NaN  | NaN | 
-   | \+ plik inf | \+ plik inf | -inf | NaN | NaN | \+ plik inf | -inf | NaN | 
-   | -inf | -inf | \+ plik inf | NaN | NaN | -inf | \+ plik inf | NaN | 
-   | NaN  | NaN  | NaN  | NaN | NaN | NaN  | NaN  | NaN | 
+   |      | \+ y   | -y   | +0  | -0  | \+ plik inf | -inf | {1&gt;NaN&lt;1} | 
+   | {1&gt;+&lt;1}x   | +z   | -z   | +0  | -0  | \+ plik inf | -inf | {1&gt;NaN&lt;1} | 
+   | {1&gt;-&lt;1}x   | -z   | +z   | -0  | +0  | -inf | \+ plik inf | {1&gt;NaN&lt;1} | 
+   | +0   | +0   | -0   | +0  | -0  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1} | 
+   | -0   | -0   | +0   | -0  | +0  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1} | 
+   | \+ plik inf | \+ plik inf | -inf | {1&gt;NaN&lt;1} | {1&gt;NaN&lt;1} | \+ plik inf | -inf | {1&gt;NaN&lt;1} | 
+   | -inf | -inf | \+ plik inf | {1&gt;NaN&lt;1} | {1&gt;NaN&lt;1} | -inf | \+ plik inf | {1&gt;NaN&lt;1} | 
+   | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1} | {1&gt;NaN&lt;1} | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1} | 
 
 *  Mnożenie dziesiętne:
 
@@ -2760,14 +2760,14 @@ Poniżej znajdują się wstępnie zdefiniowane operatory dzielenia. Operator All
 
    |      |      |      |      |      |      |      |      |
    |:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-   |      | \+ y   | -y   | +0   | -0   | \+ plik inf | -inf | NaN  | 
-   | +x   | +z   | -z   | \+ plik inf | -inf | +0   | -0   | NaN  | 
-   | {1&gt;-&lt;1}x   | -z   | +z   | -inf | \+ plik inf | -0   | +0   | NaN  | 
-   | +0   | +0   | -0   | NaN  | NaN  | +0   | -0   | NaN  | 
-   | -0   | -0   | +0   | NaN  | NaN  | -0   | +0   | NaN  | 
-   | \+ plik inf | \+ plik inf | -inf | \+ plik inf | -inf | NaN  | NaN  | NaN  | 
-   | -inf | -inf | \+ plik inf | -inf | \+ plik inf | NaN  | NaN  | NaN  | 
-   | NaN  | NaN  | NaN  | NaN  | NaN  | NaN  | NaN  | NaN  | 
+   |      | \+ y   | -y   | +0   | -0   | \+ plik inf | -inf | {1&gt;NaN&lt;1}  | 
+   | {1&gt;+&lt;1}x   | +z   | -z   | \+ plik inf | -inf | +0   | -0   | {1&gt;NaN&lt;1}  | 
+   | {1&gt;-&lt;1}x   | -z   | +z   | -inf | \+ plik inf | -0   | +0   | {1&gt;NaN&lt;1}  | 
+   | +0   | +0   | -0   | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | +0   | -0   | {1&gt;NaN&lt;1}  | 
+   | -0   | -0   | +0   | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | -0   | +0   | {1&gt;NaN&lt;1}  | 
+   | \+ plik inf | \+ plik inf | -inf | \+ plik inf | -inf | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | 
+   | -inf | -inf | \+ plik inf | -inf | \+ plik inf | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | 
+   | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | 
 
 *  Dzielenie dziesiętne:
 
@@ -2810,14 +2810,14 @@ Poniżej przedstawiono wstępnie zdefiniowane operatory pozostałej reszty. Oper
 
    |      |      |      |      |      |      |      |      |
    |:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-   |      | \+ y   | -y   | +0   | -0   | \+ plik inf | -inf | NaN  | 
-   | +x   | +z   | +z   | NaN  | NaN  | x    | x    | NaN  | 
-   | {1&gt;-&lt;1}x   | -z   | -z   | NaN  | NaN  | {1&gt;-&lt;1}x   | {1&gt;-&lt;1}x   | NaN  | 
-   | +0   | +0   | +0   | NaN  | NaN  | +0   | +0   | NaN  | 
-   | -0   | -0   | -0   | NaN  | NaN  | -0   | -0   | NaN  | 
-   | \+ plik inf | NaN  | NaN  | NaN  | NaN  | NaN  | NaN  | NaN  | 
-   | -inf | NaN  | NaN  | NaN  | NaN  | NaN  | NaN  | NaN  | 
-   | NaN  | NaN  | NaN  | NaN  | NaN  | NaN  | NaN  | NaN  | 
+   |      | \+ y   | -y   | +0   | -0   | \+ plik inf | -inf | {1&gt;NaN&lt;1}  | 
+   | {1&gt;+&lt;1}x   | +z   | +z   | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | x    | x    | {1&gt;NaN&lt;1}  | 
+   | {1&gt;-&lt;1}x   | -z   | -z   | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;-&lt;1}x   | {1&gt;-&lt;1}x   | {1&gt;NaN&lt;1}  | 
+   | +0   | +0   | +0   | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | +0   | +0   | {1&gt;NaN&lt;1}  | 
+   | -0   | -0   | -0   | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | -0   | -0   | {1&gt;NaN&lt;1}  | 
+   | \+ plik inf | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | 
+   | -inf | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | 
+   | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | 
 
 *  Reszta dziesiętna:
 
@@ -2858,13 +2858,13 @@ Wstępnie zdefiniowane operatory dodawania są wymienione poniżej. W przypadku 
 
    |      |      |      |      |      |      |      |
    |:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-   |      | {1&gt;y&lt;1}    | +0   | -0   | \+ plik inf | -inf | NaN  | 
-   | x    | z    | x    | x    | \+ plik inf | -inf | NaN  | 
-   | +0   | {1&gt;y&lt;1}    | +0   | +0   | \+ plik inf | -inf | NaN  | 
-   | -0   | {1&gt;y&lt;1}    | +0   | -0   | \+ plik inf | -inf | NaN  | 
-   | \+ plik inf | \+ plik inf | \+ plik inf | \+ plik inf | \+ plik inf | NaN  | NaN  | 
-   | -inf | -inf | -inf | -inf | NaN  | -inf | NaN  | 
-   | NaN  | NaN  | NaN  | NaN  | NaN  | NaN  | NaN  | 
+   |      | {1&gt;y&lt;1}    | +0   | -0   | \+ plik inf | -inf | {1&gt;NaN&lt;1}  | 
+   | x    | {1&gt;z&lt;1}    | x    | x    | \+ plik inf | -inf | {1&gt;NaN&lt;1}  | 
+   | +0   | {1&gt;y&lt;1}    | +0   | +0   | \+ plik inf | -inf | {1&gt;NaN&lt;1}  | 
+   | -0   | {1&gt;y&lt;1}    | +0   | -0   | \+ plik inf | -inf | {1&gt;NaN&lt;1}  | 
+   | \+ plik inf | \+ plik inf | \+ plik inf | \+ plik inf | \+ plik inf | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | 
+   | -inf | -inf | -inf | -inf | {1&gt;NaN&lt;1}  | -inf | {1&gt;NaN&lt;1}  | 
+   | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | 
 
 *  Dodawanie dziesiętne:
 
@@ -2951,13 +2951,13 @@ Poniżej przedstawiono wstępnie zdefiniowane operatory odejmowania. Operatory w
 
    |      |      |      |      |      |      |     |
    |:----:|:----:|:----:|:----:|:----:|:----:|:---:|
-   |      | {1&gt;y&lt;1}    | +0   | -0   | \+ plik inf | -inf | NaN | 
-   | x    | z    | x    | x    | -inf | \+ plik inf | NaN | 
-   | +0   | -y   | +0   | +0   | -inf | \+ plik inf | NaN | 
-   | -0   | -y   | -0   | +0   | -inf | \+ plik inf | NaN | 
-   | \+ plik inf | \+ plik inf | \+ plik inf | \+ plik inf | NaN  | \+ plik inf | NaN | 
-   | -inf | -inf | -inf | -inf | -inf | NaN  | NaN | 
-   | NaN  | NaN  | NaN  | NaN  | NaN  | NaN  | NaN | 
+   |      | {1&gt;y&lt;1}    | +0   | -0   | \+ plik inf | -inf | {1&gt;NaN&lt;1} | 
+   | x    | {1&gt;z&lt;1}    | x    | x    | -inf | \+ plik inf | {1&gt;NaN&lt;1} | 
+   | +0   | -y   | +0   | +0   | -inf | \+ plik inf | {1&gt;NaN&lt;1} | 
+   | -0   | -y   | -0   | +0   | -inf | \+ plik inf | {1&gt;NaN&lt;1} | 
+   | \+ plik inf | \+ plik inf | \+ plik inf | \+ plik inf | {1&gt;NaN&lt;1}  | \+ plik inf | {1&gt;NaN&lt;1} | 
+   | -inf | -inf | -inf | -inf | -inf | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1} | 
+   | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1}  | {1&gt;NaN&lt;1} | 
 
 *  Odejmowanie dziesiętne:
 
@@ -3395,7 +3395,7 @@ Jeśli typ czasu kompilacji `E` nie jest `dynamic`, operacja `E as T` daje ten s
 ```csharp
 E is T ? (T)(E) : (T)null
 ```
-z tą różnicą, że `E` jest obliczany tylko raz. Kompilator może być oczekiwany do zoptymalizowania `E as T` wykonywania co najwyżej jednego sprawdzenia typu dynamicznego, w przeciwieństwie do dwóch kontroli typu dynamicznego IMPLIKOWANYCH przez rozszerzenie powyżej.
+z tą różnicą, że `E` jest obliczone tylko raz. Kompilator może być oczekiwany do zoptymalizowania `E as T` wykonywania co najwyżej jednego sprawdzenia typu dynamicznego, w przeciwieństwie do dwóch kontroli typu dynamicznego IMPLIKOWANYCH przez rozszerzenie powyżej.
 
 Jeśli typ czasu kompilacji `E` jest `dynamic`, w przeciwieństwie do operatora rzutowania, operator `as` nie jest powiązany dynamicznie ([powiązanie dynamiczne](expressions.md#dynamic-binding)). W związku z tym rozwinięcie w tym przypadku jest następujące:
 ```csharp
@@ -3404,7 +3404,7 @@ E is T ? (T)(object)(E) : (T)null
 
 Należy zauważyć, że niektóre konwersje, takie jak konwersje zdefiniowane przez użytkownika, nie są możliwe za pomocą operatora `as` i powinny być wykonywane przy użyciu wyrażeń rzutowania.
 
-w przykładzie
+W przykładzie
 ```csharp
 class X
 {
@@ -3813,7 +3813,7 @@ Każda zmienna lokalna, parametr wartości lub tablica parametrów, której zakr
 
 Gdy do zmiennej zewnętrznej odwołuje się funkcja anonimowa, zmienna zewnętrzna jest określana jako ***przechwycona*** przez funkcję anonimową. Zwykle okres istnienia zmiennej lokalnej jest ograniczony do wykonywania bloku lub instrukcji, z którą jest skojarzony ([zmienne lokalne](variables.md#local-variables)). Jednak okres istnienia przechwyconej zmiennej zewnętrznej jest rozszerzany co najmniej do momentu, aż obiekt delegowany lub drzewo wyrażenia utworzone za pomocą funkcji anonimowej staną się uprawnione do wyrzucania elementów bezużytecznych.
 
-w przykładzie
+W przykładzie
 ```csharp
 using System;
 
@@ -3913,7 +3913,7 @@ static D[] F() {
     return result;
 }
 ```
-Dane wyjściowe:
+dane wyjściowe:
 ```console
 5
 5
@@ -4435,7 +4435,7 @@ z wyjątkiem sytuacji, gdy v jest identyfikatorem x, tłumaczenie jest po prostu
 ( e )
 ```
 
-Na przykład:
+Na przykład
 ```csharp
 from c in customers.Where(c => c.City == "London")
 select c
@@ -4669,7 +4669,7 @@ Przetwarzanie prostego przypisania formularza `x = y` w czasie wykonywania obejm
    * `y` jest oceniane i, w razie potrzeby, konwertowane na typ `x` za pomocą konwersji niejawnej ([konwersje niejawne](conversions.md#implicit-conversions)).
    * Metoda dostępu `set` `x` jest wywoływana z wartością obliczaną dla `y` jako argument `value`.
 
-Reguły współwariancji tablicy ([Kowariancja tablicowa](arrays.md#array-covariance)) zezwalają na wartość typu tablicy `A[]` być odwołaniem do wystąpienia typu tablicy `B[]`, pod warunkiem, że istnieje niejawna konwersja odwołań z `B` do `A`. Ze względu na te reguły przypisanie do elementu tablicy *reference_type* wymaga sprawdzenia w czasie wykonywania, aby upewnić się, że przypisywana wartość jest zgodna z wystąpieniem tablicy. w przykładzie
+Reguły współwariancji tablicy ([Kowariancja tablicowa](arrays.md#array-covariance)) zezwalają na wartość typu tablicy `A[]` być odwołaniem do wystąpienia typu tablicy `B[]`, pod warunkiem, że istnieje niejawna konwersja odwołań z `B` do `A`. Ze względu na te reguły przypisanie do elementu tablicy *reference_type* wymaga sprawdzenia w czasie wykonywania, aby upewnić się, że przypisywana wartość jest zgodna z wystąpieniem tablicy. W przykładzie
 ```csharp
 string[] sa = new string[10];
 object[] oa = sa;
@@ -4759,7 +4759,7 @@ Gdy argument operacji po lewej stronie przypisania złożonego jest dostęp do w
 
 Druga reguła powyżej zezwala `x op= y` na ocenę jako `x = (T)(x op y)` w określonych kontekstach. Reguła istnieje tak, aby wstępnie zdefiniowane operatory mogły być używane jako operatory złożone, gdy argument operacji po lewej stronie jest typu `sbyte`, `byte`, `short`, `ushort`lub `char`. Nawet jeśli oba argumenty są jednego z tych typów, wstępnie zdefiniowane operatory generują wynik typu `int`, zgodnie z opisem w [binarnej promocji liczbowych](expressions.md#binary-numeric-promotions). W związku z tym bez rzutowania nie można przypisać wyniku do lewego operandu.
 
-Intuicyjny efekt reguły dla wstępnie zdefiniowanych operatorów to po prostu, że `x op= y` jest dozwolony, jeśli oba `x op y` i `x = y` są dozwolone. w przykładzie
+Intuicyjny efekt reguły dla wstępnie zdefiniowanych operatorów to po prostu, że `x op= y` jest dozwolony, jeśli oba `x op y` i `x = y` są dozwolone. W przykładzie
 ```csharp
 byte b = 0;
 char ch = '\0';
@@ -4775,7 +4775,7 @@ ch += (char)1;      // Ok
 ```
 intuicyjną przyczyną każdego błędu jest to, że odpowiednie proste przypisanie mogło również być błędem.
 
-Oznacza to również, że operacje przypisania złożonego obsługują podniesione operacje. w przykładzie
+Oznacza to również, że operacje przypisania złożonego obsługują podniesione operacje. W przykładzie
 ```csharp
 int? i = 0;
 i += 1;             // Ok
