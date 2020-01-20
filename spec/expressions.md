@@ -6,7 +6,7 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 01/17/2020
 ms.locfileid: "71704085"
 ---
-# <a name="expressions"></a>{1&gt;Wyrażenia&lt;1}
+# <a name="expressions"></a>Wyrażenia
 
 Wyrażenie jest sekwencją operatorów i argumentów operacji. Ten rozdział definiuje składnię, kolejność oceny argumentów operacji i operatorów oraz znaczenie wyrażeń.
 
