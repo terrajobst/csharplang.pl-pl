@@ -1,11 +1,11 @@
 ---
-ms.openlocfilehash: 5c3cac88955871d2a6d5399be83bae7ae1126287
-ms.sourcegitcommit: 21b04008503f402a1bd72fd31496f5604bd8a6ad
+ms.openlocfilehash: 9275c48690c00f501e03106bb0f86ce9ac446038
+ms.sourcegitcommit: 9aa177443b83116fe1be2ab28e2c7291947fe32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79485330"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80108376"
 ---
 ## <a name="name-shadowing-in-nested-functions"></a>Przesłanianie nazw w zagnieżdżonych funkcjach
 
-W C# 8,0 dodaliśmy funkcję zezwalającą na parametry w wyrażeniach lambda i funkcjach lokalnych na używanie nazw parametrów, które ukrywają/zasłaniają nazwy ustawień lokalnych lub parametrów z otaczającego zakresu. Jest to placholder dla swojej specyfikacji.
+W C# 8,0 dodaliśmy funkcję, która zezwala na parametry i wartości lokalne w wyrażeniach lambda i funkcjach lokalnych do używania nazw, które ukrywają/zasłaniają nazwy ustawień lokalnych lub parametrów z otaczającego zakresu. Jest to placholder dla swojej specyfikacji.

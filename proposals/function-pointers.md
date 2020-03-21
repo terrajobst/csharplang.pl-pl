@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: d9080202f9413f8beb80db222d47f5fc082ae641
-ms.sourcegitcommit: f3170512e7a3193efbcea52ec330648375e36915
+ms.openlocfilehash: 8bf3a18dc42e225e64bd3ccda2106aed89b421ed
+ms.sourcegitcommit: 9aa177443b83116fe1be2ab28e2c7291947fe32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79485505"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80108392"
 ---
 # <a name="function-pointers"></a>Wskaźniki funkcji
 
@@ -174,7 +174,8 @@ W niebezpiecznym kontekście Metoda `M` jest zgodna z typem wskaźnika funkcji `
 W niebezpiecznym kontekście istnieje niejawna konwersja z wyrażenia address-of, którego obiektem docelowym jest grupa metod `E` do zgodnego typu wskaźnika funkcji `F` Jeśli `E` zawiera co najmniej jedną metodę, która jest stosowana w jego normalnej postaci do listy argumentów skonstruowanych przy użyciu typów parametrów i modyfikatorów `F`, zgodnie z opisem w poniższej tabeli.
 - Wybrano jedną metodę `M` odpowiadającą wywołaniu metody formularza `E(A)` z następującymi modyfikacjami:
    - Lista argumentów `A` jest listą wyrażeń, z których każda została sklasyfikowana jako zmienna i z typem i modyfikatorem (`ref`, `out`lub `in`) odpowiedniego _formalnego\_parametru\_listę_ `D`.
-   - Metody kandydata to tylko te metody, które są tylko tymi metodami, które mają zastosowanie w ich normalnej postaci, a nie mają zastosowania w ich rozwiniętej postaci.
+   - Metody kandydata to tylko te metody, które mają zastosowanie w ich normalnej postaci, nie są stosowane w ich rozwiniętej postaci.
+   - Metody kandydata to tylko te metody, które są statyczne.
 - Jeśli algorytm wywołań metod wywołuje błąd, wystąpi błąd czasu kompilacji. W przeciwnym razie algorytm tworzy jedną najlepszą metodę `M` ma taką samą liczbę parametrów jak `F`, a konwersja jest uznawana za istnieje.
 - Wybrana metoda `M` musi być zgodna (zgodnie z definicją powyżej) z typem wskaźnika funkcji `F`. W przeciwnym razie wystąpi błąd w czasie kompilacji.
 - Wynikiem konwersji jest wskaźnik funkcji typu `F`.
@@ -293,7 +294,7 @@ Zamiast żądać `unsafe` przy każdym użyciu `delegate*`, wystarczy tylko wted
 
 Jest to sposób, w jaki projekt był pierwotnie przewidziany. Jednak reguły języka powstają bardzo niewygodna. Nie można ukryć faktu, że jest to wartość wskaźnika i jest ono utrzymywane przez nawet bez słowa kluczowego `unsafe`. Na przykład konwersja do `object` nie może być dozwolona, nie może być elementem członkowskim `class`itd... C# Projekt jest wymagany do `unsafe` dla wszystkich używanych wskaźników i dlatego ten projekt następuje poniżej.
 
-Deweloperzy nadal będą mogli przedstawiać _bezpieczną_ otokę na podstawie `delegate*` wartości w taki sam sposób, jak w przypadku normalnych typów wskaźnika. Rozważ następujące kwestie:
+Deweloperzy nadal będą mogli przedstawiać _bezpieczną_ otokę na podstawie `delegate*` wartości w taki sam sposób, jak w przypadku normalnych typów wskaźnika. Należy wziąć pod uwagę:
 
 ``` csharp
 unsafe struct Action {
