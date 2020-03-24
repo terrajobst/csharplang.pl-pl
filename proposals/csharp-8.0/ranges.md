@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: d6519ff57b4a98c4eec8ccbf310303432ac3255e
-ms.sourcegitcommit: 65ea1e6dc02853e37e7f2088e2b6cc08d01d1044
+ms.openlocfilehash: 50f2bd2d0a84064cfe35fe65b9e5c59c052d19ac
+ms.sourcegitcommit: 1dbb8e82bed5012a58a3a035bf2c3737ed570d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "79485029"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80122945"
 ---
 # <a name="ranges"></a>Zakresy
 
@@ -100,7 +100,7 @@ C#nie ma składniowego sposobu uzyskiwania dostępu do "zakresów" lub "wycinkó
 
 Język wprowadzi nowy operator zakresu `x..y`. Jest to binarny operator wrostkowe, który akceptuje dwa wyrażenia. Każdy operand może zostać pominięty (przykłady poniżej) i musi być konwertowany do `System.Index`. Zostanie on obniżony do odpowiedniego wywołania metody fabryki `System.Range`.
 
-— Zamieniamy reguły C# gramatyki dla *multiplicative_expression* na następujące (w celu wprowadzenia nowego poziomu pierwszeństwa):
+Zamieniamy reguły C# gramatyki dla *multiplicative_expression* na następujące (w celu wprowadzenia nowego poziomu pierwszeństwa):
 
 ```antlr
 range_expression
@@ -149,9 +149,9 @@ Język zapewni składową indeksatora wystąpienia z pojedynczym parametrem typu
 
 Typ jest możliwy do ***zliczenia*** , jeśli ma właściwość o nazwie `Length` lub `Count` z dostępną metodę pobierającą i typem zwracanym `int`. Język może korzystać z tej właściwości, aby przekonwertować wyrażenie typu `Index` na `int` w punkcie wyrażenia bez konieczności używania typu `Index` w ogóle. W przypadku obecności obu `Length` i `Count`, `Length` będzie preferowane. W celu uproszczenia, propozycja będzie używać nazwy `Length` do reprezentowania `Count` lub `Length`.
 
-W przypadku takich typów język będzie działać tak, jakby istnieje element członkowski indeksu `T this[Index index]`, gdzie `T` jest typem zwracanym `int` indeksatora, łącznie ze wszystkimi adnotacjami stylów `ref`. Nowy element członkowski będzie miał te same `get` i `set` elementy członkowskie o pasujących ułatwieniach dostępu jako indeksator `int`. 
+W przypadku takich typów język działa tak, jakby istnieje element członkowski indeksatora w formularzu `T this[Index index]`, gdzie `T` jest typem zwracanym na podstawie `int` indeksatora, w tym wszelkie adnotacje stylów `ref`. Nowy element członkowski będzie miał te same `get` i `set` elementy członkowskie o pasujących ułatwieniach dostępu jako indeksator `int`. 
 
-Nowy indeksator zostanie zaimplementowany przez konwersję argumentu typu `Index` na `int` i emitowanie wywołania do indeksatora opartego na `int`. W celach dyskusji program umożliwia korzystanie z przykładu `receiver[expr]`. Konwersja `expr` do `int` zostanie wykonana w następujący sposób:
+Nowy indeksator zostanie zaimplementowany przez konwersję argumentu typu `Index` na `int` i emitowanie wywołania do indeksatora opartego na `int`. Na potrzeby dyskusji użyjmy przykładu `receiver[expr]`. Konwersja `expr` do `int` zostanie wykonana w następujący sposób:
 
 - Gdy argument ma postać `^expr2` i typ `expr2` jest `int`, zostanie przetłumaczony na `receiver.Length - expr2`.
 - W przeciwnym razie zostanie przetłumaczone jako `expr.GetOffset(receiver.Length)`.
@@ -205,11 +205,11 @@ Język zapewni składową indeksatora wystąpienia z pojedynczym parametrem typu
 - Typ ma dostępny element członkowski o nazwie `Slice`, który ma dwa parametry typu `int`.
 - Typ nie ma indeksatora wystąpienia, który przyjmuje jeden `Range` jako pierwszy parametr. `Range` musi być jedynym parametrem lub pozostałe parametry muszą być opcjonalne.
 
-W przypadku takich typów, język zostanie powiązany tak, jakby istnieje element członkowski indeksu `T this[Range range]`, gdzie `T` jest typem zwracanym metody `Slice`, łącznie ze wszystkimi adnotacjami stylów `ref`. Nowy element członkowski będzie miał również pasujące ułatwienia dostępu przy użyciu `Slice`. 
+W przypadku takich typów język zostanie powiązany tak, jakby istnieje element członkowski indeksatora w formularzu `T this[Range range]`, gdzie `T` jest typem zwracanym metody `Slice`, łącznie ze wszystkimi adnotacjami stylów `ref`. Nowy element członkowski będzie miał również pasujące ułatwienia dostępu przy użyciu `Slice`. 
 
-Gdy indeksator oparty na `Range` jest powiązany z wyrażeniem o nazwie `receiver`, zostanie on obniżony przez konwersję wyrażenia `Range` na dwie wartości, które są następnie przenoszone do metody `Slice`. W celach dyskusji program umożliwia korzystanie z przykładu `receiver[expr]`.
+Gdy indeksator oparty na `Range` jest powiązany z wyrażeniem o nazwie `receiver`, zostanie on obniżony przez konwersję wyrażenia `Range` na dwie wartości, które są następnie przenoszone do metody `Slice`. Na potrzeby dyskusji użyjmy przykładu `receiver[expr]`.
 
-Pierwszy argument `Slice` zostanie uzyskany poprzez konwersję wpisanego wyrażenia w następujący sposób:
+Pierwszy argument `Slice` zostanie uzyskany przez konwersję wyrażenia z określonym zakresem w następujący sposób:
 
 - Gdy `expr` ma postać `expr1..expr2` (gdzie `expr2` można pominąć), a `expr1` ma typ `int`, zostanie on wyemitowany jako `expr1`.
 - Gdy `expr` ma postać `^expr1..expr2` (gdzie `expr2` można pominąć), zostanie ona wyemitowana jako `receiver.Length - expr1`.
@@ -223,7 +223,7 @@ Ta wartość zostanie ponownie użyta w obliczeniu drugiego argumentu `Slice`. P
 - Gdy `expr` ma postać `expr1..` (gdzie `expr1` można pominąć), zostanie ona wyemitowana jako `receiver.Length - start`.
 - W przeciwnym razie zostanie on wyemitowany jako `expr.End.GetOffset(receiver.Length) - start`.
 
-Wyrażenia `receiver`, `Length` i `expr` zostaną rozlane zgodnie z potrzebami, aby upewnić się, że wszystkie efekty uboczne są wykonywane tylko raz. Na przykład:
+Wyrażenia `receiver`, `Length`i `expr` zostaną rozlane zgodnie z potrzebami, aby upewnić się, że wszystkie efekty uboczne są wykonywane tylko raz. Na przykład:
 
 ``` csharp
 class Collection {
