@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 25756c1811d5e6dc97512ce70f99ab7fefa91c4a
-ms.sourcegitcommit: 2a6dffb60718065ece95df75e1cc7eb509e48a8d
+ms.openlocfilehash: 258ae6865c5b2c3103a0cdf7e1e5a2cdee11e740
+ms.sourcegitcommit: 1e1c7c72b156e2fbc54d6d6ac8d21bca9934d8d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "79485239"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80281960"
 ---
 # <a name="records-work-in-progress"></a>Rejestruje prace w toku
 
@@ -78,3 +78,31 @@ Typy rekordów generują wdrożone implementacje dla następujących metod:
 ```C#
 override Equals(object o) => Equals(o as T);
 ```
+
+## <a name="with-expression"></a>wyrażenie `with`
+
+Wyrażenie `with` jest nowym wyrażeniem używającym następującej składni.
+
+```antlr
+with_expression
+    : switch_expression
+    | switch_expression 'with' anonymous_object_initializer
+```
+
+Wyrażenie `with` umożliwia "mutację nieniszczącą", która jest przeznaczona do tworzenia kopii wyrażenia odbiorcy z modyfikacjami właściwości wymienionymi w `anonymous_object_initializer`.
+
+Prawidłowe wyrażenie `with` ma odbiorcę z typem innym niż void. Typ odbiornika musi zawierać dostępną metodę wystąpienia o nazwie `With` z odpowiednimi parametrami i typem zwracanym. Jeśli istnieje wiele metod `With` zastąpień, występuje błąd. Jeśli istnieje wiele `With` zastąpień, musi istnieć Metoda `With` niezastępująca, która jest metodą docelową. W przeciwnym razie należy mieć dokładnie jedną metodę `With`.
+
+Po prawej stronie wyrażenia `with` jest `anonymous_object_initializer` z sekwencją przypisań z polem lub właściwością odbiornika po lewej stronie przypisania, a dowolnym wyrażeniem po prawej stronie, które jest niejawnie konwertowane na typ lewej strony...
+
+Uwzględniając docelową metodę `With`, zwracany typ musi być typem wyrażenia odbiorcy lub typem podstawowym. Dla każdego parametru metody `With` musi istnieć dostępne odpowiednie pole wystąpienia lub właściwość możliwa do odczytu w typie odbiornika o tej samej nazwie i typie. Każda właściwość lub pole znajdujące się po prawej stronie wyrażenia with musi również odpowiadać parametrowi o tej samej nazwie w metodzie `With`.
+
+Mając prawidłową metodę `With`, Obliczanie wyrażenia `with` jest równoznaczne z wywołaniem metody `With` z wyrażeniami w `anonymous_object_initializer` zastępują dla parametru o tej samej nazwie, co właściwość po lewej stronie. Jeśli nie ma żadnej pasującej właściwości dla danego parametru w `anonymous_object_initializer`, argument jest oszacowaniem pola lub właściwości o tej samej nazwie w odbiorniku.
+
+Kolejność oceny efektów ubocznych jest następująca, a każde wyrażenie jest oceniane dokładnie raz:
+
+1. Wyrażenie odbiorcy
+
+2. Wyrażenia w `anonymous_object_initializer`w kolejności leksykalnej
+
+3. Obliczanie wszelkich właściwości pasujących do parametrów metody `With` w kolejności definicji parametrów metody `With`.

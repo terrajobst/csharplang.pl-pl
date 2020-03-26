@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 07b4afe4a3fcbf10c978f05e642dfd8a47d53ea5
-ms.sourcegitcommit: 194a043db72b9244f8db45db326cc82de6cec965
+ms.openlocfilehash: f000dda7eeb1c4f17c26f94c326a12a9d0014288
+ms.sourcegitcommit: 1e1c7c72b156e2fbc54d6d6ac8d21bca9934d8d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80217206"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80281973"
 ---
 
 # <a name="target-typed-new-expressions"></a>Wyrażenia `new` z typem docelowym
@@ -39,37 +39,27 @@ Tworzenie wystąpienia obiektu bez wypełniania tekstu.
 private readonly static object s_syncObj = new();
 ```
 
-## <a name="detailed-design"></a>Szczegółowy projekt
+## <a name="specification"></a>Specyfikacja
 [design]: #detailed-design
 
-Składnia *object_creation_expression* zostanie zmodyfikowana, aby *Typ* był opcjonalny, gdy nawiasy są obecne. Jest to wymagane, aby rozwiązać niejednoznaczność za pomocą *anonymous_object_creation_expression*.
+Nowy formularz składni, *target_typed_new* *object_creation_expression* zostanie zaakceptowany, gdy *Typ* jest opcjonalny.
+
 ```antlr
 object_creation_expression
-    : 'new' type? '(' argument_list? ')' object_or_collection_initializer?
+    : 'new' type '(' argument_list? ')' object_or_collection_initializer?
     | 'new' type object_or_collection_initializer
+    | target_typed_new
+    ;
+target_typed_new
+    : 'new' '(' argument_list? ')' object_or_collection_initializer?
     ;
 ```
 
-`new` z typem docelowym jest konwertowany na dowolny typ. W związku z tym nie przyczynia się do rozpoznania przeciążenia. Jest to przede wszystkim uniknięcie nieprzewidywalnych zmian.
+Wyrażenie *target_typed_new* nie ma typu. Istnieje jednak Nowa *Konwersja tworzenia obiektów* , która jest niejawną konwersją z wyrażenia, która istnieje w *target_typed_new* do każdego typu.
 
-Lista argumentów i wyrażenia inicjatora będą powiązane po ustaleniu typu.
+Uwzględniając typ docelowy `T`, typ `T0` jest `T`typ podstawowy, jeśli `T` jest wystąpieniem `System.Nullable`. W przeciwnym razie `T0` jest `T`. Znaczenie wyrażenia *target_typed_new* , które jest konwertowane na typ `T` jest takie samo, jak znaczenie odpowiadającego *object_creation_expression* , który określa `T0` jako typ.
 
-Typ wyrażenia zostanie wywnioskowany na podstawie typu docelowego, który będzie wymagał jednego z następujących elementów:
-
-- **Dowolny typ struktury** (w tym typy krotek)
-- **Dowolny typ odwołania** (w tym typy delegatów)
-- **Dowolny parametr typu** z konstruktorem lub ograniczeniem `struct`
-
-z następującymi wyjątkami:
-
-- **Typy wyliczeniowe:** nie wszystkie typy wyliczeniowe zawierają stałą zero, dlatego powinno być wskazane użycie jawnego elementu członkowskiego wyliczenia.
-- **Typy interfejsów:** jest to funkcja niszowa, dlatego warto jawnie wspominać o typie.
-- **Typy tablic:** tablice muszą mieć specjalną składnię, aby zapewnić długość.
-- **dynamiczne:** nie zezwalamy na `new dynamic()`, więc nie zezwalamy na `new()` z `dynamic` jako typ docelowy.
-
-Wszystkie inne typy, które nie są dozwolone w *object_creation_expression* są również wykluczone, na przykład typy wskaźnika.
-
-Gdy typ docelowy jest typem wartości null, `new` wpisany przez element docelowy zostanie przekonwertowany na typ podstawowy zamiast typu dopuszczającego wartość null.
+Jest to błąd czasu kompilacji, jeśli *target_typed_new* jest używany jako operand operatora jednoargumentowego lub binarnego lub jeśli jest używany, gdzie nie podlega *konwersji tworzenia obiektów*.
 
 > **Problem otwarty:** czy zezwalamy na delegatów i krotek jako typ docelowy?
 
@@ -78,19 +68,25 @@ Powyższe reguły obejmują delegatów (typ referencyjny) i krotek (typ struktur
 (int a, int b) t = new(1, 2); // "new" is redundant
 Action a = new(() => {}); // "new" is redundant
 
-(int a, int b) t = new(); // ruled out by "use of struct default constructor"
+(int a, int b) t = new(); // OK; same as (0, 0)
 Action a = new(); // no constructor found
 ```
 
 ### <a name="miscellaneous"></a>Różne
 
-`throw new()` jest niedozwolona.
+Poniżej przedstawiono konsekwencje specyfikacji:
 
-`new` z typem docelowym nie jest dozwolony w przypadku operatorów binarnych.
-
-Nie jest dozwolone, gdy nie ma żadnego typu docelowego: operatory jednoargumentowe, kolekcja `foreach`, w `using`, w trakcie dekonstrukcji, w wyrażeniu `await`, jako właściwość typu anonimowego (`new { Prop = new() }`), w instrukcji `lock`, w `sizeof`, w instrukcji `fixed`, w dostępie do elementu członkowskiego (`new().field`), w wyniku operacji dynamicznie wysyłanej (`someDynamic.Method(new())`) w zapytaniu LINQ jako operand operatora `is` jako lewy argument operacji operatora `??` ,  ...
-
-Jest on również niedozwolony jako `ref`.
+- dozwolony jest `throw new()` (typ docelowy to `System.Exception`)
+- `new` z typem docelowym nie jest dozwolony w przypadku operatorów binarnych.
+- Nie jest dozwolone, gdy nie ma żadnego typu docelowego: operatory jednoargumentowe, kolekcja `foreach`, w `using`, w trakcie dekonstrukcji, w wyrażeniu `await`, jako właściwość typu anonimowego (`new { Prop = new() }`), w instrukcji `lock`, w `sizeof`, w instrukcji `fixed`, w dostępie do elementu członkowskiego (`new().field`), w wyniku operacji dynamicznie wysyłanej (`someDynamic.Method(new())`) w zapytaniu LINQ jako operand operatora `is` jako lewy argument operacji operatora `??` ,  ...
+- Jest on również niedozwolony jako `ref`.
+- Następujące rodzaje typów nie są dozwolone jako elementy docelowe konwersji
+  - **Typy wyliczeniowe:** `new()` będzie działać (jak `new Enum()` działa, aby nadać wartość domyślną), ale `new(1)` nie będzie działać, ponieważ typy wyliczeniowe nie mają konstruktora.
+  - **Typy interfejsów:** To działanie będzie takie samo jak odpowiednie wyrażenie tworzenia dla typów COM.
+  - **Typy tablic:** tablice muszą mieć specjalną składnię, aby zapewnić długość.    
+  - **dynamiczne:** nie zezwalamy na `new dynamic()`, więc nie zezwalamy na `new()` z `dynamic` jako typ docelowy.
+  - **krotki:** Mają one takie samo znaczenie jak tworzenie obiektów przy użyciu typu podstawowego.
+  - Wszystkie inne typy, które nie są dozwolone w *object_creation_expression* są również wykluczone, na przykład typy wskaźnika.   
 
 ## <a name="drawbacks"></a>Wady
 [drawbacks]: #drawbacks
@@ -116,3 +112,4 @@ Większość reklamacji na temat typów, które są zbyt długie, aby można by�
 - [LDM — 2018-06-25](https://github.com/dotnet/csharplang/blob/master/meetings/2018/LDM-2018-06-25.md)
 - [LDM — 2018-08-22](https://github.com/dotnet/csharplang/blob/master/meetings/2018/LDM-2018-08-22.md#target-typed-new)
 - [LDM — 2018-10-17](https://github.com/dotnet/csharplang/blob/master/meetings/2018/LDM-2018-10-17.md)
+- [LDM — 2020-03-25](https://github.com/dotnet/csharplang/blob/master/meetings/2020/LDM-2020-03-25.md)
